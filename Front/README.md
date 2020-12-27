@@ -37,3 +37,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Run `npm start` to run the pre-config script to enable ssl and get https
 This use the generated key and crt in the ssl folder
 If you need to exec the command manually, use this command line : `ng serve --ssl --ssl-cert C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.crt --ssl-key C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.key`
+
+Navigate to `https://localhost:4200/`

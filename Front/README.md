@@ -39,3 +39,7 @@ This use the generated key and crt in the ssl folder
 If you need to exec the command manually, use this command line : `ng serve --ssl --ssl-cert C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.crt --ssl-key C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.key`
 
 Navigate to `https://localhost:4200/`
+
+You can also run `ng serve --ssl` which is well configured to use the key and the certificate from the ssl folder.
+
+If you want your browser to thrust this certificate, you can add it in your `mmc` on your local machine.

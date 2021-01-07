@@ -1,0 +1,10 @@
+<svg width="394.028" height="394.028" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path data-name="Tracé 201" id="Tracé_201" d="m0,0l202.961,-75.661l-75.661,202.961l-202.961,75.661l75.661,-202.961z" transform="translate(197.014 107) rotate(45)" fill="#365064"/>
+  <path data-name="Tracé 200" fill="#bce0fd" d="m0.20898,187.14062l197,-90l197,90l-394,0z" id="Tracé_200"/>
+  <text id="MADERA" fill="#fff" font-size="73" font-family="SegoeUI-Semibold, Segoe UI" font-weight="600" y="216.03867" x="40.81741" transform="matrix(0.9946847183685308,0,0,1.0329780367202996,6.9011765626023465,-6.607127434788238) ">
+   <tspan x="40.81741" y="216.03867" id="svg_1" transform="matrix(0.9999999999999999,0,0,1,6.821114959018265,5.952840101249448) ">MADERA</tspan>
+  </text>
+ </g>
+</svg>

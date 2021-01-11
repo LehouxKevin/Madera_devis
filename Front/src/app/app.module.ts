@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -17,7 +18,8 @@ import { ModulesComponent } from './pages/modules/modules.component';
     HomeComponent,
     HeaderComponent,
     DevisComponent,
-    ModulesComponent
+    ModulesComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

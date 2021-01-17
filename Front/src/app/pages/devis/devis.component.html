@@ -1,17 +1,114 @@
-<div class="devis container">
-    <div class="creationDevis row">
-        <div class="containerGlobal row">
-            <div class="selectionClient col-sm-6 align-self-center">
-                <div class="titreClient">
+<div class="devis container col-md-12">
+    <div class="creationDevis col-md-12">
+        <div class="containerGlobal col-md-12">
+            <div class="selectionClient col-md-12">
+                <div class="titreClient row col-md-12 offset-md-5">
                     <h1>Client</h1>
                 </div>
-                <div class="choixClient">
-                    Choix du client
-                </div>
-                <div class="ficheClient">
-                    Fiche du client
+                <div class="row containerClients col-md-12">
+                    <div class="col-md-4 offset-md-3">
+                        <div class="col-md-12 enteteChoixClient">Choisir un client</div>
+                        <div class="col-md-12">
+                            <div class="dropdown col-md-12">
+                                <div class="divDropDown col-md-12">
+                                    <button class="col-md-10 dropbtn" id="dropdownClients">Selectionnez un client</button>
+                                    <div class="col-md-2 divSVGfleche">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 9.4 6.1" class="iconeInfo">
+                                            <path id="Tracé_36" data-name="Tracé 36" d="M6.7,8.1,2,3.4,3.4,2,6.7,5.3,10,2l1.4,1.4Z" transform="translate(-2 -2)" fill="#fff"/>
+                                        </svg>                                          
+                                    </div>
+                                </div>
+                                <div class="dropdown-content">
+                                  <a href="#">Link 1</a>
+                                  <a href="#">Link 2</a>
+                                  <a href="#">Link 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <div class="col-md-12 enteteFicheClient">Fiche client</div>
+                        <div class="col-md-12 rectangleFiche">
+                            <div class="containerInformations col-md-12">
+                                <div class="containerPrenom col-md-12">
+                                    <div class="libelleInfo col-md-12">Prénom</div>
+                                    <div class="row col-md-12">
+                                        <div class="cubeIcone">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15.999" height="15.999" viewBox="0 0 15.999 15.999" class="iconeInfo">
+                                                <path d="M-6120-16074v-2c0-2.2,3.6-4,8-4s8,1.8,8,4v2Zm4-12a4,4,0,0,1,4-4,4,4,0,0,1,4,4,4,4,0,0,1-4,4A4,4,0,0,1-6116-16086Z" transform="translate(6120 16089.998)" fill="#fff"/>
+                                            </svg>
+                                        </div>
+                                        <div id="inputPrenom" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                    </div>
+                                </div>
+
+                                <div class="containerNom col-md-12">
+                                    <div class="libelleInfo col-md-12">Nom</div>
+                                    <div class="row col-md-12">
+                                        <div class="cubeIcone">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15.999" height="15.999" viewBox="0 0 15.999 15.999" class="iconeInfo">
+                                                <path d="M-6120-16074v-2c0-2.2,3.6-4,8-4s8,1.8,8,4v2Zm4-12a4,4,0,0,1,4-4,4,4,0,0,1,4,4,4,4,0,0,1-4,4A4,4,0,0,1-6116-16086Z" transform="translate(6120 16089.998)" fill="#fff"/>
+                                            </svg>
+                                        </div>
+                                        <div id="inputNom" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                    </div>
+                                </div>
+
+                                <div class="containerAdresse col-md-12">
+                                    <div class="libelleInfo col-md-12">Adresse</div>
+                                    <div class="row col-md-12">
+                                        <div class="cubeIcone">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27" height="25" viewBox="0 0 27 25" class="iconeInfo">
+                                                <defs>
+                                                  <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                                    <image width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                                                  </pattern>
+                                                </defs>
+                                                <rect id="icons8-address-100" width="27" height="25" fill="url(#pattern)"/>
+                                              </svg>                                              
+                                        </div>
+                                        <div id="inputAdresse" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                    </div>
+                                </div>
+
+                                <div class="containerTelephone col-md-12">
+                                    <div class="libelleInfo col-md-12">Téléphone</div>
+                                    <div class="row col-md-12">
+                                        <div class="cubeIcone">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25.625" height="26.465" viewBox="0 0 25.625 26.465" class="iconeInfo">
+                                                <g id="phone-call" transform="translate(-0.539)">
+                                                  <g id="Groupe_311" data-name="Groupe 311" transform="translate(0.539 0)">
+                                                    <path id="Tracé_290" data-name="Tracé 290" d="M25.492,19.423l-3.584-3.693a2.354,2.354,0,0,0-3.968.923,2.427,2.427,0,0,1-2.816,1.583c-2.56-.66-6.015-4.089-6.655-6.859a2.4,2.4,0,0,1,1.536-2.9,2.488,2.488,0,0,0,.9-4.089L7.318.692a2.5,2.5,0,0,0-3.456,0L1.431,3.2C-1,5.837,1.687,12.827,7.7,19.027s12.8,9.1,15.358,6.463l2.432-2.506A2.694,2.694,0,0,0,25.492,19.423Z" transform="translate(-0.539 0)" fill="#fff"/>
+                                                  </g>
+                                                </g>
+                                              </svg>
+                                                                                                                       
+                                        </div>
+                                        <div id="inputTelephone" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                    </div>
+                                </div>
+
+                                <div class="containerMail col-md-12">
+                                    <div class="libelleInfo col-md-12">Mail</div>
+                                    <div class="row col-md-12">
+                                        <div class="cubeIcone">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23.713" height="23.713" viewBox="0 0 23.713 23.713" class="iconeInfo">
+                                                <g id="at_1_" data-name="at (1)" transform="translate(0 0)">
+                                                  <g id="Groupe_311" data-name="Groupe 311" transform="translate(0 0)">
+                                                    <path id="Tracé_290" data-name="Tracé 290" d="M10.5.076a11.858,11.858,0,0,0,2.276,23.6,12.209,12.209,0,0,0,7.352-3.323l.173-.162a.494.494,0,0,0,.024-.7l-.674-.723a.494.494,0,0,0-.7-.024l-.361.337a9.88,9.88,0,1,1-6.443-17.1,10.054,10.054,0,0,1,9.587,10.141v.724a1.978,1.978,0,0,1-2.173,1.966,2.036,2.036,0,0,1-1.779-2.054V8.4A.494.494,0,0,0,17.29,7.9H16.3a.492.492,0,0,0-.445.287,5.43,5.43,0,1,0,.526,6.666,3.936,3.936,0,0,0,3.649,1.93,4.045,4.045,0,0,0,3.681-4.083v-.849A11.87,11.87,0,0,0,10.5.076Zm1.355,15.239a3.458,3.458,0,1,1,3.458-3.458A3.462,3.462,0,0,1,11.856,15.315Z" transform="translate(0 0)" fill="#fff"/>
+                                                  </g>
+                                                </g>
+                                              </svg>                                                                     
+                                        </div>
+                                        <div id="inputMail" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

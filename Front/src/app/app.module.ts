@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
+import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domingo.component';
 
 
 
@@ -17,7 +19,9 @@ import { ModulesComponent } from './pages/modules/modules.component';
     HomeComponent,
     HeaderComponent,
     DevisComponent,
-    ModulesComponent
+    ModulesComponent,
+    ConnexionComponent,
+    BoutonDomingoComponent
   ],
   imports: [
     BrowserModule,

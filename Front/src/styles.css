@@ -9,4 +9,5 @@ html, body {
 body {
 	background-image: url("assets/wallpapers/background.png");
 	/*background-size: cover;*/
+	background-image: no-repeat;
 }

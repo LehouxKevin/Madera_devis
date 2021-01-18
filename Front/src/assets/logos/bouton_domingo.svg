@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="469.099" height="233.164" viewBox="0 0 469.099 233.164">
+  <g id="Groupe_310" data-name="Groupe 310" transform="translate(-1055.643 -279.158)">
+    <g id="Groupe_308" data-name="Groupe 308" transform="translate(-205 -335)">
+      <g id="Button_CTA" data-name="Button CTA" transform="translate(1289.323 672.054)">
+        <path id="Tracé_240" data-name="Tracé 240" d="M271.335,75.621C311.9,95.428,341.9,41.6,418.975,55.324s66.848,138.076-13.15,98.627-241.4,18.668-280.238-12.578,0-65.752,0-65.752S171.91,27.074,271.335,75.621Z" transform="translate(-108.323 -53.054)" fill="#2699fb"/>
+        <text id="Créer_un_devis" data-name="Créer un devis" transform="translate(184.677 66.946)" fill="#fff" font-size="46" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-159.787" y="0">Créer un devis</tspan></text>
+      </g>
+      <path id="Tracé_285" data-name="Tracé 285" d="M347.185,63.088c29.04,10.875,28.764,44.143,0,49.313-29.963,5.384-82.053-20.135-129.715-13.529s-69.827,51.5-69.827,51.5,34.241-68.227,87.765-87.285S318.144,52.212,347.185,63.088Z" transform="translate(1113 562.498)" fill="#2699fb"/>
+    </g>
+    <path id="Tracé_289" data-name="Tracé 289" d="M347.185,63.088c29.04,10.875,28.764,44.143,0,49.313-29.963,5.384-82.053-20.135-129.715-13.529s-69.827,51.5-69.827,51.5,34.241-68.227,87.765-87.285S318.144,52.212,347.185,63.088Z" transform="translate(1658.717 576.654) rotate(-175)" fill="#2699fb"/>
+  </g>
+</svg>

@@ -10,6 +10,7 @@ import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domingo.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -21,7 +22,8 @@ import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domin
     DevisComponent,
     ModulesComponent,
     ConnexionComponent,
-    BoutonDomingoComponent
+    BoutonDomingoComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

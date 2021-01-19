@@ -11,6 +11,7 @@ import { ModulesComponent } from './pages/modules/modules.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domingo.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
 
 
 
@@ -23,7 +24,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ModulesComponent,
     ConnexionComponent,
     BoutonDomingoComponent,
-    SidebarComponent
+    SidebarComponent,
+    CreationCompteComponent,
   ],
   imports: [
     BrowserModule,

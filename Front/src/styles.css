@@ -8,6 +8,7 @@ html, body {
 
 body {
 	background-image: url("assets/wallpapers/background.png");
-	/*background-size: cover;*/
-	background-image: no-repeat;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  	background-position: center;
 }

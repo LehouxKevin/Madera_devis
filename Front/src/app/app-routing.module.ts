@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domingo.component';
+import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/conditions-utilisation.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
 import { DevisComponent } from './pages/devis/devis.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path : "connexion", component:ConnexionComponent },
   { path : "accueil", component:BoutonDomingoComponent },
   { path : "creationCompte", component:CreationCompteComponent},
+  { path : "conditionsUtilisation", component:ConditionsUtilisationComponent}
 ];
 
 @NgModule({

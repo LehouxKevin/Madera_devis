@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
+import { ChoixClientComponent } from './components/choix-client/choix-client.component';
 
 
 
@@ -17,12 +18,13 @@ import { ModulesComponent } from './pages/modules/modules.component';
     HomeComponent,
     HeaderComponent,
     DevisComponent,
-    ModulesComponent
+    ModulesComponent,
+    ChoixClientComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //HttpClientModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

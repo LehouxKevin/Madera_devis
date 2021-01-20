@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Client } from 'src/app/class/client';
 import { environment } from 'src/environments/environment';
@@ -15,6 +15,8 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
 
   public clients:Client[] = [];
 
+  @ViewChild('idClient1') client1;
+
   constructor(private clientService: ClientService, private http: HttpClient) { }
 
   ngOnInit(): void { 
@@ -27,6 +29,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit():void {
     console.log(this.clients);
+    console.warn(this.client1.nativeElement);
   }
   
 }

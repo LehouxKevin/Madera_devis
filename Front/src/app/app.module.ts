@@ -13,6 +13,7 @@ import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domin
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
 import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/conditions-utilisation.component';
+import { ChoixClientComponent } from './components/choix-client/choix-client.component';
 
 
 
@@ -28,6 +29,7 @@ import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/c
     SidebarComponent,
     CreationCompteComponent,
     ConditionsUtilisationComponent,
+    ChoixClientComponent,
   ],
   imports: [
     BrowserModule,

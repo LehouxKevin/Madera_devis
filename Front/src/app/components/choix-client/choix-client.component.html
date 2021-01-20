@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="dropdown-content" >
-                            <a *ngFor="let client of clients" ><li id="{{'idClient'+{{client.id}}}}">{{client.nom}} {{client.prenom}}</li></a>
+                            <a id="idClient+" *ngFor="let client of clients" ><li>{{client.nom}} {{client.prenom}}</li></a>
                         </div>
                     </div>
                 </div>

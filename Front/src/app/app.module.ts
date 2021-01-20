@@ -8,7 +8,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
-import { ChoixClientComponent } from './components/choix-client/choix-client.component';
+import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { BoutonDomingoComponent } from './components/bouton-domingo/bouton-domingo.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
+import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/conditions-utilisation.component';
 
 
 
@@ -19,12 +23,16 @@ import { ChoixClientComponent } from './components/choix-client/choix-client.com
     HeaderComponent,
     DevisComponent,
     ModulesComponent,
-    ChoixClientComponent,
+    ConnexionComponent,
+    BoutonDomingoComponent,
+    SidebarComponent,
+    CreationCompteComponent,
+    ConditionsUtilisationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    //HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

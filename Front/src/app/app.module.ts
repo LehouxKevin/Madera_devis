@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { ModulesComponent } from './pages/modules/modules.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ListeGammeComponent } from './components/modules/gammes/liste/liste-gamme/liste-gamme.component';
 
 
 
@@ -19,7 +20,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderComponent,
     DevisComponent,
     ModulesComponent,
-    SidebarComponent
+    SidebarComponent,
+    ListeGammeComponent
   ],
   imports: [
     BrowserModule,

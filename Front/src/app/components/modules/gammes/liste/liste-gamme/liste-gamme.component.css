@@ -1,0 +1,12 @@
+ .tableau {
+           position: fixed;
+              top: 0;
+              right: 0;
+              overflow: hidden;
+              transition: all .3s ease-in;
+              width: 50em;
+              height: 100%;
+              background: #365064;
+              color: rgba(255, 255, 255, 0.7);
+              padding-top: 8em;
+      }

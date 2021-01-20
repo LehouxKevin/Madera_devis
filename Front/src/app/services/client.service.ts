@@ -18,16 +18,6 @@ export class ClientService {
   getClients(): Observable<Client[]>
   {
     return this.http.get<Client[]>(this.baseUrl+this.clientsApi);
-    /*
-    this.loadingSubject$.next(true);
-    this.http.get<Client[]>(`${this.baseUrl}${this.clientsApi}`).pipe (
-      map(client => client['hydra:member']),
-      finalize(() => this.loadingSubject$.next(false))
-    ).subscribe(
-      client => this.clientsSubjects$.next(client)
-    );
-*/
-
 /*
 /*this.http.get<Client[]>(this.baseUrl+this.clientsApi).pipe(
       map(client => client['hydra:member'])

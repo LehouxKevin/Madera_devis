@@ -32,7 +32,7 @@ import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //HttpClientModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

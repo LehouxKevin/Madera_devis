@@ -16,7 +16,7 @@
 .s-sidebar__nav {
   position: fixed;
   top: 0;
-  right: -176px;
+  right: -166px;
   overflow: hidden;
   transition: all .3s ease-in;
   width: 15em;
@@ -77,4 +77,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.icone-connexion-non-connecte {
+  height: 100%;
 }

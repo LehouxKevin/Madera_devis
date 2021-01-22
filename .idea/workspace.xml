@@ -20,15 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/Maison.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/consultation.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/croix.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/plume.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Back/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Back" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,6 +77,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Back" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones\Autres" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -113,19 +127,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1608147269750">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1608147269750" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1610043325652">
-      <screen x="0" y="0" width="1080" height="1880" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/1080.0.1600.860/-1680.307.1680.1010/0.0.1080.1880@0.0.1080.1880" timestamp="1610043325652" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608147855800">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608147855800" />
   </component>
 </project>

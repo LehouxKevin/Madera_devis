@@ -22,8 +22,8 @@
   width: 15em;
   height: 100%;
   background: #365064;
-  color: rgba(255, 255, 255, 0.7);
-}
+  border-left: 1px solid white;
+  }
 .s-sidebar__nav:focus,
 .s-sidebar__trigger:focus + .s-sidebar__nav,
 

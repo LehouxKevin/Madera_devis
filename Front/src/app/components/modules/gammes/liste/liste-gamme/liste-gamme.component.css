@@ -1,5 +1,5 @@
  .tableau {
-           position: fixed;
+              position: absolute;
               top: 0;
               right: 0;
               overflow: hidden;
@@ -8,5 +8,14 @@
               height: 100%;
               background: #365064;
               color: rgba(255, 255, 255, 0.7);
-              padding-top: 8em;
+              padding-top: 1em;
+              padding-right: 5em;
+              padding-left: 1em;
       }
+.image_liste
+{
+  top: 50%;
+  left : 1em;
+  transform: translateY(-50%);
+
+}

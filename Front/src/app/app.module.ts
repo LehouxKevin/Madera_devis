@@ -17,6 +17,7 @@ import { ChoixClientComponent } from './components/choix-client/choix-client.com
 import { ListeGammeComponent } from './components/modules/gammes/liste/liste-gamme/liste-gamme.component';
 
 
+import {FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ListeGammeComponent } from './components/modules/gammes/liste/liste-gam
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

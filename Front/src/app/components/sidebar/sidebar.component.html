@@ -1,13 +1,17 @@
 
 <!-- Sidebar -->
 <div class="s-layout__sidebar">
-
-
   <nav class="s-sidebar__nav">
     <ul>
       <li>
-        <a class="s-sidebar__nav-link" href="#0">
-          <i class="fa fa-user"></i><img src="https://img.icons8.com/windows/32/000000/cat-profile.png"/>
+        <a routerLink="/connexion" id="lien_iconeProfil" class="s-sidebar__nav-link">
+          <svg class="icone-connexion" xmlns="http://www.w3.org/2000/svg" width="79" height="86" viewBox="0 0 79 86">
+            <g id="Groupe_311" data-name="Groupe 311" transform="translate(-1820 -36)">
+              <ellipse id="Ellipse_112" data-name="Ellipse 112" cx="39.5" cy="38" rx="39.5" ry="38" transform="translate(1820 36)" fill="#fff"/>
+              <circle id="Ellipse_114" data-name="Ellipse 114" cx="18.5" cy="18.5" r="18.5" transform="translate(1861 85)" fill="#365064"/>
+              <ellipse id="Ellipse_connexion" data-name="Ellipse 113" cx="15" cy="14.5" rx="15" ry="14.5" transform="translate(1865 88)" fill="#ff0404"/>
+            </g>
+          </svg>          
         </a>
       </li>
       <li>
@@ -17,4 +21,5 @@
       </li>
     </ul>
   </nav>
+  <router-outlet></router-outlet>
 </div>

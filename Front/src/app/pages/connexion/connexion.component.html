@@ -3,15 +3,17 @@
             <h2>Vous êtes de retour !</h2>
         </div>
         <div class="d-flex justify-content-center">
-            <form class="flex">
+            <form #connexionForm="ngForm" (ngSubmit)="onSubmit(connexionForm)" class="flex">
+                <small id="conditionError" class="form-text">conditionError</small>
                 <div class="form-group">
-                <label for="exampleInputEmail1">E-mail</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre e-mail">
+                    <label for="exampleInputEmail1">E-mail</label>
+                    <input type="email" ngModel required #email="ngModel" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre e-mail">
+                    <small id="emailError" class="form-text">emailError</small>
                 </div>
                 <div class="form-group mt-2">
                     <label for="exampleInputPassword1">Mot de passe</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre mot de passe">
-                    <small id="emailHelp" class="form-text text-muted">Vous avez oublié votre <a href="">mot de passe</a>?</small>
+                    <input type="password" ngModel required #password="ngModel" class="form-control" name="password" id="password" placeholder="Entrez votre mot de passe">
+                    <small id="passwordError" class="form-text">passwordError</small>
                 </div>
                 <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Se connecter</button></div>
                 <div class="mt-5">

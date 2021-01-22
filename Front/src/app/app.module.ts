@@ -14,8 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
 import { ConditionsUtilisationComponent } from './pages/conditions-utilisation/conditions-utilisation.component';
 import { ChoixClientComponent } from './components/choix-client/choix-client.component';
-
-
+import {FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +34,7 @@ import { ChoixClientComponent } from './components/choix-client/choix-client.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@
     width: 59em;
     height: 100%;
     color: rgba(255, 255, 255, 0.7);
-    padding-top: 4em;
+    padding-top: 10em;
     padding-left: 50px;
 }
 
@@ -16,9 +16,43 @@
     border-radius: 50%;
     content: "";
     height: 178%;
-    top: -323px;
+    top: -395px;
     width: 150%;
     display: inline-block;
     position: absolute;
     z-index: -1;
+}
+
+#nomError {
+    display: none;
+    color: red;
+}
+
+#prenomError {
+    display: none;
+    color: red;
+}
+
+#categorieError {
+    display: none;
+    color: red;
+}
+
+#emailError {
+    display: none;
+    color: red;
+}
+
+#passwordError {
+    display: none;
+    color: red;
+}
+
+#confirmedError {
+    display: none;
+    color: red;
+}
+#checkError {
+    display: none;
+    color: red;
 }

@@ -18,6 +18,7 @@ import { ListeGammeComponent } from './components/modules/gammes/liste/liste-gam
 
 
 import {FormsModule } from '@angular/forms';
+import { ConsultationGammeComponent } from './pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {FormsModule } from '@angular/forms';
     ConditionsUtilisationComponent,
     ChoixClientComponent,
     SidebarComponent,
-    ListeGammeComponent
+    ListeGammeComponent,
+    ConsultationGammeComponent
   ],
   imports: [
     BrowserModule,

@@ -20,20 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/Maison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/consultation.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/croix.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/plume.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Back/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

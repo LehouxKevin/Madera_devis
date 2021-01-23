@@ -13,5 +13,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void 
   {
     this.router.navigate(['accueil']);
+    var tokken = JSON.parse(localStorage.getItem('tokken'));
+    if (tokken['statut'] == "connecte") {
+      document.getElementById('Ellipse_connexion').style.fill = "green";
+    }
+    else {
+      document.getElementById('Ellipse_connexion').style.fill = "red";
+    }
+  }
+
+  deconnexion(): void
+  {
+    var setTokken = {statut:"deconnecte", email:""};
+    localStorage.setItem('tokken', JSON.stringify(setTokken));
   }
 }

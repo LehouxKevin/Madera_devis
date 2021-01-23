@@ -1,0 +1,38 @@
+.connexion {
+    position: fixed;
+    top: 0;
+    right: 74px;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    width: 54em;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 12em;
+}
+
+.connexion:before{
+    background: #365064;
+    border-radius: 50%;
+    content: "";
+    height: 178%;
+    top: -395px;
+    width: 150%;
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+}
+
+#conditionError {
+    display: none;
+    color: red;
+}
+
+#passwordError {
+    display: none;
+    color: red;
+}
+
+#emailError {
+    display: none;
+    color: red;
+}

@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="dropdown-content" >
-                            <a id="idClient+" *ngFor="let client of clients" ><li>{{client.nom}} {{client.prenom}}</li></a>
+                            <a id="{{'idClient'+client.id}}" *ngFor="let client of clients" (click)="handleChoixClient($event)">{{client.nom}} {{client.prenom}}</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                                         <path d="M-6120-16074v-2c0-2.2,3.6-4,8-4s8,1.8,8,4v2Zm4-12a4,4,0,0,1,4-4,4,4,0,0,1,4,4,4,4,0,0,1-4,4A4,4,0,0,1-6116-16086Z" transform="translate(6120 16089.998)" fill="#fff"/>
                                     </svg>
                                 </div>
-                                <div id="inputPrenom" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                <div id="inputPrenom" class="divInput"><input class="inputInfo" type="text" [value] ="prenomClient" disabled/></div>
                             </div>
                         </div>
 
@@ -46,7 +46,7 @@
                                         <path d="M-6120-16074v-2c0-2.2,3.6-4,8-4s8,1.8,8,4v2Zm4-12a4,4,0,0,1,4-4,4,4,0,0,1,4,4,4,4,0,0,1-4,4A4,4,0,0,1-6116-16086Z" transform="translate(6120 16089.998)" fill="#fff"/>
                                     </svg>
                                 </div>
-                                <div id="inputNom" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                <div id="inputNom" class="divInput"><input class="inputInfo" type="text" [value] ="nomClient" disabled/></div>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                                         <rect id="icons8-address-100" width="27" height="25" fill="url(#pattern)"/>
                                       </svg>                                              
                                 </div>
-                                <div id="inputAdresse" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                <div id="inputAdresse" class="divInput"><input class="inputInfo" type="text" [value] ="adresseClient" disabled/></div>
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                                       </svg>
                                                                                                                
                                 </div>
-                                <div id="inputTelephone" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                <div id="inputTelephone" class="divInput"><input class="inputInfo" type="text" [value] ="telephoneClient" disabled/></div>
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
                                         </g>
                                       </svg>                                                                     
                                 </div>
-                                <div id="inputMail" class="divInput"><input class="inputInfo" type="text" disabled/></div>
+                                <div id="inputMail" class="divInput"><input class="inputInfo" type="text" [value] ="mailClient" disabled/></div>
                             </div>
                         </div>
                     </div>

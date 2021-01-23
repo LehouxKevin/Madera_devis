@@ -14,6 +14,14 @@ import { map } from 'rxjs/operators';
 export class ChoixClientComponent implements OnInit, AfterViewInit {
 
   public clients:Client[] = [];
+  public infosClient;
+
+  // Définition des variables des champs de la fiche client
+  public prenomClient = "";
+  public nomClient = "";
+  public adresseClient ="";
+  public telephoneClient = "";
+  public mailClient = "";
 
   @ViewChild('idClient1') client1;
 
@@ -29,7 +37,32 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit():void {
     console.log(this.clients);
-    console.warn(this.client1.nativeElement);
+  }
+
+  async handleChoixClient(event) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var identiteClientSelectionnee = target.attributes.var;
+    var value = idAttr.nodeValue;
+    var idBdd = value.substring(8);
+    console.log(idBdd);
+    console.log(identiteClientSelectionnee);
+    /*
+    this.clientService.getOneClientById(idBdd).pipe(
+      map(client => client['hydra:member'])
+    ).subscribe(
+      client => this.infosClient = client 
+    );
+    console.log(this.infosClient);
+    */
+   this.infosClient  = await this.clientService.getOneClientById(idBdd);
+   console.log(this.infosClient);
+   this.prenomClient = this.infosClient.prenom;
+   this.nomClient = this.infosClient.nom;
+   this.adresseClient = this.infosClient.adresse;
+   this.telephoneClient = this.infosClient.telephone;
+   this.mailClient = this.infosClient.mail;
+
   }
   
 }

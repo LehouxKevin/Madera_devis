@@ -27,4 +27,9 @@ export class ClientService {
     return this.clients;*/
 
   }
+
+  getOneClientById(id)
+  {
+    return this.http.get<Client[]>(this.baseUrl+this.clientsApi+"/"+id).toPromise();
+  }
 }

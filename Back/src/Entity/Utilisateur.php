@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -18,6 +19,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ApiProperty(identifier=true)
      */
     private $id;
 
@@ -40,6 +42,11 @@ class Utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $mdp;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getNom(): ?string
     {

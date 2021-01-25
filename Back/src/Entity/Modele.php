@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ModeleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,6 +40,16 @@ class Modele
      * @ORM\Column(type="integer")
      */
     private $nbEtage;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Devis::class, mappedBy="modele")
+     */
+    private $id_modele;
+
+    public function __construct()
+    {
+        $this->id_modele = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -88,6 +100,36 @@ class Modele
     public function setNbEtage(int $nbEtage): self
     {
         $this->nbEtage = $nbEtage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Devis[]
+     */
+    public function getIdModele(): Collection
+    {
+        return $this->id_modele;
+    }
+
+    public function addIdModele(Devis $idModele): self
+    {
+        if (!$this->id_modele->contains($idModele)) {
+            $this->id_modele[] = $idModele;
+            $idModele->setModele($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdModele(Devis $idModele): self
+    {
+        if ($this->id_modele->removeElement($idModele)) {
+            // set the owning side to null (unless already changed)
+            if ($idModele->getModele() === $this) {
+                $idModele->setModele(null);
+            }
+        }
 
         return $this;
     }

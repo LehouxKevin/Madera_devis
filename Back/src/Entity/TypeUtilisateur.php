@@ -26,6 +26,11 @@ class TypeUtilisateur
      */
     private $libelle;
 
+    public function __construct()
+    {
+        $this->id_typeUtilisateur = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ModeleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,14 +40,22 @@ class Modele
     private $nbEtage;
 
     /**
-     * @ORM\OneToMany(targetEntity=Devis::class, mappedBy="modele")
+     * @ORM\ManyToOne(targetEntity=Gamme::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_modele;
+    private $gamme;
 
-    public function __construct()
-    {
-        $this->id_modele = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeRemplissage::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeRemplissage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CoupeDePrincipe::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $coupeDePrincipe;
 
     public function getId(): ?int
     {
@@ -104,32 +110,38 @@ class Modele
         return $this;
     }
 
-    /**
-     * @return Collection|Devis[]
-     */
-    public function getIdModele(): Collection
+    public function getGamme(): ?Gamme
     {
-        return $this->id_modele;
+        return $this->gamme;
     }
 
-    public function addIdModele(Devis $idModele): self
+    public function setGamme(?Gamme $gamme): self
     {
-        if (!$this->id_modele->contains($idModele)) {
-            $this->id_modele[] = $idModele;
-            $idModele->setModele($this);
-        }
+        $this->gamme = $gamme;
 
         return $this;
     }
 
-    public function removeIdModele(Devis $idModele): self
+    public function getTypeRemplissage(): ?TypeRemplissage
     {
-        if ($this->id_modele->removeElement($idModele)) {
-            // set the owning side to null (unless already changed)
-            if ($idModele->getModele() === $this) {
-                $idModele->setModele(null);
-            }
-        }
+        return $this->typeRemplissage;
+    }
+
+    public function setTypeRemplissage(?TypeRemplissage $typeRemplissage): self
+    {
+        $this->typeRemplissage = $typeRemplissage;
+
+        return $this;
+    }
+
+    public function getCoupeDePrincipe(): ?CoupeDePrincipe
+    {
+        return $this->coupeDePrincipe;
+    }
+
+    public function setCoupeDePrincipe(?CoupeDePrincipe $coupeDePrincipe): self
+    {
+        $this->coupeDePrincipe = $coupeDePrincipe;
 
         return $this;
     }

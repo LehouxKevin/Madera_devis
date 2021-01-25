@@ -24,15 +24,15 @@
 
 #conditionError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #passwordError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #emailError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }

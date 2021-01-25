@@ -42,25 +42,25 @@ class Devis
     private $informationsAdditionnelles;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Utilisateur::class, inversedBy="devis")
+     * @ORM\ManyToMany(targetEntity=Utilisateur::class, mappedBy="devis")
      */
-    private $id_devis;
+    private $utilisateurs;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="devis")
+     * @ORM\ManyToOne(targetEntity=Client::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_client;
+    private $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Modele::class, inversedBy="id_modele")
+     * @ORM\ManyToOne(targetEntity=Modele::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $modele;
 
     public function __construct()
     {
-        $this->id_devis = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -119,35 +119,38 @@ class Devis
     /**
      * @return Collection|Utilisateur[]
      */
-    public function getIdDevis(): Collection
+    public function getUtilisateurs(): Collection
     {
-        return $this->id_devis;
+        return $this->utilisateurs;
     }
 
-    public function addIdDevi(Utilisateur $idDevi): self
+    public function addUtilisateur(Utilisateur $utilisateur): self
     {
-        if (!$this->id_devis->contains($idDevi)) {
-            $this->id_devis[] = $idDevi;
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->addDevi($this);
         }
 
         return $this;
     }
 
-    public function removeIdDevi(Utilisateur $idDevi): self
+    public function removeUtilisateur(Utilisateur $utilisateur): self
     {
-        $this->id_devis->removeElement($idDevi);
+        if ($this->utilisateurs->removeElement($utilisateur)) {
+            $utilisateur->removeDevi($this);
+        }
 
         return $this;
     }
 
-    public function getIdClient(): ?Client
+    public function getClient(): ?Client
     {
-        return $this->id_client;
+        return $this->client;
     }
 
-    public function setIdClient(?Client $id_client): self
+    public function setClient(?Client $client): self
     {
-        $this->id_client = $id_client;
+        $this->client = $client;
 
         return $this;
     }

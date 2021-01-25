@@ -36,7 +36,7 @@ export class ConnexionComponent implements OnInit {
               console.log("Tout bon !");
 
               // Création du tokken
-              var setTokken = {statut:"connecte", email:utilisateur.mail};
+              var setTokken = {statut:"connecte", objet:utilisateur};
               localStorage.setItem('tokken', JSON.stringify(setTokken));
 
               // Récupérer le tokken

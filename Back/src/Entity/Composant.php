@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ComposantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,6 +40,33 @@ class Composant
      * @ORM\Column(type="string", length=255)
      */
     private $prix;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=FamilleComposant::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $familleComposant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Module::class, mappedBy="composants")
+     */
+    private $modules;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Fournisseur::class, inversedBy="composants")
+     */
+    private $fournisseurs;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $caracteristiques;
+
+    public function __construct()
+    {
+        $this->modules = new ArrayCollection();
+        $this->fournisseurs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -88,6 +117,81 @@ class Composant
     public function setPrix(string $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getFamilleComposant(): ?FamilleComposant
+    {
+        return $this->familleComposant;
+    }
+
+    public function setFamilleComposant(?FamilleComposant $familleComposant): self
+    {
+        $this->familleComposant = $familleComposant;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Module[]
+     */
+    public function getModules(): Collection
+    {
+        return $this->modules;
+    }
+
+    public function addModule(Module $module): self
+    {
+        if (!$this->modules->contains($module)) {
+            $this->modules[] = $module;
+            $module->addComposant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeModule(Module $module): self
+    {
+        if ($this->modules->removeElement($module)) {
+            $module->removeComposant($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fournisseur[]
+     */
+    public function getFournisseurs(): Collection
+    {
+        return $this->fournisseurs;
+    }
+
+    public function addFournisseur(Fournisseur $fournisseur): self
+    {
+        if (!$this->fournisseurs->contains($fournisseur)) {
+            $this->fournisseurs[] = $fournisseur;
+        }
+
+        return $this;
+    }
+
+    public function removeFournisseur(Fournisseur $fournisseur): self
+    {
+        $this->fournisseurs->removeElement($fournisseur);
+
+        return $this;
+    }
+
+    public function getCaracteristiques(): ?string
+    {
+        return $this->caracteristiques;
+    }
+
+    public function setCaracteristiques(string $caracteristiques): self
+    {
+        $this->caracteristiques = $caracteristiques;
 
         return $this;
     }

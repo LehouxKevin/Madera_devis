@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\FamilleComposantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +26,17 @@ class FamilleComposant
      */
     private $libelle;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=TypeModule::class, mappedBy="familleComposant")
+     */
+    private $typeModules;
+
+    public function __construct()
+    {
+        $this->typeModules = new ArrayCollection();
+        $this->typesModule = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +50,33 @@ class FamilleComposant
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TypeModule[]
+     */
+    public function getTypeModules(): Collection
+    {
+        return $this->typeModules;
+    }
+
+    public function addTypeModule(TypeModule $typeModule): self
+    {
+        if (!$this->typeModules->contains($typeModule)) {
+            $this->typeModules[] = $typeModule;
+            $typeModule->addFamilleComposant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTypeModule(TypeModule $typeModule): self
+    {
+        if ($this->typeModules->removeElement($typeModule)) {
+            $typeModule->removeFamilleComposant($this);
+        }
 
         return $this;
     }

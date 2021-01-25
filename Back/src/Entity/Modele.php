@@ -39,6 +39,24 @@ class Modele
      */
     private $nbEtage;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Gamme::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $gamme;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeRemplissage::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeRemplissage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CoupeDePrincipe::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $coupeDePrincipe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +106,42 @@ class Modele
     public function setNbEtage(int $nbEtage): self
     {
         $this->nbEtage = $nbEtage;
+
+        return $this;
+    }
+
+    public function getGamme(): ?Gamme
+    {
+        return $this->gamme;
+    }
+
+    public function setGamme(?Gamme $gamme): self
+    {
+        $this->gamme = $gamme;
+
+        return $this;
+    }
+
+    public function getTypeRemplissage(): ?TypeRemplissage
+    {
+        return $this->typeRemplissage;
+    }
+
+    public function setTypeRemplissage(?TypeRemplissage $typeRemplissage): self
+    {
+        $this->typeRemplissage = $typeRemplissage;
+
+        return $this;
+    }
+
+    public function getCoupeDePrincipe(): ?CoupeDePrincipe
+    {
+        return $this->coupeDePrincipe;
+    }
+
+    public function setCoupeDePrincipe(?CoupeDePrincipe $coupeDePrincipe): self
+    {
+        $this->coupeDePrincipe = $coupeDePrincipe;
 
         return $this;
     }

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['accueil']);
     var tokken = JSON.parse(localStorage.getItem('tokken'));
     if (tokken['statut'] == "connecte") {
+      console.log(tokken['objet']);
       document.getElementById('Ellipse_connexion').style.fill = "green";
     }
     else {

@@ -22,6 +22,7 @@ import { ConsultationGammeComponent } from './pages/modules/gammes/consultation_
 import { CreationDevisComponent } from './components/creation-devis/creation-devis.component';
 import { AjoutClientComponent } from './components/ajout-client/ajout-client.component';
 import { OnlyNumberDirective } from './directive/only-number.directive';
+import { ProfilComponent } from './pages/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { OnlyNumberDirective } from './directive/only-number.directive';
     ConsultationGammeComponent,
     CreationDevisComponent,
     AjoutClientComponent,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

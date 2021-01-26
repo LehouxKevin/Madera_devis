@@ -7,6 +7,7 @@ import { CreationCompteComponent } from './pages/creation-compte/creation-compte
 import { DevisComponent } from './pages/devis/devis.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ModulesComponent } from './pages/modules/modules.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path : "connexion", component:ConnexionComponent },
   { path : "accueil", component:BoutonDomingoComponent },
   { path : "creationCompte", component:CreationCompteComponent},
-  { path : "conditionsUtilisation", component:ConditionsUtilisationComponent}
+  { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
+  { path : "profil", component:ProfilComponent}
 ];
 
 @NgModule({

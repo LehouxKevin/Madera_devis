@@ -6,20 +6,20 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UtilisateurService {
+export class TypeUtilisateurService {
 
   baseUrl = environment.baseUrlAPI;
-  utilisateurApi = '/utilisateurs';
+  typeUtilisateurApi = '/type_utilisateurs';
 
   constructor(private http: HttpClient) { }
 
-  getUtilisateurs(): Observable<any[]> 
+  getTypesUtilisateur(): Observable<any[]>
   {
-    return this.http.get<any[]>(this.baseUrl+this.utilisateurApi);
+    return this.http.get<any[]>(this.baseUrl+this.typeUtilisateurApi); 
   }
 
-  getOneUtilisateurById(id)
+  getOneTypeUtilisateurById(id)
   {
-    return this.http.get<any[]>(this.baseUrl+this.utilisateurApi+"/"+id).toPromise();
+    return this.http.get<any[]>(this.baseUrl+this.typeUtilisateurApi+"/"+id).toPromise();
   }
 }

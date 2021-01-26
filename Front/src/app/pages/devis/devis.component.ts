@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CheckboxRequiredValidator } from '@angular/forms';
-import { ChoixClientComponent } from 'src/app/components/choix-client/choix-client.component';
 
 @Component({
   selector: 'app-devis',
@@ -9,25 +7,19 @@ import { ChoixClientComponent } from 'src/app/components/choix-client/choix-clie
 })
 export class DevisComponent implements OnInit, AfterViewInit {
 
-  //@ViewChild(ChoixClientComponent) choixDevisComponent;
-  
   isClientPageVisible:boolean = true;
   isDevisPageVisible:boolean = false;
   isModalitePageVisible:boolean = false;
 
   isAddClientPageVisible = "false";
 
-  //isAddClientPageVisibleParent = this.choixDevisComponent.isAddClientPageVisible;
   
   currentPage = "client";
 
   constructor() { }
 
   ngOnInit(): void {
-    //this.el.hide;
-    //this.isClientVisible = true; 
-    //this.cercleDevis.nativeElement.style.display='none';
-    //this.cercleModalite.nativeElement.style.visibility='hidden';
+
     
   }
 
@@ -38,7 +30,11 @@ export class DevisComponent implements OnInit, AfterViewInit {
   }
 
   
-
+  /**
+   * Reçoit l'évènement de changement d'état du composant d'ajout de client. Masque tout les composants et actualise la valeur de l'état de la page d'ajout de client.
+   * La vue affiche ensuite automatiquement le composant ajout client étant donné que ce composant est bind avec la valeur "isAddClientPageVisible"
+   * @param $event 
+   */
   receiveAddClientVisibilityStateChanging($event) {
     this.isAddClientPageVisible = $event;
     console.log(this.isAddClientPageVisible);
@@ -46,6 +42,7 @@ export class DevisComponent implements OnInit, AfterViewInit {
     {
       this.isDevisPageVisible = false;
       this.isClientPageVisible = false;
+      this.isModalitePageVisible = false;
     }
   }
 
@@ -54,8 +51,17 @@ export class DevisComponent implements OnInit, AfterViewInit {
     {
       this.isDevisPageVisible = true;
       this.isClientPageVisible = false;
-      //console.log(this.choixDevisComponent.isAddClientPageVisible);
-      console.log(this.isAddClientPageVisible);
+      this.isModalitePageVisible = false;
+      this.currentPage="devis";
+    }
+    else {
+      if(this.currentPage == "devis")
+      {
+        this.isDevisPageVisible = false;
+        this.isClientPageVisible = false;
+        this.isModalitePageVisible = true;
+        this.currentPage="modalite";
+      }
     }
   }
   

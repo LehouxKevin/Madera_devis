@@ -23,6 +23,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public telephoneClient = "";
   public mailClient = "";
 
+  // Etat de la visibilité du composant d'ajout de client
   isAddClientPageVisible:string = "false";
   @Output() addClientChangingState = new EventEmitter<string>();
 
@@ -48,24 +49,21 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     var idBdd = value.substring(8);
     console.log(idBdd);
     console.log(identiteClientSelectionnee);
-    /*
-    this.clientService.getOneClientById(idBdd).pipe(
-      map(client => client['hydra:member'])
-    ).subscribe(
-      client => this.infosClient = client 
-    );
+
+    this.infosClient  = await this.clientService.getOneClientById(idBdd);
     console.log(this.infosClient);
-    */
-   this.infosClient  = await this.clientService.getOneClientById(idBdd);
-   console.log(this.infosClient);
-   this.prenomClient = this.infosClient.prenom;
-   this.nomClient = this.infosClient.nom;
-   this.adresseClient = this.infosClient.adresse;
-   this.telephoneClient = this.infosClient.telephone;
-   this.mailClient = this.infosClient.mail;
+    this.prenomClient = this.infosClient.prenom;
+    this.nomClient = this.infosClient.nom;
+    this.adresseClient = this.infosClient.adresse;
+    this.telephoneClient = this.infosClient.telephone;
+    this.mailClient = this.infosClient.mail;
 
   }
 
+  /**
+   * Handler du clique sur le bouton d'ajout d'un client. Elle passe l'état d'affichage du composant d'ajout de client à true et le transmet
+   * au parent pour qu'il affiche le bon composant et masque les autres
+   */
   handleClickAddClient():void {
     this.isAddClientPageVisible = "true";
     this.addClientChangingState.emit(this.isAddClientPageVisible);

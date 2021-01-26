@@ -6,19 +6,18 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { CreationCompteComponent } from './pages/creation-compte/creation-compte.component';
 import { DevisComponent } from './pages/devis/devis.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ModulesComponent } from './pages/modules/modules.component';
-
-
+import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path : 'devis', component:DevisComponent},
-  { path : 'modules', component:ModulesComponent},
   { path : "connexion", component:ConnexionComponent },
   { path : "accueil", component:BoutonDomingoComponent },
   { path : "creationCompte", component:CreationCompteComponent},
-  { path : "conditionsUtilisation", component:ConditionsUtilisationComponent}
+  { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
+  { path : "consultation-gamme", component:ConsultationGammeComponent}
+
 ];
 
 @NgModule({

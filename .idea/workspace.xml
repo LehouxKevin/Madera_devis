@@ -20,9 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/icones/display.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/choix-client/choix-client.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/modules/gammes/liste/liste-gamme/liste-gamme.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/modules/modules.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/client.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/assets/icones/croix.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/assets/icones/croix.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/assets/icones/plume.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/assets/icones/plume.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +95,11 @@
       <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\bureau-etude\etage" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\bureau-etude\gamme" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\components\bureau-etude\gamme" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\modules\gammes\consultation_gamme" />
       <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones" />
-      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones\Autres" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

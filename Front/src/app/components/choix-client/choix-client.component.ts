@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Client } from 'src/app/class/client';
 import { environment } from 'src/environments/environment';
@@ -23,7 +23,8 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public telephoneClient = "";
   public mailClient = "";
 
-  @ViewChild('idClient1') client1;
+  isAddClientPageVisible:string = "false";
+  @Output() addClientChangingState = new EventEmitter<string>();
 
   constructor(private clientService: ClientService, private http: HttpClient) { }
 
@@ -63,6 +64,11 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
    this.telephoneClient = this.infosClient.telephone;
    this.mailClient = this.infosClient.mail;
 
+  }
+
+  handleClickAddClient():void {
+    this.isAddClientPageVisible = "true";
+    this.addClientChangingState.emit(this.isAddClientPageVisible);
   }
   
 }

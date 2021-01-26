@@ -20,6 +20,9 @@
                             <a id="{{'idClient'+client.id}}" *ngFor="let client of clients" (click)="handleChoixClient($event)">{{client.nom}} {{client.prenom}}</a>
                         </div>
                     </div>
+                    <div class="col-md-12 divInputAddClient">
+                        <input class="inputAddClient btn btn-primary" type="button" value="Ajouter un client" (click) = "handleClickAddClient()" />
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 offset-md-1">

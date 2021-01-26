@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CheckboxRequiredValidator } from '@angular/forms';
+import { ChoixClientComponent } from 'src/app/components/choix-client/choix-client.component';
 
 @Component({
   selector: 'app-devis',
@@ -7,13 +9,15 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class DevisComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('grandCercleClient') cercleClient:ElementRef;
-  @ViewChild('grandCercleDevis') cercleDevis:ElementRef;
-  @ViewChild('grandCercleModalite') cercleModalite:ElementRef;
+  //@ViewChild(ChoixClientComponent) choixDevisComponent;
   
   isClientPageVisible:boolean = true;
   isDevisPageVisible:boolean = false;
   isModalitePageVisible:boolean = false;
+
+  isAddClientPageVisible = "false";
+
+  //isAddClientPageVisibleParent = this.choixDevisComponent.isAddClientPageVisible;
   
   currentPage = "client";
 
@@ -33,11 +37,25 @@ export class DevisComponent implements OnInit, AfterViewInit {
     
   }
 
+  
+
+  receiveAddClientVisibilityStateChanging($event) {
+    this.isAddClientPageVisible = $event;
+    console.log(this.isAddClientPageVisible);
+    if(this.isAddClientPageVisible == "true")
+    {
+      this.isDevisPageVisible = false;
+      this.isClientPageVisible = false;
+    }
+  }
+
   handleNextStepButton():void {
     if(this.currentPage == "client")
     {
       this.isDevisPageVisible = true;
       this.isClientPageVisible = false;
+      //console.log(this.choixDevisComponent.isAddClientPageVisible);
+      console.log(this.isAddClientPageVisible);
     }
   }
   

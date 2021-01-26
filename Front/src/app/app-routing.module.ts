@@ -7,7 +7,6 @@ import { CreationCompteComponent } from './pages/creation-compte/creation-compte
 import { DevisComponent } from './pages/devis/devis.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
-import { ModulesComponent } from './pages/modules/modules.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 
 
@@ -20,8 +19,7 @@ const routes: Routes = [
   { path : "accueil", component:BoutonDomingoComponent },
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
-  { path : "consultation-gamme", component:ConsultationGammeComponent}
-
+  { path : "consultation-gamme", component:ConsultationGammeComponent},
   { path : "profil", component:ProfilComponent}
 ];
 

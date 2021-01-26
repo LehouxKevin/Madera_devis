@@ -21,6 +21,7 @@ import {FormsModule } from '@angular/forms';
 import { ConsultationGammeComponent } from './pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component';
 import { CreationDevisComponent } from './components/creation-devis/creation-devis.component';
 import { AjoutClientComponent } from './components/ajout-client/ajout-client.component';
+import { OnlyNumberDirective } from './directive/only-number.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AjoutClientComponent } from './components/ajout-client/ajout-client.com
     ListeGammeComponent,
     ConsultationGammeComponent,
     CreationDevisComponent,
-    AjoutClientComponent
+    AjoutClientComponent,
+    OnlyNumberDirective
   ],
   imports: [
     BrowserModule,

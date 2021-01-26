@@ -15,16 +15,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['accueil']);
     var tokken = JSON.parse(localStorage.getItem('tokken'));
     if (tokken['statut'] == "connecte") {
-      document.getElementById('Ellipse_connexion').style.fill = "green";
+      document.getElementById('lien_iconeProfil').style.display = "none";
+      document.getElementById('Ellipse_connexion2').style.fill = "green";
+      document.getElementById('lien_iconeProfil').setAttribute('routerlink', '/devis');
     }
     else {
-      document.getElementById('Ellipse_connexion').style.fill = "red";
+      document.getElementById('lien_iconeProfil').style.display = "block";
+      document.getElementById('lien_iconeProfil2').style.display = "none";
     }
-  }
-
-  deconnexion(): void
-  {
-    var setTokken = {statut:"deconnecte", email:""};
-    localStorage.setItem('tokken', JSON.stringify(setTokken));
   }
 }

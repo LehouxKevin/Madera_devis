@@ -25,34 +25,34 @@
 
 #nomError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #prenomError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #categorieError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #emailError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #passwordError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 
 #confirmedError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }
 #checkError {
     display: none;
-    color: red;
+    color: #F56A6A;
 }

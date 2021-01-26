@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,6 +19,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ApiProperty(identifier=true)
      */
     private $id;
 
@@ -38,6 +42,22 @@ class Utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $mdp;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeUtilisateur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeUtilisateur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Devis::class, inversedBy="utilisateurs")
+     */
+    private $devis;
+
+    public function __construct()
+    {
+        $this->devis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -88,6 +108,42 @@ class Utilisateur
     public function setMdp(string $mdp): self
     {
         $this->mdp = $mdp;
+
+        return $this;
+    }
+
+    public function getTypeUtilisateur(): ?TypeUtilisateur
+    {
+        return $this->typeUtilisateur;
+    }
+
+    public function setTypeUtilisateur(?TypeUtilisateur $typeUtilisateur): self
+    {
+        $this->typeUtilisateur = $typeUtilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Devis[]
+     */
+    public function getDevis(): Collection
+    {
+        return $this->devis;
+    }
+
+    public function addDevi(Devis $devi): self
+    {
+        if (!$this->devis->contains($devi)) {
+            $this->devis[] = $devi;
+        }
+
+        return $this;
+    }
+
+    public function removeDevi(Devis $devi): self
+    {
+        $this->devis->removeElement($devi);
 
         return $this;
     }

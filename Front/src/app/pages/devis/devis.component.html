@@ -1,5 +1,26 @@
 <div class="devis container col-md-12">
     <div class="creationDevis col-md-12">
-        <app-choix-client></app-choix-client>
+        <app-choix-client *ngIf="isClientPageVisible" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)"></app-choix-client>
+        <app-creation-devis *ngIf="isDevisPageVisible"></app-creation-devis>
+        <app-ajout-client *ngIf="isAddClientPageVisible === 'true'"></app-ajout-client>
     </div>
+    <div class="col-md-4 offset-md-6 breadcrumbPerso" *ngIf="isAddClientPageVisible !== 'true'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="386" height="69" viewBox="0 0 386 69">
+            <g id="Pagination" transform="translate(-551 -119)">
+              <circle *ngIf="isClientPageVisible" id="grandCercleClient" data-name="Ellipse 279" cx="23" cy="23" r="23" transform="translate(551 119)" fill="#cfe8fb"/> <!-- Grand cercle Client-->
+              <circle *ngIf="isDevisPageVisible" id="grandCercleDevis" data-name="Ellipse 280" cx="23" cy="23" r="23" transform="translate(697 119)" fill="#cfe8fb"/> <!-- Grand cercle Devis-->
+              <circle *ngIf="isModalitePageVisible" id="grandCercleModalite" data-name="Ellipse 281" cx="23" cy="23" r="23" transform="translate(844 119)" fill="#cfe8fb"/> <!-- Grand cercle Modalités-->
+              <text id="Client" transform="translate(574 185)" fill="#2699fb" font-size="16" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-22.223" y="0">Client</tspan></text>
+              <text id="Devis" transform="translate(720 185)" fill="#2699fb" font-size="16" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-21.348" y="0">Devis</tspan></text>
+              <text id="Modalités_de_paiement" data-name="Modalités de paiement" transform="translate(867 185)" fill="#2699fb" font-size="13" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-69.71" y="0">Modalités de paiement</tspan></text>
+              <circle id="Ellipse_270" data-name="Ellipse 270" cx="3" cy="3" r="3" transform="translate(571 139)" fill="#2699fb"/>
+              <circle id="Ellipse_272" data-name="Ellipse 272" cx="3" cy="3" r="3" transform="translate(717 139)" fill="#2699fb"/>
+              <circle id="Ellipse_273" data-name="Ellipse 273" cx="3" cy="3" r="3" transform="translate(864 139)" fill="#2699fb"/>
+              <rect id="Rectangle_732" data-name="Rectangle 732" width="130" height="2" transform="translate(581 141)" fill="#f1f9ff"/>
+              <rect id="Rectangle_733" data-name="Rectangle 733" width="130" height="2" transform="translate(730 141)" fill="#f1f9ff"/>
+            </g>
+          </svg>
+
+        <input type="button" class="btn btn-primary" value="Etape suivante" (click)="handleNextStepButton()" /> 
+    </div>      
 </div>

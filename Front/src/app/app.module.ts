@@ -17,6 +17,11 @@ import { ListeGammeComponent } from './components/bureau-etude/gamme/liste-gamme
 
 
 import {FormsModule } from '@angular/forms';
+import { ConsultationGammeComponent } from './pages/modules/gammes/consultation_gamme/consultation-gamme/consultation-gamme.component';
+import { CreationDevisComponent } from './components/creation-devis/creation-devis.component';
+import { AjoutClientComponent } from './components/ajout-client/ajout-client.component';
+import { OnlyNumberDirective } from './directive/only-number.directive';
+import { ProfilComponent } from './pages/profil/profil.component';
 import { CreationComposantComponent } from './pages/bureau-etude/composant/creation-composant/creation-composant.component';
 import { ConsultationComposantComponent } from './pages/bureau-etude/composant/consultation-composant/consultation-composant.component';
 import { ConsultationEtageComponent } from './pages/bureau-etude/etage/consultation-etage/consultation-etage.component';
@@ -58,6 +63,12 @@ import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultat
     ConsultationTypeModuleComponent,
     ConsultationGammeComponent,
     ListeGammeComponent
+    ListeGammeComponent,
+    ConsultationGammeComponent,
+    CreationDevisComponent,
+    AjoutClientComponent,
+    OnlyNumberDirective,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

@@ -126,3 +126,12 @@
 .containerNom, .containerAdresse, .containerTelephone, .containerMail {
     padding-top: 1em;
 }
+
+.inputAddClient {
+    margin-top:1em;
+}
+
+.divInputAddClient {
+    display: flex;
+    justify-content: flex-end;
+}

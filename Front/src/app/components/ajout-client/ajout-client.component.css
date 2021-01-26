@@ -1,0 +1,44 @@
+.containerInformations {
+    margin: 1em;
+    padding-top: 2em;
+}
+
+.cubeIcone {
+    background-color: #2699FB;
+    width: 20%;
+    height:3em;
+    display: flex;
+    align-items: center;
+}
+
+.iconeInfo {
+    
+    margin: 0 auto;
+    display: block;
+}
+
+.libelleInfo {
+    color:#2699FB;
+}
+
+.inputInfo {
+    width: 100%;
+    border-color:#2699FB;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.divInput {
+    display: inline-flex;
+    width: 80%;
+}
+
+.containerNom, .containerAdresse, .containerTelephone, .containerMail {
+    padding-top: 1em;
+}
+
+.containerAddClientButton {
+    padding-top: 2em;
+    display: flex;
+    justify-content: flex-end;
+}

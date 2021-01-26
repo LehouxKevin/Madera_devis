@@ -33,16 +33,9 @@ export class ConnexionComponent implements OnInit {
         this.utilisateurs.forEach( (utilisateur, index) => {
           if(utilisateur.mail == connexionForm.value.email){
             if (utilisateur.mdp == connexionForm.value.password) {
-              console.log("Tout bon !");
-
               // Création du tokken
-              var setTokken = {statut:"connecte", email:utilisateur.mail};
+              var setTokken = {statut:"connecte", objet:utilisateur.id};
               localStorage.setItem('tokken', JSON.stringify(setTokken));
-
-              // Récupérer le tokken
-              var getTokken = JSON.parse(localStorage.getItem('tokken'));
-              console.log(getTokken); 
-
               document.getElementById('conditionError').style.display = "none";
               document.location.href="/accueil";
             }

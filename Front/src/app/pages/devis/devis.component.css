@@ -1,3 +1,41 @@
 .devis {
     overflow-x: hidden;
 }
+
+.cercleBreadcrumb {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 20px;
+    background: #2699FB;
+    z-index: 10;
+    /*margin-left: 3em;*/
+}
+
+.cerclePageSelectionnee {
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    background: #CFE8FB;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breadcrumbPerso {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4.5em;
+    align-items: center;
+    place-content: space-between;
+}
+
+.containerEachBreadcrumb {
+    text-align: -webkit-center;
+}
+
+.libellePage {
+    color: white;
+}

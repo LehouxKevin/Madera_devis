@@ -17,4 +17,9 @@ export class UtilisateurService {
   {
     return this.http.get<any[]>(this.baseUrl+this.utilisateurApi);
   }
+
+  getOneUtilisateurById(id)
+  {
+    return this.http.get<any[]>(this.baseUrl+this.utilisateurApi+"/"+id).toPromise();
+  }
 }

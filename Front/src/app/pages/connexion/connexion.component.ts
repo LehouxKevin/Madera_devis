@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { isEmpty, map } from 'rxjs/operators';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
@@ -8,7 +8,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
-export class ConnexionComponent implements OnInit {
+export class ConnexionComponent implements OnInit, OnDestroy {
 
   public utilisateurs:any[] = [];
   public utilisateur;
@@ -21,6 +21,11 @@ export class ConnexionComponent implements OnInit {
     ).subscribe(
       utilisateur => this.utilisateurs = utilisateur
     );
+    document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 5px";
+  }
+
+  ngOnDestroy() {
+    document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 0px";
   }
   
   onSubmit(connexionForm: NgForm) {

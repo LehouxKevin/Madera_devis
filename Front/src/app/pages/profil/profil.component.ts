@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { TypeUtilisateurService } from 'src/app/services/type-utilisateur.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
@@ -8,7 +8,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
-export class ProfilComponent implements OnInit {
+export class ProfilComponent implements OnInit, OnDestroy {
 
   public utilisateurs:any[] = [];
   public utilisateur;
@@ -21,6 +21,11 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProfil();
+    document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 5px";
+  }
+
+  ngOnDestroy() {
+    document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 0px";
   }
 
   async loadProfil() {

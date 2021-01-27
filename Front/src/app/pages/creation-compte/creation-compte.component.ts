@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { Utilisateur } from 'src/app/class/utilisateur';
+import { TypeUtilisateurService } from 'src/app/services/type-utilisateur.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-compte',
@@ -10,8 +13,20 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class CreationCompteComponent implements OnInit {
 
+  user:Utilisateur;
+
+  nom:string = "";
+  prenom:string = "";
+  mail:string = "";
+  mdp:string = "";
+  typeUtilisateur:string = "";
+
   public utilisateurs:any[] = [];
   public utilisateur;
+
+  public typesUtilisateur:any[] = [];
+  public type_utilisateur;
+
   public existanceMail;
 
   public champsNom;
@@ -23,7 +38,7 @@ export class CreationCompteComponent implements OnInit {
   public champsCheckConditions;
 
 
-  constructor(private utilisateurService: UtilisateurService) { }
+  constructor(private router: Router, private utilisateurService: UtilisateurService, private typeUtilisateurService: TypeUtilisateurService) { }
 
   ngOnInit(): void {
     this.utilisateurService.getUtilisateurs().pipe(
@@ -31,6 +46,7 @@ export class CreationCompteComponent implements OnInit {
     ).subscribe(
       utilisateur => this.utilisateurs = utilisateur
     );
+
     this.champsNom = document.getElementById('nom');
     this.champsPrenom = document.getElementById('prenom');
     this.champsCatUser = document.getElementById('categorieUtilisateur');
@@ -40,7 +56,7 @@ export class CreationCompteComponent implements OnInit {
     this.champsCheckConditions = document.getElementById('checkConditionsUtilisation');
   }
 
-  onSubmit(creationCompteForm: NgForm) {
+  async onSubmit(creationCompteForm: NgForm) {
     //Tester si le mail n'a pas déjà été utilisé
     this.existanceMail = false;
     this.utilisateurs.forEach( (utilisateur, index) => {
@@ -84,7 +100,30 @@ export class CreationCompteComponent implements OnInit {
                     this.champsEmail.style.borderLeft = 'solid 9px green';
                     this.champsMdp.style.borderLeft = 'solid 9px green';
                     this.champsConfirmed.style.borderLeft = 'solid 9px green';
-                    console.log("Nous pouvons créer le compte !");
+                    this.nom = creationCompteForm.value.nom;
+                    this.prenom = creationCompteForm.value.prenom;
+                    this.mail = creationCompteForm.value.email;
+                    this.mdp = creationCompteForm.value.password;
+                    var idTypeUtilisateur;
+                    if (creationCompteForm.value.categorieUtilisateur == "Administrateur") {
+                      idTypeUtilisateur = 1;
+                    }
+                    else if (creationCompteForm.value.categorieUtilisateur == "Bureau d'études") {
+                      idTypeUtilisateur = 3;
+                    }
+                    else {
+                      idTypeUtilisateur = 2;
+                    }
+                    this.typeUtilisateur = "/api/type_utilisateurs/"+idTypeUtilisateur;
+                    this.user = new Utilisateur(this.nom, this.prenom, this.mail, this.mdp, this.typeUtilisateur);
+                    if(await this.utilisateurService.addUtilisateur(this.user))
+                    {
+                      console.log("Le compte de "+this.mail+" a été créé !");
+                      this.router.navigateByUrl('/connexion');
+                    }
+                    else {
+                      console.log("Importation échoué !");
+                    }
                   }
                   else {
                     document.getElementById('checkError').textContent = "Veuillez accepter les conditions générales d'utilisation !";

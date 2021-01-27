@@ -12,4 +12,9 @@ export class ConsultationGammeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+
+
+
 }

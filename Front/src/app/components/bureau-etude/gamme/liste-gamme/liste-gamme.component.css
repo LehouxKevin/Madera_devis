@@ -1,7 +1,7 @@
  .tableau {
               position: absolute;
               top: 0;
-           right: 74px;
+               right: 74px;
               overflow: hidden;
               transition: all .3s ease-in;
               width: 50em;
@@ -11,6 +11,7 @@
               padding-top: 1em;
               padding-right: 5em;
               padding-left: 1em;
+
       }
 .image_liste
 {
@@ -36,4 +37,19 @@ width: 5em;
 
 
 
+#displaydiv
+{
 
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+
+#displaydivCacher
+{
+ transform: rotate(180deg);
+    position: fixed;
+    bottom: 1rem;
+    right: 6rem;
+}

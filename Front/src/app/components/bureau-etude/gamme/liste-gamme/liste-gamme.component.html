@@ -1,6 +1,7 @@
+<div *ngIf="isClientPageVisible; then thenBlock else elseBlock"></div>
 
-
-<div class="tableau flex" id="ListeGamme">
+<ng-template #thenBlock>
+<div class="tableau flex" id="ListeGamme"  >
   <div class="d-flex justify-content-center m-3">
 
     <table class="table  table-hover  justify-content-center text-center">
@@ -19,7 +20,7 @@
       <tr id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes">
         <th scope="row">1</th>
         <td>{{gamme.libelle}} </td>
-        <td>modèles de la gamme</td>
+        <td>modèles de la gamme{{displayDivValeur}}</td>
         <td>4</td>
         <td><a class="s-sidebar__nav-link" ><img class="image_liste"  src="assets\icones\plume.svg"></a></td> <td><a class="s-sidebar__nav-link" routerLink="consultation-gamme"><img class="image_liste" src="assets\icones\consultation.svg"></a></td> <td><img class="image_liste"  src="assets\icones\croix.svg"></td>
       </tr>
@@ -31,9 +32,25 @@
     <router-outlet></router-outlet>
 
 
-
-
+  <input type="image" id="displaydiv"
+         src="assets\icones\display.svg"
+         class="displayList position-absolute fixed-bottom " (click)="handleNextStepButton()">
 
 </div>
-<input type="image" id="displaydiv"
-       src="assets\icones\display.svg" class="displayList position-absolute fixed-bottom " (click)="toggleListe()">
+
+
+
+
+
+</ng-template>
+<ng-template #elseBlock>
+
+  <input type="image" id="displaydivCacher"
+         src="assets\icones\display.svg"
+         class="displayList" y="26.08685" x="3.28409"
+         (click)="handleNextStepButton()"#elseBoutonDisplay>
+
+
+
+
+</ng-template>

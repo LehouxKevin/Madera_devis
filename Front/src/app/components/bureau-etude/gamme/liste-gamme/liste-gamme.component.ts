@@ -5,15 +5,20 @@ import { Gamme } from 'src/app/class/Gamme';
 import { environment } from 'src/environments/environment';
 import { GammeService } from 'src/app/services/gamme.service';
 import { map } from 'rxjs/operators';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-liste-gamme',
   templateUrl: './liste-gamme.component.html',
   styleUrls: ['./liste-gamme.component.css']
 })
-export class ListeGammeComponent implements OnInit {
+export class ListeGammeComponent implements OnInit,AfterViewInit {
     public gammes:Gamme[] = [];
     public libellegamme = "";
+
+
+  isClientPageVisible:boolean = true;
+BoutonDisplay:boolean = true;
+
 
   constructor(private gammeService: GammeService, private http: HttpClient) { }
 
@@ -24,10 +29,39 @@ export class ListeGammeComponent implements OnInit {
         gamme => this.gammes = gamme
       );
 
-  }
-  toggleListe(){
-    //$('#ListeGamme').slideToggle();
-$('#ListeGamme').animate({width: 'toggle'});
+
 
   }
+
+
+  handleDisplay():void  {
+
+  if(this.isDisplayDivValeur == true)
+  {
+  this.isDisplayDivValeur =false;
+  }
+  if(this.isDisplayDivValeur == false)
+  {
+  this.isDisplayDivValeur = true;
+  }
+
+    }
+handleNextStepButton():void {
+
+
+
+
+if(this.isClientPageVisible == true)
+  {
+   this.isClientPageVisible =  false;
+
+  }
+  else{
+  if(this.isClientPageVisible == false)
+  {
+  this.isClientPageVisible =  true;
+
+  }}
+  }
+
 }

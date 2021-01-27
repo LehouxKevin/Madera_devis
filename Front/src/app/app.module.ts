@@ -34,6 +34,8 @@ import { ConsultationTypeCouvertureComponent } from './pages/bureau-etude/parame
 import { ConsultationTypeIsolationComponent } from './pages/bureau-etude/parametre/type-isolation/consultation-type-isolation/consultation-type-isolation.component';
 import { ConsultationTypeModuleComponent } from './pages/bureau-etude/parametre/type-module/consultation-type-module/consultation-type-module.component';
 import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
+import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
+import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultat
     CreationDevisComponent,
     AjoutClientComponent,
     OnlyNumberDirective,
-    ProfilComponent
+    ProfilComponent,
+    StatistiquesCommercialesComponent,
+    SynchronisationGlobaleComponent
   ],
   imports: [
     BrowserModule,

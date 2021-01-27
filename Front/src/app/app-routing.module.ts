@@ -8,6 +8,8 @@ import { DevisComponent } from './pages/devis/devis.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
 import { ProfilComponent } from './pages/profil/profil.component';
+import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
+import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
 
 
 
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
   { path : "consultation-gamme", component:ConsultationGammeComponent},
-  { path : "profil", component:ProfilComponent}
+  { path : "profil", component:ProfilComponent},
+  { path : "statistiques-commerciales", component:StatistiquesCommercialesComponent},
+  { path : "synchronisation-globale", component:SynchronisationGlobaleComponent}
 ];
 
 @NgModule({

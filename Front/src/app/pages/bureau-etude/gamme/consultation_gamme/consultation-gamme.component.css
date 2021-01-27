@@ -2,11 +2,21 @@ body {
     background-image: none !important;
         width: 100%;
         height: 100%;
+
 }
-.cubeIcone {
-    background-color: #2699FB;
-    width: 20%;
-    height:3em;
-    display: flex;
-    align-items: center;
+.divbody
+{
+  margin-left: 5rem;
+  margin-right: 10rem;
+}
+.divNomGamme {
+
+  color: var(--white);
+
+  background: #2699FB;
+}
+
+
+.LibelleInput{
+ color: #2699FB;
 }

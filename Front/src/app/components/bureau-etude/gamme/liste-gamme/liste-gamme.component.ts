@@ -11,13 +11,12 @@ import * as $ from 'jquery';
   templateUrl: './liste-gamme.component.html',
   styleUrls: ['./liste-gamme.component.css']
 })
-export class ListeGammeComponent implements OnInit,AfterViewInit {
+export class ListeGammeComponent implements OnInit {
     public gammes:Gamme[] = [];
     public libellegamme = "";
 
 
-  isClientPageVisible:boolean = true;
-BoutonDisplay:boolean = true;
+Displayliste:boolean = true;
 
 
   constructor(private gammeService: GammeService, private http: HttpClient) { }
@@ -34,32 +33,17 @@ BoutonDisplay:boolean = true;
   }
 
 
-  handleDisplay():void  {
 
-  if(this.isDisplayDivValeur == true)
+handleDisplayBouton():void {
+if(this.Displayliste == true)
   {
-  this.isDisplayDivValeur =false;
-  }
-  if(this.isDisplayDivValeur == false)
-  {
-  this.isDisplayDivValeur = true;
-  }
-
-    }
-handleNextStepButton():void {
-
-
-
-
-if(this.isClientPageVisible == true)
-  {
-   this.isClientPageVisible =  false;
+   this.Displayliste =  false;
 
   }
   else{
-  if(this.isClientPageVisible == false)
+  if(this.Displayliste == false)
   {
-  this.isClientPageVisible =  true;
+  this.Displayliste =  true;
 
   }}
   }

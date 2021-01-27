@@ -26,8 +26,6 @@
       <change beforePath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/devis/devis.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/devis/devis.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

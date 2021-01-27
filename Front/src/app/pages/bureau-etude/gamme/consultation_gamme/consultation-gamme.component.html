@@ -2,7 +2,7 @@
 
 
 <body override class="w-80 h-80">
-
+<div class="divbody">
 <h1 class="text-center" style="color: rgb(38,153,251);">Modification d&#39;une Gamme <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96" viewBox="0 0 96 96">
   <image id="icons8-house-96" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAFTUlEQVR4nO2bS2hcVRjH/3cemWmS5tUkzXMyVakIqS3UVhEKFawLcdEWpGAU0S4MVK1VUbGgmJXtJjGNNFbduxCtghsRBB9tQUUKpq60ERcRwZlJ5r5fx0VLsMk9M5OZe+eca77fbuY759wv95f7zbn3nAsQBEEQBEEQBEEQBEEQmwWlWoOf9+zJpxi73oxk/g8owOL41as7am2fiDIZojokQDAkQDAkQDAkQDAkQDAkQDCxFeB6HpZ1XXQaDRNbASVNg2oYsF1XdCoNEUsBmmXBdBwwAAVVBWNMdEp1EzsBnu9jWdNWP7uehxXDEJhRY8ROQEnT4K/5jy+bZmxLUawE6JYFw7bXBxhDUVURx0IUGwGe76NUYdbjeB7KMZwVxUZASdfh+37FNisxLEWxEGDYNgzLqt6QMZT+8wMdB6QXwDZ4Um3XRTlGsyLpBRQ1DV6V0rOWFcOA63kRZRQuUguwHAc6p/T07N2HbGdXYIwxhoKmxWJWJK0A/+ZJDCKdzSI3fR65t2egKMHL2rbjQDPNKFMMBWkFrGgavIAyogAYffk0lPYOtN17P3oPHOSOsazrcDdYvpqNlAIsx4HKKT2d43ej8+ix1c9DZ2aRaWsPbMsYQ0lVI8kxLKQTwBhDkVN6Uuk0ctPzt3yXyGSQmzrDHc90HGi1TGEFIZ2AZV3nzmCGn30RyW29675vf+AQevbdxx2zVMdMqllIJcByXW7p6bhjJ3qeOM7tm5uZRzqbDYxVuqpEI40ABtyo1wHP9pPJJMZm3qvYX9nSitzrbwGcWZFZ6910k5FGQFnX4XBKz+DxSaSGhquO0fHIEXTt2s2NFwMeZYtGCgFOhUWV9tEx9E2erHms3DsXkGrJBMZ8CWdF4gUwhkK5HBi6UXrmA2M8kp1dGD31Kjeu23bwmoIghAsomya39Aw89iRadty+4TG7jj2Ozp13cuMlVZWmFAkV4HoeVjiLKK3929F/6rW6x87NfYhkOh0Y8yR6bC1MAAO4y4gJRUF++nxD46d6+zH8zHPcuH5zZ4VohAlQDQMWZ/Vq++FHkblrvOFjbHt6ElvH8ty4DLMiIQI83+fOerLdPRg4PRXasfLnPkAimQzOo0IJbBZCBPA2UymKgvzZWSARXlqpkRyGJp7ixlXThCWwFDVdgFbhD+5/6GFs2bs/9GP2vfAK2gb5N3Iid9c1VYDn+9wNtZmtHRiYOhvZscdmLyDBubIq5RU1Vd+SXMvSkpFXkvTW5CoK/hjoa83X2134jdhmhwQIhgQIJhX2gH8WVOx/87Oq7Ua62/DD1OGwD18zsuRJV4BgQr8CosT99Qrsbz6Be+0y/NLfUNItSPSNIr37IFoenECit/qijWzEQgBTS9DnX4Lz01e3fm+b8LQFeIsLML94H9nDJ5A9+jygxOfClj5TVi5CfePIupO/DteG+fE0tLmTAJNzB0QQcgtgDNrsCXhLv9fcxbn0OcyLcxEmFS5SC3B+/BLuL99vuJ958V34hb8iyCh8pBZgff1RfR1tE853n4abTERILcC7dqXuvu7CpRAziQ5pBTB1Gcyq/wml989SiNlEh7wCnAb39tvxeE1JWgGbBRIgGBIgmNgLUJJJ3HbgEAZ33SM6lbqIxbOgSqRaMki3tnG3pctO6AJGe9qxdG4i7GFDR5Y8Y1+C4g4JEEzsfwNc24KtqzBLRdGp1MWGBRQKxkhJi34rX2JFRXcN7Zjn4fq369cKXNfHb4vBL36ESSqZaGgZjkqQYEiAYEiAYEiAYEiAYEiAYEiAYEiAYEgAQRAEQRAEQRAEQRAEQTSJfwFhvBjemDrDOgAAAABJRU5ErkJggg=="/>
 </svg>
@@ -10,10 +10,83 @@
 <div>
 </div>
 <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <div class="input-group col-md-2">
+    <span class="input-group-text divNomGamme" id="NomGammeSpan">gamme</span>
+    <input type="text" id="NomGamme" class="form-control" placeholder="Nom Gamme" aria-label="NomGamme" aria-describedby="basic-addon1">
+  </div>
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="p-2 bd-highlight LibelleInput">
+
+       Type Isolation :
+      <select class="form-select" id="TypeIsolation">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="p-2 bd-highlight LibelleInput">
+        Finition Exterieur :
+      <select class="form-select" id="FinitionExterieur">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
 
 
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="p-2 bd-highlight LibelleInput">
+
+      Type Couverture :
+      <select class="form-select" id="TypeCouverture">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="p-2 bd-highlight LibelleInput">
+      Qualite Huisseries :
+      <select class="form-select" id="QualiteHuisseries">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="p-2 bd-highlight LibelleInput">
+      Conception Ossature :
+      <select class="form-select" id="ConceptionOssature">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
 
 
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  </div>
 
+</div>
 
 </body>

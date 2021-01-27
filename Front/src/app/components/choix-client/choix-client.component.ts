@@ -27,7 +27,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   isAddClientPageVisible:string = "false";
   @Output() addClientChangingState = new EventEmitter<string>();
 
-  constructor(private clientService: ClientService, private http: HttpClient) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit(): void { 
     this.clientService.getClients().pipe(

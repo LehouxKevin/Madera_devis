@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Client } from 'src/app/class/client';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-ajout-client',
@@ -7,6 +9,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./ajout-client.component.css']
 })
 export class AjoutClientComponent implements OnInit {
+
+  client:Client;
 
   nom:string = "";
   prenom:string = "";
@@ -22,7 +26,7 @@ export class AjoutClientComponent implements OnInit {
   isTelephoneValide:boolean=true;
   isMailValide:boolean=true;
 
-  constructor() { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +48,9 @@ export class AjoutClientComponent implements OnInit {
     if(this.isNomValide && this.isPrenomValide && this.isAdresseValide && this.isTelephoneValide && this.isMailValide)
     {
       console.log("Tout les champs sont correctement remplis");
+      this.client = new Client(this.nom,this.prenom,this.adresse,this.telephone,this.mail);
+      console.log(this.client);
+      this.clientService.addClient(this.client);
     }
     
   }

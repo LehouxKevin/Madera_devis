@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Client } from 'src/app/class/client';
 import { ClientService } from 'src/app/services/client.service';
@@ -26,12 +26,18 @@ export class AjoutClientComponent implements OnInit {
   isTelephoneValide:boolean=true;
   isMailValide:boolean=true;
 
+  isLoading:boolean = false;
+
+  @Output() addClientChangingState = new EventEmitter<string>();
+  
+
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(ajoutClient: NgForm) {
+  async onSubmit(ajoutClient: NgForm) {
+    this.isLoading = true;
     console.warn(ajoutClient.value);
     this.nom = ajoutClient.value.nom;
     this.prenom = ajoutClient.value.prenom;
@@ -50,7 +56,15 @@ export class AjoutClientComponent implements OnInit {
       console.log("Tout les champs sont correctement remplis");
       this.client = new Client(this.nom,this.prenom,this.adresse,this.telephone,this.mail);
       console.log(this.client);
-      this.clientService.addClient(this.client);
+      if(await this.clientService.addClient(this.client))
+      {
+        this.isLoading = false;
+        this.addClientChangingState.emit("false");
+      }
+      else { // afficher erreur
+        this.isLoading = false;
+        console.log("non");
+      }
     }
     
   }

@@ -19,6 +19,8 @@ export class ClientService {
   baseUrl = environment.baseUrlAPI;
   clientsApi = '/clients';
 
+  postId = 0;
+
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]>
@@ -33,10 +35,23 @@ export class ClientService {
 
   addClient(client:Client)
   {
-    this.http.post<Client>(this.baseUrl+this.clientsApi,client)
+    return this.http.post<Client>(this.baseUrl+this.clientsApi,client)
     .pipe(
       catchError(this.handleError)
-    ).subscribe();
+    ).toPromise().then(data => {
+        // Retourne true si client a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
+        if(data.id > 0)
+        {
+          console.log("passage true");
+          return true;
+        }
+        else {
+          console.log("passage false");
+          return false;
+        }
+    });
+
+    
   }
 
 

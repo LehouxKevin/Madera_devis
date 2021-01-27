@@ -36,6 +36,8 @@ import { ConsultationTypeModuleComponent } from './pages/bureau-etude/parametre/
 import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
 import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
+import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
+import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale
     OnlyNumberDirective,
     ProfilComponent,
     StatistiquesCommercialesComponent,
-    SynchronisationGlobaleComponent
+    SynchronisationGlobaleComponent,
+    ListeDevisComponent,
+    ListeFournisseursComponent
   ],
   imports: [
     BrowserModule,

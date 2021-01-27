@@ -10,6 +10,8 @@ import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultat
 import { ProfilComponent } from './pages/profil/profil.component';
 import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
+import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
+import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
 
 
 
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path : "consultation-gamme", component:ConsultationGammeComponent},
   { path : "profil", component:ProfilComponent},
   { path : "statistiques-commerciales", component:StatistiquesCommercialesComponent},
-  { path : "synchronisation-globale", component:SynchronisationGlobaleComponent}
+  { path : "synchronisation-globale", component:SynchronisationGlobaleComponent},
+  { path : "liste-devis", component:ListeDevisComponent},
+  { path : "liste-fournisseurs", component:ListeFournisseursComponent}
 ];
 
 @NgModule({

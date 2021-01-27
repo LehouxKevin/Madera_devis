@@ -1,0 +1,17 @@
+.listeFournisseurs {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    right: 5rem;
+    width: 70rem;
+    height: 100%;
+    background: #365064;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 12em;
+}
+
+.content {
+    padding-left: 8rem;
+    padding-right: 8rem;
+}

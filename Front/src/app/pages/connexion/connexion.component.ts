@@ -21,10 +21,13 @@ export class ConnexionComponent implements OnInit, OnDestroy {
     ).subscribe(
       utilisateur => this.utilisateurs = utilisateur
     );
+    // Ajout de la bordure gauche bleue claire sur l'icône de profil de la sidebar
     document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 5px";
   }
 
+  // S'exécute quand l'on change de page
   ngOnDestroy() {
+    // Suppression de la bordure gauche bleue claire sur l'icône de profil de la sidebar
     document.getElementById("icone_profil").style.borderLeft = "solid #BCE0FD 0px";
   }
   

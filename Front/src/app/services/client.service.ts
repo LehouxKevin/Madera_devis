@@ -19,8 +19,6 @@ export class ClientService {
   baseUrl = environment.baseUrlAPI;
   clientsApi = '/clients';
 
-  postId = 0;
-
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]>

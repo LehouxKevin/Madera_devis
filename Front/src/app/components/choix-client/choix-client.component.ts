@@ -24,12 +24,12 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public mailClient = "";
 
   // Etat de la visibilité du composant d'ajout de client
-  isAddClientPageVisible:string = "false";
+  isAddClientPageVisible:string = "addClientCacher";
   @Output() addClientChangingState = new EventEmitter<string>();
 
   constructor(private clientService: ClientService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void { // Mettre un loading + sync
     this.clientService.getClients().pipe(
       map(client => client['hydra:member'])
     ).subscribe(
@@ -65,7 +65,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
    * au parent pour qu'il affiche le bon composant et masque les autres
    */
   handleClickAddClient():void {
-    this.isAddClientPageVisible = "true";
+    this.isAddClientPageVisible = "addClientVisible";
     this.addClientChangingState.emit(this.isAddClientPageVisible);
   }
   

@@ -11,7 +11,7 @@ export class DevisComponent implements OnInit, AfterViewInit {
   isDevisPageVisible:boolean = false;
   isModalitePageVisible:boolean = false;
 
-  isAddClientPageVisible = "false";
+  isAddClientPageVisible = "addClientCacher";
 
   
   currentPage = "client";
@@ -38,11 +38,19 @@ export class DevisComponent implements OnInit, AfterViewInit {
   receiveAddClientVisibilityStateChanging($event) {
     this.isAddClientPageVisible = $event;
     console.log(this.isAddClientPageVisible);
-    if(this.isAddClientPageVisible == "true")
+    if(this.isAddClientPageVisible == "addClientVisible")
     {
       this.isDevisPageVisible = false;
       this.isClientPageVisible = false;
       this.isModalitePageVisible = false;
+    }
+    else {
+      if(this.isAddClientPageVisible == "addClientCacher")
+      {
+        this.isDevisPageVisible = false;
+        this.isClientPageVisible = true;
+        this.isModalitePageVisible = false;
+      }
     }
   }
 

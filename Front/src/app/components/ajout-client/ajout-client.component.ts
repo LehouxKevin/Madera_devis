@@ -37,7 +37,7 @@ export class AjoutClientComponent implements OnInit {
   }
 
   async onSubmit(ajoutClient: NgForm) {
-    this.isLoading = true;
+    
     console.warn(ajoutClient.value);
     this.nom = ajoutClient.value.nom;
     this.prenom = ajoutClient.value.prenom;
@@ -49,17 +49,18 @@ export class AjoutClientComponent implements OnInit {
     this.prenom.length <= 0 || this.prenom == null ? this.isPrenomValide = false : this.isPrenomValide = true;
     this.adresse.length <= 0 || this.adresse == null ? this.isAdresseValide = false : this.isAdresseValide = true;
     this.telephone.length <= 0 || this.telephone == null ? this.isTelephoneValide = false : this.isTelephoneValide = true;
-    this.mail.length <= 0 || this.mail == null ? this.isMailValide = false : this.isMailValide = true;
+    this.mail.length <= 0 || this.mail == null ? this.isMailValide = false : this.isMailValide = true; // and if mail contain @
 
     if(this.isNomValide && this.isPrenomValide && this.isAdresseValide && this.isTelephoneValide && this.isMailValide)
     {
+      this.isLoading = true;
       console.log("Tout les champs sont correctement remplis");
       this.client = new Client(this.nom,this.prenom,this.adresse,this.telephone,this.mail);
       console.log(this.client);
       if(await this.clientService.addClient(this.client))
       {
         this.isLoading = false;
-        this.addClientChangingState.emit("false");
+        this.addClientChangingState.emit("addClientCacher");
       }
       else { // afficher erreur
         this.isLoading = false;

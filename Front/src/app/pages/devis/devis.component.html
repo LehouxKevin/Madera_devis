@@ -2,9 +2,9 @@
     <div class="creationDevis col-md-12">
         <app-choix-client *ngIf="isClientPageVisible" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)"></app-choix-client>
         <app-creation-devis *ngIf="isDevisPageVisible"></app-creation-devis>
-        <app-ajout-client *ngIf="isAddClientPageVisible === 'true'"></app-ajout-client>
+        <app-ajout-client *ngIf="isAddClientPageVisible === 'addClientVisible'" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)"></app-ajout-client>
     </div>
-    <div class="col-md-4 offset-md-6 breadcrumbPerso" *ngIf="isAddClientPageVisible !== 'true'">
+    <div class="col-md-4 offset-md-6 breadcrumbPerso" *ngIf="isAddClientPageVisible !== 'addClientVisible'">
         <svg xmlns="http://www.w3.org/2000/svg" width="386" height="69" viewBox="0 0 386 69">
             <g id="Pagination" transform="translate(-551 -119)">
               <circle *ngIf="isClientPageVisible" id="grandCercleClient" data-name="Ellipse 279" cx="23" cy="23" r="23" transform="translate(551 119)" fill="#cfe8fb"/> <!-- Grand cercle Client-->

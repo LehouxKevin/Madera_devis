@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       document.getElementById('icone_statistiquesCommercial').remove();
       document.getElementById('icone_synchronisation').remove();
       document.getElementById('icone_listeGamme').remove();
-      document.getElementById('icone_listeFournisseur').remove();
+      document.getElementById('icone_listeFournisseurs').remove();
       document.getElementById('icone_listeParametres').remove();
     }
   }

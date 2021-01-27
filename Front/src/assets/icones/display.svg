@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="162" height="160" viewBox="0 0 162 160">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="38.1" height="59.4" fill="none"/>
+    </clipPath>
+  </defs>
+  <ellipse id="Ellipse_112" data-name="Ellipse 112" cx="81" cy="80" rx="81" ry="80" fill="#fff"/>
+  <g id="Forward_arrow_small" data-name="Forward arrow small" transform="translate(62 50)" clip-path="url(#clip-path)">
+    <path id="Tracé_36" data-name="Tracé 36" d="M29.7,38.1,0,8.744,8.847,0,29.7,20.611,50.553,0,59.4,8.744Z" transform="translate(0 59.4) rotate(-90)" fill="#365064"/>
+  </g>
+</svg>

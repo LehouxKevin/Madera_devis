@@ -1,0 +1,39 @@
+ .tableau {
+              position: absolute;
+              top: 0;
+           right: 74px;
+              overflow: hidden;
+              transition: all .3s ease-in;
+              width: 50em;
+              height: 100%;
+              background: #365064;
+              color: rgba(255, 255, 255, 0.7);
+              padding-top: 1em;
+              padding-right: 5em;
+              padding-left: 1em;
+      }
+.image_liste
+{
+
+width: 60px;
+    height:3em;
+    display: flex;
+    align-items: center;
+}
+
+
+.displayList
+{
+display: flex;
+text-align: center;
+align-items: center;
+justify-content: center;
+margin : 0;
+width: 5em;
+
+  right: 30%;
+}
+
+
+
+

@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +72,11 @@
       <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\bureau-etude\etage" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\bureau-etude\gamme" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\components\bureau-etude\gamme" />
+      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\app\pages\modules\gammes\consultation_gamme" />
       <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones" />
-      <recent name="C:\Users\justin\Documents\projet\pfr\Madera_devis\Front\src\assets\icones\Autres" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

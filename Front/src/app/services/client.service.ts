@@ -42,11 +42,9 @@ export class ClientService {
         // Retourne true si client a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
         if(data.id > 0)
         {
-          console.log("passage true");
           return true;
         }
         else {
-          console.log("passage false");
           return false;
         }
     });

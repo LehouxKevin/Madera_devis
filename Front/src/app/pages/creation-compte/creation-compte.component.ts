@@ -118,7 +118,6 @@ export class CreationCompteComponent implements OnInit {
                     this.user = new Utilisateur(this.nom, this.prenom, this.mail, this.mdp, this.typeUtilisateur);
                     if(await this.utilisateurService.addUtilisateur(this.user))
                     {
-                      console.log("Le compte de "+this.mail+" a été créé !");
                       this.router.navigateByUrl('/connexion');
                     }
                     else {

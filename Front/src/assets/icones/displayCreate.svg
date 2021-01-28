@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162" height="160" viewBox="0 0 162 160">
+  <g id="Groupe_185" data-name="Groupe 185" transform="translate(-441 -620)">
+    <g id="Ellipse_281" data-name="Ellipse 281" transform="translate(441 620)" fill="#fff" stroke="#365064" stroke-width="1">
+      <ellipse cx="81" cy="80" rx="81" ry="80" stroke="none"/>
+      <ellipse cx="81" cy="80" rx="80.5" ry="79.5" fill="none"/>
+    </g>
+    <g id="Cancel" transform="translate(521.467 651.863) rotate(45)">
+      <path id="Union_3" data-name="Union 3" d="M34.277,39.329,6.233,66.555,0,60.505,28.045,33.278,0,6.051,6.231,0,34.278,27.227,62.323,0l6.233,6.05L40.51,33.278,68.556,60.505l-6.233,6.051Z" fill="#365064"/>
+    </g>
+  </g>
+</svg>

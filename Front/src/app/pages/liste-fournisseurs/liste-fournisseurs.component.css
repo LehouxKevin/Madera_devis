@@ -8,10 +8,75 @@
     height: 100%;
     background: #365064;
     color: rgba(255, 255, 255, 0.7);
-    padding-top: 12em;
+    padding-top: 2em;
+    /*tester*/
+    overflow: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+
+.listeFournisseurs::-webkit-scrollbar {
+    display: none;
 }
 
 .content {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+#displayCreate {
+    display: none;
+}
+
+.table td {
+    vertical-align: 0 !important;
+}
+
+.title-tab {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.titre {
+    margin-bottom: 20px;
+}
+
+.data-col {
+    text-align: center;
+    border-color: #dee2e6;
+}
+
+.lien-icone-action {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icone-consulter {
+    width: 12%;
+}
+
+.icone-modifier {
+    width: 14%;
+}
+
+.icone-supprimer {
+    width: 10%;
+}
+
+.bouton-creer {
+    position: fixed;
+    right: 0;
+    bottom: 130px;
+    left: 0;
+    z-index: 1030;
+    height: 120px;
+}
+
+.bouton-creer:focus {
+    outline: none;
+}
+
+.errorMessage {
+    color: #F56A6A;
+    display: none;
 }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162" height="160" viewBox="0 0 162 160">
+  <g id="Groupe_313" data-name="Groupe 313" transform="translate(-807 -505)">
+    <g id="Groupe_312" data-name="Groupe 312" transform="translate(366 -115)">
+      <g id="Ellipse_281" data-name="Ellipse 281" transform="translate(441 620)" fill="#fff" stroke="#365064" stroke-width="1">
+        <ellipse cx="81" cy="80" rx="81" ry="80" stroke="none"/>
+        <ellipse cx="81" cy="80" rx="80.5" ry="79.5" fill="none"/>
+      </g>
+    </g>
+    <g id="list" transform="translate(849.903 548.889)">
+      <path id="Tracé_290" data-name="Tracé 290" d="M68.673,53.5H17.722a3.8,3.8,0,1,1,0-7.6h50.95a3.8,3.8,0,0,1,0,7.6Z" transform="translate(3.721 10.281)" fill="#365064"/>
+      <path id="Tracé_291" data-name="Tracé 291" d="M68.673,34.666H17.722a3.8,3.8,0,1,1,0-7.6h50.95a3.8,3.8,0,0,1,0,7.6Z" transform="translate(3.721 5.247)" fill="#365064"/>
+      <path id="Tracé_292" data-name="Tracé 292" d="M68.673,15.835H17.722a3.8,3.8,0,1,1,0-7.6h50.95a3.8,3.8,0,0,1,0,7.6Z" transform="translate(3.721 0.213)" fill="#365064"/>
+      <circle id="Ellipse_282" data-name="Ellipse 282" cx="5.106" cy="5.106" r="5.106" transform="translate(0 7.434)" fill="#365064"/>
+      <circle id="Ellipse_283" data-name="Ellipse 283" cx="5.106" cy="5.106" r="5.106" transform="translate(0 31.005)" fill="#365064"/>
+      <circle id="Ellipse_284" data-name="Ellipse 284" cx="5.106" cy="5.106" r="5.106" transform="translate(0 54.576)" fill="#365064"/>
+    </g>
+  </g>
+</svg>

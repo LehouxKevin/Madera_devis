@@ -16,6 +16,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public clients:Client[] = [];
   public infosClient;
 
+  public texteClient = "Selectionnez un client";
   // Définition des variables des champs de la fiche client
   public prenomClient = "";
   public nomClient = "";
@@ -52,6 +53,8 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     var idBdd = value.substring(8);
     console.log(idBdd);
     console.log(identiteClientSelectionnee);
+
+    this.texteClient = event.srcElement.text;
 
     this.infosClient  = await this.clientService.getOneClientById(idBdd);
     console.log(this.infosClient);

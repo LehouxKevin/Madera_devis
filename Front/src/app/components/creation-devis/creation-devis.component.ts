@@ -11,6 +11,9 @@ export class CreationDevisComponent implements OnInit {
 
   public gammes:Gamme[] = [];
 
+  texteGamme = "";
+  idGammeSelectionnee = 0;
+
   isLoading = false;
 
   constructor(private gammeService: GammeService) { }
@@ -26,6 +29,18 @@ export class CreationDevisComponent implements OnInit {
     this.gammes = await this.gammeService.syncGetGammes();
     console.log(this.gammes);
 
+  }
+
+  handleChoixGamme(event)
+  {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    this.texteGamme = event.srcElement.text;
+    this.idGammeSelectionnee = value.substring(7);
+    console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
+  
   }
 
 }

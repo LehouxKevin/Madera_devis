@@ -18,5 +18,20 @@ body {
 
 
 .LibelleInput{
+position : relative;
  color: #2699FB;
 }
+
+.BoutonListeActuel
+{
+  color: var(--white);
+  background: #2699FB;
+}
+.BoutonListe
+ {
+ background:#FFFFFF;
+ }
+.Liste
+ {
+ background:#FFFFFF;
+ }

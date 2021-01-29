@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     overflow: hidden;
+     z-index:100;
     transition: all .3s ease-in;
     right: 5rem;
     width: 70rem;

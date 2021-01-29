@@ -6,6 +6,8 @@ import { FinitionExterieur } from 'src/app/class/finition-exterieur';
 import { QualiteHuisseries } from 'src/app/class/qualite-huisseries';
 import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
+import { Module } from 'src/app/class/Module';
+import { Modele } from 'src/app/class/Modele';
 
 import { environment } from 'src/environments/environment';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
@@ -13,6 +15,8 @@ import { FinitionExterieurService } from 'src/app/services/finition-exterieur.se
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
 import { TypeCouvertureService } from 'src/app/services/type-couverture.service';
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
+import { ModuleService } from 'src/app/services/module.service';
+import { ModeleService } from 'src/app/services/modele.service';
 
 import { map } from 'rxjs/operators';
 import {  Input } from '@angular/core';
@@ -29,6 +33,8 @@ export class CreationGammeComponent implements OnInit {
   public QualiteHuisseries:QualiteHuisseries[] = [];
   public TypeCouvertures:TypeCouverture[] = [];
   public TypeIsolations:TypeIsolation[] = [];
+  public ModuleServices:ModuleService[] = [];
+  public ModuleServices:ModuleService[] = [];
 
 
 Displaylistemodele:boolean = true;
@@ -36,6 +42,7 @@ DisplaylisteGamme = false;
 
   constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
   private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
+  private moduleService: ModuleService ,private modeleService: ModeleService,
    private typeIsolationService: TypeIsolationService,   private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -69,6 +76,16 @@ DisplaylisteGamme = false;
                                  ).subscribe(
                                    TypeIsolation => this.TypeIsolations = TypeIsolation
                                  );
+  this.modeleService.getModeles().pipe(
+                                    map(Modele => Modele['hydra:member'])
+                                  ).subscribe(
+                                    Modele => this.Modeles = Modele
+                                  );
+  this.moduleService.getModules().pipe(
+                                    map(Module => Module['hydra:member'])
+                                  ).subscribe(
+                                    Module => this.Modules = Module
+                                  );
   }
 
 

@@ -18,6 +18,7 @@ body {
 
 
 .LibelleInput{
+position : relative;
  color: #2699FB;
 }
 
@@ -34,3 +35,25 @@ body {
  {
  background:#FFFFFF;
  }
+
+
+.tableauModuleModele
+ {
+  vertical-align: 0 !important;
+ color: var(--white);
+ background:#365064;
+ }
+.tableauModuleModeleDiv
+ {
+  vertical-align: 0 !important;
+ }
+
+.BoutonAjout
+{
+background:none;
+border-width: 0em;
+}
+.icone-barrePlus
+{
+width:100%;
+}

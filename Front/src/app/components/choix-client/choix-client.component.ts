@@ -23,9 +23,12 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public telephoneClient = "";
   public mailClient = "";
 
+  //isAClientSelected = false;
+
   // Etat de la visibilité du composant d'ajout de client
   isAddClientPageVisible:string = "addClientCacher";
   @Output() addClientChangingState = new EventEmitter<string>();
+  @Output() isAClientSelectedChangingState = new EventEmitter<string>();
 
   constructor(private clientService: ClientService) { }
 
@@ -57,6 +60,9 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     this.adresseClient = this.infosClient.adresse;
     this.telephoneClient = this.infosClient.telephone;
     this.mailClient = this.infosClient.mail;
+
+    //this.isAClientSelected = true;
+    this.isAClientSelectedChangingState.emit("AClientIsSelected");
 
   }
 

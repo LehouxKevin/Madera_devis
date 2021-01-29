@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Gamme } from '../class/Gamme';
 import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 })
 export class GammeService {
 
- baseUrl = environment.baseUrlAPI;
+  baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
 constructor(private http: HttpClient) { }
 
@@ -23,4 +23,28 @@ constructor(private http: HttpClient) { }
     return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi+"/"+id);
   }
 
+  syncGetGammes()
+  {
+    return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi)
+    .pipe(
+        map(gamme => gamme['hydra:member']),
+        catchError(this.handleError.bind(this))
+    ).toPromise();
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      'Something bad happened; please try again later.');
+  }
 }

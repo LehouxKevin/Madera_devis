@@ -1,1 +1,19 @@
-<p>creation-devis works!</p>
+<div class="col-md-12 containerGlobalCreationDevis">
+    <div class="row containerChoixGamme col-md-12">
+        <div class="col-md-4 offset-md-1">
+            <div class="col-md-12">
+                <div class="dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+
+                        <div class="col-md-2 divSVGfleche">
+                            Gamme                                    
+                        </div>
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes" (click)="handleChoixGamme($event)">{{gamme.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading" *ngIf="isLoading" >Loading&#8230;</div>
+</div>

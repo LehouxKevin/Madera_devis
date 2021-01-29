@@ -38,6 +38,10 @@ import { StatistiquesCommercialesComponent } from './pages/statistiques-commerci
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
 import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
+import { CreationGammeComponent } from './pages/bureau-etude/gamme/creation-gamme/creation-gamme.component';
+import { ListeGammePageComponent } from './pages/bureau-etude/gamme/liste-gamme-page/liste-gamme-page.component';
+import { ListeModeleComponent } from './components/bureau-etude/modele/liste-modele/liste-modele.component';
+import { ListeModuleComponent } from './components/bureau-etude/module/liste-module/liste-module.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,6 @@ import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fou
     ConsultationTypeIsolationComponent,
     ConsultationTypeModuleComponent,
     ListeGammeComponent,
-    ListeGammeComponent,
     ConsultationGammeComponent,
     CreationDevisComponent,
     AjoutClientComponent,
@@ -74,7 +77,12 @@ import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fou
     StatistiquesCommercialesComponent,
     SynchronisationGlobaleComponent,
     ListeDevisComponent,
-    ListeFournisseursComponent
+    ListeFournisseursComponent,
+    CreationGammeComponent,
+    ListeGammePageComponent,
+    ListeModeleComponent,
+    ListeModuleComponent
+
   ],
   imports: [
     BrowserModule,

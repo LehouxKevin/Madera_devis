@@ -5,16 +5,19 @@ import { Gamme } from 'src/app/class/Gamme';
 import { environment } from 'src/environments/environment';
 import { GammeService } from 'src/app/services/gamme.service';
 import { map } from 'rxjs/operators';
-import * as $ from 'jquery';
+import {  Input } from '@angular/core';
+
+
 @Component({
   selector: 'app-liste-gamme',
   templateUrl: './liste-gamme.component.html',
-  styleUrls: ['./liste-gamme.component.css']
+  styleUrls: ['./liste-gamme.component.css'],
 })
+
 export class ListeGammeComponent implements OnInit {
     public gammes:Gamme[] = [];
     public libellegamme = "";
-
+    @Input() AfficherListe: boolean= true;
 
 Displayliste:boolean = true;
 
@@ -28,6 +31,10 @@ Displayliste:boolean = true;
         gamme => this.gammes = gamme
       );
 
+ if(this.AfficherListe==false)
+  {
+     this.Displayliste =  false;
+  }
 
 
   }

@@ -1,0 +1,36 @@
+body {
+    background-image: none !important;
+        width: 100%;
+        height: 100%;
+
+}
+.divbody
+{
+  margin-left: 5rem;
+  margin-right: 10rem;
+}
+.divNomGamme {
+
+  color: var(--white);
+
+  background: #2699FB;
+}
+
+
+.LibelleInput{
+ color: #2699FB;
+}
+
+.BoutonListeActuel
+{
+  color: var(--white);
+  background: #2699FB;
+}
+.BoutonListe
+ {
+ background:#FFFFFF;
+ }
+.Liste
+ {
+ background:#FFFFFF;
+ }

@@ -12,6 +12,8 @@ import { StatistiquesCommercialesComponent } from './pages/statistiques-commerci
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
 import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
+import { CreationGammeComponent } from './pages/bureau-etude/gamme/creation-gamme/creation-gamme.component';
+import { ListeGammePageComponent } from './pages/bureau-etude/gamme/liste-gamme-page/liste-gamme-page.component';
 
 
 
@@ -24,11 +26,14 @@ const routes: Routes = [
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
   { path : "consultation-gamme", component:ConsultationGammeComponent},
+   { path : "Creation-Gamme", component:CreationGammeComponent},
+   { path : "liste-Gamme", component:ListeGammePageComponent},
   { path : "profil", component:ProfilComponent},
   { path : "statistiques-commerciales", component:StatistiquesCommercialesComponent},
   { path : "synchronisation-globale", component:SynchronisationGlobaleComponent},
   { path : "liste-devis", component:ListeDevisComponent},
   { path : "liste-fournisseurs", component:ListeFournisseursComponent}
+
 ];
 
 @NgModule({

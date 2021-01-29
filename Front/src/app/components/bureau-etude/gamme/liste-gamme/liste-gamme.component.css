@@ -1,17 +1,22 @@
  .tableau {
-              position: absolute;
-              top: 0;
-               right: 74px;
-              overflow: hidden;
-              transition: all .3s ease-in;
-              width: 70em;
-              height: 100%;
-              background: #365064;
-              color: rgba(255, 255, 255, 0.7);
-              padding-top: 1em;
-              padding-right: 5em;
-              padding-left: 1em;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    right: 5rem;
+    width: 70rem;
+    height: 100%;
+    background: #365064;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 2em;
+    /*tester*/
+    overflow: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 
+      }
+      .tableau::-webkit-scrollbar {
+          display: none;
       }
 .image_liste
 {
@@ -43,10 +48,23 @@ background:#2699FB;
 
 #displaydiv
 {
-
-    position: fixed;
+position: -webkit-sticky!important;
+position: sticky!important;
     bottom: 1rem;
     left: 1rem;
+
+    border: 1px solid #365064;
+    border-radius: 95%;
+}
+#boutonCreationGamme
+{
+position: -webkit-sticky!important;
+position: sticky!important;
+    bottom: 1rem;
+    left: 7rem;
+width: 5em;
+    border: 1px solid #365064;
+    border-radius: 95%;
 }
 
 
@@ -56,4 +74,33 @@ background:#2699FB;
     position: fixed;
     bottom: 1rem;
     right: 6rem;
+      border: 1px solid #365064;
+      border-radius: 95%;
+}
+.lien-icone-action {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icone-consulter {
+    width: 12%;
+}
+
+.icone-modifier {
+    width: 14%;
+}
+
+.icone-supprimer {
+    width: 10%;
+}.data-col {
+     text-align: center;
+     border-color: #dee2e6;
+ }
+.table td {
+    vertical-align: 0 !important;
+}
+
+.title-tab {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
 }

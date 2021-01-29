@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Gamme } from '../class/Gamme';
 import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })

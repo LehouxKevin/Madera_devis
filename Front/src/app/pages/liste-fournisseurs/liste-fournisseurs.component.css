@@ -28,6 +28,10 @@
     display: none;
 }
 
+#displayUpdate {
+    display: none;
+}
+
 .table td {
     vertical-align: 0 !important;
 }
@@ -39,6 +43,12 @@
 
 .titre {
     margin-bottom: 20px;
+}
+
+#titrefournisseur {
+    margin-left: 10px;
+    color: #007bff;
+    display: none;
 }
 
 .data-col {
@@ -79,4 +89,40 @@
 .errorMessage {
     color: #F56A6A;
     display: none;
+}
+
+.deleteWindow {
+    width: 34%;
+    margin-left: 2%;
+    background: white;
+    border: solid #007bff 2px;
+    position: fixed;
+    bottom: 22%;
+    padding: 40px;
+    display: none;
+}
+
+.gray-madera {
+    color: #365064;
+}
+
+.fournisseurDelete {
+    margin-left: 5px;
+    color: #007bff !important;
+}
+
+.btn-deleteWindow {
+    width: 49%;
+    padding: 18px;
+    font-size: 20px;
+}
+
+.btn-annuler {
+    margin-right: 7px;
+}
+
+.btn-supprimer {
+    background-color: white !important;
+    border-color: #0069d9 !important;
+    color: #0069d9;
 }

@@ -1,7 +1,7 @@
 <div id="listeFournisseurs" class="listeFournisseurs flex">
     <div id="content" class="content">
         <div class="d-flex justify-content-center titre">
-            <h2 id="grand-titre">Liste des fournisseurs</h2>
+            <h2 id="grand-titre">Liste des fournisseurs</h2><h2 id="titrefournisseur">Fournisseur</h2>
         </div>
         <div id="displayList">
             <table class="table  table-hover  justify-content-center text-center">
@@ -19,13 +19,13 @@
                         <td class="data-col">{{fournisseur.telephone}}</td>
                         <td class="data-col">{{fournisseur.email}}</td>
                         <td class="data-col actions">
-                            <a class="lien-icone-action" routerLink="/">
+                            <a class="lien-icone-action" (click)="consulterFounisseur(fournisseur.id)">
                                 <img class="icone-consulter" src="assets\icones\consultation.svg">
                             </a>
-                            <a class="lien-icone-action" routerLink="/">
+                            <a class="lien-icone-action" (click)="modifierFournisseur(fournisseur.id)">
                                 <img class="icone-modifier" src="assets\icones\plume.svg">
                             </a>
-                            <a class="lien-icone-action" routerLink="/">
+                            <a class="lien-icone-action" (click)="supprimerFounisseur(fournisseur.id)">
                                 <img class="icone-supprimer" src="assets\icones\croix.svg">
                             </a>
                         </td>
@@ -34,7 +34,7 @@
             </table>
         </div>
         <div id="displayCreate">
-            <form #creationFournisseurForm="ngForm" (ngSubmit)="onSubmit(creationFournisseurForm)" class="flex">
+            <form #creationFournisseurForm="ngForm" (ngSubmit)="onSubmit(creationFournisseurForm, true)" class="flex">
                 <div class="d-flex justify-content-center">
                     <p class="">Pour créer un fournisseur, veuillez renseigner l'intégralité des informations demandées</p>
                 </div>
@@ -56,6 +56,41 @@
                 <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Créer ce fournisseur</button></div>
             </form>
         </div>
+        <div id="displayUpdate">
+            <form #modificationFournisseurForm="ngForm" (ngSubmit)="onSubmit(modificationFournisseurForm, false)" class="flex">
+                <div class="d-flex justify-content-center">
+                    <p class="">Remplissez seulement les champs que vous souhaitez modifier et cliquer sur modifier</p>
+                </div>
+                <div class="form-group">
+                    <label for="Nom">Nom de l'entreprise</label>
+                    <input type="text" ngModel #nom="ngModel" class="form-control" name="nom" id="nomUpdate" placeholder="Entrez le nom de l'entreprise" required>
+                    <small id="nomUpdateError" class="form-text errorMessage">nomError</small>
+                </div>
+                <div class="form-group">
+                    <label for="Telephone">Téléphone de l'entreprise</label>
+                    <input type="text" ngModel #telephone="ngModel" class="form-control" name="telephone" id="telephoneUpdate" placeholder="Entrez un numéro de téléphone" required>
+                    <small id="telephoneUpdateError" class="form-text errorMessage">telephoneError</small>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="Email">E-mail de l'entreprise</label>
+                    <input type="email" ngModel #email="ngModel" class="form-control" name="email" id="emailUpdate" aria-describedby="emailHelp" placeholder="Entrez une adresse mail" required>
+                    <small id="emailUpdateError" class="form-text errorMessage">emailError</small>
+                </div>
+                <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Modifier</button></div>
+            </form>
+        </div>
     </div>
     <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFournisseur()">
+</div>
+<div id="deleteWindow" class="flex deleteWindow w-20">
+    <div class="d-flex justify-content-center gray-madera">
+        <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+    </div>
+    <div class="d-flex justify-content-center mb-2 gray-madera">
+        <h2 class="align-content-center">le founisseur :</h2><h2 id="fournisseurDelete" class="fournisseurDelete">MADERA</h2><h2 class="ml-2">?</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionFounisseur()">Annuler</button>
+        <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer" (click)="confirmerSuppressionFounisseur()">Supprimer</button>
+    </div>
 </div>

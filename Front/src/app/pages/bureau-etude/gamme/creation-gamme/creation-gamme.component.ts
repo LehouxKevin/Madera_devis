@@ -33,8 +33,8 @@ export class CreationGammeComponent implements OnInit {
   public QualiteHuisseries:QualiteHuisseries[] = [];
   public TypeCouvertures:TypeCouverture[] = [];
   public TypeIsolations:TypeIsolation[] = [];
-  public Module:Module[] = [];
-  public Modele:Modele[] = [];
+  public Modules:Module[] = [];
+  public Modeles:Modele[] = [];
 
 
 Displaylistemodele:boolean = true;

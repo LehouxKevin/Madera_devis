@@ -107,22 +107,38 @@
 
     </div>
     <br>
-    <table class="table">
-      <thead class="thead-light">
+
+    <table class="table ">
+
+      <tbody class="tableauModuleModele">
       <tr>
-        <th scope="col">Modèle</th>
-        <th scope="col">Nb etage</th>
-        <th scope="col">Action</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>  <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="Listemodeles">modèles :</label>
+          </div>
+          <select class="custom-select" id="Listemodeles">
+            <option selected>Choose...</option>
+            <option value="{{Modele.libelle}}"  *ngFor="let Modele of Modeles" >{{Modele.libelle}}</option>
+
+          </select>
+        </div></td>
+        <td><div class="input-group mb-3 tableauModuleModeleDiv">
+          <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
+          <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage">
+        </div></td>
+
+        <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+          <img class="icone-modifier" src="assets\icones\plume.svg">
+        </a>
+          <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+            <img class="icone-supprimer" src="assets\icones\croix.svg">
+          </a></td>
       </tr>
       </tbody>
     </table>
+    <button type="button" class="BoutonAjout">
+      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg">
+    </button>
   </ng-template>
   <ng-template #elseBlock>
 
@@ -133,28 +149,50 @@
       <div class="p-2 bd-highlight">
         <button type="button" class="btn btn- BoutonListeActuel" >modules</button>
       </div>
+
+
+
+
+
     </div>
         <br>
 
-    <table class="table">
-      <thead class="thead-light">
+    <table class="table ">
+
+      <tbody class="tableauModuleModele">
       <tr>
-        <th scope="col">Module</th>
-        <th scope="col">Nb etage</th>
-        <th scope="col">Action</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>  <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="ListeModule">modules :</label>
+          </div>
+          <select class="custom-select" id="ListeModule">
+            <option selected>Choose...</option>
+            <option value="{{Module.libelle}}"  *ngFor="let Module of Modules" >{{Module.libelle}}</option>
+
+          </select>
+        </div></td>
+        <td><div class="input-group mb-3 tableauModuleModeleDiv">
+          <span class="input-group-text" id="Quantité">Quantité</span>
+          <input type="text" class="form-control" placeholder="Quantité" aria-label="Quantité" aria-describedby="Quantité">
+        </div></td>
+        <td><div class="input-group mb-3 tableauModuleModeleDiv">
+          <span class="input-group-text" id="Prix">Prix</span>
+          <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix">
+        </div></td>
+        <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+          <img class="icone-modifier" src="assets\icones\plume.svg">
+        </a>
+          <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+            <img class="icone-supprimer" src="assets\icones\croix.svg">
+          </a></td>
       </tr>
       </tbody>
+
     </table>
 
-
-
+    <button type="button" class="BoutonAjout">
+      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg">
+    </button>
 
   </ng-template>
   <div class="d-flex justify-content-end flex-row bd-highlight mb-3">

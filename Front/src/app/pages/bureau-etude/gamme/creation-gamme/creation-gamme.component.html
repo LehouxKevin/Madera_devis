@@ -9,9 +9,10 @@
   <div>
   </div>
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <form #ajoutGamme="ngForm" (ngSubmit)="onSubmit(ajoutGamme)">
   <div class="input-group col-md-2">
     <span class="input-group-text divNomGamme" id="NomGammeSpan">gamme</span>
-    <input type="text" id="NomGamme" class="form-control" placeholder="Nom Gamme" aria-label="NomGamme" aria-describedby="basic-addon1">
+    <input type="text" id="NomGamme" class="form-control" placeholder="Nom Gamme" aria-label="NomGamme" aria-describedby="basic-addon1" ngModel #NomGammeChamps="ngModel" name="NomGammeChamps">
   </div>
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
 
@@ -23,9 +24,9 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="TypeIsolation">Type Isolation :</label>
         </div>
-        <select class="custom-select" id="TypeIsolation">
+        <select class="custom-select" id="TypeIsolation" ngModel #TypeIsolationChamps="ngModel" name="TypeIsolationChamps">
           <option selected>Choose...</option>
-          <option value="{{TypeIsolation.libelle}}"  *ngFor="let TypeIsolation of TypeIsolations" >{{TypeIsolation.libelle}}</option>
+          <option value="{{TypeIsolation.id}}"  *ngFor="let TypeIsolation of TypeIsolations" >{{TypeIsolation.libelle}}</option>
 
         </select>
       </div>
@@ -38,9 +39,9 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="FinitionExterieur">Finition Exterieur :</label>
         </div>
-        <select class="custom-select" id="FinitionExterieur">
+        <select class="custom-select" id="FinitionExterieur" ngModel #FinitionExterieurChamps="ngModel" name="FinitionExterieurChamps">
           <option selected>Choose...</option>
-          <option value="{{FinitionExterieur.libelle}}"  *ngFor="let FinitionExterieur of FinitionExterieurs" >{{FinitionExterieur.libelle}}</option>
+          <option value="{{FinitionExterieur.id}}"  *ngFor="let FinitionExterieur of FinitionExterieurs" >{{FinitionExterieur.libelle}}</option>
         </select>
       </div>
     </div>
@@ -56,9 +57,9 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="TypeCouverture" > Type Couverture :</label>
         </div>
-        <select class="custom-select" id="TypeCouverture">
+        <select class="custom-select" id="TypeCouverture" ngModel #TypeCouvertureChamps="ngModel" name="TypeCouvertureChamps">
           <option selected>Choose...</option>
-          <option value="{{TypeCouverture.libelle}}"  *ngFor="let TypeCouverture of TypeCouvertures" >{{TypeCouverture.libelle}}</option>
+          <option value="{{TypeCouverture.id}}"  *ngFor="let TypeCouverture of TypeCouvertures" >{{TypeCouverture.libelle}}</option>
         </select>
       </div>
 
@@ -68,9 +69,9 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="QualiteHuisseries">Qualite Huisseries :</label>
         </div>
-        <select class="custom-select" id="QualiteHuisseries">
+        <select class="custom-select" id="QualiteHuisseries" ngModel #QualiteHuisseriesChamps="ngModel" name="QualiteHuisseriesChamps">
           <option selected>Choose...</option>
-          <option value="{{QualiteHuisserie.libelle}}"  *ngFor="let QualiteHuisserie of QualiteHuisseries" >{{QualiteHuisserie.libelle}}</option>
+          <option value="{{QualiteHuisserie.id}}"  *ngFor="let QualiteHuisserie of QualiteHuisseries" >{{QualiteHuisserie.libelle}}</option>
         </select>
       </div>
     </div>
@@ -84,9 +85,9 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="ConceptionOssature">Conception Ossature :</label>
         </div>
-        <select class="custom-select" id="ConceptionOssature">
+        <select class="custom-select" id="ConceptionOssature" ngModel #ConceptionOssatureChamps="ngModel" name="ConceptionOssatureChamps">
           <option selected>Choose...</option>
-          <option value="{{conceptionOssature.libelle}}"  *ngFor="let conceptionOssature of conceptionOssatures" >{{conceptionOssature.libelle}}</option>
+          <option value="{{conceptionOssature.id}}"  *ngFor="let conceptionOssature of conceptionOssatures" >{{conceptionOssature.libelle}}</option>
         </select>
       </div>
     </div>
@@ -111,7 +112,7 @@
     <table class="table ">
 
       <tbody class="tableauModuleModele">
-      <tr>
+      <tr id="LigneModeleFormulaire{{ModelesFormulaire.id}}" *ngFor="let ModelesFormulaire of ModelesFormulaires">
         <td>  <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="Listemodeles">modèles :</label>
@@ -137,7 +138,7 @@
       </tbody>
     </table>
     <button type="button" class="BoutonAjout">
-      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg">
+      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModele()">
     </button>
   </ng-template>
   <ng-template #elseBlock>
@@ -160,7 +161,7 @@
     <table class="table ">
 
       <tbody class="tableauModuleModele">
-      <tr>
+      <tr id="LigneModuleFormulaire{{ModulesFormulaire.id}}" *ngFor="let ModulesFormulaire of ModulesFormulaires">
         <td>  <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="ListeModule">modules :</label>
@@ -191,16 +192,18 @@
     </table>
 
     <button type="button" class="BoutonAjout">
-      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg">
+      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModule()">
     </button>
 
   </ng-template>
   <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
 
-    <div class="p-2 bd-highlight">  <button type="button" class="btn btn-primary">Enregistrer</button></div>
+    <div class="p-2 bd-highlight">
+      <input type="submit" class="btn btn-primary" value="Enregistrer" />
+  </div>
   </div>
 
-
+  </form>
 </div>
 
 </body>

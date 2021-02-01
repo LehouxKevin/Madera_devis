@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/class/gamme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/gamme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bureau-etude/gamme/liste-gamme/liste-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/gamme.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/gamme.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

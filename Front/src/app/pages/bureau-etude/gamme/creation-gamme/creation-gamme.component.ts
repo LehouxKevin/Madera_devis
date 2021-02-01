@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild,EventEmitter, Output  } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
@@ -8,6 +8,8 @@ import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
 import { Module } from 'src/app/class/Module';
 import { Modele } from 'src/app/class/Modele';
+import { NgForm } from '@angular/forms';
+import { Gamme } from 'src/app/class/Gamme';
 
 import { environment } from 'src/environments/environment';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
@@ -17,6 +19,7 @@ import { TypeCouvertureService } from 'src/app/services/type-couverture.service'
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
 import { ModuleService } from 'src/app/services/module.service';
 import { ModeleService } from 'src/app/services/modele.service';
+import { GammeService } from 'src/app/services/gamme.service';
 
 import { map } from 'rxjs/operators';
 import {  Input } from '@angular/core';
@@ -35,6 +38,20 @@ export class CreationGammeComponent implements OnInit {
   public TypeIsolations:TypeIsolation[] = [];
   public Modules:Module[] = [];
   public Modeles:Modele[] = [];
+  public ModulesFormulaires:Module[] = [];
+  public ModelesFormulaires:Modele[] = [];
+
+  public NomGammeChamps: string;
+ public FinitionExterieurChamps :number;
+  public TypeIsolationChamps  :number;
+ public TypeCouvertureChamps  :number;
+ public QualiteHuisseriesChamps  :number;
+ public ConceptionOssatureChamps  :number;
+
+  public gamme:Gamme;
+
+
+  @Output() addGammeChangingState = new EventEmitter<string>();
 
 
 Displaylistemodele:boolean = true;
@@ -42,7 +59,7 @@ DisplaylisteGamme = false;
 
   constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
   private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
-  private moduleService: ModuleService ,private modeleService: ModeleService,
+  private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
    private typeIsolationService: TypeIsolationService,   private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -86,7 +103,54 @@ DisplaylisteGamme = false;
                                   ).subscribe(
                                     Module => this.Modules = Module
                                   );
+
+                                  this.ModulesFormulaires.push( new Module);
+                                   this.ModelesFormulaires.push(new  Modele);
+
   }
+
+ async onSubmit(ajoutGamme: NgForm) {
+
+
+
+  this.NomGammeChamps=ajoutGamme.value.NomGammeChamps;
+ this.FinitionExterieurChamps =ajoutGamme.value.FinitionExterieurChamps;
+  this.TypeIsolationChamps =ajoutGamme.value.TypeIsolationChamps;
+ this.TypeCouvertureChamps  =ajoutGamme.value.TypeCouvertureChamps;
+ this.QualiteHuisseriesChamps  =ajoutGamme.value.QualiteHuisseriesChamps;
+ this.ConceptionOssatureChamps  =ajoutGamme.value.ConceptionOssatureChamps;
+
+console.log(this.NomGammeChamps+this.FinitionExterieurChamps+this.TypeIsolationChamps
+            +this.TypeCouvertureChamps+ this.QualiteHuisseriesChamps+
+            this.ConceptionOssatureChamps);
+
+
+this.gamme=new Gamme(this.NomGammeChamps,this.FinitionExterieurChamps,this.TypeIsolationChamps
+,this.TypeCouvertureChamps, this.QualiteHuisseriesChamps,this.ConceptionOssatureChamps
+
+);
+     if(await this.gammeService.addGamme(this.gamme))
+      {
+        this.addGammeChangingState.emit("addGammeCacher");
+      }
+      else { // afficher erreur
+        console.log("non");
+      }
+
+  }
+
+
+AjoutModule():void {
+
+this.ModulesFormulaires.push( new  Module)
+console.log("test");
+
+    }
+AjoutModele():void {
+
+this.ModelesFormulaires.push(new  Modele)
+console.log("test");
+    }
 
 
 handleListeGamme():void {
@@ -102,6 +166,19 @@ if(this.Displaylistemodele == true)
   this.Displaylistemodele =  true;
 
   }}
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
   }
 

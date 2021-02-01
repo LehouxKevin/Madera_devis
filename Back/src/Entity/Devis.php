@@ -58,6 +58,16 @@ class Devis
      */
     private $modele;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $statut;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=EtatAvancement::class)
+     */
+    private $etatAvancement;
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
@@ -163,6 +173,30 @@ class Devis
     public function setModele(?Modele $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(bool $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getEtatAvancement(): ?EtatAvancement
+    {
+        return $this->etatAvancement;
+    }
+
+    public function setEtatAvancement(?EtatAvancement $etatAvancement): self
+    {
+        $this->etatAvancement = $etatAvancement;
 
         return $this;
     }

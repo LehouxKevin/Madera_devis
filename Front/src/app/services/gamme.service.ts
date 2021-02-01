@@ -10,12 +10,7 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 })
 export class GammeService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/ld+json',
-    })
-  };
- baseUrl = environment.baseUrlAPI;
+  baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
 constructor(private http: HttpClient) { }
 
@@ -29,6 +24,13 @@ constructor(private http: HttpClient) { }
     return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi+"/"+id);
   }
 
+  syncGetGammes()
+  {
+    return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi)
+    .pipe(
+        map(gamme => gamme['hydra:member']),
+        catchError(this.handleError.bind(this))
+    ).toPromise();
   addGamme(gammes:Gamme)
   {
     return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)

@@ -13,6 +13,9 @@ export class DevisComponent implements OnInit, AfterViewInit {
 
   isAddClientPageVisible = "addClientCacher";
 
+  isAClientSelected = "NoClientSelected";
+  displayErrorClientIsntSelected = false;
+
   
   currentPage = "client";
 
@@ -54,13 +57,25 @@ export class DevisComponent implements OnInit, AfterViewInit {
     }
   }
 
+  receiveIsAClientSelected($event) {
+    console.log($event);
+    this.isAClientSelected = $event;
+  }
+
   handleNextStepButton():void {
     if(this.currentPage == "client")
     {
-      this.isDevisPageVisible = true;
-      this.isClientPageVisible = false;
-      this.isModalitePageVisible = false;
-      this.currentPage="devis";
+      if(this.isAClientSelected == "AClientIsSelected")
+      {
+        this.displayErrorClientIsntSelected = false;
+        this.isDevisPageVisible = true;
+        this.isClientPageVisible = false;
+        this.isModalitePageVisible = false;
+        this.currentPage="devis";
+      }
+      else {
+        this.displayErrorClientIsntSelected = true;
+      }
     }
     else {
       if(this.currentPage == "devis")

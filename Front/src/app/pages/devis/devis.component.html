@@ -1,6 +1,6 @@
 <div class="devis container col-md-12">
     <div class="creationDevis col-md-12">
-        <app-choix-client *ngIf="isClientPageVisible" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)"></app-choix-client>
+        <app-choix-client *ngIf="isClientPageVisible" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)" (isAClientSelectedChangingState)="receiveIsAClientSelected($event)"></app-choix-client>
         <app-creation-devis *ngIf="isDevisPageVisible"></app-creation-devis>
         <app-ajout-client *ngIf="isAddClientPageVisible === 'addClientVisible'" (addClientChangingState)="receiveAddClientVisibilityStateChanging($event)"></app-ajout-client>
     </div>
@@ -22,5 +22,8 @@
           </svg>
 
         <input type="button" class="btn btn-primary" value="Etape suivante" (click)="handleNextStepButton()" /> 
-    </div>      
+    </div>
+    <div *ngIf="displayErrorClientIsntSelected" class="alert alert-warning bulleFlottante" role="alert">
+        Veuillez selectionner un client ! =D
+      </div>      
 </div>

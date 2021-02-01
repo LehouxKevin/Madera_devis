@@ -16,6 +16,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public clients:Client[] = [];
   public infosClient;
 
+  public texteClient = "Selectionnez un client";
   // Définition des variables des champs de la fiche client
   public prenomClient = "";
   public nomClient = "";
@@ -23,9 +24,12 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public telephoneClient = "";
   public mailClient = "";
 
+  //isAClientSelected = false;
+
   // Etat de la visibilité du composant d'ajout de client
   isAddClientPageVisible:string = "addClientCacher";
   @Output() addClientChangingState = new EventEmitter<string>();
+  @Output() isAClientSelectedChangingState = new EventEmitter<string>();
 
   constructor(private clientService: ClientService) { }
 
@@ -50,6 +54,8 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     console.log(idBdd);
     console.log(identiteClientSelectionnee);
 
+    this.texteClient = event.srcElement.text;
+
     this.infosClient  = await this.clientService.getOneClientById(idBdd);
     console.log(this.infosClient);
     this.prenomClient = this.infosClient.prenom;
@@ -57,6 +63,9 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     this.adresseClient = this.infosClient.adresse;
     this.telephoneClient = this.infosClient.telephone;
     this.mailClient = this.infosClient.mail;
+
+    //this.isAClientSelected = true;
+    this.isAClientSelectedChangingState.emit("AClientIsSelected");
 
   }
 

@@ -27,6 +27,7 @@ export class AjoutClientComponent implements OnInit {
   isMailValide:boolean=true;
 
   isLoading:boolean = false;
+  anErrorOccur:boolean = false;
 
   @Output() addClientChangingState = new EventEmitter<string>();
   
@@ -60,11 +61,12 @@ export class AjoutClientComponent implements OnInit {
       if(await this.clientService.addClient(this.client))
       {
         this.isLoading = false;
+        this.anErrorOccur = false;
         this.addClientChangingState.emit("addClientCacher");
       }
       else { // afficher erreur
         this.isLoading = false;
-        console.log("non");
+        this.anErrorOccur = true;
       }
     }
     

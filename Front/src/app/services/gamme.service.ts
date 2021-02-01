@@ -10,6 +10,12 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 })
 export class GammeService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/ld+json',
+    })
+  };
+
   baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
 constructor(private http: HttpClient) { }
@@ -31,7 +37,9 @@ constructor(private http: HttpClient) { }
         map(gamme => gamme['hydra:member']),
         catchError(this.handleError.bind(this))
     ).toPromise();
-  addGamme(gammes:Gamme)
+
+  }
+addGamme(gammes:Gamme)
   {
     return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)
     .pipe(
@@ -45,9 +53,7 @@ constructor(private http: HttpClient) { }
         else {
           return false;
         }
-    });
-  }
-
+    });}
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

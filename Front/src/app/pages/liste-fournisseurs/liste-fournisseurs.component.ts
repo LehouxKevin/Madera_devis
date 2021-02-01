@@ -58,7 +58,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
       document.getElementById("displayList").style.display = "none";
       document.getElementById("displayCreate").style.display = "block";
       document.getElementById("boutonFournisseur").setAttribute("src", 'assets\\icones\\displayList.svg');
-      document.getElementById("grand-titre").textContent = "Création d'un fournisseur"
+      document.getElementById("grand-titre").textContent = "Création d'un fournisseur";
       document.getElementById("content").style.paddingLeft = "15rem";
       document.getElementById("content").style.paddingRight = "15rem";
       document.getElementById("listeFournisseurs").style.paddingTop = "12rem";
@@ -255,7 +255,10 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   confirmerSuppressionFounisseur():void {
     //Supprimer le fournisseur en question (KEVIN LEHOUX)
+    this.fournisseurService.deleteFournisseur(this.idFournisseur);
     console.log("Suppression de "+this.idFournisseur);
+    document.getElementById("deleteWindow").style.display = "none";
+    this.ngOnInit();
   }
 
   annulerSuppressionFounisseur():void {

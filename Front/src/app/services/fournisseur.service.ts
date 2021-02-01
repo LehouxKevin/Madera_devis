@@ -13,6 +13,7 @@ export class FournisseurService {
   baseUrl = environment.baseUrlAPI;
   fournisseurApi = '/fournisseurs';
 
+  retValDeleteFourni:boolean=false;
   constructor(private http: HttpClient) { }
 
   getFournisseurs(): Observable<any[]>
@@ -40,6 +41,21 @@ export class FournisseurService {
           return false;
         }
     });
+  }
+
+  deleteFournisseur(idFournisseur:number): boolean
+  {
+    this.retValDeleteFourni=false;
+    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
+        .subscribe({
+            next: data => {
+                this.retValDeleteFourni = true;
+            },
+            error: error => {
+                console.error('There was an error!', error);
+            }
+        });
+    return this.retValDeleteFourni;
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/class/modele.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/modele.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/class/module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

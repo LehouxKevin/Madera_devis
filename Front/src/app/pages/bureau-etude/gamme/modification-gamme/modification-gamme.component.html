@@ -1,0 +1,205 @@
+<app-liste-gamme  [AfficherListe]="DisplaylisteGamme"></app-liste-gamme>
+
+<body override class="w-80 h-80">
+<div class="divbody">
+  <h1 class="text-center" style="color: rgb(38,153,251);">Création d&#39;une Gamme <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96" viewBox="0 0 96 96">
+    <image id="icons8-house-96" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAFTUlEQVR4nO2bS2hcVRjH/3cemWmS5tUkzXMyVakIqS3UVhEKFawLcdEWpGAU0S4MVK1VUbGgmJXtJjGNNFbduxCtghsRBB9tQUUKpq60ERcRwZlJ5r5fx0VLsMk9M5OZe+eca77fbuY759wv95f7zbn3nAsQBEEQBEEQBEEQBEEQmwWlWoOf9+zJpxi73oxk/g8owOL41as7am2fiDIZojokQDAkQDAkQDAkQDAkQDAkQDCxFeB6HpZ1XXQaDRNbASVNg2oYsF1XdCoNEUsBmmXBdBwwAAVVBWNMdEp1EzsBnu9jWdNWP7uehxXDEJhRY8ROQEnT4K/5jy+bZmxLUawE6JYFw7bXBxhDUVURx0IUGwGe76NUYdbjeB7KMZwVxUZASdfh+37FNisxLEWxEGDYNgzLqt6QMZT+8wMdB6QXwDZ4Um3XRTlGsyLpBRQ1DV6V0rOWFcOA63kRZRQuUguwHAc6p/T07N2HbGdXYIwxhoKmxWJWJK0A/+ZJDCKdzSI3fR65t2egKMHL2rbjQDPNKFMMBWkFrGgavIAyogAYffk0lPYOtN17P3oPHOSOsazrcDdYvpqNlAIsx4HKKT2d43ej8+ix1c9DZ2aRaWsPbMsYQ0lVI8kxLKQTwBhDkVN6Uuk0ctPzt3yXyGSQmzrDHc90HGi1TGEFIZ2AZV3nzmCGn30RyW29675vf+AQevbdxx2zVMdMqllIJcByXW7p6bhjJ3qeOM7tm5uZRzqbDYxVuqpEI40ABtyo1wHP9pPJJMZm3qvYX9nSitzrbwGcWZFZ6910k5FGQFnX4XBKz+DxSaSGhquO0fHIEXTt2s2NFwMeZYtGCgFOhUWV9tEx9E2erHms3DsXkGrJBMZ8CWdF4gUwhkK5HBi6UXrmA2M8kp1dGD31Kjeu23bwmoIghAsomya39Aw89iRadty+4TG7jj2Ozp13cuMlVZWmFAkV4HoeVjiLKK3929F/6rW6x87NfYhkOh0Y8yR6bC1MAAO4y4gJRUF++nxD46d6+zH8zHPcuH5zZ4VohAlQDQMWZ/Vq++FHkblrvOFjbHt6ElvH8ty4DLMiIQI83+fOerLdPRg4PRXasfLnPkAimQzOo0IJbBZCBPA2UymKgvzZWSARXlqpkRyGJp7ixlXThCWwFDVdgFbhD+5/6GFs2bs/9GP2vfAK2gb5N3Iid9c1VYDn+9wNtZmtHRiYOhvZscdmLyDBubIq5RU1Vd+SXMvSkpFXkvTW5CoK/hjoa83X2134jdhmhwQIhgQIJhX2gH8WVOx/87Oq7Ua62/DD1OGwD18zsuRJV4BgQr8CosT99Qrsbz6Be+0y/NLfUNItSPSNIr37IFoenECit/qijWzEQgBTS9DnX4Lz01e3fm+b8LQFeIsLML94H9nDJ5A9+jygxOfClj5TVi5CfePIupO/DteG+fE0tLmTAJNzB0QQcgtgDNrsCXhLv9fcxbn0OcyLcxEmFS5SC3B+/BLuL99vuJ958V34hb8iyCh8pBZgff1RfR1tE853n4abTERILcC7dqXuvu7CpRAziQ5pBTB1Gcyq/wml989SiNlEh7wCnAb39tvxeE1JWgGbBRIgGBIgmNgLUJJJ3HbgEAZ33SM6lbqIxbOgSqRaMki3tnG3pctO6AJGe9qxdG4i7GFDR5Y8Y1+C4g4JEEzsfwNc24KtqzBLRdGp1MWGBRQKxkhJi34rX2JFRXcN7Zjn4fq369cKXNfHb4vBL36ESSqZaGgZjkqQYEiAYEiAYEiAYEiAYEiAYEiAYEiAYEgAQRAEQRAEQRAEQRAEQTSJfwFhvBjemDrDOgAAAABJRU5ErkJggg=="/>
+  </svg>
+  </h1>
+  <div>
+  </div>
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <form #ajoutGamme="ngForm" (ngSubmit)="onSubmit(ajoutGamme)">
+    <div class="input-group col-md-5">
+      <span class="input-group-text divNomGamme" id="NomGammeSpan">gamme</span>
+      <input type="text" id="NomGamme" class="form-control" placeholder="Nom Gamme" aria-label="NomGamme" aria-describedby="basic-addon1" ngModel #NomGammeChamps="ngModel" name="NomGammeChamps">
+    </div>
+    <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+    <div class="d-flex justify-content-around bd-highlight">
+      <div class="p-2 bd-highlight LibelleInput">
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="TypeIsolation">Type Isolation :</label>
+          </div>
+          <select class="custom-select" id="TypeIsolation" ngModel #TypeIsolationChamps="ngModel" name="TypeIsolationChamps">
+            <option selected>Choose...</option>
+            <option value="{{TypeIsolation.id}}"  *ngFor="let TypeIsolation of TypeIsolations" >{{TypeIsolation.libelle}}</option>
+
+          </select>
+        </div>
+      </div>
+
+
+      <div class="p-2 bd-highlight LibelleInput">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="FinitionExterieur">Finition Exterieur :</label>
+          </div>
+          <select class="custom-select" id="FinitionExterieur" ngModel #FinitionExterieurChamps="ngModel" name="FinitionExterieurChamps">
+            <option selected>Choose...</option>
+            <option value="{{FinitionExterieur.id}}"  *ngFor="let FinitionExterieur of FinitionExterieurs" >{{FinitionExterieur.libelle}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-around bd-highlight">
+      <div class="p-2 bd-highlight LibelleInput">
+
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="TypeCouverture" > Type Couverture :</label>
+          </div>
+          <select class="custom-select" id="TypeCouverture" ngModel #TypeCouvertureChamps="ngModel" name="TypeCouvertureChamps">
+            <option selected>Choose...</option>
+            <option value="{{TypeCouverture.id}}"  *ngFor="let TypeCouverture of TypeCouvertures" >{{TypeCouverture.libelle}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="p-2 bd-highlight LibelleInput">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="QualiteHuisseries">Qualite Huisseries :</label>
+          </div>
+          <select class="custom-select" id="QualiteHuisseries" ngModel #QualiteHuisseriesChamps="ngModel" name="QualiteHuisseriesChamps">
+            <option selected>Choose...</option>
+            <option value="{{QualiteHuisserie.id}}"  *ngFor="let QualiteHuisserie of QualiteHuisseries" >{{QualiteHuisserie.libelle}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around bd-highlight">
+      <div class="p-2 bd-highlight LibelleInput">
+
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="ConceptionOssature">Conception Ossature :</label>
+          </div>
+          <select class="custom-select" id="ConceptionOssature" ngModel #ConceptionOssatureChamps="ngModel" name="ConceptionOssatureChamps">
+            <option selected>Choose...</option>
+            <option value="{{conceptionOssature.id}}"  *ngFor="let conceptionOssature of conceptionOssatures" >{{conceptionOssature.libelle}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+
+    <div *ngIf="Displaylistemodele; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <button type="button" class="btn btn-secondary BoutonListeActuel" >modèles</button>
+        </div>
+        <div class="p-2 bd-highlight">
+          <button type="button" class="btn btn-Light BoutonListe" (click)="handleListeGamme()">modules</button>
+        </div>
+
+      </div>
+      <br>
+
+      <table class="table ">
+
+        <tbody class="tableauModuleModele">
+        <tr id="LigneModeleFormulaire{{ModelesFormulaire.id}}" *ngFor="let ModelesFormulaire of ModelesFormulaires">
+          <td>  <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="Listemodeles">modèles :</label>
+            </div>
+            <select class="custom-select" id="Listemodeles">
+              <option selected>Choose...</option>
+              <option value="{{Modele.libelle}}"  *ngFor="let Modele of Modeles" >{{Modele.libelle}}</option>
+
+            </select>
+          </div></td>
+          <td><div class="input-group mb-3 tableauModuleModeleDiv">
+            <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
+            <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage">
+          </div></td>
+
+          <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+            <img class="icone-modifier" src="assets\icones\plume.svg">
+          </a>
+            <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+              <img class="icone-supprimer" src="assets\icones\croix.svg">
+            </a></td>
+        </tr>
+        </tbody>
+      </table>
+      <button type="button" class="BoutonAjout">
+        <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModele()">
+      </button>
+    </ng-template>
+    <ng-template #elseBlock>
+
+      <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <button type="button" class="btn btn-Light" (click)="handleListeGamme()">modèles</button>
+        </div>
+        <div class="p-2 bd-highlight">
+          <button type="button" class="btn btn- BoutonListeActuel" >modules</button>
+        </div>
+
+
+
+
+
+      </div>
+      <br>
+
+      <table class="table ">
+
+        <tbody class="tableauModuleModele">
+        <tr id="LigneModuleFormulaire{{ModulesFormulaire.id}}" *ngFor="let ModulesFormulaire of ModulesFormulaires">
+          <td>  <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="ListeModule">modules :</label>
+            </div>
+            <select class="custom-select" id="ListeModule">
+              <option selected>Choose...</option>
+              <option value="{{Module.libelle}}"  *ngFor="let Module of Modules" >{{Module.libelle}}</option>
+
+            </select>
+          </div></td>
+          <td><div class="input-group mb-3 tableauModuleModeleDiv">
+            <span class="input-group-text" id="Prix">Prix</span>
+            <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix">
+          </div></td>
+          <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+            <img class="icone-modifier" src="assets\icones\plume.svg">
+          </a>
+            <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+              <img class="icone-supprimer" src="assets\icones\croix.svg">
+            </a></td>
+        </tr>
+        </tbody>
+
+      </table>
+
+      <button type="button" class="BoutonAjout">
+        <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModule()">
+      </button>
+
+    </ng-template>
+    <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
+
+      <div class="p-2 bd-highlight">
+        <input type="submit" class="btn btn-primary" value="Enregistrer" />
+      </div>
+    </div>
+
+  </form>
+</div>
+
+</body>

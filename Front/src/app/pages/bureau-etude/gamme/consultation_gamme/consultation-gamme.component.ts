@@ -55,7 +55,7 @@ DisplaylisteGamme = false;
 
 
 
- public idGamme: String =0;
+ public idGamme: String ="0";
  private sub: any;
 
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
@@ -67,7 +67,7 @@ DisplaylisteGamme = false;
 
 
 
-  this.idGamme = Number(this.route.snapshot.paramMap.get('idGamme'));
+  this.idGamme = this.route.snapshot.paramMap.get('idGamme');
 console.log(this.idGamme)
 
 

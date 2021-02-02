@@ -24,4 +24,10 @@ constructor(private http: HttpClient) { }
   {
     return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi+"/"+id);
   }
+
+
+     getOneFinitionExterieurByICleEtrangere(CleEtrangere)
+      {
+        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+      }
 }

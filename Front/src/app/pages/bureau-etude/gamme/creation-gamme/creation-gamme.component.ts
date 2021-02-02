@@ -42,11 +42,11 @@ export class CreationGammeComponent implements OnInit {
   public ModelesFormulaires:Modele[] = [];
 
   public NomGammeChamps: string;
- public FinitionExterieurChamps :number;
-  public TypeIsolationChamps  :number;
- public TypeCouvertureChamps  :number;
- public QualiteHuisseriesChamps  :number;
- public ConceptionOssatureChamps  :number;
+ public FinitionExterieurChamps :string;
+  public TypeIsolationChamps  :string;
+ public TypeCouvertureChamps  :string;
+ public QualiteHuisseriesChamps  :string;
+ public ConceptionOssatureChamps  :string;
 
   public gamme:Gamme;
 
@@ -125,10 +125,14 @@ console.log(this.NomGammeChamps+this.FinitionExterieurChamps+this.TypeIsolationC
             this.ConceptionOssatureChamps);
 
 
-this.gamme=new Gamme(this.NomGammeChamps,this.FinitionExterieurChamps,this.TypeIsolationChamps
-,this.TypeCouvertureChamps, this.QualiteHuisseriesChamps,this.ConceptionOssatureChamps
+this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
+,this.FinitionExterieurChamps
+,this.TypeIsolationChamps
+,this.TypeCouvertureChamps
+, this.QualiteHuisseriesChamps
+,this.ConceptionOssatureChamps);
 
-);
+console.log(this.gamme.qualite_huisseries_id);
      if(await this.gammeService.addGamme(this.gamme))
       {
         this.addGammeChangingState.emit("addGammeCacher");

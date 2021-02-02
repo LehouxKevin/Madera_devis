@@ -25,4 +25,9 @@ constructor(private http: HttpClient) { }
   {
     return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi+"/"+id);
   }
+
+   getOneTypeCouvertureByICleEtrangere(CleEtrangere)
+      {
+        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+      }
 }

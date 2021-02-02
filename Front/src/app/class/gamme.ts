@@ -1,21 +1,27 @@
 export class Gamme {
  id?: number;
   libelle: string;
-  finition_ext_id :number;
-  type_isolation_id  :number;
-  type_couverture_id  :number;
-  qualite_huisseries_id  :number;
-  conception_ossature_id  :number;
+  dateCreation:Date;
+  custom: boolean ;
+  finition_ext_id :string;
+  type_isolation_id  :string;
+  type_couverture_id :string;
+  qualite_huisseries_id  :string;
+  conception_ossature_id  :string;
 
     constructor(_libelle: string,
-     _finition_ext_id :number    ,
-     _type_isolation_id :number    ,
-     _type_couverture_id  :number    ,
-     _qualite_huisseries_id:number    ,
-     _conception_ossature_id:number    ,
+    _dateCreation:Date,
+    _custom: boolean ,
+     _finition_ext_id :string    ,
+     _type_isolation_id :string    ,
+     _type_couverture_id  :string    ,
+     _qualite_huisseries_id:string    ,
+     _conception_ossature_id:string
      )
     {
         this.libelle = _libelle;
+        this.dateCreation = _dateCreation;
+        this.custom = _custom;
         this.finition_ext_id = _finition_ext_id;
         this.type_isolation_id = _type_isolation_id;
         this.type_couverture_id = _type_couverture_id;

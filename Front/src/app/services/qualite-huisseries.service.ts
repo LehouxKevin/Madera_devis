@@ -23,4 +23,10 @@ constructor(private http: HttpClient) { }
   {
     return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi+"/"+id);
   }
+
+
+   getOneQualiteHuisserieByICleEtrangere(CleEtrangere)
+      {
+        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+      }
 }

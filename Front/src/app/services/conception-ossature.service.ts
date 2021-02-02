@@ -24,6 +24,12 @@ constructor(private http: HttpClient) { }
 
   getOneConceptionOssatureById(id)
   {
-    return this.http.get<ConceptionOssature[]>(this.baseUrl+this.ConceptionOssatureApi+"/"+id);
+    return this.http.get<any[]>(this.baseUrl+this.ConceptionOssatureApi+"/"+id).toPromise();
   }
+
+    getOneConceptionOssatureByICleEtrangere(CleEtrangere)
+    {
+      return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+    }
+
 }

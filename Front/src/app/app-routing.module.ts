@@ -25,7 +25,7 @@ const routes: Routes = [
   { path : "accueil", component:BoutonDomingoComponent },
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
-  { path : "consultation-gamme", component:ConsultationGammeComponent},
+  { path : "consultation-gamme/:idGamme", component:ConsultationGammeComponent},
    { path : "Creation-Gamme", component:CreationGammeComponent},
    { path : "liste-Gamme", component:ListeGammePageComponent},
   { path : "profil", component:ProfilComponent},

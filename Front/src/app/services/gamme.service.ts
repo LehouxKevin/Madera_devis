@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable , throwError} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Gamme } from '../class/Gamme';
 import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
@@ -9,6 +9,12 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GammeService {
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/ld+json',
+    })
+  };
 
   baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
@@ -21,7 +27,8 @@ constructor(private http: HttpClient) { }
 
   getOneGammeById(id)
   {
-    return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi+"/"+id);
+  console.log(this.baseUrl+this.gammesApi+"/"+id)
+    return this.http.get<any[]>(this.baseUrl+this.gammesApi+"/"+id).toPromise();
   }
 
   syncGetGammes()
@@ -31,8 +38,23 @@ constructor(private http: HttpClient) { }
         map(gamme => gamme['hydra:member']),
         catchError(this.handleError.bind(this))
     ).toPromise();
-  }
 
+  }
+addGamme(gammes:Gamme)
+  {
+    return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)
+    .pipe(
+      catchError(this.handleError)
+    ).toPromise().then(data => {
+        // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
+        if(data.id > 0)
+        {
+          return true;
+        }
+        else {
+          return false;
+        }
+    });}
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

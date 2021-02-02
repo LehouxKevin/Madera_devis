@@ -26,5 +26,8 @@ constructor(private http: HttpClient) { }
     return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi+"/"+id);
   }
 
-
+    getOneTypeIsolationByICleEtrangere(CleEtrangere)
+    {
+      return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+    }
 }

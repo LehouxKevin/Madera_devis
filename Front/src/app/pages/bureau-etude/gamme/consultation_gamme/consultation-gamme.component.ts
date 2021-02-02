@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild,EventEmitter, Output  } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
 import { QualiteHuisseries } from 'src/app/class/qualite-huisseries';
 import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
+import { Module } from 'src/app/class/Module';
+import { Modele } from 'src/app/class/Modele';
+import { NgForm } from '@angular/forms';
+import { Gamme } from 'src/app/class/Gamme';
 
 import { environment } from 'src/environments/environment';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
@@ -13,9 +17,15 @@ import { FinitionExterieurService } from 'src/app/services/finition-exterieur.se
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
 import { TypeCouvertureService } from 'src/app/services/type-couverture.service';
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
+import { ModuleService } from 'src/app/services/module.service';
+import { ModeleService } from 'src/app/services/modele.service';
+import { GammeService } from 'src/app/services/gamme.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { map } from 'rxjs/operators';
 import {  Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-consultation-gamme',
@@ -23,53 +33,89 @@ import {  Input } from '@angular/core';
   styleUrls: ['./consultation-gamme.component.css']
 })
 export class ConsultationGammeComponent implements OnInit {
- public conceptionOssatures:ConceptionOssature[] = [];
- public FinitionExterieurs:FinitionExterieur[] = [];
-  public QualiteHuisseries:QualiteHuisseries[] = [];
-  public TypeCouvertures:TypeCouverture[] = [];
-  public TypeIsolations:TypeIsolation[] = [];
+ public conceptionOssature;
+ public FinitionExterieur;
+  public QualiteHuisserie;
+  public TypeCouverture;
+  public TypeIsolation;
+  public Modules:Module[] = [];
+  public Modeles:Modele[] = [];
+public gamme ;
 
+public NomGamme="------";
+public NomTypeIsolation ="------";
+public NomTypeCouverture="------";
+public NomFinitionExterieur="------";
+public NomQualiteHuisseries="------";
+public NomConceptionOssature="------";
 
 Displaylistemodele:boolean = true;
 DisplaylisteGamme = false;
 
-  constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
-  private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
-   private typeIsolationService: TypeIsolationService,   private http: HttpClient) { }
+ public idGamme: number =0;
+ private sub: any;
+
+   constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
+    private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
+    private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
+     private typeIsolationService: TypeIsolationService,  private route: ActivatedRoute,  private http: HttpClient) { }
 
   ngOnInit(): void {
-     this.conceptionOssatureService.getConceptionOssatures().pipe(
-          map(ConceptionOssature => ConceptionOssature['hydra:member'])
-        ).subscribe(
-          ConceptionOssature => this.conceptionOssatures = ConceptionOssature
-        );
-
-        this.qualiteHuisseriesService.getQualiteHuisseries().pipe(
-                 map(QualiteHuisseries => QualiteHuisseries['hydra:member'])
-                                ).subscribe(
-                                  QualiteHuisseries => this.QualiteHuisseries = QualiteHuisseries
-                                );
 
 
-        this.finitionExterieurService.getFinitionExterieurs().pipe(
-                                   map(FinitionExterieur => FinitionExterieur['hydra:member'])
-                                 ).subscribe(
-                                   FinitionExterieur => this.FinitionExterieurs = FinitionExterieur
-                                 );
 
- this.typeCouvertureService.getTypeCouvertures().pipe(
-                                   map(TypeCouverture => TypeCouverture['hydra:member'])
-                                 ).subscribe(
-                                   TypeCouverture => this.TypeCouvertures = TypeCouverture
-                                 );
+  this.idGamme = Number(this.route.snapshot.paramMap.get('idGamme'));
+console.log(this.idGamme)
 
- this.typeIsolationService.getTypeIsolations().pipe(
-                                   map(TypeIsolation => TypeIsolation['hydra:member'])
-                                 ).subscribe(
-                                   TypeIsolation => this.TypeIsolations = TypeIsolation
-                                 );
+
+  this.modeleService.getModeles().pipe(
+                                    map(Modele => Modele['hydra:member'].filter(
+                                                                              Modele => Modele.gamme_id ===  this.idGamme
+                                                                            ))
+                                  ).subscribe(
+                                    Modele => this.Modeles = Modele
+                                  );
+  this.moduleService.getModules().pipe(
+                                    map(Module => Module['hydra:member']
+                                    .filter(
+                                            Module => Module.gamme_id ===  this.idGamme
+                                          ))
+                                  ).subscribe(
+                                    Module => this.Modules = Module
+                                  );
+console.log(this.Modules)
+                                  this.InitialiserGamme();
+
   }
 
+
+ async InitialiserGamme() {
+
+
+this.gamme  =  await this.gammeService.getOneGammeById(this.idGamme);
+console.log( this.gamme)
+this.NomGamme=this.gamme.libelle;
+
+this.conceptionOssature  =  await this.conceptionOssatureService.getOneConceptionOssatureByICleEtrangere(this.gamme.conceptionOssature.substring(4));
+this.NomConceptionOssature=this.conceptionOssature.libelle;
+
+this.TypeIsolation  =  await this.typeIsolationService.getOneTypeIsolationByICleEtrangere(this.gamme.typeIsolation.substring(4));
+this.NomTypeIsolation=this.TypeIsolation.libelle;
+
+this.TypeCouverture  =  await this.typeCouvertureService.getOneTypeCouvertureByICleEtrangere(this.gamme.typeCouverture.substring(4));
+this.NomTypeCouverture=this.TypeCouverture.libelle;
+
+this.FinitionExterieur  =  await this.finitionExterieurService.getOneFinitionExterieurByICleEtrangere(this.gamme.finitionExt.substring(4));
+this.NomFinitionExterieur=this.FinitionExterieur.libelle;
+
+this.QualiteHuisserie  =  await this.qualiteHuisseriesService.getOneQualiteHuisserieByICleEtrangere(this.gamme.qualiteHuisseries.substring(4));
+this.NomQualiteHuisseries=this.QualiteHuisserie.libelle;
+
+
+
+
+
+  }
 
 handleListeGamme():void {
 
@@ -85,5 +131,9 @@ if(this.Displaylistemodele == true)
 
   }}
     }
+
+
+
+
   }
 

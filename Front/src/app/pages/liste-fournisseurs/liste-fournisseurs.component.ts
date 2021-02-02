@@ -191,7 +191,8 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
         this.telephone
         this.mail
       */
-
+        
+        this.fournisseurService.syncUpdateFournisseur(this.fournisseur,this.fournisseur.id,this.nom);
       /*// À mettre quand le fournisseur à été modifié :
         document.getElementById("titrefournisseur").style.display = "none";
         this.champsNom.style.borderLeft = "solid green 9px";
@@ -255,7 +256,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   confirmerSuppressionFounisseur():void {
     //Supprimer le fournisseur en question (KEVIN LEHOUX)
-    this.fournisseurService.deleteFournisseur(this.idFournisseur);
+    this.fournisseurService.asyncDeleteFournisseur(this.idFournisseur);
     console.log("Suppression de "+this.idFournisseur);
     document.getElementById("deleteWindow").style.display = "none";
     this.ngOnInit();

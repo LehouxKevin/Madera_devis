@@ -73,9 +73,10 @@ export class FournisseurService {
     return this.retValDeleteFourni;
   }
 */
-  syncUpdateFournisseur(fournisseur:Fournisseur)
+  syncUpdateFournisseur(fournisseur:Fournisseur,idFournisseur:number,nom:string)
   {
-    return this.http.post<Fournisseur>(this.baseUrl+this.fournisseurApi,fournisseur)
+    console.log(fournisseur,  " | " , idFournisseur, " | " , nom);
+    /* return this.http.post<Fournisseur>(this.baseUrl+this.fournisseurApi+"/"+idFournisseur,fournisseur)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
@@ -87,7 +88,7 @@ export class FournisseurService {
         else {
           return false;
         }
-    });
+    }); */
   }
 
   private handleError(error: HttpErrorResponse) {

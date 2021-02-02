@@ -43,7 +43,7 @@ export class FournisseurService {
     });
   }
 
-  deleteFournisseur(idFournisseur:number): boolean
+  asyncDeleteFournisseur(idFournisseur:number): boolean
   {
     this.retValDeleteFourni=false;
     this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
@@ -56,6 +56,38 @@ export class FournisseurService {
             }
         });
     return this.retValDeleteFourni;
+  }
+
+  /*syncDeleteFournisseur(idFournisseur:number): boolean
+  {
+    this.retValDeleteFourni=false;
+    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
+        .subscribe({
+            next: data => {
+                this.retValDeleteFourni = true;
+            },
+            error: error => {
+                console.error('There was an error!', error);
+            }
+        });
+    return this.retValDeleteFourni;
+  }
+*/
+  syncUpdateFournisseur(fournisseur:Fournisseur)
+  {
+    return this.http.post<Fournisseur>(this.baseUrl+this.fournisseurApi,fournisseur)
+    .pipe(
+      catchError(this.handleError)
+    ).toPromise().then(data => {
+        // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
+        if(data.id > 0)
+        {
+          return true;
+        }
+        else {
+          return false;
+        }
+    });
   }
 
   private handleError(error: HttpErrorResponse) {

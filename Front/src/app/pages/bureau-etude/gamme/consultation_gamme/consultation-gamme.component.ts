@@ -55,7 +55,7 @@ DisplaylisteGamme = false;
 
 
 
- public idGamme: String =0;
+ public idGamme: String ="0";
  private sub: any;
 
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
@@ -67,7 +67,7 @@ DisplaylisteGamme = false;
 
 
 
-  this.idGamme = Number(this.route.snapshot.paramMap.get('idGamme'));
+  this.idGamme = this.route.snapshot.paramMap.get('idGamme');
 console.log(this.idGamme)
 
 
@@ -75,7 +75,7 @@ console.log(this.idGamme)
 
 finalize(() => this.Modeles =this.Modeles.filter(Modele => Modele.gamme === "/api/gammes/"+this.idGamme)//
 ) ,
-                                    map(Modele => Modele['hydra:member']),filter(Modele => Modele.gamme_id === "/api/gammes/"+this.idGamme)
+                                    map(Modele => Modele['hydra:member']),filter(Modele => Modele.gamme === "/api/gammes/"+this.idGamme)
 
                                   ).subscribe(
                                     Modele =>   this.Modeles = Modele

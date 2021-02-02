@@ -4,7 +4,7 @@ id?: number;
     details: string;
     prix: number;
     custom:number;
-    gamme: string;
+    gamme_id: number;
     type_module_id :number;
     caracteristiques: string;
 }

@@ -39,3 +39,9 @@ position : relative;
 .inputInfo
 {
 }
+.tableauModuleModele
+ {
+  vertical-align: 0 !important;
+ color: var(--white);
+ background:#365064;
+ }

@@ -23,7 +23,7 @@ import { GammeService } from 'src/app/services/gamme.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { map } from 'rxjs/operators';
+import { filter,map,finalize  } from 'rxjs/operators';
 import {  Input } from '@angular/core';
 
 
@@ -52,12 +52,15 @@ public NomConceptionOssature="------";
 Displaylistemodele:boolean = true;
 DisplaylisteGamme = false;
 
- public idGamme: number =0;
+
+
+
+ public idGamme: String =0;
  private sub: any;
 
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
     private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
-    private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
+   private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
      private typeIsolationService: TypeIsolationService,  private route: ActivatedRoute,  private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -68,24 +71,29 @@ DisplaylisteGamme = false;
 console.log(this.idGamme)
 
 
-  this.modeleService.getModeles().pipe(
-                                    map(Modele => Modele['hydra:member'].filter(
-                                                                              Modele => Modele.gamme_id ===  this.idGamme
-                                                                            ))
-                                  ).subscribe(
-                                    Modele => this.Modeles = Modele
-                                  );
-  this.moduleService.getModules().pipe(
-                                    map(Module => Module['hydra:member']
-                                    .filter(
-                                            Module => Module.gamme_id ===  this.idGamme
-                                          ))
-                                  ).subscribe(
-                                    Module => this.Modules = Module
-                                  );
-console.log(this.Modules)
-                                  this.InitialiserGamme();
+   this.modeleService.getModeles().pipe(
 
+finalize(() => this.Modeles =this.Modeles.filter(Modele => Modele.gamme === "/api/gammes/"+this.idGamme)//
+) ,
+                                    map(Modele => Modele['hydra:member']),filter(Modele => Modele.gamme_id === "/api/gammes/"+this.idGamme)
+
+                                  ).subscribe(
+                                    Modele =>   this.Modeles = Modele
+                                  );
+                                  console.log("/api/gammes/"+this.idGamme)
+
+   this.moduleService.getModules().pipe(
+                                    finalize(() => this.Modules =this.Modules.filter(Module => Module.gamme === "/api/gammes/"+this.idGamme)//
+) ,map(Module => Module['hydra:member'])//,filter(Module => Module.gamme === "/api/gammes/"+this.idGamme)//
+                                  ).subscribe(
+
+                                    Module => this.Modules = Module
+
+                                  );
+    console.log("/api/gammes/"+this.idGamme)
+
+  this.Modules.forEach(element => console.log(element.gamme === "/api/gammes/"+this.idGamme));
+this.InitialiserGamme();
   }
 
 
@@ -111,8 +119,9 @@ this.NomFinitionExterieur=this.FinitionExterieur.libelle;
 this.QualiteHuisserie  =  await this.qualiteHuisseriesService.getOneQualiteHuisserieByICleEtrangere(this.gamme.qualiteHuisseries.substring(4));
 this.NomQualiteHuisseries=this.QualiteHuisserie.libelle;
 
-
-
+ console.log(this.Modules)
+  console.log("this.Modele")
+  console.log("test")
 
 
   }

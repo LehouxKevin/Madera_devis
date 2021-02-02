@@ -142,18 +142,14 @@
       <tr id="LigneModuleFormulaire{{Module.id}}" *ngFor="let Module of Modules">
         <td>  <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="ListeModule">modules :</label>
+            <label class="input-group-text" for="idTextModule{{Module.id}}">modules :</label>
           </div>
-          <input id="ListeModule" type="text" class="form-control" value="{{Module.libelle}}" disabled>
+          <input id="idTextModule{{Module.id}}" type="text" class="form-control" value="{{Module.libelle}}" disabled>
 
         </div></td>
         <td><div class="input-group mb-3 tableauModuleModeleDiv">
-          <span class="input-group-text" id="Quantité">Quantité</span>
-          <input type="text" class="form-control" placeholder="Quantité" aria-label="Quantité" aria-describedby="Quantité" value="3">
-        </div></td>
-        <td><div class="input-group mb-3 tableauModuleModeleDiv">
           <span class="input-group-text" id="Prix">Prix</span>
-          <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix" value="{{Module.prix}}">
+          <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix" value="{{Module.prix}}" disabled>
         </div></td>
         <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
           <img class="icone-modifier" src="assets\icones\plume.svg">

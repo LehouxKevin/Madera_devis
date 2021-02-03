@@ -43,6 +43,7 @@ export class FournisseurService {
     });
   }
 
+  // Peut être la faire en sync ?
   asyncDeleteFournisseur(idFournisseur:number): boolean
   {
     this.retValDeleteFourni=false;
@@ -58,25 +59,11 @@ export class FournisseurService {
     return this.retValDeleteFourni;
   }
 
-  /*syncDeleteFournisseur(idFournisseur:number): boolean
+
+  syncUpdateFournisseur(fournisseur:Fournisseur)
   {
-    this.retValDeleteFourni=false;
-    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
-        .subscribe({
-            next: data => {
-                this.retValDeleteFourni = true;
-            },
-            error: error => {
-                console.error('There was an error!', error);
-            }
-        });
-    return this.retValDeleteFourni;
-  }
-*/
-  syncUpdateFournisseur(fournisseur:Fournisseur,idFournisseur:number,nom:string)
-  {
-    console.log(fournisseur,  " | " , idFournisseur, " | " , nom);
-    /* return this.http.post<Fournisseur>(this.baseUrl+this.fournisseurApi+"/"+idFournisseur,fournisseur)
+    console.log(fournisseur,  " | " ,  fournisseur.id);
+    return this.http.put<Fournisseur>(this.baseUrl+this.fournisseurApi+"/"+fournisseur.id,fournisseur)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
@@ -88,7 +75,7 @@ export class FournisseurService {
         else {
           return false;
         }
-    }); */
+    });
   }
 
   private handleError(error: HttpErrorResponse) {

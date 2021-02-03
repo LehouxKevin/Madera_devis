@@ -10,6 +10,10 @@
   </div>
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
   <form #ajoutGamme="ngForm" (ngSubmit)="onSubmit(ajoutGamme)">
+
+    <div id="NomGammeIncorect" class="text-danger" *ngIf="NomGammeErreur">
+      Veuillez choisir un nom de gamme
+    </div>
   <div class="input-group col-md-5">
     <span class="input-group-text divNomGamme" id="NomGammeSpan">gamme</span>
     <input type="text" id="NomGamme" class="form-control" placeholder="Nom Gamme" aria-label="NomGamme" aria-describedby="basic-addon1" ngModel #NomGammeChamps="ngModel" name="NomGammeChamps">
@@ -18,16 +22,18 @@
 
   <div class="d-flex justify-content-around bd-highlight">
     <div class="p-2 bd-highlight LibelleInput">
+      <div id="FinitionIsolationIncorect" class="text-danger" *ngIf="TypeIsolationErreur">
+        Veuillez choisir un Type Isolation
+      </div>
 
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="TypeIsolation">Type Isolation :</label>
         </div>
-        <select class="custom-select" id="TypeIsolation" ngModel #TypeIsolationChamps="ngModel" name="TypeIsolationChamps">
+        <select class="custom-select" id="TypeIsolation" ngModel #TypeIsolationChamps="ngModel" name="TypeIsolationChamps" >
           <option selected>Choose...</option>
           <option value="{{TypeIsolation.id}}"  *ngFor="let TypeIsolation of TypeIsolations" >{{TypeIsolation.libelle}}</option>
-
         </select>
       </div>
     </div>
@@ -35,14 +41,19 @@
 
     <div class="p-2 bd-highlight LibelleInput">
 
+      <div id="FinitionExterieurIncorect" class="text-danger" *ngIf="FinitionExterieurErreur">
+        Veuillez choisir une Type Exterieur
+      </div>
+
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="FinitionExterieur">Finition Exterieur :</label>
         </div>
-        <select class="custom-select" id="FinitionExterieur" ngModel #FinitionExterieurChamps="ngModel" name="FinitionExterieurChamps">
-          <option selected>Choose...</option>
+        <select class="custom-select" id="FinitionExterieur" ngModel #FinitionExterieurChamps="ngModel" name="FinitionExterieurChamps" >
+          <option selected disabled>Choose...</option>
           <option value="{{FinitionExterieur.id}}"  *ngFor="let FinitionExterieur of FinitionExterieurs" >{{FinitionExterieur.libelle}}</option>
         </select>
+
       </div>
     </div>
   </div>
@@ -51,20 +62,28 @@
   <div class="d-flex justify-content-around bd-highlight">
     <div class="p-2 bd-highlight LibelleInput">
 
-
+      <div id="TypeCouvertureIncorect" class="text-danger" *ngIf="TypeCouvertureErreur">
+        Veuillez choisir une Type Couverture
+      </div>
 
       <div class="input-group mb-3">
+        <br/>
         <div class="input-group-prepend">
           <label class="input-group-text" for="TypeCouverture" > Type Couverture :</label>
         </div>
         <select class="custom-select" id="TypeCouverture" ngModel #TypeCouvertureChamps="ngModel" name="TypeCouvertureChamps">
-          <option selected>Choose...</option>
+          <option selected disabled>Choose...</option>
           <option value="{{TypeCouverture.id}}"  *ngFor="let TypeCouverture of TypeCouvertures" >{{TypeCouverture.libelle}}</option>
         </select>
+
+
       </div>
 
     </div>
     <div class="p-2 bd-highlight LibelleInput">
+      <div id="QualiteHuisseriesIncorect" class="text-danger" *ngIf="QualiteHuisseriesErreur">
+        Veuillez choisir une Qualite Huisseries
+      </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="QualiteHuisseries">Qualite Huisseries :</label>
@@ -73,13 +92,16 @@
           <option selected>Choose...</option>
           <option value="{{QualiteHuisserie.id}}"  *ngFor="let QualiteHuisserie of QualiteHuisseries" >{{QualiteHuisserie.libelle}}</option>
         </select>
+
       </div>
     </div>
   </div>
   <div class="d-flex justify-content-around bd-highlight">
     <div class="p-2 bd-highlight LibelleInput">
 
-
+      <div id="ConceptionOssatureIncorect" class="text-danger" *ngIf="ConceptionOssatureErreur">
+        Veuillez choisir une Conception Ossature
+      </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -92,106 +114,109 @@
       </div>
     </div>
   </div>
-  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+    <!--
+<hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
 
 
 
-  <div *ngIf="Displaylistemodele; then thenBlock else elseBlock"></div>
-  <ng-template #thenBlock>
-    <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
-      <div class="p-2 bd-highlight">
-        <button type="button" class="btn btn-secondary BoutonListeActuel" >modèles</button>
-      </div>
-      <div class="p-2 bd-highlight">
-        <button type="button" class="btn btn-Light BoutonListe" (click)="handleListeGamme()">modules</button>
-      </div>
+ <div *ngIf="Displaylistemodele; then thenBlock else elseBlock"></div>
+ <ng-template #thenBlock>
+   <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
+     <div class="p-2 bd-highlight">
+       <button type="button" class="btn btn-secondary BoutonListeActuel" >modèles</button>
+     </div>
+     <div class="p-2 bd-highlight">
+       <button type="button" class="btn btn-Light BoutonListe" (click)="handleListeGamme()">modules</button>
+     </div>
 
-    </div>
-    <br>
+   </div>
+   <br>
 
-    <table class="table ">
+   <table class="table ">
 
-      <tbody class="tableauModuleModele">
-      <tr id="LigneModeleFormulaire{{ModelesFormulaire.id}}" *ngFor="let ModelesFormulaire of ModelesFormulaires">
-        <td>  <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="Listemodeles">modèles :</label>
-          </div>
-          <select class="custom-select" id="Listemodeles">
-            <option selected>Choose...</option>
-            <option value="{{Modele.libelle}}"  *ngFor="let Modele of Modeles" >{{Modele.libelle}}</option>
+     <tbody class="tableauModuleModele">
+     <tr id="LigneModeleFormulaire{{ModelesFormulaire.id}}" class="ligneTableau" *ngFor="let ModelesFormulaire of ModelesFormulaires">
+       <td>  <div class="input-group mb-3">
+         <div class="input-group-prepend">
+           <label class="input-group-text" for="Listemodeles">modèles :</label>
+         </div>
+         <select class="custom-select" id="Listemodeles">
+           <option selected>Choose...</option>
+           <option value="{{Modele.libelle}}"  *ngFor="let Modele of Modeles" >{{Modele.libelle}}</option>
 
-          </select>
-        </div></td>
-        <td><div class="input-group mb-3 tableauModuleModeleDiv">
-          <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
-          <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage">
-        </div></td>
+         </select>
+       </div></td>
+       <td><div class="input-group mb-3 tableauModuleModeleDiv">
+         <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
+         <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage">
+       </div></td>
 
-        <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
-          <img class="icone-modifier" src="assets\icones\plume.svg">
-        </a>
-          <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
-            <img class="icone-supprimer" src="assets\icones\croix.svg">
-          </a></td>
-      </tr>
-      </tbody>
-    </table>
-    <button type="button" class="BoutonAjout">
-      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModele()">
-    </button>
-  </ng-template>
-  <ng-template #elseBlock>
+       <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+         <img class="icone-modifier" src="assets\icones\plume.svg">
+       </a>
+         <button type="button" class="BoutonAjout" (click)="suppressionModele(ModelesFormulaire.id)">
+           <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+         </button>
+       </td>
+     </tr>
+     </tbody>
+   </table>
+   <button type="button" class="BoutonAjout">
+     <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModele()">
+   </button>
+ </ng-template>
+ <ng-template #elseBlock>
 
-    <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
-      <div class="p-2 bd-highlight">
-        <button type="button" class="btn btn-Light" (click)="handleListeGamme()">modèles</button>
-      </div>
-      <div class="p-2 bd-highlight">
-        <button type="button" class="btn btn- BoutonListeActuel" >modules</button>
-      </div>
-
-
-
+   <div class="d-flex justify-content-center flex-row bd-highlight mb-3">
+     <div class="p-2 bd-highlight">
+       <button type="button" class="btn btn-Light" (click)="handleListeGamme()">modèles</button>
+     </div>
+     <div class="p-2 bd-highlight">
+       <button type="button" class="btn btn- BoutonListeActuel" >modules</button>
+     </div>
 
 
-    </div>
-        <br>
 
-    <table class="table ">
 
-      <tbody class="tableauModuleModele">
-      <tr id="LigneModuleFormulaire{{ModulesFormulaire.id}}" *ngFor="let ModulesFormulaire of ModulesFormulaires">
-        <td>  <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="ListeModule">modules :</label>
-          </div>
-          <select class="custom-select" id="ListeModule">
-            <option selected>Choose...</option>
-            <option value="{{Module.libelle}}"  *ngFor="let Module of Modules" >{{Module.libelle}}</option>
 
-          </select>
-        </div></td>
-        <td><div class="input-group mb-3 tableauModuleModeleDiv">
-          <span class="input-group-text" id="Prix">Prix</span>
-          <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix">
-        </div></td>
-        <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
-          <img class="icone-modifier" src="assets\icones\plume.svg">
-        </a>
-          <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
-            <img class="icone-supprimer" src="assets\icones\croix.svg">
-          </a></td>
-      </tr>
-      </tbody>
+   </div>
+       <br>
 
-    </table>
+   <table class="table ">
 
-    <button type="button" class="BoutonAjout">
-      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModule()">
-    </button>
+     <tbody class="tableauModuleModele">
+     <tr id="LigneModuleFormulaire{{ModulesFormulaire.id}}" *ngFor="let ModulesFormulaire of ModulesFormulaires">
+       <td>  <div class="input-group mb-3">
+         <div class="input-group-prepend">
+           <label class="input-group-text" for="ListeModule">modules :</label>
+         </div>
+         <select class="custom-select" id="ListeModule">
+           <option selected>Choose...</option>
+           <option value="{{Module.libelle}}"  *ngFor="let Module of Modules" >{{Module.libelle}}</option>
 
-  </ng-template>
+         </select>
+       </div></td>
+       <td><div class="input-group mb-3 tableauModuleModeleDiv">
+         <span class="input-group-text" id="Prix">Prix</span>
+         <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="Prix">
+       </div></td>
+       <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+         <img class="icone-modifier" src="assets\icones\plume.svg">
+       </a>
+         <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
+           <img class="icone-supprimer" src="assets\icones\croix.svg">
+         </a></td>
+     </tr>
+     </tbody>
+
+   </table>
+
+   <button type="button" class="BoutonAjout">
+     <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutModule()">
+   </button>
+
+ </ng-template>
+   -->
   <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
 
     <div class="p-2 bd-highlight">

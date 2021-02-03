@@ -14,6 +14,7 @@ import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
 import { CreationGammeComponent } from './pages/bureau-etude/gamme/creation-gamme/creation-gamme.component';
 import { ListeGammePageComponent } from './pages/bureau-etude/gamme/liste-gamme-page/liste-gamme-page.component';
+import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modification-gamme/modification-gamme.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
   { path : "consultation-gamme/:idGamme", component:ConsultationGammeComponent},
+    { path : "modification-gamme/:idGamme", component:ModificationGammeComponent},
    { path : "Creation-Gamme", component:CreationGammeComponent},
    { path : "liste-Gamme", component:ListeGammePageComponent},
   { path : "profil", component:ProfilComponent},

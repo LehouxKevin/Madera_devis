@@ -6,16 +6,19 @@
     padding-top: 3em;
 }
 
+.globalCreationRow {
+  padding-top: 3em;
+  height : auto;
+}
+
 .enteteChoixGamme {
     color: black;
     font-size: 1em;
     font-weight: 600;
-    padding-bottom: 2em;
-    margin-left: 30px;
 }
 
 .containerChoixGamme {
-    padding-top:3em;
+    
 }
 
 
@@ -29,6 +32,20 @@
     font-weight: 500;
 }
 
+.rectangleEnteteBleu {
+    background-color: #2699FB;
+    text-align:center;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    padding-bottom: 2em;
+    margin-left: 30px;
+}
+
+.containerDefinitionGamme {
+  border:#2699FB 1px solid;
+  height:3em;
+}
 
 
 /* Dropdown Button */

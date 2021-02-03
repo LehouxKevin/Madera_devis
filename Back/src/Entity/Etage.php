@@ -32,6 +32,11 @@ class Etage
      */
     private $modele;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $dernierEtage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,6 +62,18 @@ class Etage
     public function setModele(?Modele $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getDernierEtage(): ?bool
+    {
+        return $this->dernierEtage;
+    }
+
+    public function setDernierEtage(?bool $dernierEtage): self
+    {
+        $this->dernierEtage = $dernierEtage;
 
         return $this;
     }

@@ -56,7 +56,6 @@ DisplaylisteGamme = false;
 
 
  public idGamme: String ="0";
- private sub: any;
 
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
     private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,

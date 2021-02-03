@@ -35,7 +35,7 @@
                         
                     </div>
                     <div class="dropdown-content" >
-                        <a id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes" (click)="handleChoixTypeIsolation($event)">{{gamme.libelle}}</a>
+                        <a id="{{'idTypeIso'+typeIsolation.id}}" *ngFor="let typeIsolation of typesIsolation" (click)="handleChoixTypeIsolation($event)">{{typeIsolation.libelle}}</a>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,8 @@
     background: #365064;
     color: rgba(255, 255, 255, 0.7);
     padding-top: 2em;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .listeFournisseurs::-webkit-scrollbar {
@@ -30,6 +32,7 @@
 
 .table td {
     vertical-align: 0 !important;
+    padding: 0.2rem !important;
 }
 
 .title-tab {
@@ -52,6 +55,49 @@
     border-color: #dee2e6;
 }
 
+.lien_client {
+  cursor: pointer;
+}
+
+.fiche_client {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#lien_quitterFicheClient {
+  cursor: pointer;
+}
+
+.bg_icone_ficheClient {
+  background: #2699FB;
+  padding: 10px;
+}
+
+.centerEmail {
+  margin-left: 4px;
+}
+
+.center {
+  margin-left: 7px;
+}
+
+.clientFiche_champs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.encadrement {
+  border: solid #2699FB 1px;
+}
+
+.icone_quitter {
+  right: 16px;
+  position: absolute;
+  top: 16px;
+}
+
 .lien-icone-action {
     margin-left: 10px;
     margin-right: 10px;
@@ -67,4 +113,55 @@
 
 .icone-supprimer {
     width: 10%;
+}
+
+.clientWindow {
+  width: 26%;
+  margin-left: 2%;
+  background: white;
+  border: solid #007bff 2px;
+  position: fixed;
+  bottom: 22%;
+  padding: 40px;
+  display: none;
+}
+
+.deleteWindow {
+  width: 26%;
+  margin-left: 2%;
+  background: white;
+  border: solid #007bff 2px;
+  position: fixed;
+  bottom: 22%;
+  padding: 40px;
+  display: none;
+}
+
+.btn-deleteWindow {
+  width: 49%;
+  padding: 18px;
+  font-size: 20px;
+}
+
+.btn-annuler {
+  margin-right: 7px;
+}
+
+.btn-supprimer {
+  background-color: white !important;
+  border-color: #0069d9 !important;
+  color: #0069d9;
+}
+
+.nomPrenom {
+  color : #2699FB;
+}
+
+.bouton-creer {
+  position: fixed;
+  right: 0;
+  bottom: 130px;
+  left: 0;
+  z-index: 1030;
+  height: 120px;
 }

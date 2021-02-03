@@ -12,7 +12,10 @@ export class CreationDevisComponent implements OnInit {
   public gammes:Gamme[] = [];
 
   texteGamme = "";
+  texteTypeIsolation ="";
+
   idGammeSelectionnee = 0;
+  idTypeIsoSelectionnee = 0;
 
   isLoading = false;
 
@@ -41,6 +44,17 @@ export class CreationDevisComponent implements OnInit {
     this.idGammeSelectionnee = value.substring(7);
     console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
   
+  }
+
+  handleChoixTypeIsolation(event)
+  {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    this.texteTypeIsolation = event.srcElement.text;
+    this.idTypeIsoSelectionnee = value.substring(7);
+    console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
   }
 
 }

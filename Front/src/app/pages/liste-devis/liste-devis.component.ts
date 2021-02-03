@@ -34,10 +34,10 @@ export class ListeDevisComponent implements OnInit, OnDestroy {
       devis =>{
         devis.forEach(async (d, index) => {
           var etatAvancement = await this.etatAvancementService.getEtatAvancementByLink(d.etatAvancement);
-          devis[index].etatAvancement = etatAvancement.libelle;
+          devis[index].etatAvancement = etatAvancement["libelle"];
 
           var client = await this.clientService.getOneClientByLink(d.client);
-          devis[index].client = "n°"+client.id;
+          devis[index].client = "n°"+client["id"];
 
           if (d.statut) {
             document.getElementById("statut_devis"+d.id).style.background = "green";
@@ -70,10 +70,10 @@ export class ListeDevisComponent implements OnInit, OnDestroy {
     var client = await this.clientService.getOneClientById(idClient);
     document.getElementById("deleteWindow").style.display = "none";
     document.getElementById("id_devis"+id).style.border = "solid #2699FB 2px";
-    document.getElementById("clientFiche_nomPrenom").textContent = client.nom+" "+client.prenom;
-    document.getElementById("clientFiche_email").textContent = client.mail;
-    document.getElementById("clientFiche_telephone").textContent = client.telephone;
-    document.getElementById("clientFiche_adresse").textContent = client.adresse;
+    document.getElementById("clientFiche_nomPrenom").textContent = client["nom"]+" "+client["prenom"];
+    document.getElementById("clientFiche_email").textContent = client["mail"];
+    document.getElementById("clientFiche_telephone").textContent = client["telephone"];
+    document.getElementById("clientFiche_adresse").textContent = client["adresse"];
     document.getElementById("clientWindow").style.display = "block";
   }
 

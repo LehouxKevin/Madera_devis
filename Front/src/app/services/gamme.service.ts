@@ -19,6 +19,7 @@ export class GammeService {
   baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
 constructor(private http: HttpClient) { }
+  retValDeleteGamme:boolean=false;
 
   getGammes(): Observable<Gamme[]>
   {
@@ -48,6 +49,22 @@ constructor(private http: HttpClient) { }
         catchError(this.handleError)
       ).toPromise();
     }
+
+      asyncDeleteGamme(idGamme:number): boolean
+      {
+        this.retValDeleteGamme=false;
+        this.http.delete(this.baseUrl+this.gammesApi+"/"+idGamme)
+            .subscribe({
+                next: data => {
+                    this.retValDeleteGamme = true;
+                },
+                error: error => {
+                    console.error('There was an error!', error);
+                }
+            });
+        return this.retValDeleteGamme;
+      }
+
 addGamme(gammes:Gamme)
   {
     return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)

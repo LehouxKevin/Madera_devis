@@ -29,9 +29,10 @@
           <a class="lien-icone-action" routerLink="/modification-gamme//{{gamme.id}}">
             <img class="icone-modifier" src="assets\icones\plume.svg">
           </a>
-          <a class="lien-icone-action" routerLink="/" >
-            <img class="icone-supprimer" src="assets\icones\croix.svg">
-          </a>
+          <button type="button" class="BoutonAjout" (click)="supprimerGamme(gamme.id)">
+            <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+          </button>
+
         </td>
 
       </tr>
@@ -68,3 +69,16 @@
 
 
 </ng-template>
+
+<div id="deleteWindow" class="flex deleteWindow w-20" *ngIf="DisplaySuppression">
+  <div class="d-flex justify-content-center gray-madera">
+    <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+  </div>
+  <div class="d-flex justify-content-center mb-2 gray-madera">
+    <h2 class="align-content-center">la Gamme :</h2><h2 id="GammeDelete" class="GammeDelete">{{nomGammeSupprimer}}</h2><h2 class="ml-2">?</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionGamme()">Annuler</button>
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer" (click)="confirmerSuppressionGamme()">Supprimer</button>
+  </div>
+</div>

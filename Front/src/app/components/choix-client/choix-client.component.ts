@@ -48,6 +48,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   }
 
   async handleChoixClient(event) {
+    this.isLoading=true;
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.attributes.id;
     var identiteClientSelectionnee = target.attributes.var;
@@ -68,7 +69,7 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
 
     //this.isAClientSelected = true;
     this.isAClientSelectedChangingState.emit("AClientIsSelected");
-
+    this.isLoading=false;
   }
 
   /**

@@ -16,18 +16,22 @@
                 </thead>
                 <tbody class="table-light table-bordered" style="border-color:black;">
                     <tr id="{{'id_devis'+devis.id}}" *ngFor="let devis of listDevis">
-                        <td id="statut" class="data-col">{{devis.statut}}</td>
-                        <td class="data-col">{{devis.id}}</td>
-                        <td class="data-col">{{devis.etatAvancement}}</td>
-                        <td class="data-col">{{devis.client}}</td>
-                        <td class="data-col actions">
-                            <a class="lien-icone-action" (click)="consulterFounisseur(fournisseur.id)">
+                        <td id="{{'statut_devis'+devis.id}}" class="data-col">{{devis.statut}}</td>
+                        <td id="{{'numero_devis'+devis.id}}" class="data-col">{{devis.id}}</td>
+                        <td id="{{'etatAvancement_devis'+devis.id}}" class="data-col">{{devis.etatAvancement}}</td>
+                        <td id="{{'client_devis'+devis.id}}" class="data-col">
+                            <a class="lien_client" (click)="consulterClient(devis.client, devis.id)">
+                                {{devis.client}}
+                            </a>
+                        </td>
+                        <td id="{{'action_devis'+devis.id}}" class="data-col actions">
+                            <a class="lien-icone-action" (click)="consulterDevis(devis.id)">
                                 <img class="icone-consulter" src="assets\icones\consultation.svg">
                             </a>
-                            <a class="lien-icone-action" (click)="modifierFournisseur(fournisseur.id)">
+                            <a class="lien-icone-action" (click)="modifierDevis(devis.id)">
                                 <img class="icone-modifier" src="assets\icones\plume.svg">
                             </a>
-                            <a class="lien-icone-action" (click)="supprimerFounisseur(fournisseur.id)">
+                            <a class="lien-icone-action" (click)="supprimerDevis(devis.id)">
                                 <img class="icone-supprimer" src="assets\icones\croix.svg">
                             </a>
                         </td>
@@ -35,5 +39,88 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" routerLink="/devis">
+</div>
+<div id="clientWindow" class="clientWindow flex">
+    <p class="fiche_client">Fiche client</p>
+    <div class="icone_quitter">
+        <a id="lien_quitterFicheClient" (click)="quitterFicheClient()">
+            <svg id="Cancel" xmlns="http://www.w3.org/2000/svg" width="29.556" height="28.557" viewBox="0 0 29.556 28.557">
+                <path id="Union_3" data-name="Union 3" d="M14.778,16.874,2.687,28.556,0,25.96,12.091,14.278,0,2.6,2.687,0,14.778,11.682,26.869,0l2.687,2.6L17.465,14.278,29.556,25.96l-2.687,2.6Z" fill="#2699fb"/>
+            </svg>
+        </a>          
+    </div>
+    <h2 id="clientFiche_nomPrenom" class="d-flex justify-content-center mb-4 nomPrenom">NOM prenom</h2>
+    <div class="mb-2">
+        <div class="row encadrement">
+            <div class="col-2 bg_icone_ficheClient flex">
+                <svg class="centerEmail" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="40" viewBox="0 0 51 40">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect id="Rectangle_282" data-name="Rectangle 282" width="51" height="40" transform="translate(990.195 250.033)" fill="#365064"/>
+                      </clipPath>
+                    </defs>
+                    <g id="Groupe_de_masques_1" data-name="Groupe de masques 1" transform="translate(-990.195 -250.033)" clip-path="url(#clip-path)">
+                      <g id="signe-d_arroba" data-name="signe-d&apos;arroba" transform="translate(996.173 250.291)">
+                        <g id="Groupe_314" data-name="Groupe 314">
+                          <g id="at">
+                            <path id="Tracé_293" data-name="Tracé 293" d="M36.461,30.01a20.143,20.143,0,0,0,2.634-10A19.782,19.782,0,0,0,19.548,0,19.782,19.782,0,0,0,0,20.006,19.782,19.782,0,0,0,19.548,40.013a19.242,19.242,0,0,0,13.82-5.862l-3.46-3.541a14.426,14.426,0,0,1-10.36,4.4,14.852,14.852,0,0,1-14.661-15A14.852,14.852,0,0,1,19.548,5a14.852,14.852,0,0,1,14.661,15,15.184,15.184,0,0,1-.892,5.06l-.039-.059H29.322V10.057H19.548a9.891,9.891,0,0,0-9.774,10,9.891,9.891,0,0,0,9.774,10,9.562,9.562,0,0,0,5.936-2.106,4.766,4.766,0,0,0,3.837,2.052ZM24.435,17.516V20.06a4.888,4.888,0,1,1-4.887-5h4.887Z" fill="#fff"/>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>                   
+            </div>
+            <div id="clientFiche_email" class="col-10 clientFiche_champs">
+                Email 
+            </div>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="row encadrement">
+            <div class="col-2 bg_icone_ficheClient flex">
+                <svg class="center" xmlns="http://www.w3.org/2000/svg" width="37.003" height="37" viewBox="0 0 37.003 37">
+                    <g id="phone-call" transform="translate(0.003)">
+                      <g id="Page-1" transform="translate(-0.003)">
+                        <g id="_003---Call" data-name="003---Call">
+                          <path id="Shape" d="M16.32,21.7a14.933,14.933,0,0,1-4.509-8.478,1.268,1.268,0,0,1,.364-1.062L15.033,9.3a1.276,1.276,0,0,0,.18-1.579L10.663.659A1.276,1.276,0,0,0,9.01.194L1.7,3.635A1.269,1.269,0,0,0,1,4.9c.383,3.636,1.968,12.575,10.752,21.36s17.722,10.37,21.36,10.752a1.269,1.269,0,0,0,1.268-.7l3.44-7.305a1.276,1.276,0,0,0-.463-1.65L30.3,22.809a1.276,1.276,0,0,0-1.579.179L25.86,25.845a1.268,1.268,0,0,1-1.062.364A14.933,14.933,0,0,1,16.32,21.7Z" transform="translate(-0.997 -0.022)" fill="#fff"/>
+                          <path id="Shape-2" data-name="Shape" d="M40.121,23.4a1.276,1.276,0,0,1-1.276-1.276,9.58,9.58,0,0,0-9.569-9.569,1.276,1.276,0,0,1,0-2.552A12.134,12.134,0,0,1,41.4,22.121,1.276,1.276,0,0,1,40.121,23.4Z" transform="translate(-10.774 -3.621)" fill="#fff"/>
+                          <path id="Shape-3" data-name="Shape" d="M46.5,19.776A1.276,1.276,0,0,1,45.224,18.5,15.966,15.966,0,0,0,29.276,2.552a1.276,1.276,0,0,1,0-2.552,18.521,18.521,0,0,1,18.5,18.5A1.276,1.276,0,0,1,46.5,19.776Z" transform="translate(-10.774)" fill="#fff"/>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>                                                      
+            </div>
+            <div id="clientFiche_telephone" class="col-10 clientFiche_champs">
+                Téléphone 
+            </div>
+        </div>     
+    </div>
+    <div  class="mb-2">
+        <div class="row encadrement">
+            <div class="col-2 bg_icone_ficheClient flex">
+                <svg class="center" xmlns="http://www.w3.org/2000/svg" width="37.091" height="37.001" viewBox="0 0 37.091 37.001">
+                    <g id="address_1_" data-name="address (1)" transform="translate(0 0.001)">
+                      <path id="Tracé_294" data-name="Tracé 294" d="M14.815,33.222v3.757l-.908-.734A60.9,60.9,0,0,1,7.04,29.533C2.368,24.169,0,19.355,0,15.223v-.409a14.815,14.815,0,0,1,29.63,0v.409c0,.347-.018.7-.052,1.056l-2.9-2.643a11.924,11.924,0,0,0-23.79,1.178v.409c0,6.981,8.995,15.433,11.924,18ZM23.7,31.146h4.336V26.81H23.7ZM14.815,8.671a6.143,6.143,0,1,1-6.143,6.143A6.15,6.15,0,0,1,14.815,8.671Zm0,2.891a3.252,3.252,0,1,0,3.252,3.252A3.256,3.256,0,0,0,14.815,11.562Zm20.328,17.62-.813-.741v4.641A3.923,3.923,0,0,1,30.411,37H21.259a3.923,3.923,0,0,1-3.919-3.919V28.441l-.813.741L14.58,27.047,25.835,16.778,37.091,27.047ZM31.44,25.8l-5.6-5.113-5.6,5.113v7.278a1.029,1.029,0,0,0,1.028,1.028h9.152a1.029,1.029,0,0,0,1.028-1.028Zm0,0" transform="translate(0)" fill="#fff"/>
+                    </g>
+                  </svg>                                                   
+            </div>
+            <div id="clientFiche_adresse" class="col-10 clientFiche_champs">
+                Adresse 
+            </div>
+        </div> 
+    </div>
+</div>
+<div id="deleteWindow" class="flex deleteWindow w-20">
+    <div class="d-flex justify-content-center gray-madera">
+        <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+    </div>
+    <div class="d-flex justify-content-center mb-2 gray-madera">
+        <h2 class="align-content-center">le devis n°</h2><h2 id="devisDelete" class="devisDelete">MADERA</h2><h2 class="ml-2">?</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionFounisseur()">Annuler</button>
+        <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer" (click)="confirmerSuppressionFounisseur()">Supprimer</button>
     </div>
 </div>

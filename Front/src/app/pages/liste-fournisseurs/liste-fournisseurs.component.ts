@@ -179,14 +179,10 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
             document.getElementById('emailUpdateError').style.display = "block";
           }
         }
-
-      // Modifier le fournisseur en question (KEVIN LEHOUX)
-
-      /*// L'ID du fournisseur modifié :
+      /*
+      // L'ID du fournisseur modifié :
         this.fournisseur.id
-      */
-
-      /*// Les champs modifiés du formulaire :
+      // Les champs modifiés du formulaire :
         this.nom
         this.telephone
         this.mail
@@ -203,7 +199,6 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
         this.champsMail.style.borderLeft = "solid green 9px";
         this.displayFournisseur();
         this.ngOnInit();
-      
     }
   }
 

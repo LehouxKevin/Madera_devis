@@ -16,24 +16,25 @@ export class ClientService {
     })
   };
   
-  baseUrl = environment.baseUrlAPI;
+  baseUrlApi = environment.baseUrlAPI;
+  baseUrl = environment.baseUrl;
   clientsApi = '/clients';
 
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]>
   {
-    return this.http.get<Client[]>(this.baseUrl+this.clientsApi);
+    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi);
   }
 
   getOneClientById(id)
   {
-    return this.http.get<Client[]>(this.baseUrl+this.clientsApi+"/"+id).toPromise();
+    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi+"/"+id).toPromise();
   }
 
   addClient(client:Client)
   {
-    return this.http.post<Client>(this.baseUrl+this.clientsApi,client)
+    return this.http.post<Client>(this.baseUrlApi+this.clientsApi,client)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
@@ -48,6 +49,10 @@ export class ClientService {
     });
   }
 
+  getOneClientByLink(link)
+  {
+    return this.http.get<any[]>(this.baseUrl+link).toPromise()
+  }
 
   
   private handleError(error: HttpErrorResponse) {

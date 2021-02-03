@@ -75,7 +75,7 @@ console.log(this.idGamme)
 
 finalize(() => this.Modeles =this.Modeles.filter(Modele => Modele.gamme === "/api/gammes/"+this.idGamme)//
 ) ,
-                                    map(Modele => Modele['hydra:member']),filter(Modele => Modele.gamme === "/api/gammes/"+this.idGamme)
+                                    map(Modele => Modele['hydra:member'])
 
                                   ).subscribe(
                                     Modele =>   this.Modeles = Modele

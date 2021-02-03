@@ -40,6 +40,14 @@ constructor(private http: HttpClient) { }
     ).toPromise();
 
   }
+    syncUpdateGamme(gammes:Gamme)
+    {
+      console.log(gammes,  " | " ,  gammes.id);
+      return this.http.put<Gamme>(this.baseUrl+this.gammesApi+"/"+gammes.id,gammes)
+      .pipe(
+        catchError(this.handleError)
+      ).toPromise();
+    }
 addGamme(gammes:Gamme)
   {
     return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)

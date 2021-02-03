@@ -11,6 +11,7 @@
         <th class="border title-tab"  scope="col">#</th>
         <th class="border title-tab"  scope="col">Nom de la gamme</th>
         <th class="border title-tab"  scope="col">Modèles de la gamme</th>
+        <th class="border title-tab"  scope="col">Modules de la gamme</th>
         <th class="border title-tab"  scope="col">Nombre de modules associé</th>
         <th class="border title-tab" scope="col">Actions</th>
       </tr>
@@ -19,7 +20,10 @@
       <tr id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes">
         <th class="data-col" scope="row">{{gamme.id}}</th>
         <td class="data-col" >{{gamme.libelle}} </td>
-        <td class="data-col" ><button type="button" class="btn btn-secondary BoutonListeGamme">modèles</button></td>
+        <td class="data-col" >          <a class="lien-icone-action" routerLink="/Liste-Modele//{{gamme.id}}">
+          <button type="button" class="btn btn-secondary BoutonListeGamme">modèles</button></a></td>
+        <td class="data-col" >          <a class="lien-icone-action" routerLink="/Liste-Module//{{gamme.id}}">
+          <button type="button" class="btn btn-secondary BoutonListeGamme">modules</button></a></td>
         <td class="data-col" >4</td>
 
         <td class="data-col actions">
@@ -29,9 +33,10 @@
           <a class="lien-icone-action" routerLink="/modification-gamme//{{gamme.id}}">
             <img class="icone-modifier" src="assets\icones\plume.svg">
           </a>
-          <a class="lien-icone-action" routerLink="/" >
-            <img class="icone-supprimer" src="assets\icones\croix.svg">
-          </a>
+          <button type="button" class="BoutonAjout" (click)="supprimerGamme(gamme.id)">
+            <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+          </button>
+
         </td>
 
       </tr>
@@ -68,3 +73,16 @@
 
 
 </ng-template>
+
+<div id="deleteWindow" class="flex deleteWindow w-20" *ngIf="DisplaySuppression">
+  <div class="d-flex justify-content-center gray-madera">
+    <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+  </div>
+  <div class="d-flex justify-content-center mb-2 gray-madera">
+    <h2 class="align-content-center">la Gamme :</h2><h2 id="GammeDelete" class="GammeDelete">{{nomGammeSupprimer}}</h2><h2 class="ml-2">?</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionGamme()">Annuler</button>
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer" (click)="confirmerSuppressionGamme()">Supprimer</button>
+  </div>
+</div>

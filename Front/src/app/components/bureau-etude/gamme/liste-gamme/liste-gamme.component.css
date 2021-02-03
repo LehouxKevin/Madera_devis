@@ -92,7 +92,7 @@ width: 5em;
 }
 
 .icone-supprimer {
-    width: 10%;
+    width: 60%;
 }.data-col {
      text-align: center;
      border-color: #dee2e6;
@@ -104,4 +104,39 @@ width: 5em;
 .title-tab {
     border-top: 0 !important;
     border-bottom: 0 !important;
+}
+.deleteWindow {
+    width: 34%;
+    z-index:101;
+    margin-left: 2%;
+    background: white;
+    border: solid #007bff 2px;
+    position: fixed;
+    bottom: 22%;
+    padding: 40px;
+
+}
+.btn-deleteWindow {
+    width: 49%;
+    padding: 18px;
+    font-size: 20px;
+}
+
+.btn-annuler {
+    margin-right: 7px;
+}
+
+.btn-supprimer {
+    background-color: white !important;
+    border-color: #0069d9 !important;
+    color: #0069d9;
+}
+.GammeDelete {
+    margin-left: 5px;
+    color: #007bff !important;
+}
+.BoutonAjout
+{
+background:none;
+border-width: 0em;
 }

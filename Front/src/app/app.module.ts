@@ -36,13 +36,13 @@ import { ConsultationTypeModuleComponent } from './pages/bureau-etude/parametre/
 import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component';
 import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
-import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
 import { CreationGammeComponent } from './pages/bureau-etude/gamme/creation-gamme/creation-gamme.component';
 import { ListeGammePageComponent } from './pages/bureau-etude/gamme/liste-gamme-page/liste-gamme-page.component';
 import { ListeModeleComponent } from './components/bureau-etude/modele/liste-modele/liste-modele.component';
 import { ListeModuleComponent } from './components/bureau-etude/module/liste-module/liste-module.component';
 import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modification-gamme/modification-gamme.component';
+import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +70,7 @@ import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modificat
     ConsultationTypeIsolationComponent,
     ConsultationTypeModuleComponent,
     ListeGammeComponent,
+        ListeDevisComponent,
     ConsultationGammeComponent,
     CreationDevisComponent,
     AjoutClientComponent,
@@ -77,13 +78,13 @@ import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modificat
     ProfilComponent,
     StatistiquesCommercialesComponent,
     SynchronisationGlobaleComponent,
-    ListeDevisComponent,
     ListeFournisseursComponent,
     CreationGammeComponent,
     ListeGammePageComponent,
     ListeModeleComponent,
     ListeModuleComponent,
     ModificationGammeComponent
+
 
   ],
   imports: [

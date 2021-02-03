@@ -10,12 +10,15 @@ import { ConsultationGammeComponent } from './pages/bureau-etude/gamme/consultat
 import { ProfilComponent } from './pages/profil/profil.component';
 import { StatistiquesCommercialesComponent } from './pages/statistiques-commerciales/statistiques-commerciales.component';
 import { SynchronisationGlobaleComponent } from './pages/synchronisation-globale/synchronisation-globale.component';
-import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ListeFournisseursComponent } from './pages/liste-fournisseurs/liste-fournisseurs.component';
 import { CreationGammeComponent } from './pages/bureau-etude/gamme/creation-gamme/creation-gamme.component';
 import { ListeGammePageComponent } from './pages/bureau-etude/gamme/liste-gamme-page/liste-gamme-page.component';
 import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modification-gamme/modification-gamme.component';
-
+import { ListeModeleComponent } from './components/bureau-etude/modele/liste-modele/liste-modele.component';
+import { ListeModuleComponent } from './components/bureau-etude/module/liste-module/liste-module.component';
+import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
+import { ConsultationModuleComponent } from './pages/bureau-etude/module/consultation-module/consultation-module.component';
+import { ConsultationModeleComponent } from './pages/bureau-etude/modele/consultation-modele/consultation-modele.component';
 
 
 const routes: Routes = [
@@ -27,13 +30,18 @@ const routes: Routes = [
   { path : "creationCompte", component:CreationCompteComponent},
   { path : "conditionsUtilisation", component:ConditionsUtilisationComponent},
   { path : "consultation-gamme/:idGamme", component:ConsultationGammeComponent},
+    { path : "consultation-modele/:idModele", component:ConsultationModeleComponent},
+
     { path : "modification-gamme/:idGamme", component:ModificationGammeComponent},
+  { path : "Liste-Modele/:idGamme", component:ListeModeleComponent},
+  { path : "Liste-Module/:idGamme", component:ListeModuleComponent},
+
    { path : "Creation-Gamme", component:CreationGammeComponent},
    { path : "liste-Gamme", component:ListeGammePageComponent},
   { path : "profil", component:ProfilComponent},
+    { path : "liste-devis", component:ListeDevisComponent},
   { path : "statistiques-commerciales", component:StatistiquesCommercialesComponent},
   { path : "synchronisation-globale", component:SynchronisationGlobaleComponent},
-  { path : "liste-devis", component:ListeDevisComponent},
   { path : "liste-fournisseurs", component:ListeFournisseursComponent}
 
 ];

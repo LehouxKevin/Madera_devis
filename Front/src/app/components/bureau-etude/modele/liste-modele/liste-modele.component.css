@@ -1,0 +1,142 @@
+ .tableau {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+     z-index:100;
+    transition: all .3s ease-in;
+    right: 5rem;
+    width: 70rem;
+    height: 100%;
+    background: #365064;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 2em;
+    /*tester*/
+    overflow: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
+      }
+      .tableau::-webkit-scrollbar {
+          display: none;
+      }
+.image_liste
+{
+
+width: 60px;
+    height:3em;
+    display: flex;
+    align-items: center;
+}
+
+
+.displayList
+{
+display: flex;
+text-align: center;
+align-items: center;
+justify-content: center;
+margin : 0;
+width: 5em;
+
+  right: 30%;
+}
+
+.BoutonListeModele
+{
+background:#2699FB;
+
+}
+
+#displaydiv
+{
+position: -webkit-sticky!important;
+position: sticky!important;
+    bottom: 1rem;
+    left: 1rem;
+
+    border: 1px solid #365064;
+    border-radius: 95%;
+}
+#boutonCreationModele
+{
+position: -webkit-sticky!important;
+position: sticky!important;
+    bottom: 1rem;
+    left: 7rem;
+width: 5em;
+    border: 1px solid #365064;
+    border-radius: 95%;
+}
+
+
+#displaydivCacher
+{
+ transform: rotate(180deg);
+    position: fixed;
+    bottom: 1rem;
+    right: 6rem;
+      border: 1px solid #365064;
+      border-radius: 95%;
+}
+.lien-icone-action {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icone-consulter {
+    width: 12%;
+}
+
+.icone-modifier {
+    width: 14%;
+}
+
+.icone-supprimer {
+    width: 60%;
+}.data-col {
+     text-align: center;
+     border-color: #dee2e6;
+ }
+.table td {
+    vertical-align: 0 !important;
+}
+
+.title-tab {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+.deleteWindow {
+    width: 34%;
+    z-index:101;
+    margin-left: 2%;
+    background: white;
+    border: solid #007bff 2px;
+    position: fixed;
+    bottom: 22%;
+    padding: 40px;
+
+}
+.btn-deleteWindow {
+    width: 49%;
+    padding: 18px;
+    font-size: 20px;
+}
+
+.btn-annuler {
+    margin-right: 7px;
+}
+
+.btn-supprimer {
+    background-color: white !important;
+    border-color: #0069d9 !important;
+    color: #0069d9;
+}
+.ModeleDelete {
+    margin-left: 5px;
+    color: #007bff !important;
+}
+.BoutonAjout
+{
+background:none;
+border-width: 0em;
+}

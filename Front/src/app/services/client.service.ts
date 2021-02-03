@@ -27,6 +27,20 @@ export class ClientService {
     return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi);
   }
 
+  syncGetClients()
+  {
+    var clients:Client[]= [];
+    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi)
+    .pipe(
+      map(client => client['hydra:member'])
+    )
+    .toPromise()
+    .then()
+    {
+      client => clients = client;
+    };
+  }
+
   getOneClientById(id)
   {
     return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi+"/"+id).toPromise();

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Gamme } from 'src/app/class/Gamme';
+import { TypeIsolation } from 'src/app/class/type-isolation';
 import { GammeService } from 'src/app/services/gamme.service';
 
 @Component({
@@ -7,9 +8,10 @@ import { GammeService } from 'src/app/services/gamme.service';
   templateUrl: './creation-devis.component.html',
   styleUrls: ['./creation-devis.component.css']
 })
-export class CreationDevisComponent implements OnInit {
+export class CreationDevisComponent implements OnInit, AfterViewInit {
 
   public gammes:Gamme[] = [];
+  public typesIsolation:TypeIsolation[] = [];
 
   texteGamme = "";
   texteTypeIsolation ="";
@@ -23,7 +25,10 @@ export class CreationDevisComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.getGammes();
+  }
+
+  async ngAfterViewInit() {
+    await this.getGammes();
     this.isLoading = false;
   }
 
@@ -53,7 +58,7 @@ export class CreationDevisComponent implements OnInit {
     var value = idAttr.nodeValue;
 
     this.texteTypeIsolation = event.srcElement.text;
-    this.idTypeIsoSelectionnee = value.substring(7);
+    this.idTypeIsoSelectionnee = value.substring(9);
     console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
   }
 

@@ -24,6 +24,8 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
   public telephoneClient = "";
   public mailClient = "";
 
+  isLoading:boolean = false;
+
   //isAClientSelected = false;
 
   // Etat de la visibilité du composant d'ajout de client
@@ -33,16 +35,16 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
 
   constructor(private clientService: ClientService) { }
 
-  ngOnInit(): void { // Mettre un loading + sync
-    this.clientService.getClients().pipe(
-      map(client => client['hydra:member'])
-    ).subscribe(
-      client => this.clients = client 
-    );
+  ngOnInit(): void {
+    this.isLoading = true;
   }
 
-  ngAfterViewInit():void {
+  async ngAfterViewInit() {
+    
+    console.log(await this.clientService.syncGetClients());
+    this.clients = await this.clientService.syncGetClients();
     console.log(this.clients);
+    this.isLoading = false;
   }
 
   async handleChoixClient(event) {

@@ -20,8 +20,10 @@ import { TypeIsolationService } from 'src/app/services/type-isolation.service';
 import { ModuleService } from 'src/app/services/module.service';
 import { ModeleService } from 'src/app/services/modele.service';
 import { GammeService } from 'src/app/services/gamme.service';
+import { Router } from '@angular/router';
 
-import { map } from 'rxjs/operators';
+
+import { filter,map } from 'rxjs/operators';
 import {  Input } from '@angular/core';
 
 
@@ -40,6 +42,7 @@ export class CreationGammeComponent implements OnInit {
   public Modeles:Modele[] = [];
   public ModulesFormulaires:Module[] = [];
   public ModelesFormulaires:Modele[] = [];
+    public gammes:Gamme[] = [];
 
   public NomGammeChamps: string;
  public FinitionExterieurChamps :string;
@@ -47,6 +50,13 @@ export class CreationGammeComponent implements OnInit {
  public TypeCouvertureChamps  :string;
  public QualiteHuisseriesChamps  :string;
  public ConceptionOssatureChamps  :string;
+
+  public NomGammeErreur: boolean = false;
+ public FinitionExterieurErreur :boolean = false;
+  public TypeIsolationErreur  :boolean = false;
+ public TypeCouvertureErreur  :boolean = false;
+ public QualiteHuisseriesErreur  :boolean = false;
+ public ConceptionOssatureErreur  :boolean = false;
 
   public gamme:Gamme;
 
@@ -60,7 +70,7 @@ DisplaylisteGamme = false;
   constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
   private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
   private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
-   private typeIsolationService: TypeIsolationService,   private http: HttpClient) { }
+   private typeIsolationService: TypeIsolationService, private router: Router,  private http: HttpClient) { }
 
   ngOnInit(): void {
      this.conceptionOssatureService.getConceptionOssatures().pipe(
@@ -106,6 +116,11 @@ DisplaylisteGamme = false;
 
                                   this.ModulesFormulaires.push( new Module);
                                    this.ModelesFormulaires.push(new  Modele);
+   this.gammeService.getGammes().pipe(
+        map(gamme => gamme['hydra:member'])
+      ).subscribe(
+        gamme => this.gammes = gamme
+      );
 
   }
 
@@ -114,16 +129,32 @@ DisplaylisteGamme = false;
 
 
   this.NomGammeChamps=ajoutGamme.value.NomGammeChamps;
- this.FinitionExterieurChamps =ajoutGamme.value.FinitionExterieurChamps;
-  this.TypeIsolationChamps =ajoutGamme.value.TypeIsolationChamps;
- this.TypeCouvertureChamps  =ajoutGamme.value.TypeCouvertureChamps;
- this.QualiteHuisseriesChamps  =ajoutGamme.value.QualiteHuisseriesChamps;
- this.ConceptionOssatureChamps  =ajoutGamme.value.ConceptionOssatureChamps;
+ this.FinitionExterieurChamps = "/api/finition_exterieurs/"+ajoutGamme.value.FinitionExterieurChamps;
+  this.TypeIsolationChamps ="/api/type_isolations/"+ajoutGamme.value.TypeIsolationChamps;
+ this.TypeCouvertureChamps  ="/api/type_couvertures/"+ajoutGamme.value.TypeCouvertureChamps;
+ this.QualiteHuisseriesChamps  ="/api/qualite_huisseries/"+ajoutGamme.value.QualiteHuisseriesChamps;
+ this.ConceptionOssatureChamps  ="/api/conception_ossatures/"+ajoutGamme.value.ConceptionOssatureChamps;
 
 console.log(this.NomGammeChamps+this.FinitionExterieurChamps+this.TypeIsolationChamps
             +this.TypeCouvertureChamps+ this.QualiteHuisseriesChamps+
             this.ConceptionOssatureChamps);
 
+
+ajoutGamme.value.NomGammeChamps.length <= 0 || ajoutGamme.value.NomGammeChamps == null ? this.NomGammeErreur = true : this.NomGammeErreur = false;
+ajoutGamme.value.FinitionExterieurChamps.length <= 0 || ajoutGamme.value.FinitionExterieurChamps == null ? this.FinitionExterieurErreur = true : this.FinitionExterieurErreur = false;
+ajoutGamme.value.TypeIsolationChamps.length <= 0 || ajoutGamme.value.TypeIsolationChamps == null ? this.TypeIsolationErreur = true : this.TypeIsolationErreur = false;
+ajoutGamme.value.TypeCouvertureChamps.length <= 0 || ajoutGamme.value.TypeCouvertureChamps == null ? this.TypeCouvertureErreur = true : this.TypeCouvertureErreur = false;
+ajoutGamme.value.QualiteHuisseriesChamps.length <= 0 || ajoutGamme.value.QualiteHuisseriesChamps == null ? this.QualiteHuisseriesErreur = true : this.QualiteHuisseriesErreur = false;
+ajoutGamme.value.ConceptionOssatureChamps.length <= 0 || ajoutGamme.value.ConceptionOssatureChamps == null ? this.ConceptionOssatureErreur = true : this.ConceptionOssatureErreur = false;
+
+
+if( !this.NomGammeErreur
+&&   !this.FinitionExterieurErreur
+&&   !this.TypeIsolationErreur
+&&   !this.TypeCouvertureErreur
+&&   !this.QualiteHuisseriesErreur
+&&   !this.ConceptionOssatureErreur )
+{        console.log("testwesh");
 
 this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
 ,this.FinitionExterieurChamps
@@ -132,14 +163,16 @@ this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
 , this.QualiteHuisseriesChamps
 ,this.ConceptionOssatureChamps);
 
-console.log(this.gamme.qualite_huisseries_id);
+//console.log(this.gamme.qualite_huisseries_id);
      if(await this.gammeService.addGamme(this.gamme))
       {
-        this.addGammeChangingState.emit("addGammeCacher");
+         this.ngOnInit();
+         this.router.navigateByUrl('/liste-Gamme');
       }
       else { // afficher erreur
         console.log("non");
       }
+}
 
   }
 
@@ -156,6 +189,24 @@ this.ModelesFormulaires.push(new  Modele)
 console.log("test");
     }
 
+suppressionModule(IdModule :number):void {
+console.log("test supp");
+console.log(this.ModulesFormulaires);
+
+this.ModulesFormulaires =this.ModulesFormulaires.filter(Module => Module.id === IdModule)
+
+console.log("test");
+
+    }
+suppressionModele(IdModele :number):void {
+console.log("test supp");
+console.log(this.ModelesFormulaires);
+
+this.ModelesFormulaires =this.ModelesFormulaires.filter(ModelesFormulaire => ModelesFormulaire.id === IdModele)
+
+document.getElementById("LigneModeleFormulaire"+IdModele).style.display = "none";
+
+    }
 
 handleListeGamme():void {
 

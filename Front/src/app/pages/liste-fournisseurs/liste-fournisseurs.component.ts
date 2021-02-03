@@ -194,15 +194,16 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
         this.fournisseur.nom !== this.nom ? this.fournisseur.nom = this.nom : 0;
         this.fournisseur.telephone !== this.telephone ? this.fournisseur.telephone = this.telephone : 0;
         this.fournisseur.email !== this.mail ? this.fournisseur.email = this.mail : 0;        
-        this.fournisseurService.syncUpdateFournisseur(this.fournisseur);
-      /*// À mettre quand le fournisseur à été modifié :
+        await this.fournisseurService.syncUpdateFournisseur(this.fournisseur);
+
+        // À mettre quand le fournisseur à été modifié :
         document.getElementById("titrefournisseur").style.display = "none";
         this.champsNom.style.borderLeft = "solid green 9px";
         this.champsTel.style.borderLeft = "solid green 9px";
         this.champsMail.style.borderLeft = "solid green 9px";
         this.displayFournisseur();
         this.ngOnInit();
-      */
+      
     }
   }
 

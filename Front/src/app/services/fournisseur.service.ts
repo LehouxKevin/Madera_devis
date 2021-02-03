@@ -66,16 +66,7 @@ export class FournisseurService {
     return this.http.put<Fournisseur>(this.baseUrl+this.fournisseurApi+"/"+fournisseur.id,fournisseur)
     .pipe(
       catchError(this.handleError)
-    ).toPromise().then(data => {
-        // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
-        if(data.id > 0)
-        {
-          return true;
-        }
-        else {
-          return false;
-        }
-    });
+    ).toPromise();
   }
 
   private handleError(error: HttpErrorResponse) {

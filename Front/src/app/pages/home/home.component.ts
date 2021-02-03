@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     // Type utilisateur : Commercial
     else if (this.utilisateur.typeUtilisateur.slice(23) == 2) {
       document.getElementById('icone_listeGamme').remove();
-      document.getElementById('icone_listeFournisseur').remove();
+      document.getElementById('icone_listeFournisseurs').remove();
       document.getElementById('icone_listeParametres').remove();
     }
     // Type utilisateur : Bureau d'études

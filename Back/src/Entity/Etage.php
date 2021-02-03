@@ -32,16 +32,6 @@ class Etage
      */
     private $modele;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Module::class, inversedBy="etages")
-     */
-    private $modules;
-
-    public function __construct()
-    {
-        $this->modules = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -67,30 +57,6 @@ class Etage
     public function setModele(?Modele $modele): self
     {
         $this->modele = $modele;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Module[]
-     */
-    public function getModules(): Collection
-    {
-        return $this->modules;
-    }
-
-    public function addModule(Module $module): self
-    {
-        if (!$this->modules->contains($module)) {
-            $this->modules[] = $module;
-        }
-
-        return $this;
-    }
-
-    public function removeModule(Module $module): self
-    {
-        $this->modules->removeElement($module);
 
         return $this;
     }

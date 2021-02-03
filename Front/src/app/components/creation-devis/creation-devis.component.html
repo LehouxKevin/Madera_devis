@@ -2,22 +2,46 @@
     <div class="titreClient row col-md-12 offset-md-5">
         <h1>Devis</h1>
     </div>
-    <div class="row containerChoixGamme col-md-12">
-        <div class="col-md-3 ">
-            <div class="col-md-12">
-                <div class="dropdown col-md-12">
-                    <div class="divDropDown col-md-12">
-                        <div class="col-md-3 cubeEntete">
-                            Gamme                                    
+    <div class="row col-md-12 globalCreationRow">
+        <div class="containerChoixGamme col-md-4">
+            <div class="col-md-12 ">
+                <div class="col-md-12">
+                    <div class="dropdown col-md-12">
+                        <div class="divDropDown col-md-12">
+                            <div class="col-md-3 cubeEntete">
+                                Gamme                                    
+                            </div>
+                            <button class="col-md-9 dropbtn">{{texteGamme}}</button>
+                            
                         </div>
-                        <button class="col-md-9 dropbtn">{{texteGamme}}</button>
-                        
-                    </div>
-                    <div class="dropdown-content" >
-                        <a id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes" (click)="handleChoixGamme($event)">{{gamme.libelle}}</a>
+                        <div class="dropdown-content" >
+                            <a id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes" (click)="handleChoixGamme($event)">{{gamme.libelle}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="loading" *ngIf="isLoading" >Loading&#8230;</div>
+        <div class="col-md-4 offset-md-1 containerDefinitionGamme">
+            <div class="col-md-12 rectangleEnteteBleu">
+                <div> Gamme     :   {{texteGamme}} </div>
+            </div>
+            <div class="col-md-12">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Type isolation
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteTypeIsolation}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idGamme'+gamme.id}}" *ngFor="let gamme of gammes" (click)="handleChoixTypeIsolation($event)">{{gamme.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="loading" *ngIf="isLoading" >Loading&#8230;</div>
 </div>

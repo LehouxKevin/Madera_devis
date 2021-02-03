@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { rejects } from 'assert';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -43,7 +44,6 @@ export class FournisseurService {
     });
   }
 
-  // Peut être la faire en sync ?
   asyncDeleteFournisseur(idFournisseur:number): boolean
   {
     this.retValDeleteFourni=false;
@@ -56,6 +56,24 @@ export class FournisseurService {
                 console.error('There was an error!', error);
             }
         });
+    return this.retValDeleteFourni;
+  }
+
+  // à tester
+  syncDeleteFournisseur(idFournisseur:number): boolean
+  {
+    this.retValDeleteFourni=false;
+    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
+        .toPromise()
+        .then((res:any) =>{
+          this.retValDeleteFourni = true;
+        },
+        err=> {
+          // Erreur
+          console.log(err);
+          rejects(err);
+        });
+
     return this.retValDeleteFourni;
   }
 

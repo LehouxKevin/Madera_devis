@@ -21,13 +21,27 @@ export class TypeIsolationService {
     return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi);
   }
 
+  syncGetTypesIsolation()
+  {
+    var typesIsolation:TypeIsolation[] = [];
+    return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi)
+    .pipe(
+      map(typeIsolation => typeIsolation['hydra:member'])
+    )
+    .toPromise()
+    .then()
+    {
+      typeIso => typesIsolation = typeIso;
+    };
+  }
+
   getOneTypeIsolationById(id)
   {
     return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi+"/"+id);
   }
 
-    getOneTypeIsolationByICleEtrangere(CleEtrangere)
-    {
-      return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-    }
+  getOneTypeIsolationByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
 }

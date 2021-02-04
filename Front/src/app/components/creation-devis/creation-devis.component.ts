@@ -11,17 +11,19 @@ import { TypeIsolationService } from 'src/app/services/type-isolation.service';
 })
 export class CreationDevisComponent implements OnInit, AfterViewInit {
 
+  // Objets
   public gammes:Gamme[] = [];
   public typesIsolation:TypeIsolation[] = [];
 
+  // Textes des boutons des selecteurs
   texteGamme = "Selectionnez une gamme";
   texteTypeIsolation = "";
 
+  // Id des elements selectionnés
   idGammeSelectionnee = 0;
   idTypeIsoSelectionnee = 0;
 
-  typeIsolation;
-
+  // url pour l'api des différents chamms
   urlTypeIsolation:string = "/type_isolations/";
 
 
@@ -76,14 +78,17 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
 
     this.texteTypeIsolation = event.srcElement.text;
     this.idTypeIsoSelectionnee = value.substring(9);
-    console.log(event.srcElement.text + " | " + this.idGammeSelectionnee);
+    console.log(event.srcElement.text + " | " + this.idTypeIsoSelectionnee);
   }
 
   async loadTypesIsolations()
   {
     // this.texteTypeIsolation
-    this.typeIsolation = await this.typeIsolationService.getOneTypeIsolationByICleEtrangere(this.urlTypeIsolation+this.idGammeSelectionnee);
-    this.texteTypeIsolation = this.typeIsolation.libelle;
+    var typeIsolation;
+    typeIsolation = await this.typeIsolationService.getOneTypeIsolationByICleEtrangere(this.urlTypeIsolation+this.idGammeSelectionnee);
+    this.texteTypeIsolation = typeIsolation.libelle;
+    this.typesIsolation = await this.typeIsolationService.syncGetTypesIsolation();
+    console.log(this.typesIsolation);
   }
 
 }

@@ -58,6 +58,22 @@
                 </div>
             </div>
 
+            <!-- Finition intérieur -->
+            <div class="col-md-12">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Finition intérieur
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteFinitionInterieur}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idFiniInt'+finitionInterieur.id}}" *ngFor="let finitionInterieur of finitionsInterieur" (click)="handleChoixfinitionInterieur($event)">{{finitionInterieur.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Type de couverture -->
             <div class="col-md-12">
                 <div class="inputChoix dropdown col-md-12">

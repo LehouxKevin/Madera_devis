@@ -3,12 +3,14 @@ import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
+import { FinitionInterieur } from 'src/app/class/finition-interieur';
 import { Gamme } from 'src/app/class/Gamme';
 import { QualiteHuisseries } from 'src/app/class/qualite-huisseries';
 import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
 import { FinitionExterieurService } from 'src/app/services/finition-exterieur.service';
+import { FinitionInterieurService } from 'src/app/services/finition-interieur.service';
 import { GammeService } from 'src/app/services/gamme.service';
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
 import { TypeCouvertureService } from 'src/app/services/type-couverture.service';
@@ -25,6 +27,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   public gammes:Gamme[] = [];
   public typesIsolation:TypeIsolation[] = [];
   public finitionsExterieur:FinitionExterieur[] = [];
+  public finitionInterieur:FinitionInterieur[] = [];
   public typesCouverture:TypeCouverture[] = [];
   public qualiteHuisseries:QualiteHuisseries[] = [];
   public conceptionsOssatures:ConceptionOssature[] = [];
@@ -33,6 +36,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   texteGamme = "Selectionnez une gamme";
   texteTypeIsolation = "";
   texteFinitionExterieur = "";
+  texteFinitionInterieur = "";
   texteTypeCouverture = "";
   texteQualiteHuisserie = "";
   texteConceptionOssature = "";
@@ -41,6 +45,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   idGammeSelectionnee = 0;
   idTypeIsoSelectionnee = 0;
   idFinitionExterieurSelectionnee = 0;
+  idFinitionInterieurSelectionnee = 0;
   idTypeCouvertureSelectionnee = 0;
   idQualiteHuisserieSelectionnee = 0;
   idConceptionOssatureSelectionnee = 0;
@@ -48,6 +53,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   // url précis des champs selectionnées
   urlTypeIsolationSelectionnee:string = "";
   urlFinitionExterieurSelectionnee:string = "";
+  urlFinitionInterieurSelectionnee:string = "";
   urlTypeCouvertureSelectionnee:string = "";
   urlQualiteHuisserieSelectionnee:string = ""
   urlConceptionOssatureSelectionnee:string = "";
@@ -55,6 +61,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   // url pour l'api des différents champs
   urlTypeIsolation:string = "/type_isolations/";
   urlFinitionExterieur:string = "/finition_exterieurs/";
+  urlFinitionInterieur:string = "/finition_interieurs/";
   urlTypeCouverture:string = "/type_couvertures/";
   urlQualiteHuisserie:string = "/qualite_huisseries/";
   urlConceptionOssature:string = "/conception_ossatures/";
@@ -65,6 +72,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   constructor(private gammeService: GammeService,
      private typeIsolationService: TypeIsolationService,
       private finitionExterieurService:FinitionExterieurService,
+      private finitionInterieurService:FinitionInterieurService,
       private typeCouvertureService:TypeCouvertureService,
       private qualiteHuisserieService:QualiteHuisseriesService,
       private conceptionOssatureService:ConceptionOssatureService) { }
@@ -100,6 +108,7 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
     var gamme = await this.gammeService.getOneGammeById(this.idGammeSelectionnee);
     this.urlTypeIsolationSelectionnee = gamme["typeIsolation"];
     this.urlFinitionExterieurSelectionnee = gamme["finitionExt"];
+    //this.urlFinitionInterieurSelectionnee = gamme["finitionInt"];
     this.urlTypeCouvertureSelectionnee = gamme["typeCouverture"];
     this.urlQualiteHuisserieSelectionnee = gamme["qualiteHuisseries"];
     this.urlConceptionOssature = gamme["conceptionOssature"];
@@ -183,6 +192,17 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
     this.texteFinitionExterieur = event.srcElement.text;
     this.idFinitionExterieurSelectionnee = value.substring(9);
     console.log(event.srcElement.text + " | " + this.idFinitionExterieurSelectionnee);
+  }
+
+  handleChoixfinitionInterieur(event)
+  {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    this.texteFinitionInterieur = event.srcElement.text;
+    this.idFinitionInterieurSelectionnee = value.substring(9);
+    console.log(event.srcElement.text + " | " + this.idFinitionInterieurSelectionnee);
   }
 
   handleChoixTypeCouverture(event)

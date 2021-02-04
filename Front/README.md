@@ -43,3 +43,15 @@ Navigate to `https://localhost:4200/`
 You can also run `ng serve --ssl` which is well configured to use the key and the certificate from the ssl folder.
 
 If you want your browser to thrust this certificate, you can add it in your `mmc` on your local machine.
+
+
+## Utilisateurs account examples 
+
+Administrateur : `admin@admin.fr`
+mdp:  `admin`
+
+Commercial : `com@com.fr`
+mdp:  `com`
+
+Bureau d'études : `bd@bd.fr`
+mdp : `bd`

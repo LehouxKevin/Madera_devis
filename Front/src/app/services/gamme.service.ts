@@ -28,7 +28,7 @@ constructor(private http: HttpClient) { }
 
   getOneGammeById(id)
   {
-  console.log(this.baseUrl+this.gammesApi+"/"+id)
+    console.log(this.baseUrl+this.gammesApi+"/"+id)
     return this.http.get<any[]>(this.baseUrl+this.gammesApi+"/"+id).toPromise();
   }
 

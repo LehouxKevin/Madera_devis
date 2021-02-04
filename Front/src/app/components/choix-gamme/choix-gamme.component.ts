@@ -45,12 +45,19 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   idQualiteHuisserieSelectionnee = 0;
   idConceptionOssatureSelectionnee = 0;
 
-  // url pour l'api des différents chamms
+  // url précis des champs selectionnées
+  urlTypeIsolationSelectionnee:string = "";
+  urlFinitionExterieurSelectionnee:string = "";
+  urlTypeCouvertureSelectionnee:string = "";
+  urlQualiteHuisserieSelectionnee:string = ""
+  urlConceptionOssatureSelectionnee:string = "";
+
+  // url pour l'api des différents champs
   urlTypeIsolation:string = "/type_isolations/";
   urlFinitionExterieur:string = "/finition_exterieurs/";
   urlTypeCouverture:string = "/type_couvertures/";
-  urlQualiteHuisserie:string = "/qualite_huisseries/"
-  urlConceptionOssature:string = "/conception_ossatures/"
+  urlQualiteHuisserie:string = "/qualite_huisseries/";
+  urlConceptionOssature:string = "/conception_ossatures/";
 
 
   isLoading = false;
@@ -89,6 +96,14 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
     this.texteGamme = event.srcElement.text;
     this.idGammeSelectionnee = value.substring(7);
     console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
+
+    var gamme = await this.gammeService.getOneGammeById(this.idGammeSelectionnee);
+    this.urlTypeIsolationSelectionnee = gamme["typeIsolation"];
+    this.urlFinitionExterieurSelectionnee = gamme["finitionExt"];
+    this.urlTypeCouvertureSelectionnee = gamme["typeCouverture"];
+    this.urlQualiteHuisserieSelectionnee = gamme["qualiteHuisseries"];
+    this.urlConceptionOssature = gamme["conceptionOssature"];
+    console.log(gamme);
   
     this.loadDataFieldsGamme();
    
@@ -100,11 +115,11 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
    */
   loadDataFieldsGamme()
   {
-    var typeIsolationByCleEtrangereRequest = this.typeIsolationService.asyncGetOneTypeIsolationByCleEtrangere(this.urlTypeIsolation+this.idTypeIsoSelectionnee);
-    var finitionExterieurByCleEtrangereRequest = this.finitionExterieurService.asyncGetOneFinitionExterieurByCleEtrangere(this.urlFinitionExterieur+this.idFinitionExterieurSelectionnee);
-    var typeCouvertureByCleEtrangereRequest = this.typeCouvertureService.asyncGetOneTypeCouvertureByCleEtrangere(this.urlTypeCouverture+this.idTypeCouvertureSelectionnee);
-    var qualiteHuisserieByCleEtrangereRequest = this.qualiteHuisserieService.asyncGetOneQualiteHuisserieByCleEtrangere(this.urlQualiteHuisserie+this.idQualiteHuisserieSelectionnee);
-    var conceptionOssatureByCleEtrangereRequest = this.conceptionOssatureService.asyncGetOneConceptionOssatureByCleEtrangere(this.urlConceptionOssature+this.idConceptionOssatureSelectionnee);
+    var typeIsolationByCleEtrangereRequest = this.typeIsolationService.asyncGetOneTypeIsolationByCleEtrangere(this.urlTypeIsolationSelectionnee.substring(4));
+    var finitionExterieurByCleEtrangereRequest = this.finitionExterieurService.asyncGetOneFinitionExterieurByCleEtrangere(this.urlFinitionExterieurSelectionnee.substring(4));
+    var typeCouvertureByCleEtrangereRequest = this.typeCouvertureService.asyncGetOneTypeCouvertureByCleEtrangere(this.urlTypeCouvertureSelectionnee.substring(4));
+    var qualiteHuisserieByCleEtrangereRequest = this.qualiteHuisserieService.asyncGetOneQualiteHuisserieByCleEtrangere(this.urlQualiteHuisserieSelectionnee.substring(4));
+    var conceptionOssatureByCleEtrangereRequest = this.conceptionOssatureService.asyncGetOneConceptionOssatureByCleEtrangere(this.urlConceptionOssature.substring(4));
 
     var typesIsolationRequest = this.typeIsolationService.asyncGetTypesIsolation();
     var finitionsExterieursRequest = this.finitionExterieurService.asyncGetFinitionsExterieur();
@@ -128,6 +143,11 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
       this.texteTypeCouverture = response[2]["libelle"];
       this.texteQualiteHuisserie = response[3]["libelle"];
       this.texteConceptionOssature = response[4]["libelle"];
+      this.idTypeIsoSelectionnee = response[0]["id"];
+      this.idFinitionExterieurSelectionnee = response[1]["id"];
+      this.idTypeCouvertureSelectionnee = response[2]["id"];
+      this.idQualiteHuisserieSelectionnee = response[3]["id"];
+      this.idConceptionOssatureSelectionnee = response[4]["id"];
       this.typesIsolation = response[5]['hydra:member'];
       this.finitionsExterieur = response[6]['hydra:member'];
       this.typesCouverture = response[7]['hydra:member'];

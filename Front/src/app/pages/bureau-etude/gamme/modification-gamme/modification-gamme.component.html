@@ -91,6 +91,20 @@
           </select>
         </div>
       </div>
+      <div class="p-2 bd-highlight LibelleInput">
+
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="finitionInterieur">finition Interieur :</label>
+          </div>
+          <select class="custom-select" id="finitionInterieur" ngModel #finitionInterieurChamps="ngModel" name="finitionInterieurChamps">
+            <option selected value="0" disabled>{{NomfinitionInterieur}}</option>
+            <option value="{{finitionInterieur.id}}"  *ngFor="let finitionInterieur of finitionInterieurs" >{{finitionInterieur.libelle}}</option>
+          </select>
+        </div>
+      </div>
     </div>
     <!--
     <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
@@ -196,7 +210,7 @@
     <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
 
       <div class="p-2 bd-highlight">
-        <input type="submit" class="btn btn-primary" value="Modifier" />
+        <input type="submit" class="btn btn-primary" value="Enregistrer" />
       </div>
     </div>
 

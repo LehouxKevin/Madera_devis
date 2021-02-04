@@ -11,6 +11,9 @@ import { Modele } from 'src/app/class/Modele';
 import { NgForm } from '@angular/forms';
 import { Gamme } from 'src/app/class/Gamme';
 import { environment } from 'src/environments/environment';
+import { FinitionInterieur } from 'src/app/class/finition-interieur';
+
+
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
 import { FinitionExterieurService } from 'src/app/services/finition-exterieur.service';
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
@@ -24,6 +27,7 @@ import { Location } from '@angular/common';
 import { filter,map,finalize  } from 'rxjs/operators';
 import {  Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { FinitionInterieurService } from 'src/app/services/finition-interieur.service';
 
 
 @Component({
@@ -37,6 +41,8 @@ public conceptionOssatures:ConceptionOssature[] = [];
   public QualiteHuisseries:QualiteHuisseries[] = [];
   public TypeCouvertures:TypeCouverture[] = [];
   public TypeIsolations:TypeIsolation[] = [];
+      public finitionInterieurs:FinitionInterieur[] = [];
+
   public Modules:Module[] = [];
   public Modeles:Modele[] = [];
   public ModulesFormulaires:Module[] = [];
@@ -49,6 +55,8 @@ public conceptionOssatures:ConceptionOssature[] = [];
  public TypeCouvertureChamps  :string;
  public QualiteHuisseriesChamps  :string;
  public ConceptionOssatureChamps  :string;
+  public finitionInterieurChamps  :string;
+
    @Output() addGammeChangingState = new EventEmitter<string>();
 Displaylistemodele:boolean = true;
 DisplaylisteGamme = false;
@@ -60,12 +68,14 @@ public NomTypeCouverture="------";
 public NomFinitionExterieur="------";
 public NomQualiteHuisseries="------";
 public NomConceptionOssature="------";
+public NomfinitionInterieur="------";
 
 public idTypeIsolation ="0";
 public idTypeCouverture="0";
 public idFinitionExterieur="0";
 public idQualiteHuisseries="0";
 public idConceptionOssature="0";
+public idfinitionInterieur="0";
 
 public gamme ;
  public conceptionOssature;
@@ -73,11 +83,12 @@ public gamme ;
   public QualiteHuisserie;
   public TypeCouverture;
   public TypeIsolation;
+  public finitionInterieur;
 
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
     private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
    private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
-     private typeIsolationService: TypeIsolationService,  private router: Router, private route: ActivatedRoute,  private http: HttpClient) { }
+     private typeIsolationService: TypeIsolationService,  public finitionInterieurService:FinitionInterieurService , private router: Router, private route: ActivatedRoute,  private http: HttpClient) { }
 
 
 
@@ -87,6 +98,7 @@ public gamme ;
  public TypeCouvertureModifier  :boolean = false;
  public QualiteHuisseriesModifier  :boolean = false;
  public ConceptionOssatureModifier  :boolean = false;
+ public finitionInterieurModifier  :boolean = false;
 
 
 ngOnInit(): void {
@@ -124,6 +136,12 @@ console.log(this.idGamme)
                                  ).subscribe(
                                    TypeIsolation => this.TypeIsolations = TypeIsolation
                                  );
+  this.finitionInterieurService.GetFinitionsInterieur().pipe(
+                                    map(FinitionInterieur => FinitionInterieur['hydra:member'])
+                                  ).subscribe(
+                                    FinitionInterieur => this.finitionInterieurs = FinitionInterieur
+                                  );
+
   this.modeleService.getModeles().pipe(
                                     map(Modele => Modele['hydra:member'])
                                   ).subscribe(
@@ -156,6 +174,8 @@ this.InitialiserGamme();
  this.TypeCouvertureChamps  ="/api/type_couvertures/"+ModifGamme.value.TypeCouvertureChamps;
  this.QualiteHuisseriesChamps  ="/api/qualite_huisseries/"+ModifGamme.value.QualiteHuisseriesChamps;
  this.ConceptionOssatureChamps  ="/api/conception_ossatures/"+ModifGamme.value.ConceptionOssatureChamps;
+ this.finitionInterieurChamps  ="/api/finition_interieurs/"+ModifGamme.value.finitionInterieurChamps;
+
 console.log("this.idConceptionOssature");
 
 console.log(this.idConceptionOssature);
@@ -170,6 +190,7 @@ ModifGamme.value.TypeIsolationChamps.length <= 0 || ModifGamme.value.TypeIsolati
 ModifGamme.value.TypeCouvertureChamps.length <= 0 || ModifGamme.value.TypeCouvertureChamps == null ? 0:this.idTypeCouverture = ModifGamme.value.TypeCouvertureChamps ;
 ModifGamme.value.QualiteHuisseriesChamps.length <= 0 || ModifGamme.value.QualiteHuisseriesChamps == null? 0:this.idQualiteHuisseries = ModifGamme.value.QualiteHuisseriesChamps ;
 ModifGamme.value.ConceptionOssatureChamps.length <= 0 || ModifGamme.value.ConceptionOssatureChamps == null ? 0:this.idConceptionOssature = ModifGamme.value.ConceptionOssatureChamps ;
+ModifGamme.value.finitionInterieurChamps.length <= 0 || ModifGamme.value.finitionInterieurChamps == null ? 0:this.idfinitionInterieur = ModifGamme.value.finitionInterieurChamps ;
 
 
 this.gamme=new Gamme(this.NomGamme,new Date() ,false
@@ -177,7 +198,9 @@ this.gamme=new Gamme(this.NomGamme,new Date() ,false
 ,"/api/type_isolations/"+this.idTypeIsolation
 ,"/api/type_couvertures/"+this.idTypeCouverture
 ,"/api/qualite_huisseries/"+ this.idQualiteHuisseries
-,"/api/conception_ossatures/"+this.idConceptionOssature);
+,"/api/conception_ossatures/"+this.idConceptionOssature,
+"/api/finition_interieurs/"+this.idfinitionInterieur
+);
 this.gamme.id=Number(this.idGamme);
 
 if(await this.gammeService.syncUpdateGamme(this.gamme))
@@ -221,22 +244,24 @@ this.QualiteHuisserie  =  await this.qualiteHuisseriesService.getOneQualiteHuiss
 this.NomQualiteHuisseries=this.QualiteHuisserie.libelle;
 this.idQualiteHuisseries=this.QualiteHuisserie.id;
 
+this.finitionInterieur  =   await this.finitionInterieurService.asyncGetOneFinitionInterieurByCleEtrangere(this.gamme.finitionInterieur.substring(4));
+this.NomfinitionInterieur=this.finitionInterieur.libelle;
+this.idfinitionInterieur=this.finitionInterieur.id;
 
+console.log(this.NomfinitionInterieur)
 var DropdownList = (document.getElementById("TypeIsolation")) as HTMLSelectElement;
-
 DropdownList.selectedIndex= 0;
 var DropdownList = (document.getElementById("FinitionExterieur")) as HTMLSelectElement;
-
 DropdownList.selectedIndex= 0;
 var DropdownList = (document.getElementById("QualiteHuisseries")) as HTMLSelectElement;
-
 DropdownList.selectedIndex= 0;
 var DropdownList = (document.getElementById("ConceptionOssature")) as HTMLSelectElement;
-
 DropdownList.selectedIndex= 0;
 var DropdownList = (document.getElementById("TypeCouverture")) as HTMLSelectElement;
-
 DropdownList.selectedIndex= 0;
+var DropdownList = (document.getElementById("finitionInterieur")) as HTMLSelectElement;
+DropdownList.selectedIndex= 0;
+
 /*
 var selectElem =( document.getElementById("TypeIsolation")) as HTMLSelectElement;
 selectElem.getAttribute('selected').toBeTruthy()*//*

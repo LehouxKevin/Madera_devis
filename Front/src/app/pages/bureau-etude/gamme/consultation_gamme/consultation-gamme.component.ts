@@ -10,6 +10,7 @@ import { Module } from 'src/app/class/Module';
 import { Modele } from 'src/app/class/Modele';
 import { NgForm } from '@angular/forms';
 import { Gamme } from 'src/app/class/Gamme';
+import { FinitionInterieur } from 'src/app/class/finition-interieur';
 
 import { environment } from 'src/environments/environment';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
@@ -17,6 +18,8 @@ import { FinitionExterieurService } from 'src/app/services/finition-exterieur.se
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
 import { TypeCouvertureService } from 'src/app/services/type-couverture.service';
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
+import { FinitionInterieurService } from 'src/app/services/finition-interieur.service';
+
 import { ModuleService } from 'src/app/services/module.service';
 import { ModeleService } from 'src/app/services/modele.service';
 import { GammeService } from 'src/app/services/gamme.service';
@@ -38,6 +41,8 @@ export class ConsultationGammeComponent implements OnInit {
   public QualiteHuisserie;
   public TypeCouverture;
   public TypeIsolation;
+    public FinitionInterieur;
+
   public Modules:Module[] = [];
   public Modeles:Modele[] = [];
 public gamme ;
@@ -48,6 +53,7 @@ public NomTypeCouverture="------";
 public NomFinitionExterieur="------";
 public NomQualiteHuisseries="------";
 public NomConceptionOssature="------";
+public NomFinitionInterieur="------";
 
 Displaylistemodele:boolean = true;
 DisplaylisteGamme = false;
@@ -60,7 +66,7 @@ DisplaylisteGamme = false;
    constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
     private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
    private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
-     private typeIsolationService: TypeIsolationService,  private route: ActivatedRoute,  private http: HttpClient) { }
+     private typeIsolationService: TypeIsolationService, public finitionInterieurService:FinitionInterieurService ,  private route: ActivatedRoute,  private http: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -117,6 +123,9 @@ this.NomFinitionExterieur=this.FinitionExterieur.libelle;
 
 this.QualiteHuisserie  =  await this.qualiteHuisseriesService.getOneQualiteHuisserieByICleEtrangere(this.gamme.qualiteHuisseries.substring(4));
 this.NomQualiteHuisseries=this.QualiteHuisserie.libelle;
+
+this.FinitionInterieur  =  await this.finitionInterieurService.asyncGetOneFinitionInterieurByCleEtrangere(this.gamme.finitionInterieur.substring(4));
+this.NomFinitionInterieur=this.FinitionInterieur.libelle;
 
  console.log(this.Modules)
   console.log("this.Modele")

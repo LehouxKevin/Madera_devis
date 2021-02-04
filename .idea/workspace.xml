@@ -21,13 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/Entity/Gamme.php" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/Entity/Gamme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/consultation-modele/consultation-modele.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/consultation-modele/consultation-modele.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/consultation-modele/consultation-modele.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/consultation-modele/consultation-modele.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/creation-modele/creation-modele.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/creation-modele/creation-modele.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/class/etage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/etage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/class/gamme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/gamme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/consultation_gamme/consultation-gamme.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/creation-gamme/creation-gamme.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/gamme/modification-gamme/modification-gamme.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/creation-modele/creation-modele.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/modele/creation-modele/creation-modele.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/services/coupe-de-principe.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/coupe-de-principe.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/finition-interieur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/finition-interieur.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

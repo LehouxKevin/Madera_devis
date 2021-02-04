@@ -118,7 +118,8 @@ this.Modele=new Modele(this.NomModeleValue,new Date() ,false
      if(await this.modeleService.addModele(this.Modele))
       {
          this.ngOnInit();
-         this.router.navigateByUrl('/Liste-Modele//'+this.idGamme);
+         console.log('/Liste-Modele/'+this.idGamme)
+         this.router.navigateByUrl('/Liste-Modele/'+this.idGamme);
       }
       else { // afficher erreur
         console.log("non");

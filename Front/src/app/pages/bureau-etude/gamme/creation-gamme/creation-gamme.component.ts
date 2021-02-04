@@ -10,6 +10,7 @@ import { Module } from 'src/app/class/Module';
 import { Modele } from 'src/app/class/Modele';
 import { NgForm } from '@angular/forms';
 import { Gamme } from 'src/app/class/Gamme';
+import { FinitionInterieur } from 'src/app/class/finition-interieur';
 
 import { environment } from 'src/environments/environment';
 import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
@@ -19,6 +20,8 @@ import { TypeCouvertureService } from 'src/app/services/type-couverture.service'
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
 import { ModuleService } from 'src/app/services/module.service';
 import { ModeleService } from 'src/app/services/modele.service';
+import { FinitionInterieurService } from 'src/app/services/finition-interieur.service';
+
 import { GammeService } from 'src/app/services/gamme.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -39,6 +42,8 @@ export class CreationGammeComponent implements OnInit {
   public QualiteHuisseries:QualiteHuisseries[] = [];
   public TypeCouvertures:TypeCouverture[] = [];
   public TypeIsolations:TypeIsolation[] = [];
+    public finitionInterieurs:FinitionInterieur[] = [];
+
   public Modules:Module[] = [];
   public Modeles:Modele[] = [];
   public ModulesFormulaires:Module[] = [];
@@ -51,6 +56,7 @@ export class CreationGammeComponent implements OnInit {
  public TypeCouvertureChamps  :string;
  public QualiteHuisseriesChamps  :string;
  public ConceptionOssatureChamps  :string;
+ public finitionInterieurChamps  :string;
 
   public NomGammeErreur: boolean = false;
  public FinitionExterieurErreur :boolean = false;
@@ -58,6 +64,7 @@ export class CreationGammeComponent implements OnInit {
  public TypeCouvertureErreur  :boolean = false;
  public QualiteHuisseriesErreur  :boolean = false;
  public ConceptionOssatureErreur  :boolean = false;
+ public finitionInterieureErreur  :boolean = false;
 
   public gamme:Gamme;
 
@@ -71,7 +78,7 @@ DisplaylisteGamme = false;
   constructor(private conceptionOssatureService: ConceptionOssatureService,private finitionExterieurService: FinitionExterieurService,
   private qualiteHuisseriesService: QualiteHuisseriesService,private typeCouvertureService: TypeCouvertureService,
   private moduleService: ModuleService ,private modeleService: ModeleService,private gammeService: GammeService,
-   private typeIsolationService: TypeIsolationService, private router: Router,  private http: HttpClient) { }
+   private typeIsolationService: TypeIsolationService,public finitionInterieurService:FinitionInterieurService , private router: Router,  private http: HttpClient) { }
 
   ngOnInit(): void {
      this.conceptionOssatureService.getConceptionOssatures().pipe(
@@ -104,6 +111,12 @@ DisplaylisteGamme = false;
                                  ).subscribe(
                                    TypeIsolation => this.TypeIsolations = TypeIsolation
                                  );
+  this.finitionInterieurService.GetFinitionsInterieur().pipe(
+                                    map(FinitionInterieur => FinitionInterieur['hydra:member'])
+                                  ).subscribe(
+                                    FinitionInterieur => this.finitionInterieurs = FinitionInterieur
+                                  );
+
   this.modeleService.getModeles().pipe(
                                     map(Modele => Modele['hydra:member'])
                                   ).subscribe(
@@ -135,6 +148,7 @@ DisplaylisteGamme = false;
  this.TypeCouvertureChamps  ="/api/type_couvertures/"+ajoutGamme.value.TypeCouvertureChamps;
  this.QualiteHuisseriesChamps  ="/api/qualite_huisseries/"+ajoutGamme.value.QualiteHuisseriesChamps;
  this.ConceptionOssatureChamps  ="/api/conception_ossatures/"+ajoutGamme.value.ConceptionOssatureChamps;
+ this.finitionInterieurChamps  ="/api/finition_interieurs/"+ajoutGamme.value.finitionInterieurChamps;
 
 console.log(this.NomGammeChamps+this.FinitionExterieurChamps+this.TypeIsolationChamps
             +this.TypeCouvertureChamps+ this.QualiteHuisseriesChamps+
@@ -147,6 +161,7 @@ ajoutGamme.value.TypeIsolationChamps.length <= 0 || ajoutGamme.value.TypeIsolati
 ajoutGamme.value.TypeCouvertureChamps.length <= 0 || ajoutGamme.value.TypeCouvertureChamps == null ? this.TypeCouvertureErreur = true : this.TypeCouvertureErreur = false;
 ajoutGamme.value.QualiteHuisseriesChamps.length <= 0 || ajoutGamme.value.QualiteHuisseriesChamps == null ? this.QualiteHuisseriesErreur = true : this.QualiteHuisseriesErreur = false;
 ajoutGamme.value.ConceptionOssatureChamps.length <= 0 || ajoutGamme.value.ConceptionOssatureChamps == null ? this.ConceptionOssatureErreur = true : this.ConceptionOssatureErreur = false;
+ajoutGamme.value.finitionInterieurChamps.length <= 0 || ajoutGamme.value.finitionInterieurChamps == null ? this.finitionInterieureErreur = true : this.finitionInterieureErreur = false;
 
 
 if( !this.NomGammeErreur
@@ -154,7 +169,8 @@ if( !this.NomGammeErreur
 &&   !this.TypeIsolationErreur
 &&   !this.TypeCouvertureErreur
 &&   !this.QualiteHuisseriesErreur
-&&   !this.ConceptionOssatureErreur )
+&&   !this.ConceptionOssatureErreur
+ && !this.finitionInterieureErreur )
 {        console.log("testwesh");
 
 this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
@@ -162,7 +178,7 @@ this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
 ,this.TypeIsolationChamps
 ,this.TypeCouvertureChamps
 , this.QualiteHuisseriesChamps
-,this.ConceptionOssatureChamps);
+,this.ConceptionOssatureChamps,this.finitionInterieurChamps);
 
 //console.log(this.gamme.qualite_huisseries_id);
      if(await this.gammeService.addGamme(this.gamme))

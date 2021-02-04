@@ -82,6 +82,19 @@
 
       </div>
     </div>
+    <div class="p-2 bd-highlight LibelleInput">
+
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="finitionInterieur">Finition Interieur :</label>
+        </div>
+
+        <input id="finitionInterieur" type="text" class="form-control" value="{{NomFinitionInterieur}}" disabled>
+
+      </div>
+    </div>
   </div>
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
 
@@ -166,7 +179,9 @@
   </ng-template>
   <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
 
-    <div class="p-2 bd-highlight">  <button type="button" class="btn btn-primary">Modifier</button></div>
+    <div class="p-2 bd-highlight"> <a class="lien-icone-action" routerLink="/modification-gamme//{{gamme.id}}">
+      <button type="button" class="btn btn-primary">Modifier</button>
+    </a> </div>
   </div>
 
 

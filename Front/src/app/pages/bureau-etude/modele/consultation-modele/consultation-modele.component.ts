@@ -71,9 +71,7 @@ this.NomGamme=this.gamme.libelle;
                                         finalize(() => this.etages =this.etages.filter(Etage => Etage.modele === "/api/modeles/"+this.idModele)//
     ) ,map(Etage => Etage['hydra:member'])//,filter(Module => Module.gamme === "/api/gammes/"+this.idGamme)//
                                       ).subscribe(
-
                                         Etage => this.etages = Etage
-
                                       );
  console.log(this.NomGamme)
   console.log("this.Modele")

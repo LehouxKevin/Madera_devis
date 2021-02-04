@@ -21,6 +21,7 @@ import { ModuleService } from 'src/app/services/module.service';
 import { ModeleService } from 'src/app/services/modele.service';
 import { GammeService } from 'src/app/services/gamme.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 import { filter,map } from 'rxjs/operators';
@@ -115,7 +116,7 @@ DisplaylisteGamme = false;
                                   );
 
                                   this.ModulesFormulaires.push( new Module);
-                                   this.ModelesFormulaires.push(new  Modele);
+                                   this.ModelesFormulaires.push(new  Modele(null,null,null,null,null,null,null));
    this.gammeService.getGammes().pipe(
         map(gamme => gamme['hydra:member'])
       ).subscribe(
@@ -185,7 +186,7 @@ console.log("test");
     }
 AjoutModele():void {
 
-this.ModelesFormulaires.push(new  Modele)
+this.ModelesFormulaires.push(new  Modele(null,null,null,null,null,null,null))
 console.log("test");
     }
 

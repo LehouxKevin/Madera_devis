@@ -137,7 +137,7 @@ console.log(this.idGamme)
 
 this.InitialiserGamme();
                                   this.ModulesFormulaires.push( new Module);
-                                   this.ModelesFormulaires.push(new  Modele);
+                                   this.ModelesFormulaires.push(new  Modele(null,null,null,null,null,null,null));
    this.gammeService.getGammes().pipe(
         map(gamme => gamme['hydra:member'])
       ).subscribe(
@@ -266,7 +266,7 @@ console.log("test");
     }
 AjoutModele():void {
 
-this.ModelesFormulaires.push(new  Modele)
+this.ModelesFormulaires.push(new  Modele(null,null,null,null,null,null,null))
 console.log("test");
     }
 

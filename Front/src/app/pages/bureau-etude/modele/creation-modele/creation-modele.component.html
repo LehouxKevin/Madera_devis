@@ -7,7 +7,9 @@
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
   <form #ajoutModele="ngForm" (ngSubmit)="onSubmit(ajoutModele)">
 
-
+    <div id="NomModeleErreur" class="text-danger" *ngIf="NomModeleErreur">
+      Veuillez choisir un nom de modele
+    </div>
     <div class="input-group mb-5">
     <span class="input-group-text divNomModele" id="NomModeleSpan">Modèle</span>
     <input type="text" id="NomModele" class="form-control"  placeholder="Nom modele" ngModel #NomModeleValueform="ngModel" name="NomModeleValueform">
@@ -16,11 +18,13 @@
   <div class="d-flex justify-content-around bd-highlight">
 
     <div class="p-2 bd-highlight LibelleInput">
+
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97" height="97" viewBox="0 0 97 97">
         <image id="icons8-elevator-doors-100" width="97" height="97" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAABzklEQVR4nO3ZQU7CQBxG8U/jEYguRO9jXLgSb+DdxI0L44VgofEQuEATQhpLJ7TzWt4v6a5j//bBQEMiSdJw7pOsk2w8/j1WSe663tyzrgt+LzQvWHeKVkluuywoCbIpWHPKOt3j876mUBmDwBgEZmxBlkleW85ZZLtvNx1PvU5XSa2vkd9JLpPMkny2nHfVMPcsyVeFuXtXK8jjzgwPLee+Ncy9rDR372r8Uy8Nc7Td4N2Ai0pzTzLI31a179Ctq9ZWNdkgu6/0fY8ta5ept1UVBfFJvX8+qY+ZQWAMAmMQGINMQNvXvPck19WmG848yUdG8BxySr8m3mQEzyElf3PMjno//AyBuRjgGn3vo/uvwKGvd1S+Q2AMAmMQGIPAGATGIDAGgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxCYkiDro08xXauuC0qCPMcoh1hle68kSRrED7yDzZEDyviNAAAAAElFTkSuQmCC"/>
       </svg>
 
       <div class="input-group mb-3">
+
         <div class="input-group-prepend">
           <label class="input-group-text" for="NbEtage">Nb etage :</label>
         </div>
@@ -33,6 +37,9 @@
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96" viewBox="0 0 96 96">
         <image id="icons8-house-96" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAFTUlEQVR4nO2bS2hcVRjH/3cemWmS5tUkzXMyVakIqS3UVhEKFawLcdEWpGAU0S4MVK1VUbGgmJXtJjGNNFbduxCtghsRBB9tQUUKpq60ERcRwZlJ5r5fx0VLsMk9M5OZe+eca77fbuY759wv95f7zbn3nAsQBEEQBEEQBEEQBEEQmwWlWoOf9+zJpxi73oxk/g8owOL41as7am2fiDIZojokQDAkQDAkQDAkQDAkQDAkQDCxFeB6HpZ1XXQaDRNbASVNg2oYsF1XdCoNEUsBmmXBdBwwAAVVBWNMdEp1EzsBnu9jWdNWP7uehxXDEJhRY8ROQEnT4K/5jy+bZmxLUawE6JYFw7bXBxhDUVURx0IUGwGe76NUYdbjeB7KMZwVxUZASdfh+37FNisxLEWxEGDYNgzLqt6QMZT+8wMdB6QXwDZ4Um3XRTlGsyLpBRQ1DV6V0rOWFcOA63kRZRQuUguwHAc6p/T07N2HbGdXYIwxhoKmxWJWJK0A/+ZJDCKdzSI3fR65t2egKMHL2rbjQDPNKFMMBWkFrGgavIAyogAYffk0lPYOtN17P3oPHOSOsazrcDdYvpqNlAIsx4HKKT2d43ej8+ix1c9DZ2aRaWsPbMsYQ0lVI8kxLKQTwBhDkVN6Uuk0ctPzt3yXyGSQmzrDHc90HGi1TGEFIZ2AZV3nzmCGn30RyW29675vf+AQevbdxx2zVMdMqllIJcByXW7p6bhjJ3qeOM7tm5uZRzqbDYxVuqpEI40ABtyo1wHP9pPJJMZm3qvYX9nSitzrbwGcWZFZ6910k5FGQFnX4XBKz+DxSaSGhquO0fHIEXTt2s2NFwMeZYtGCgFOhUWV9tEx9E2erHms3DsXkGrJBMZ8CWdF4gUwhkK5HBi6UXrmA2M8kp1dGD31Kjeu23bwmoIghAsomya39Aw89iRadty+4TG7jj2Ozp13cuMlVZWmFAkV4HoeVjiLKK3929F/6rW6x87NfYhkOh0Y8yR6bC1MAAO4y4gJRUF++nxD46d6+zH8zHPcuH5zZ4VohAlQDQMWZ/Vq++FHkblrvOFjbHt6ElvH8ty4DLMiIQI83+fOerLdPRg4PRXasfLnPkAimQzOo0IJbBZCBPA2UymKgvzZWSARXlqpkRyGJp7ixlXThCWwFDVdgFbhD+5/6GFs2bs/9GP2vfAK2gb5N3Iid9c1VYDn+9wNtZmtHRiYOhvZscdmLyDBubIq5RU1Vd+SXMvSkpFXkvTW5CoK/hjoa83X2134jdhmhwQIhgQIJhX2gH8WVOx/87Oq7Ua62/DD1OGwD18zsuRJV4BgQr8CosT99Qrsbz6Be+0y/NLfUNItSPSNIr37IFoenECit/qijWzEQgBTS9DnX4Lz01e3fm+b8LQFeIsLML94H9nDJ5A9+jygxOfClj5TVi5CfePIupO/DteG+fE0tLmTAJNzB0QQcgtgDNrsCXhLv9fcxbn0OcyLcxEmFS5SC3B+/BLuL99vuJ958V34hb8iyCh8pBZgff1RfR1tE853n4abTERILcC7dqXuvu7CpRAziQ5pBTB1Gcyq/wml989SiNlEh7wCnAb39tvxeE1JWgGbBRIgGBIgmNgLUJJJ3HbgEAZ33SM6lbqIxbOgSqRaMki3tnG3pctO6AJGe9qxdG4i7GFDR5Y8Y1+C4g4JEEzsfwNc24KtqzBLRdGp1MWGBRQKxkhJi34rX2JFRXcN7Zjn4fq369cKXNfHb4vBL36ESSqZaGgZjkqQYEiAYEiAYEiAYEiAYEiAYEiAYEiAYEgAQRAEQRAEQRAEQRAEQTSJfwFhvBjemDrDOgAAAABJRU5ErkJggg=="/>
       </svg>
+      <div id="NomGammeErreur" class="text-danger" *ngIf="NomGammeErreur">
+        Veuillez choisir une Gamme
+      </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="gammes">Gamme :</label>
@@ -45,8 +52,48 @@
       </div>
 
     </div>    </div>
+
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
-  <table class="table ">
+    <div class="d-flex justify-content-around bd-highlight">
+
+      <div class="p-2 bd-highlight LibelleInput">
+        <div id="typeRemplissagesValue" class="text-danger" *ngIf="typeRemplissagesErreur">
+          Veuillez choisir un type remplissages
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="typeremplissages">type remplissages :</label>
+          </div>
+          <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
+          <select class="custom-select" id="typeremplissages" ngModel #NomtyperemplissagesValueform="ngModel" name="NomtyperemplissagesValueform">
+            <option selected value="" disabled>choose ...</option>
+            <option value="{{typeRemplissage.id}}"  *ngFor="let typeRemplissage of typeRemplissages" >{{typeRemplissage.libelle}}</option>
+          </select>
+        </div>
+
+
+      </div>
+      <div class="p-2 bd-highlight LibelleInput">
+        <div id="coupeDePrincipesErreur" class="text-danger" *ngIf="coupeDePrincipesErreur">
+          Veuillez choisir une coupe De Principes
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="coupeDePrincipe">coupe De Principes :</label>
+          </div>
+          <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
+          <select class="custom-select" id="coupeDePrincipe" ngModel #NomcoupeDePrincipeValueform="ngModel" name="NomcoupeDePrincipeValueform">
+            <option selected value="" disabled>choose ...</option>
+            <option value="{{coupeDePrincipe.id}}"  *ngFor="let coupeDePrincipe of coupeDePrincipes" >{{coupeDePrincipe.libelle}}</option>
+          </select>
+        </div>
+
+
+      </div>
+    </div>
+      <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+      <table class="table ">
 
     <tbody class="tableauModuleModele">
     <tr id="LigneModeleFormulaire" *ngFor="let etage of etages ;let index = index;"  >

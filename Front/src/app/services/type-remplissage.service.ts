@@ -12,7 +12,7 @@ export class TypeRemplissageService {
 
 
  baseUrl = environment.baseUrlAPI;
-  TypeRemplissageApi = '//api/type_remplissages';
+  TypeRemplissageApi = '/type_remplissages';
 constructor(private http: HttpClient) { }
 
   getTypeRemplissages(): Observable<TypeRemplissage[]>

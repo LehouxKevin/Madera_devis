@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CoupeDePrincipe } from '../class/coupe-de-principes';
+import { CoupeDePrincipes } from '../class/coupe-de-principes';
 import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 
 
@@ -16,9 +16,9 @@ export class CoupeDePrincipeService {
    CoupeDePrincipeApi = '/coupe_de_principes';
  constructor(private http: HttpClient) { }
 
-   getCoupeDePrincipes(): Observable<CoupeDePrincipe[]>
+   getCoupeDePrincipes(): Observable<CoupeDePrincipes[]>
    {
-     return this.http.get<CoupeDePrincipe[]>(this.baseUrl+this.CoupeDePrincipeApi);
+     return this.http.get<CoupeDePrincipes[]>(this.baseUrl+this.CoupeDePrincipeApi);
    }
 
    getOneCoupeDePrincipeById(id)

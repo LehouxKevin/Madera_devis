@@ -12,9 +12,9 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 export class TypeIsolationService {
 
 
- baseUrl = environment.baseUrlAPI;
+  baseUrl = environment.baseUrlAPI;
   TypeIsolationApi = '/type_isolations';
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getTypeIsolations(): Observable<TypeIsolation[]>
   {

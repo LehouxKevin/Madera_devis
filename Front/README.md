@@ -38,6 +38,8 @@ Run `npm start` to run the pre-config script to enable ssl and get https
 This use the generated key and crt in the ssl folder
 If you need to exec the command manually, use this command line : `ng serve --ssl --ssl-cert C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.crt --ssl-key C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.key`
 
+Be sure to correct the path with your own absolute path.
+
 Navigate to `https://localhost:4200/`
 
 You can also run `ng serve --ssl` which is well configured to use the key and the certificate from the ssl folder.

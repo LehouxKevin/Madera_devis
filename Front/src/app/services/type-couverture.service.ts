@@ -21,6 +21,11 @@ constructor(private http: HttpClient) { }
     return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi);
   }
 
+  asyncGetTypesCouverture()
+  {
+    return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi);
+  }
+
   syncGetTypesCouverture()
   {
     var typesCouverture:TypeCouverture[] = [];
@@ -40,8 +45,13 @@ constructor(private http: HttpClient) { }
     return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi+"/"+id);
   }
 
-   getOneTypeCouvertureByICleEtrangere(CleEtrangere)
-      {
-        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-      }
+  getOneTypeCouvertureByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
+
+  asyncGetOneTypeCouvertureByCleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
 }

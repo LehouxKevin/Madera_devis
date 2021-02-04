@@ -20,6 +20,11 @@ constructor(private http: HttpClient) { }
     return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi);
   }
 
+  asyncGetFinitionsExterieur()
+  {
+    return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi);
+  }
+
   syncGetFinitionsExterieur()
   {
     var finitionsExterieur:FinitionExterieur[] = [];
@@ -41,6 +46,11 @@ constructor(private http: HttpClient) { }
 
 
   getOneFinitionExterieurByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
+
+  asyncGetOneFinitionExterieurByCleEtrangere(CleEtrangere)
   {
     return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
   }

@@ -22,14 +22,19 @@ constructor(private http: HttpClient) { }
     return this.http.get<ConceptionOssature[]>(this.baseUrl+this.ConceptionOssatureApi);
   }
 
+  asyncGetConceptionOssatures()
+  {
+    return this.http.get<ConceptionOssature[]>(this.baseUrl+this.ConceptionOssatureApi);
+  }
+
   getOneConceptionOssatureById(id)
   {
     return this.http.get<any[]>(this.baseUrl+this.ConceptionOssatureApi+"/"+id).toPromise();
   }
 
-    getOneConceptionOssatureByICleEtrangere(CleEtrangere)
-    {
-      return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-    }
+  asyncGetOneConceptionOssatureByCleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere);
+  }
 
 }

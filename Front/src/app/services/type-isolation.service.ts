@@ -21,6 +21,11 @@ export class TypeIsolationService {
     return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi);
   }
 
+  asyncGetTypesIsolation()
+  {
+    return this.http.get<TypeIsolation[]>(this.baseUrl+this.TypeIsolationApi);
+  }
+
   syncGetTypesIsolation()
   {
     var typesIsolation:TypeIsolation[] = [];
@@ -41,6 +46,11 @@ export class TypeIsolationService {
   }
 
   getOneTypeIsolationByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
+
+  asyncGetOneTypeIsolationByCleEtrangere(CleEtrangere)
   {
     return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
   }

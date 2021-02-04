@@ -3,7 +3,7 @@
         <h1>Devis</h1>
     </div>
     <div class="row col-md-12 globalCreationRow">
-        <div class="containerChoixGamme col-md-4">
+        <div class="col-md-4 containerChoixGamme">
             <div class="col-md-12 ">
                 <div class="col-md-12">
                     <div class="dropdown col-md-12">
@@ -89,7 +89,28 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Conception ossature -->
+            <div class="col-md-12" style="padding-bottom: 2em;">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Conception ossature
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteConceptionOssature}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idConceptOssa'+conceptionOssature.id}}" *ngFor="let conceptionOssature of conceptionsOssatures" (click)="handleChoixconceptionOssature($event)">{{conceptionOssature.libelle}}</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="col-md-3 offset-md-1  containerListeModele">
+            <div class="col-md-12 rectangleEnteteBleu">
+                <div> Liste des modèles </div>
+            </div>
     </div>
     
     

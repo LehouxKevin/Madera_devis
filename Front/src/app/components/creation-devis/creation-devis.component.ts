@@ -1,9 +1,13 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/internal/operators/map';
+import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
 import { Gamme } from 'src/app/class/Gamme';
 import { QualiteHuisseries } from 'src/app/class/qualite-huisseries';
 import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
+import { ConceptionOssatureService } from 'src/app/services/conception-ossature.service';
 import { FinitionExterieurService } from 'src/app/services/finition-exterieur.service';
 import { GammeService } from 'src/app/services/gamme.service';
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
@@ -23,6 +27,7 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
   public finitionsExterieur:FinitionExterieur[] = [];
   public typesCouverture:TypeCouverture[] = [];
   public qualiteHuisseries:QualiteHuisseries[] = [];
+  public conceptionsOssatures:ConceptionOssature[] = [];
 
   // Textes des boutons des selecteurs
   texteGamme = "Selectionnez une gamme";
@@ -30,6 +35,7 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
   texteFinitionExterieur = "";
   texteTypeCouverture = "";
   texteQualiteHuisserie = "";
+  texteConceptionOssature = "";
 
   // Id des elements selectionnés
   idGammeSelectionnee = 0;
@@ -37,12 +43,14 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
   idFinitionExterieurSelectionnee = 0;
   idTypeCouvertureSelectionnee = 0;
   idQualiteHuisserieSelectionnee = 0;
+  idConceptionOssatureSelectionnee = 0;
 
   // url pour l'api des différents chamms
   urlTypeIsolation:string = "/type_isolations/";
   urlFinitionExterieur:string = "/finition_exterieurs/";
   urlTypeCouverture:string = "/type_couvertures/";
   urlQualiteHuisserie:string = "/qualite_huisseries/"
+  urlConceptionOssature:string = "/conception_ossatures/"
 
 
   isLoading = false;
@@ -51,7 +59,8 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
      private typeIsolationService: TypeIsolationService,
       private finitionExterieurService:FinitionExterieurService,
       private typeCouvertureService:TypeCouvertureService,
-      private qualiteHuisserieService:QualiteHuisseriesService) { }
+      private qualiteHuisserieService:QualiteHuisseriesService,
+      private conceptionOssatureService:ConceptionOssatureService) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -67,15 +76,6 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
   {
     this.gammes = await this.gammeService.syncGetGammes();
     console.log(this.gammes);
-    //this.typesIsolation = await this.typeIsolation.
-    var promises = [];
-    
-    //promises.push(this.typesIsolation.)
-    //$q.all(promises).then(function(results){
-        //results.forEach(function(data,status,headers,config){
-        //console.log(data,status,headers,config);
-      //})
-//}),
 
   }
 
@@ -90,12 +90,57 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
     this.idGammeSelectionnee = value.substring(7);
     console.log(event.srcElement.text + " | "+this.idGammeSelectionnee);
   
+    this.loadDataFieldsGamme();
+   
     
-    await this.loadTypesIsolations();
-    await this.loadFinitionsExterieur();
-    await this.loadTypesCouverture();
-    await this.loadQualiteHuisseries();
-    this.isLoading = false;
+  }
+
+  /** Méthode qui requête les informatons par défaut d'une gamme et rempli les selecteurs ave les autres valeurs disponibles
+   * Requêtes asynchrones mais synchronisées par une promise pour savoir quand elles se terminent
+   */
+  loadDataFieldsGamme()
+  {
+    var typeIsolationByCleEtrangereRequest = this.typeIsolationService.asyncGetOneTypeIsolationByCleEtrangere(this.urlTypeIsolation+this.idGammeSelectionnee);
+    var finitionExterieurByCleEtrangereRequest = this.finitionExterieurService.asyncGetOneFinitionExterieurByCleEtrangere(this.urlFinitionExterieur+this.idGammeSelectionnee);
+    var typeCouvertureByCleEtrangereRequest = this.typeCouvertureService.asyncGetOneTypeCouvertureByCleEtrangere(this.urlTypeCouverture+this.idGammeSelectionnee);
+    var qualiteHuisserieByCleEtrangereRequest = this.qualiteHuisserieService.asyncGetOneQualiteHuisserieByCleEtrangere(this.urlQualiteHuisserie+this.idGammeSelectionnee);
+    var conceptionOssatureByCleEtrangereRequest = this.conceptionOssatureService.asyncGetOneConceptionOssatureByCleEtrangere(this.urlConceptionOssature+this.idGammeSelectionnee);
+
+    var typesIsolationRequest = this.typeIsolationService.asyncGetTypesIsolation();
+    var finitionsExterieursRequest = this.finitionExterieurService.asyncGetFinitionsExterieur();
+    var typesCouvertureRequest = this.typeCouvertureService.asyncGetTypesCouverture();
+    var qualiteHuisseriesRequest = this.qualiteHuisserieService.asyncGetQualiteHuisseries();
+    var conceptionsOssaturesRequest = this.conceptionOssatureService.asyncGetConceptionOssatures();
+    // Promises simultanées sur des requêtes asynchrones mais bloque l'interface tant qu'elle ne sont pas terminées
+    forkJoin([typeIsolationByCleEtrangereRequest,
+      finitionExterieurByCleEtrangereRequest,
+      typeCouvertureByCleEtrangereRequest,
+      qualiteHuisserieByCleEtrangereRequest,
+      conceptionOssatureByCleEtrangereRequest,
+      typesIsolationRequest, 
+      finitionsExterieursRequest , 
+      typesCouvertureRequest , 
+      qualiteHuisseriesRequest,conceptionsOssaturesRequest])
+    .subscribe(response => { 
+      console.log(response);
+      this.texteTypeIsolation = response[0]["libelle"];
+      this.texteFinitionExterieur = response[1]["libelle"];
+      this.texteTypeCouverture = response[2]["libelle"];
+      this.texteQualiteHuisserie = response[3]["libelle"];
+      this.texteConceptionOssature = response[4]["libelle"];
+      this.typesIsolation = response[5]['hydra:member'];
+      this.finitionsExterieur = response[6]['hydra:member'];
+      this.typesCouverture = response[7]['hydra:member'];
+      this.qualiteHuisseries = response[8]['hydra:member'];
+      this.conceptionsOssatures = response[9]['hydra:member'];
+      console.log(this.typesIsolation);
+      console.log(this.finitionsExterieur);
+      console.log(this.typesCouverture);
+      console.log(this.qualiteHuisseries);
+      console.log(this.conceptionsOssatures);
+
+      this.isLoading = false;
+    })
   }
 
   handleChoixTypeIsolation(event)
@@ -109,16 +154,6 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
     console.log(event.srcElement.text + " | " + this.idTypeIsoSelectionnee);
   }
 
-  async loadTypesIsolations()
-  {
-    // this.texteTypeIsolation
-    var typeIsolation;
-    typeIsolation = await this.typeIsolationService.getOneTypeIsolationByICleEtrangere(this.urlTypeIsolation+this.idGammeSelectionnee);
-    this.texteTypeIsolation = typeIsolation.libelle;
-    this.typesIsolation = await this.typeIsolationService.syncGetTypesIsolation();
-    console.log(this.typesIsolation);
-  }
-
   handleChoixFinitionExterieur(event)
   {
     var target = event.target || event.srcElement || event.currentTarget;
@@ -128,15 +163,6 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
     this.texteFinitionExterieur = event.srcElement.text;
     this.idFinitionExterieurSelectionnee = value.substring(9);
     console.log(event.srcElement.text + " | " + this.idFinitionExterieurSelectionnee);
-  }
-
-  async loadFinitionsExterieur()
-  {
-    var finitionExterieur;
-    finitionExterieur = await this.finitionExterieurService.getOneFinitionExterieurByICleEtrangere(this.urlFinitionExterieur+this.idGammeSelectionnee);
-    this.texteFinitionExterieur = finitionExterieur.libelle;
-    this.finitionsExterieur = await this.finitionExterieurService.syncGetFinitionsExterieur();
-    console.log(this.finitionsExterieur);
   }
 
   handleChoixTypeCouverture(event)
@@ -150,15 +176,6 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
     console.log(event.srcElement.text + " | " + this.idTypeCouvertureSelectionnee);
   }
 
-  async loadTypesCouverture()
-  {
-    var typeCouverture;
-    typeCouverture = await this.typeCouvertureService.getOneTypeCouvertureByICleEtrangere(this.urlTypeCouverture+this.idGammeSelectionnee);
-    this.texteTypeCouverture = typeCouverture.libelle;
-    this.typesCouverture = await this.typeCouvertureService.syncGetTypesCouverture();
-    console.log(this.typesCouverture);
-  }
-
   handleChoixQualiteHuisserie(event)
   {
     var target = event.target || event.srcElement || event.currentTarget;
@@ -170,13 +187,15 @@ export class CreationDevisComponent implements OnInit, AfterViewInit {
     console.log(event.srcElement.text + " | " + this.idQualiteHuisserieSelectionnee);
   }
 
-  async loadQualiteHuisseries()
+  handleChoixconceptionOssature(event)
   {
-    var qualiteHuisserie;
-    qualiteHuisserie = await this.qualiteHuisserieService.getOneQualiteHuisserieByICleEtrangere(this.urlQualiteHuisserie+this.idGammeSelectionnee);
-    this.texteQualiteHuisserie = qualiteHuisserie.libelle;
-    this.qualiteHuisseries = await this.qualiteHuisserieService.syncGetQualiteHuisseries();
-    console.log(this.qualiteHuisseries);
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    this.texteConceptionOssature = event.srcElement.text;
+    this.idConceptionOssatureSelectionnee = value.substring(13);
+    console.log(event.srcElement.text + " | " + this.idConceptionOssatureSelectionnee);
   }
 
 }

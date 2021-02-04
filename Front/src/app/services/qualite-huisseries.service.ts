@@ -19,6 +19,11 @@ constructor(private http: HttpClient) { }
     return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi);
   }
 
+  asyncGetQualiteHuisseries()
+  {
+    return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi);
+  }
+
   syncGetQualiteHuisseries()
   {
     var qualiteHuisseries:QualiteHuisseries[] = [];
@@ -40,6 +45,11 @@ constructor(private http: HttpClient) { }
 
 
   getOneQualiteHuisserieByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
+
+  asyncGetOneQualiteHuisserieByCleEtrangere(CleEtrangere)
   {
     return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
   }

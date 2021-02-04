@@ -43,6 +43,7 @@ import { ListeModeleComponent } from './components/bureau-etude/modele/liste-mod
 import { ListeModuleComponent } from './components/bureau-etude/module/liste-module/liste-module.component';
 import { ModificationGammeComponent } from './pages/bureau-etude/gamme/modification-gamme/modification-gamme.component';
 import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
+import { CreationModeleComponent } from './pages/bureau-etude/modele/creation-modele/creation-modele.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
     ListeGammePageComponent,
     ListeModeleComponent,
     ListeModuleComponent,
-    ModificationGammeComponent
+    ModificationGammeComponent,
+    CreationModeleComponent
 
 
   ],

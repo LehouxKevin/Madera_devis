@@ -20,14 +20,28 @@ constructor(private http: HttpClient) { }
     return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi);
   }
 
+  syncGetFinitionsExterieur()
+  {
+    var finitionsExterieur:FinitionExterieur[] = [];
+    return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi)
+    .pipe(
+      map(finitionsExterieur => finitionsExterieur['hydra:member'])
+    )
+    .toPromise()
+    .then()
+    {
+      finitions => finitionsExterieur = finitions;
+    };
+  }
+
   getOneFinitionExterieurById(id)
   {
     return this.http.get<FinitionExterieur[]>(this.baseUrl+this.FinitionExterieurApi+"/"+id);
   }
 
 
-     getOneFinitionExterieurByICleEtrangere(CleEtrangere)
-      {
-        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-      }
+  getOneFinitionExterieurByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
 }

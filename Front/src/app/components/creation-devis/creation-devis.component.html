@@ -25,6 +25,8 @@
             <div class="col-md-12 rectangleEnteteBleu">
                 <div> Gamme     :   {{texteGamme}} </div>
             </div>
+
+            <!-- Type Isolation -->
             <div class="col-md-12">
                 <div class="inputChoix dropdown col-md-12">
                     <div class="divDropDown col-md-12">
@@ -36,6 +38,54 @@
                     </div>
                     <div class="dropdown-content" >
                         <a id="{{'idTypeIso'+typeIsolation.id}}" *ngFor="let typeIsolation of typesIsolation" (click)="handleChoixTypeIsolation($event)">{{typeIsolation.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finition exterieur -->
+            <div class="col-md-12">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Finition extérieur
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteFinitionExterieur}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idFiniExt'+finitionExterieur.id}}" *ngFor="let finitionExterieur of finitionsExterieur" (click)="handleChoixFinitionExterieur($event)">{{finitionExterieur.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type de couverture -->
+            <div class="col-md-12">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Type de couverture
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteTypeCouverture}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idTypeCouv'+typeCouverture.id}}" *ngFor="let typeCouverture of typesCouverture" (click)="handleChoixTypeCouverture($event)">{{typeCouverture.libelle}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qualité huisseries -->
+            <div class="col-md-12">
+                <div class="inputChoix dropdown col-md-12">
+                    <div class="divDropDown col-md-12">
+                        <div class="col-md-3 cubeEntete">
+                            Qualité huisseries
+                        </div>
+                        <button class="col-md-9 dropbtn">{{texteQualiteHuisserie}}</button>
+                        
+                    </div>
+                    <div class="dropdown-content" >
+                        <a id="{{'idQualiHui'+qualiteHuisserie.id}}" *ngFor="let qualiteHuisserie of qualiteHuisseries" (click)="handleChoixQualiteHuisserie($event)">{{qualiteHuisserie.libelle}}</a>
                     </div>
                 </div>
             </div>

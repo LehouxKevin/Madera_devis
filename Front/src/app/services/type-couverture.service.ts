@@ -21,6 +21,20 @@ constructor(private http: HttpClient) { }
     return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi);
   }
 
+  syncGetTypesCouverture()
+  {
+    var typesCouverture:TypeCouverture[] = [];
+    return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi)
+    .pipe(
+      map(typeCouverture => typeCouverture['hydra:member'])
+    )
+    .toPromise()
+    .then()
+    {
+      tpsCouv => typesCouverture = tpsCouv;
+    };
+  }
+
   getOneTypeCouvertureById(id)
   {
     return this.http.get<TypeCouverture[]>(this.baseUrl+this.TypeCouvertureApi+"/"+id);

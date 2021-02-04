@@ -64,12 +64,6 @@ class Gamme
      */
     private $conceptionOssature;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=FinitionInterieur::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $finitionInterieur;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -167,18 +161,6 @@ class Gamme
     public function setConceptionOssature(?ConceptionOssature $conceptionOssature): self
     {
         $this->conceptionOssature = $conceptionOssature;
-
-        return $this;
-    }
-
-    public function getFinitionInterieur(): ?FinitionInterieur
-    {
-        return $this->finitionInterieur;
-    }
-
-    public function setFinitionInterieur(?FinitionInterieur $finitionInterieur): self
-    {
-        $this->finitionInterieur = $finitionInterieur;
 
         return $this;
     }

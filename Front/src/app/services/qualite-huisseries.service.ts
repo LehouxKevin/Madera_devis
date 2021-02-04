@@ -10,7 +10,7 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class QualiteHuisseriesService {
- baseUrl =environment.baseUrlAPI;
+  baseUrl =environment.baseUrlAPI;
   QualiteHuisserieApi = '/qualite_huisseries';
 constructor(private http: HttpClient) { }
 
@@ -19,14 +19,28 @@ constructor(private http: HttpClient) { }
     return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi);
   }
 
+  syncGetQualiteHuisseries()
+  {
+    var qualiteHuisseries:QualiteHuisseries[] = [];
+    return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi)
+    .pipe(
+      map(qualiteHuisserie => qualiteHuisserie['hydra:member'])
+    )
+    .toPromise()
+    .then()
+    {
+      qualiHui => qualiteHuisseries = qualiHui;
+    };
+  }
+
   getOneQualiteHuisserieById(id)
   {
     return this.http.get<QualiteHuisseries[]>(this.baseUrl+this.QualiteHuisserieApi+"/"+id);
   }
 
 
-   getOneQualiteHuisserieByICleEtrangere(CleEtrangere)
-      {
-        return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-      }
+  getOneQualiteHuisserieByICleEtrangere(CleEtrangere)
+  {
+    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  }
 }

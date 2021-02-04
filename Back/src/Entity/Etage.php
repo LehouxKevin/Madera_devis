@@ -33,14 +33,9 @@ class Etage
     private $modele;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Module::class, inversedBy="etages")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $modules;
-
-    public function __construct()
-    {
-        $this->modules = new ArrayCollection();
-    }
+    private $dernierEtage;
 
     public function getId(): ?int
     {
@@ -71,26 +66,14 @@ class Etage
         return $this;
     }
 
-    /**
-     * @return Collection|Module[]
-     */
-    public function getModules(): Collection
+    public function getDernierEtage(): ?bool
     {
-        return $this->modules;
+        return $this->dernierEtage;
     }
 
-    public function addModule(Module $module): self
+    public function setDernierEtage(?bool $dernierEtage): self
     {
-        if (!$this->modules->contains($module)) {
-            $this->modules[] = $module;
-        }
-
-        return $this;
-    }
-
-    public function removeModule(Module $module): self
-    {
-        $this->modules->removeElement($module);
+        $this->dernierEtage = $dernierEtage;
 
         return $this;
     }

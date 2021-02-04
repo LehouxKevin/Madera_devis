@@ -1,1 +1,82 @@
-<p>liste-module works!</p>
+<div *ngIf="Displayliste ; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div class="tableau flex justify-content-center" id="ListeModule"  >
+    <div><h2 class="GrandTitre text-center">Liste des Modules de la gamme <b>{{idGamme}}</b></h2></div>
+    <div class="d-flex justify-content-center m-3">
+
+      <table class="table  table-hover  justify-content-center text-center">
+        <thead class="text-white">
+        <tr>
+          <th class="border title-tab"  scope="col">#</th>
+          <th class="border title-tab"  scope="col">Nom de la module</th>
+          <th class="border title-tab"  scope="col">Prix</th>
+          <th class="border title-tab" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="table-light table-bordered " style="border-color:black;">
+        <tr id="{{'idModule'+module.id}}" *ngFor="let module of modules">
+          <td class="data-col" >{{module.id}} </td>
+          <td class="data-col" >{{module.libelle}} </td>
+          <td class="data-col" >{{module.prix}}</td>
+
+          <td class="data-col actions">
+            <a class="lien-icone-action" routerLink="/consultation-module//{{module.id}}">
+              <img class="icone-consulter" src="assets\icones\consultation.svg">
+            </a>
+            <a class="lien-icone-action" routerLink="/modification-module//{{module.id}}">
+              <img class="icone-modifier" src="assets\icones\plume.svg">
+            </a>
+            <button type="button" class="BoutonAjout" (click)="supprimerModule(module.id)">
+              <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+            </button>
+
+          </td>
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <a routerLink="/Creation-Module"><input type="image" id="boutonCreationModule"
+                                            src="assets\icones\displayCreate.svg"
+                                            class="displayList fixed-bottom" ></a>
+
+    <input type="image" id="displaydiv"
+           src="assets\icones\display.svg"
+           class="displayList  fixed-bottom " (click)="handleDisplayBouton()">
+
+  </div>
+
+
+
+
+
+</ng-template>
+<ng-template #elseBlock>
+
+  <input type="image" id="displaydivCacher"
+         src="assets\icones\display.svg"
+         class="displayList" y="26.08685" x="3.28409"
+         (click)="handleDisplayBouton()"#elseBoutonDisplay>
+
+
+
+
+</ng-template>
+
+<div id="deleteWindow" class="flex deleteWindow w-20" *ngIf="DisplaySuppression">
+  <div class="d-flex justify-content-center gray-madera">
+    <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+  </div>
+  <div class="d-flex justify-content-center mb-2 gray-madera">
+    <h2 class="align-content-center">la Module :</h2><h2 id="ModuleDelete" class="ModuleDelete">{{nomModuleSupprimer}}</h2><h2 class="ml-2">?</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionModule()">Annuler</button>
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer" (click)="confirmerSuppressionModule()">Supprimer</button>
+  </div>
+</div>

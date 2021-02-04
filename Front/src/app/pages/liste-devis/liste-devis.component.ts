@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Client } from 'src/app/class/client';
 import { ClientService } from 'src/app/services/client.service';
 import { DevisService } from 'src/app/services/devis.service';
 import { EtatAvancementService } from 'src/app/services/etat-avancement.service';

@@ -47,11 +47,6 @@ class Module
     private $custom;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Etage::class, mappedBy="modules")
-     */
-    private $etages;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Gamme::class)
      * @ORM\JoinColumn(nullable=false)
      */
@@ -75,7 +70,6 @@ class Module
 
     public function __construct()
     {
-        $this->etages = new ArrayCollection();
         $this->composants = new ArrayCollection();
     }
 
@@ -140,33 +134,6 @@ class Module
     public function setCustom(bool $custom): self
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Etage[]
-     */
-    public function getEtages(): Collection
-    {
-        return $this->etages;
-    }
-
-    public function addEtage(Etage $etage): self
-    {
-        if (!$this->etages->contains($etage)) {
-            $this->etages[] = $etage;
-            $etage->addModule($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEtage(Etage $etage): self
-    {
-        if ($this->etages->removeElement($etage)) {
-            $etage->removeModule($this);
-        }
 
         return $this;
     }

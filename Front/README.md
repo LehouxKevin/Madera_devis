@@ -45,7 +45,7 @@ You can also run `ng serve --ssl` which is well configured to use the key and th
 If you want your browser to thrust this certificate, you can add it in your `mmc` on your local machine.
 
 
-## Utilisateurs account examples 
+## Users account examples 
 
 Administrateur : `admin@admin.fr`
 mdp:  `admin`

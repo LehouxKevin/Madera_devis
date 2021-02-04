@@ -57,12 +57,6 @@ class Modele
      */
     private $coupeDePrincipe;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=FinitionInterieur::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $finitionInterieur;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -148,18 +142,6 @@ class Modele
     public function setCoupeDePrincipe(?CoupeDePrincipe $coupeDePrincipe): self
     {
         $this->coupeDePrincipe = $coupeDePrincipe;
-
-        return $this;
-    }
-
-    public function getFinitionInterieur(): ?FinitionInterieur
-    {
-        return $this->finitionInterieur;
-    }
-
-    public function setFinitionInterieur(?FinitionInterieur $finitionInterieur): self
-    {
-        $this->finitionInterieur = $finitionInterieur;
 
         return $this;
     }

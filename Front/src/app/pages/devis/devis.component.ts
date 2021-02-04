@@ -12,8 +12,11 @@ export class DevisComponent implements OnInit, AfterViewInit {
   isModalitePageVisible:boolean = false;
 
   isAddClientPageVisible = "addClientCacher";
+  isChoixGammeActive = "true";
 
   isAClientSelected = "NoClientSelected";
+  isAGammeSelected = "false";
+  
   displayErrorClientIsntSelected = false;
 
   
@@ -62,6 +65,11 @@ export class DevisComponent implements OnInit, AfterViewInit {
     this.isAClientSelected = $event;
   }
 
+  receiveIsAGammeSelected($event) {
+    console.log($event);
+    this.isAGammeSelected = $event;
+  }
+
   handleNextStepButton():void {
     if(this.currentPage == "client")
     {
@@ -80,10 +88,16 @@ export class DevisComponent implements OnInit, AfterViewInit {
     else {
       if(this.currentPage == "devis")
       {
-        this.isDevisPageVisible = false;
-        this.isClientPageVisible = false;
-        this.isModalitePageVisible = true;
-        this.currentPage="modalite";
+        if(this.isChoixGammeActive)
+        {
+
+        }
+        else {
+          this.isDevisPageVisible = false;
+          this.isClientPageVisible = false;
+          this.isModalitePageVisible = true;
+          this.currentPage="modalite";
+        }
       }
     }
   }

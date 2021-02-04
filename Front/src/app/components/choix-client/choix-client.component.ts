@@ -45,9 +45,6 @@ export class ChoixClientComponent implements OnInit, AfterViewInit {
     this.clients = await this.clientService.syncGetClients();
     console.log(this.clients);
     this.isLoading = false;
-
-    /* A ENLEVER, C'EST POUR BYPASS LA VERIF */
-    this.isAClientSelectedChangingState.emit("AClientIsSelected");
   }
 
   async handleChoixClient(event) {

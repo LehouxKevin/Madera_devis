@@ -12,11 +12,14 @@ export class DevisComponent implements OnInit, AfterViewInit {
   isModalitePageVisible:boolean = false;
 
   isAddClientPageVisible = "addClientCacher";
-  isChoixGammeActive = "true";
+
+  //isChoixGammeActive = "true";
+  isChoixGammeActive:boolean = true;
+  isChoixModeleActive:boolean = false;
 
   isAClientSelected = "NoClientSelected";
   isAGammeSelected = "false";
-  
+
   displayErrorClientIsntSelected = false;
 
   
@@ -90,7 +93,8 @@ export class DevisComponent implements OnInit, AfterViewInit {
       {
         if(this.isChoixGammeActive)
         {
-
+          this.isChoixModeleActive = true;
+          this.isChoixGammeActive = false;
         }
         else {
           this.isDevisPageVisible = false;

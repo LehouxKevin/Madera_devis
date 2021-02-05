@@ -25,6 +25,11 @@ constructor(private http: HttpClient) { }
     return this.http.get<Modele[]>(this.baseUrl+this.ModelesApi);
   }
 
+  asyncGetModeles(): Observable<Modele[]>
+  {
+    return this.http.get<Modele[]>(this.baseUrl+this.ModelesApi);
+  }
+
   getOneModeleById(id)
   {
     return this.http.get<Modele[]>(this.baseUrl+this.ModelesApi+"/"+id).toPromise();

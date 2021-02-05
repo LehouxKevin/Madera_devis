@@ -5,6 +5,7 @@ import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
 import { FinitionInterieur } from 'src/app/class/finition-interieur';
 import { Gamme } from 'src/app/class/Gamme';
+import { Modele } from 'src/app/class/Modele';
 import { QualiteHuisseries } from 'src/app/class/qualite-huisseries';
 import { TypeCouverture } from 'src/app/class/type-couverture';
 import { TypeIsolation } from 'src/app/class/type-isolation';
@@ -12,6 +13,7 @@ import { ConceptionOssatureService } from 'src/app/services/conception-ossature.
 import { FinitionExterieurService } from 'src/app/services/finition-exterieur.service';
 import { FinitionInterieurService } from 'src/app/services/finition-interieur.service';
 import { GammeService } from 'src/app/services/gamme.service';
+import { ModeleService } from 'src/app/services/modele.service';
 import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.service';
 import { TypeCouvertureService } from 'src/app/services/type-couverture.service';
 import { TypeIsolationService } from 'src/app/services/type-isolation.service';
@@ -31,6 +33,9 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
   public typesCouverture:TypeCouverture[] = [];
   public qualiteHuisseries:QualiteHuisseries[] = [];
   public conceptionsOssatures:ConceptionOssature[] = [];
+
+
+  public listeModele:Modele[]=[];
 
   // Textes des boutons des selecteurs
   texteGamme = "Selectionnez une gamme";
@@ -75,7 +80,8 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
       private finitionInterieurService:FinitionInterieurService,
       private typeCouvertureService:TypeCouvertureService,
       private qualiteHuisserieService:QualiteHuisseriesService,
-      private conceptionOssatureService:ConceptionOssatureService) { }
+      private conceptionOssatureService:ConceptionOssatureService,
+      private modeleService:ModeleService) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -137,6 +143,8 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
     var typesCouvertureRequest = this.typeCouvertureService.asyncGetTypesCouverture();
     var qualiteHuisseriesRequest = this.qualiteHuisserieService.asyncGetQualiteHuisseries();
     var conceptionsOssaturesRequest = this.conceptionOssatureService.asyncGetConceptionOssatures();
+
+    var listeModeleRequest = this.modeleService.asyncGetModeles();
     // Promises simultanées sur des requêtes asynchrones mais bloque l'interface tant qu'elle ne sont pas terminées
     forkJoin([typeIsolationByCleEtrangereRequest,
       finitionExterieurByCleEtrangereRequest,
@@ -148,7 +156,9 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
       finitionsExterieursRequest,
       finitionsInterieursRequest, 
       typesCouvertureRequest , 
-      qualiteHuisseriesRequest,conceptionsOssaturesRequest])
+      qualiteHuisseriesRequest,
+      conceptionsOssaturesRequest,
+      listeModeleRequest])
     .subscribe(response => { 
       console.log(response);
       this.texteTypeIsolation = response[0]["libelle"];
@@ -171,12 +181,15 @@ export class ChoixGammeComponent implements OnInit, AfterViewInit {
       this.typesCouverture = response[9]['hydra:member'];
       this.qualiteHuisseries = response[10]['hydra:member'];
       this.conceptionsOssatures = response[11]['hydra:member'];
+
+      this.listeModele = response[12]['hydra:member'];
       console.log(this.typesIsolation);
       console.log(this.finitionsExterieur);
       console.log(this.finitionsInterieur);
       console.log(this.typesCouverture);
       console.log(this.qualiteHuisseries);
       console.log(this.conceptionsOssatures);
+      console.log(this.listeModele);
 
       this.isLoading = false;
     })

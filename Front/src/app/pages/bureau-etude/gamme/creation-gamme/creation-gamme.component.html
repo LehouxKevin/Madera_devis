@@ -113,6 +113,22 @@
         </select>
       </div>
     </div>
+    <div class="p-2 bd-highlight LibelleInput">
+
+      <div id="finitionInterieurIncorect" class="text-danger" *ngIf="finitionInterieureErreur">
+        Veuillez choisir une finition Interieur
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="ConceptionOssature">Finition Interieur :</label>
+        </div>
+        <select class="custom-select" id="finitionInterieur" ngModel #finitionInterieurChamps="ngModel" name="finitionInterieurChamps">
+          <option selected>Choose...</option>
+          <option value="{{finitionInterieur.id}}"  *ngFor="let finitionInterieur of finitionInterieurs" >{{finitionInterieur.libelle}}</option>
+        </select>
+      </div>
+    </div>
   </div>
     <!--
 <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />

@@ -9,7 +9,7 @@ Run `npm install` to install project and dependancies.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -38,8 +38,22 @@ Run `npm start` to run the pre-config script to enable ssl and get https
 This use the generated key and crt in the ssl folder
 If you need to exec the command manually, use this command line : `ng serve --ssl --ssl-cert C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.crt --ssl-key C:\Users\kevin\IdeaProjects\Madera_devis\Front\ssl\domain.key`
 
+Be sure to correct the path with your own absolute path.
+
 Navigate to `https://localhost:4200/`
 
 You can also run `ng serve --ssl` which is well configured to use the key and the certificate from the ssl folder.
 
 If you want your browser to thrust this certificate, you can add it in your `mmc` on your local machine.
+
+
+## Users account examples 
+
+Administrateur : `admin@admin.fr`
+mdp:  `admin`
+
+Commercial : `com@com.fr`
+mdp:  `com`
+
+Bureau d'études : `bd@bd.fr`
+mdp : `bd`

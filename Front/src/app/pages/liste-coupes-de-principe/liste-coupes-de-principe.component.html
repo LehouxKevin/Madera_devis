@@ -1,0 +1,37 @@
+<div id="listeCoupesDePrincipe" class="listeCoupesDePrincipe flex">
+    <div id="content" class="content">
+        <app-menu-parametres></app-menu-parametres>
+        <div class="d-flex justify-content-center titre">
+            <h2 id="grand-titre">Liste des coupes de principe</h2><h2 id="titreCoupeDePrincipe">[ERROR]</h2>
+        </div>
+        <div id="displayList">
+            <table class="table  table-hover  justify-content-center text-center">
+                <thead class="text-white">
+                <tr>
+                    <th class="border title-tab" scope="col">Type de coupe de principe</th>
+                    <th class="border title-tab" scope="col">Prix</th>
+                    <th class="border title-tab" scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody class="table-light table-bordered" style="border-color:black;">
+                    <tr id="{{'id_coupeDePrincipe'+coupeDePrincipe.id}}" *ngFor="let coupeDePrincipe of coupesDePrincipe">
+                        <td class="data-col">{{coupeDePrincipe.libelle}}</td>
+                        <td class="data-col">{{coupeDePrincipe.prix}}</td>
+                        <td class="data-col actions">
+                            <a class="lien-icone-action" (click)="consulterCoupesDePrincipe(coupeDePrincipe.id)">
+                                <img class="icone-consulter" src="assets\icones\consultation.svg">
+                            </a>
+                            <a class="lien-icone-action" (click)="modifierCoupesDePrincipe(coupeDePrincipe.id)">
+                                <img class="icone-modifier" src="assets\icones\plume.svg">
+                            </a>
+                            <a class="lien-icone-action" (click)="supprimerCoupesDePrincipe(coupeDePrincipe.id)">
+                                <img class="icone-supprimer" src="assets\icones\croix.svg">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <input type="image" id="boutonCoupeDePrincipe" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayCoupeDePrincipe()">
+</div>

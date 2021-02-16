@@ -1,0 +1,18 @@
+.menu_parametres a {
+    text-decoration: none;
+}
+
+.bouton_parametres {
+    border: solid 2px white;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 13px;
+    color: white;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+/*
+Couleur des boutons quand l'on se trouve sur la page du bouton en question
+#1d2932
+*/

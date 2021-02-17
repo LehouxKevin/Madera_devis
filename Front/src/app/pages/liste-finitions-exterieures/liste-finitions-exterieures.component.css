@@ -84,3 +84,11 @@
     color: #F56A6A;
     display: none;
 }
+
+#displayList {
+    display: block;
+}
+
+#displayCreate {
+    display: none;
+}

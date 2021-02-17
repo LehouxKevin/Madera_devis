@@ -34,7 +34,7 @@ export class ListeFinitionsInterieuresComponent implements OnInit {
     document.getElementById("bouton_finitionInterieure").style.border = "solid 2px #1d2932";
     document.getElementById("bouton_finitionInterieure").style.color = "#1d2932";
     document.getElementById("lien_finitionInterieure").setAttribute("onclick","return false");
-    // Récupération de la totalité des fintions intérieures
+    // Récupération de la totalité des finitions intérieures
     this.finitionInterieureService.GetFinitionsInterieur().pipe(
       map(finitionInterieure => finitionInterieure['hydra:member'])
     ).subscribe(

@@ -9,7 +9,7 @@
                 <thead class="text-white">
                 <tr>
                     <th class="border title-tab" scope="col">Type de finition intérieure</th>
-                    <th class="border title-tab" scope="col">Prix</th>
+                    <th class="border title-tab" scope="col">Prix (en €)</th>
                     <th class="border title-tab" scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -31,6 +31,29 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div id="displayCreate">
+            <form #creationFinitionInterieureForm="ngForm" (ngSubmit)="onSubmit(creationFinitionInterieureForm, true)" class="flex">
+                <div class="d-flex justify-content-center">
+                    <p class="text-center">Pour créer une finition intérieure, veuillez renseigner le libelle et le prix de celle-ci, la description n'est pas obligatoire.</p>
+                </div>
+                <div class="form-group">
+                    <label for="Libelle">Libelle de la finition</label>
+                    <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle" placeholder="Entrez le libelle de la finition" required>
+                    <small id="libelleError" class="form-text errorMessage">libelleError</small>
+                </div>
+                <div class="form-group">
+                    <label for="Prix">Prix de la finition</label>
+                    <input type="text" ngModel #prix="ngModel" class="form-control" name="prix" id="prix" placeholder="Entrez le prix en euro de la finition" appOnlyNumber required>
+                    <small id="prixError" class="form-text errorMessage">prixError</small>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="Description">Description de la finition intérieure</label>
+                    <textarea ngModel #description="ngModel" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Entrez la description de la finition" rows="4" cols="50"></textarea>
+                    <small id="descriptionError" class="form-text errorMessage">descriptionError</small>
+                </div>
+                <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Créer cette finition</button></div>
+            </form>
         </div>
     </div>
     <input type="image" id="boutonFinitionInterieure" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFinitionInterieure()">

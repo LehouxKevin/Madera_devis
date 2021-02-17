@@ -1,6 +1,6 @@
 export class ConceptionOssature {
- id?: number;
+  id?: number;
   prix: number;
-libelle: string;
-description: string;
+  libelle: string;
+  description: string;
 }

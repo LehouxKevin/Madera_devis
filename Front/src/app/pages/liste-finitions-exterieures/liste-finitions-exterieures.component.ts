@@ -138,7 +138,6 @@ export class ListeFinitionsExterieuresComponent implements OnInit, OnDestroy {
       }
 
       if (libelle && prix) {
-        console.log("Créer la finition !");
         this.fe = new FinitionExterieur(finitionExterieureForm.value.libelle, finitionExterieureForm.value.prix, finitionExterieureForm.value.description);
         if(await this.finitionExterieureService.addFinitionExterieure(this.fe))
         {
@@ -152,7 +151,7 @@ export class ListeFinitionsExterieuresComponent implements OnInit, OnDestroy {
     }
     // Si le formulaire est celui de la modification d'une finition extérieure
     else {
-      console.log("Modification de la fintion en question !");
+      console.log("Modification de la finition en question !");
     }
   }
 }

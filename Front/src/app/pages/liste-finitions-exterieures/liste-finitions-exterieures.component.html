@@ -9,7 +9,7 @@
                 <thead class="text-white">
                 <tr>
                     <th class="border title-tab" scope="col">Type de finition extérieure</th>
-                    <th class="border title-tab" scope="col">Prix</th>
+                    <th class="border title-tab" scope="col">Prix (en €)</th>
                     <th class="border title-tab" scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -43,12 +43,12 @@
                     <small id="libelleError" class="form-text errorMessage">libelleError</small>
                 </div>
                 <div class="form-group">
-                    <label for="Prix">Prix de la fintion</label>
+                    <label for="Prix">Prix de la finition</label>
                     <input type="text" ngModel #prix="ngModel" class="form-control" name="prix" id="prix" placeholder="Entrez le prix en euro de la finition" appOnlyNumber required>
                     <small id="prixError" class="form-text errorMessage">prixError</small>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="Description">Description de la fintion extérieure</label>
+                    <label for="Description">Description de la finition extérieure</label>
                     <textarea ngModel #description="ngModel" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Entrez la description de la finition" rows="4" cols="50"></textarea>
                     <small id="descriptionError" class="form-text errorMessage">descriptionError</small>
                 </div>

@@ -30,6 +30,19 @@
                 </tbody>
             </table>
         </div>
+        <div id="displayCreate">
+            <form #creationFamilleComposantForm="ngForm" (ngSubmit)="onSubmit(creationFamilleComposantForm, true)" class="flex">
+                <div class="d-flex justify-content-center">
+                    <p class="text-center">Pour créer une famille de composant, veuillez renseigner l'intégralité des informations demandées.</p>
+                </div>
+                <div class="form-group">
+                    <label for="Libelle">Libelle de la famille</label>
+                    <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle" placeholder="Entrez le libelle de la famille" required>
+                    <small id="libelleError" class="form-text errorMessage">libelleError</small>
+                </div>
+                <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Créer cette famille</button></div>
+            </form>
+        </div>
     </div>
     <input type="image" id="boutonFamilleComposant" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFamilleComposant()">
 </div>

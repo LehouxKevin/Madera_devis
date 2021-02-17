@@ -43,7 +43,7 @@ export class ListeFinitionsInterieuresComponent implements OnInit {
     );
   }
 
-   /**
+  /**
    * Fonction permettant de fermer convenablement la page.
    * S'exécute lors de la fermeture de la page.
    * Ne prend aucun paramètre.

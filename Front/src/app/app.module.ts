@@ -112,7 +112,7 @@ import { ModificationModeleComponent } from './pages/bureau-etude/modele/modific
     ListeTypesCouvertureComponent,
     ListeTypesIsolationComponent,
     ListeFamillesComposantComponent,
-    ListeTypesModuleComponent
+    ListeTypesModuleComponent,
     ModificationModeleComponent
 
 

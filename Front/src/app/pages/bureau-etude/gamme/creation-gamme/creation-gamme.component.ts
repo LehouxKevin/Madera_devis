@@ -27,7 +27,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 
-import { filter,map } from 'rxjs/operators';
+import { filter,map,finalize } from 'rxjs/operators';
 import {  Input } from '@angular/core';
 
 
@@ -93,9 +93,8 @@ DisplaylisteGamme = false;
                                   QualiteHuisseries => this.QualiteHuisseries = QualiteHuisseries
                                 );
 
-
         this.finitionExterieurService.getFinitionExterieurs().pipe(
-                                   map(FinitionExterieur => FinitionExterieur['hydra:member'])
+                             map(FinitionExterieur => FinitionExterieur['hydra:member'])
                                  ).subscribe(
                                    FinitionExterieur => this.FinitionExterieurs = FinitionExterieur
                                  );
@@ -135,6 +134,7 @@ DisplaylisteGamme = false;
       ).subscribe(
         gamme => this.gammes = gamme
       );
+
 
   }
 

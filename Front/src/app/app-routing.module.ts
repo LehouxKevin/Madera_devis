@@ -20,6 +20,7 @@ import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { ConsultationModuleComponent } from './pages/bureau-etude/module/consultation-module/consultation-module.component';
 import { ConsultationModeleComponent } from './pages/bureau-etude/modele/consultation-modele/consultation-modele.component';
 import { CreationModeleComponent } from './pages/bureau-etude/modele/creation-modele/creation-modele.component';
+import { ModificationModeleComponent } from './pages/bureau-etude/modele/modification-modele/modification-modele.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,8 @@ const routes: Routes = [
   { path : "Liste-Modele/:idGamme", component:ListeModeleComponent},
   { path : "Liste-Module/:idGamme", component:ListeModuleComponent},
      { path : "Creation-Modele/:idGamme", component:CreationModeleComponent},
+          { path : "modification-Modele/:idModele", component:ModificationModeleComponent},
+
    { path : "Creation-Gamme", component:CreationGammeComponent},
    { path : "liste-Gamme", component:ListeGammePageComponent},
   { path : "profil", component:ProfilComponent},

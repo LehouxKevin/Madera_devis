@@ -1,43 +1,52 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { CoupeDePrincipes } from '../class/coupe-de-principes';
-import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
-
-
+import { FamilleComposant } from '../class/famille-composant';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoupeDePrincipeService {
+export class FamilleComposantService {
 
   baseUrl = environment.baseUrlAPI;
-  CoupeDePrincipeApi = '/coupe_de_principes';
+  FamilleComposantApi = "/famille_composants"
+
   constructor(private http: HttpClient) { }
 
-  getCoupeDePrincipes(): Observable<CoupeDePrincipes[]>
+  getFamillesComposant(): Observable<FamilleComposant[]>
   {
-    return this.http.get<CoupeDePrincipes[]>(this.baseUrl+this.CoupeDePrincipeApi);
+    return this.http.get<FamilleComposant[]>(this.baseUrl+this.FamilleComposantApi);
   }
 
-  getOneCoupeDePrincipeById(id)
+  asyncGetFamillesComposant()
   {
-    return this.http.get<any[]>(this.baseUrl+this.CoupeDePrincipeApi+"/"+id).toPromise();
+    return this.http.get<FamilleComposant[]>(this.baseUrl+this.FamilleComposantApi);
   }
 
-  getOneCoupeDePrincipeByICleEtrangere(CleEtrangere)
+  getOneFamilleComposantById(id)
   {
-  return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+    return this.http.get<any[]>(this.baseUrl+this.FamilleComposantApi+"/"+id).toPromise();
   }
 
-  addCoupeDePrincipe(coupeDePrincipe:CoupeDePrincipes)
+  getOneFamilleComposantByForeignKey(FK)
   {
-    return this.http.post<CoupeDePrincipes>(this.baseUrl+this.CoupeDePrincipeApi,coupeDePrincipe)
+    return this.http.get<any[]>(this.baseUrl+FK).toPromise();
+  }
+
+  asyncgetOneFamilleComposantByForeignKey(FK)
+  {
+    return this.http.get<any[]>(this.baseUrl+FK);
+  }
+
+  addFamilleComposant(familleComposant:FamilleComposant)
+  {
+    return this.http.post<FamilleComposant>(this.baseUrl+this.FamilleComposantApi,familleComposant)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
-        // Retourne true si la finition intérieure a un id dans la bdd, si elle en a un c'est qu'elle a bien été inséré
+        // Retourne true si la finition extérieur a un id dans la bdd, si elle en a un c'est qu'elle a bien été inséré
         if(data.id > 0)
         {
           return true;

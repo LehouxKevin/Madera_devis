@@ -1,0 +1,90 @@
+.listeFinitionsInterieures {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    right: 5rem;
+    width: 70rem;
+    height: 100%;
+    background: #365064;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 2em;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+
+.listeFinitionsInterieures::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.titre {
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+#titrefinitionInterieure {
+    display: none;
+}
+
+.table td {
+    vertical-align: 0 !important;
+}
+
+.title-tab {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.data-col {
+    text-align: center;
+    border-color: #dee2e6;
+}
+
+.lien-icone-action {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.lien-icone-action:hover {
+    cursor: pointer;
+}
+
+.icone-consulter {
+    width: 7%;
+}
+
+.icone-modifier {
+    width: 8%;
+}
+
+.icone-supprimer {
+    width: 6%;
+}
+
+.bouton-creer {
+    position: fixed;
+    right: 0;
+    bottom: 130px;
+    left: 0;
+    z-index: 1030;
+    height: 120px;
+}
+
+.bouton-creer:focus {
+    outline: none;
+}
+
+.errorMessage {
+    color: #F56A6A;
+    display: none;
+}
+
+#displayCreate {
+    display: none;
+}

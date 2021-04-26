@@ -46,6 +46,17 @@ import { ListeDevisComponent } from './pages/liste-devis/liste-devis.component';
 import { CreationModeleComponent } from './pages/bureau-etude/modele/creation-modele/creation-modele.component';
 import { ChoixGammeComponent } from './components/choix-gamme/choix-gamme.component';
 import { ChoixModeleComponent } from './components/choix-modele/choix-modele.component';
+import { ListeFinitionsExterieuresComponent } from './pages/liste-finitions-exterieures/liste-finitions-exterieures.component';
+import { MenuParametresComponent } from './components/menu-parametres/menu-parametres.component';
+import { ListeFinitionsInterieuresComponent } from './pages/liste-finitions-interieures/liste-finitions-interieures.component';
+import { ListeConceptionOssatureComponent } from './pages/liste-conception-ossature/liste-conception-ossature.component';
+import { ListeCoupesDePrincipeComponent } from './pages/liste-coupes-de-principe/liste-coupes-de-principe.component';
+import { ListeTypesRemplissageComponent } from './pages/liste-types-remplissage/liste-types-remplissage.component';
+import { ListeQualitesHuisseriesComponent } from './pages/liste-qualites-huisseries/liste-qualites-huisseries.component';
+import { ListeTypesCouvertureComponent } from './pages/liste-types-couverture/liste-types-couverture.component';
+import { ListeTypesIsolationComponent } from './pages/liste-types-isolation/liste-types-isolation.component';
+import { ListeFamillesComposantComponent } from './pages/liste-familles-composant/liste-familles-composant.component';
+import { ListeTypesModuleComponent } from './pages/liste-types-module/liste-types-module.component';
 import { ModificationModeleComponent } from './pages/bureau-etude/modele/modification-modele/modification-modele.component';
 
 @NgModule({
@@ -91,6 +102,17 @@ import { ModificationModeleComponent } from './pages/bureau-etude/modele/modific
     CreationModeleComponent,
     ChoixGammeComponent,
     ChoixModeleComponent,
+    ListeFinitionsExterieuresComponent,
+    MenuParametresComponent,
+    ListeFinitionsInterieuresComponent,
+    ListeConceptionOssatureComponent,
+    ListeCoupesDePrincipeComponent,
+    ListeTypesRemplissageComponent,
+    ListeQualitesHuisseriesComponent,
+    ListeTypesCouvertureComponent,
+    ListeTypesIsolationComponent,
+    ListeFamillesComposantComponent,
+    ListeTypesModuleComponent
     ModificationModeleComponent
 
 

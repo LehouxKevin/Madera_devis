@@ -15,7 +15,7 @@ export class ClientService {
       'Content-Type':  'application/ld+json',
     })
   };
-  
+
   baseUrlApi = environment.baseUrlAPI;
   baseUrl = environment.baseUrl;
   clientsApi = '/clients';
@@ -24,36 +24,40 @@ export class ClientService {
 
   getClients(): Observable<Client[]>
   {
-    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi);
+    return this.http.get<Client[]>(this.baseUrlApi + this.clientsApi);
   }
 
+  // tslint:disable-next-line:typedef
   syncGetClients()
   {
-    var clients:Client[]= [];
-    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi)
+    let clients: Client[] = [];
+    return this.http.get<Client[]>(this.baseUrlApi + this.clientsApi)
     .pipe(
       map(client => client['hydra:member'])
     )
     .toPromise()
-    .then()
+    .then();
     {
+      // tslint:disable-next-line:no-unused-expression
       client => clients = client;
-    };
+    }
   }
 
+  // tslint:disable-next-line:typedef
   getOneClientById(id)
   {
-    return this.http.get<Client[]>(this.baseUrlApi+this.clientsApi+"/"+id).toPromise();
+    return this.http.get<Client[]>(this.baseUrlApi + this.clientsApi + '/' + id).toPromise();
   }
 
-  addClient(client:Client)
+  // tslint:disable-next-line:typedef
+  addClient(client: Client)
   {
-    return this.http.post<Client>(this.baseUrlApi+this.clientsApi,client)
+    return this.http.post<Client>(this.baseUrlApi + this.clientsApi, client)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
         // Retourne true si client a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
-        if(data.id > 0)
+        if (data.id > 0)
         {
           return true;
         }
@@ -63,12 +67,14 @@ export class ClientService {
     });
   }
 
+  // tslint:disable-next-line:typedef
   getOneClientByLink(link)
   {
-    return this.http.get<any[]>(this.baseUrl+link).toPromise()
+    return this.http.get<any[]>(this.baseUrl + link).toPromise();
   }
 
-  
+
+  // tslint:disable-next-line:typedef
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

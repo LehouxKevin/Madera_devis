@@ -1,9 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { ConceptionOssature } from '../class/conception-ossature';
-import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable, throwError} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {ConceptionOssature} from '../class/conception-ossature';
+import {map, takeUntil, catchError, tap, finalize} from 'rxjs/operators';
 
 
 @Injectable({
@@ -13,52 +13,52 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 
 export class ConceptionOssatureService {
 
- baseUrl = environment.baseUrlAPI;
+  baseUrl = environment.baseUrlAPI;
   ConceptionOssatureApi = '/conception_ossatures';
-constructor(private http: HttpClient) { }
 
-  getConceptionOssatures(): Observable<ConceptionOssature[]>
-  {
-    return this.http.get<ConceptionOssature[]>(this.baseUrl+this.ConceptionOssatureApi);
+  constructor(private http: HttpClient) {
   }
 
-  asyncGetConceptionOssatures()
-  {
-    return this.http.get<ConceptionOssature[]>(this.baseUrl+this.ConceptionOssatureApi);
+  getConceptionOssatures(): Observable<ConceptionOssature[]> {
+    return this.http.get<ConceptionOssature[]>(this.baseUrl + this.ConceptionOssatureApi);
   }
 
-  getOneConceptionOssatureById(id)
-  {
-    return this.http.get<any[]>(this.baseUrl+this.ConceptionOssatureApi+"/"+id).toPromise();
+  // tslint:disable-next-line:typedef
+  asyncGetConceptionOssatures() {
+    return this.http.get<ConceptionOssature[]>(this.baseUrl + this.ConceptionOssatureApi);
   }
 
-  getOneConceptionOssatureByICleEtrangere(CleEtrangere)
-  {
-    return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
+  // tslint:disable-next-line:typedef
+  getOneConceptionOssatureById(id) {
+    return this.http.get<any[]>(this.baseUrl + this.ConceptionOssatureApi + '/' + id).toPromise();
   }
 
-  asyncGetOneConceptionOssatureByCleEtrangere(CleEtrangere)
-  {
-    return this.http.get<any[]>(this.baseUrl+CleEtrangere);
+  // tslint:disable-next-line:typedef
+  getOneConceptionOssatureByICleEtrangere(CleEtrangere) {
+    return this.http.get<any[]>(this.baseUrl + CleEtrangere).toPromise();
   }
 
-  addConceptionOssature(conceptionOssature:ConceptionOssature)
-  {
-    return this.http.post<ConceptionOssature>(this.baseUrl+this.ConceptionOssatureApi,conceptionOssature)
-    .pipe(
-      catchError(this.handleError)
-    ).toPromise().then(data => {
+  // tslint:disable-next-line:typedef
+  asyncGetOneConceptionOssatureByCleEtrangere(CleEtrangere) {
+    return this.http.get<any[]>(this.baseUrl + CleEtrangere);
+  }
+
+  // tslint:disable-next-line:typedef
+  addConceptionOssature(conceptionOssature: ConceptionOssature) {
+    return this.http.post<ConceptionOssature>(this.baseUrl + this.ConceptionOssatureApi, conceptionOssature)
+      .pipe(
+        catchError(this.handleError)
+      ).toPromise().then(data => {
         // Retourne true si la conception ossature a un id dans la bdd, si elle en a un c'est qu'elle a bien été inséré
-        if(data.id > 0)
-        {
+        if (data.id > 0) {
           return true;
-        }
-        else {
+        } else {
           return false;
         }
-    });
+      });
   }
 
+  // tslint:disable-next-line:typedef
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

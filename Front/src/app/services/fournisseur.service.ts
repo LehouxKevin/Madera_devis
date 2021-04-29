@@ -1,10 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { rejects } from 'assert';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { Fournisseur } from '../class/fournisseur';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {rejects} from 'assert';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {environment} from 'src/environments/environment';
+import {Fournisseur} from '../class/fournisseur';
 
 @Injectable({
   providedIn: 'root'
@@ -14,61 +14,59 @@ export class FournisseurService {
   baseUrl = environment.baseUrlAPI;
   fournisseurApi = '/fournisseurs';
 
-  retValDeleteFourni:boolean=false;
-  constructor(private http: HttpClient) { }
+  retValDeleteFourni = false;
 
-  getFournisseurs(): Observable<any[]>
-  {
-    return this.http.get<any[]>(this.baseUrl+this.fournisseurApi);
+  constructor(private http: HttpClient) {
   }
 
-  getOneFournisseurById(id)
-  {
-    return this.http.get<any[]>(this.baseUrl+this.fournisseurApi+"/"+id).toPromise();
+  getFournisseurs(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + this.fournisseurApi);
   }
 
-  addFournisseur(fournisseur:Fournisseur)
-  {
-    return this.http.post<Fournisseur>(this.baseUrl+this.fournisseurApi,fournisseur)
-    .pipe(
-      catchError(this.handleError)
-    ).toPromise().then(data => {
+  // tslint:disable-next-line:typedef
+  getOneFournisseurById(id) {
+    return this.http.get<any[]>(this.baseUrl + this.fournisseurApi + '/' + id).toPromise();
+  }
+
+  // tslint:disable-next-line:typedef
+  addFournisseur(fournisseur: Fournisseur) {
+    return this.http.post<Fournisseur>(this.baseUrl + this.fournisseurApi, fournisseur)
+      .pipe(
+        catchError(this.handleError)
+      ).toPromise().then(data => {
         // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
-        if(data.id > 0)
-        {
+        if (data.id > 0) {
           return true;
-        }
-        else {
+        } else {
           return false;
         }
-    });
+      });
   }
 
-  asyncDeleteFournisseur(idFournisseur:number): boolean
-  {
-    this.retValDeleteFourni=false;
-    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
-        .subscribe({
-            next: data => {
-                this.retValDeleteFourni = true;
-            },
-            error: error => {
-                console.error('There was an error!', error);
-            }
-        });
+  // tslint:disable-next-line:typedef
+  asyncDeleteFournisseur(idFournisseur: number): boolean {
+    this.retValDeleteFourni = false;
+    this.http.delete(this.baseUrl + this.fournisseurApi + '/' + idFournisseur)
+      .subscribe({
+        next: data => {
+          this.retValDeleteFourni = true;
+        },
+        error: error => {
+          console.error('There was an error!', error);
+        }
+      });
     return this.retValDeleteFourni;
   }
 
   // à tester
-  syncDeleteFournisseur(idFournisseur:number): boolean
-  {
-    this.retValDeleteFourni=false;
-    this.http.delete(this.baseUrl+this.fournisseurApi+"/"+idFournisseur)
-        .toPromise()
-        .then((res:any) =>{
+  syncDeleteFournisseur(idFournisseur: number): boolean {
+    this.retValDeleteFourni = false;
+    this.http.delete(this.baseUrl + this.fournisseurApi + '/' + idFournisseur)
+      .toPromise()
+      .then((res: any) => {
           this.retValDeleteFourni = true;
         },
-        err=> {
+        err => {
           // Erreur
           console.log(err);
           rejects(err);
@@ -77,16 +75,16 @@ export class FournisseurService {
     return this.retValDeleteFourni;
   }
 
-
-  syncUpdateFournisseur(fournisseur:Fournisseur)
-  {
-    console.log(fournisseur,  " | " ,  fournisseur.id);
-    return this.http.put<Fournisseur>(this.baseUrl+this.fournisseurApi+"/"+fournisseur.id,fournisseur)
-    .pipe(
-      catchError(this.handleError)
-    ).toPromise();
+  // tslint:disable-next-line:typedef
+  syncUpdateFournisseur(fournisseur: Fournisseur) {
+    console.log(fournisseur, ' | ', fournisseur.id);
+    return this.http.put<Fournisseur>(this.baseUrl + this.fournisseurApi + '/' + fournisseur.id, fournisseur)
+      .pipe(
+        catchError(this.handleError)
+      ).toPromise();
   }
 
+  // tslint:disable-next-line:typedef
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

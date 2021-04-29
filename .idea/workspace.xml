@@ -23,7 +23,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/client.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/conception-ossature.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/conception-ossature.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/coupe-de-principe.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/coupe-de-principe.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/etat-avancement.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/etat-avancement.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/famille-composant.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/famille-composant.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/finition-exterieur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/finition-exterieur.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/finition-interieur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/finition-interieur.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/fournisseur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/fournisseur.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/qualite-huisseries.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/qualite-huisseries.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-couverture.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-couverture.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-isolation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-isolation.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-module.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-module.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-utilisateur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-utilisateur.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/utilisateur.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/utilisateur.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +79,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="ts.external.directory.path" value="C:\Users\kevin\WebstormProjects\Madera_devis\Front\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\juret\WebstormProjects\Madera_devis\Front\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -104,7 +117,9 @@
       <workItem from="1610475041729" duration="1416000" />
       <workItem from="1610483382839" duration="2000" />
       <workItem from="1610568561613" duration="39000" />
-      <workItem from="1619684678403" duration="3873000" />
+      <workItem from="1619686799114" duration="5000" />
+      <workItem from="1619686805394" duration="628000" />
+      <workItem from="1619687593487" duration="804000" />
     </task>
     <servers />
   </component>

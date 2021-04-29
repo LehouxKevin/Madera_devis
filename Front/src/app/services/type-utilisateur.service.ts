@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +11,15 @@ export class TypeUtilisateurService {
   baseUrl = environment.baseUrlAPI;
   typeUtilisateurApi = '/type_utilisateurs';
 
-  constructor(private http: HttpClient) { }
-
-  getTypesUtilisateur(): Observable<any[]>
-  {
-    return this.http.get<any[]>(this.baseUrl+this.typeUtilisateurApi); 
+  constructor(private http: HttpClient) {
   }
 
-  getOneTypeUtilisateurById(id)
-  {
-    return this.http.get<any[]>(this.baseUrl+this.typeUtilisateurApi+"/"+id).toPromise();
+  getTypesUtilisateur(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + this.typeUtilisateurApi);
+  }
+
+  // tslint:disable-next-line:typedef
+  getOneTypeUtilisateurById(id) {
+    return this.http.get<any[]>(this.baseUrl + this.typeUtilisateurApi + '/' + id).toPromise();
   }
 }

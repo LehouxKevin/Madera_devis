@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { TypeRemplissage } from '../class/type-remplissage';
-import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {TypeRemplissage} from '../class/type-remplissage';
+import {map, takeUntil, catchError, tap, finalize} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +11,23 @@ import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 export class TypeRemplissageService {
 
 
- baseUrl = environment.baseUrlAPI;
+  baseUrl = environment.baseUrlAPI;
   TypeRemplissageApi = '/type_remplissages';
-constructor(private http: HttpClient) { }
 
-  getTypeRemplissages(): Observable<TypeRemplissage[]>
-  {
-    return this.http.get<TypeRemplissage[]>(this.baseUrl+this.TypeRemplissageApi);
+  constructor(private http: HttpClient) {
   }
 
-  getOneTypeRemplissageById(id)
-  {
-    return this.http.get<any[]>(this.baseUrl+this.TypeRemplissageApi+"/"+id).toPromise();
+  getTypeRemplissages(): Observable<TypeRemplissage[]> {
+    return this.http.get<TypeRemplissage[]>(this.baseUrl + this.TypeRemplissageApi);
   }
 
-    getOneTypeRemplissageByICleEtrangere(CleEtrangere)
-    {
-      return this.http.get<any[]>(this.baseUrl+CleEtrangere).toPromise();
-    }
+  // tslint:disable-next-line:typedef
+  getOneTypeRemplissageById(id) {
+    return this.http.get<any[]>(this.baseUrl + this.TypeRemplissageApi + '/' + id).toPromise();
+  }
+
+  // tslint:disable-next-line:typedef
+  getOneTypeRemplissageByICleEtrangere(CleEtrangere) {
+    return this.http.get<any[]>(this.baseUrl + CleEtrangere).toPromise();
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-statistiques-commerciales',
@@ -7,14 +7,16 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class StatistiquesCommercialesComponent implements OnInit, OnDestroy {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  document.getElementById("icone_statistiquesCommercial").style.borderLeft = "solid #BCE0FD 5px";
+  constructor() {
   }
 
+  ngOnInit(): void {
+    document.getElementById('icone_statistiquesCommercial').style.borderLeft = 'solid #BCE0FD 5px';
+  }
+
+  // tslint:disable-next-line:typedef
   ngOnDestroy() {
-    document.getElementById("icone_statistiquesCommercial").style.borderLeft = "solid #BCE0FD 0px";
+    document.getElementById('icone_statistiquesCommercial').style.borderLeft = 'solid #BCE0FD 0px';
   }
 
 }

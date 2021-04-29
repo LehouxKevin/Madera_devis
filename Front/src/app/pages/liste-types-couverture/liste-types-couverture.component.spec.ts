@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeTypesCouvertureComponent } from './liste-types-couverture.component';
+import {ListeTypesCouvertureComponent} from './liste-types-couverture.component';
 
 describe('ListeTypesCouvertureComponent', () => {
   let component: ListeTypesCouvertureComponent;
@@ -8,9 +8,9 @@ describe('ListeTypesCouvertureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeTypesCouvertureComponent ]
+      declarations: [ListeTypesCouvertureComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

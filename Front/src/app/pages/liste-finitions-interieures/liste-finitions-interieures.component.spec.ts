@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeFinitionsInterieuresComponent } from './liste-finitions-interieures.component';
+import {ListeFinitionsInterieuresComponent} from './liste-finitions-interieures.component';
 
 describe('ListeFinitionsInterieuresComponent', () => {
   let component: ListeFinitionsInterieuresComponent;
@@ -8,9 +8,9 @@ describe('ListeFinitionsInterieuresComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeFinitionsInterieuresComponent ]
+      declarations: [ListeFinitionsInterieuresComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

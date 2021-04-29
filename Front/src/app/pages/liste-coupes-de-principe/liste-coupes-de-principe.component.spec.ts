@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeCoupesDePrincipeComponent } from './liste-coupes-de-principe.component';
+import {ListeCoupesDePrincipeComponent} from './liste-coupes-de-principe.component';
 
 describe('ListeCoupesDePrincipeComponent', () => {
   let component: ListeCoupesDePrincipeComponent;
@@ -8,9 +8,9 @@ describe('ListeCoupesDePrincipeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeCoupesDePrincipeComponent ]
+      declarations: [ListeCoupesDePrincipeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

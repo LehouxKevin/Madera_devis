@@ -11,18 +11,18 @@ import { QualiteHuisseriesService } from 'src/app/services/qualite-huisseries.se
 })
 export class ListeQualitesHuisseriesComponent implements OnInit, OnDestroy {
 
-  qu:QualiteHuisseries;
+  qu: QualiteHuisseries;
 
-  public qualitesHuisseries:any[] = [];
+  public qualitesHuisseries: any[] = [];
   public qualiteHuisserie;
 
-  constructor(private router:Router, private qualiteHuisserieService: QualiteHuisseriesService) { }
+  constructor(private router: Router, private qualiteHuisserieService: QualiteHuisseriesService) { }
 
   ngOnInit(): void {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 5px";
-    document.getElementById("bouton_qualiteHuisserie").style.border = "solid 2px #1d2932";
-    document.getElementById("bouton_qualiteHuisserie").style.color = "#1d2932";
-    document.getElementById("bouton_qualiteHuisserie").setAttribute("onclick","return false");
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 5px';
+    document.getElementById('bouton_qualiteHuisserie').style.border = 'solid 2px #1d2932';
+    document.getElementById('bouton_qualiteHuisserie').style.color = '#1d2932';
+    document.getElementById('bouton_qualiteHuisserie').setAttribute('onclick', 'return false');
     this.qualiteHuisserieService.getQualiteHuisseries().pipe(
       map(qualiteHuisserie => qualiteHuisserie['hydra:member'])
     ).subscribe(
@@ -30,12 +30,14 @@ export class ListeQualitesHuisseriesComponent implements OnInit, OnDestroy {
     );
   }
 
+  // tslint:disable-next-line:typedef
   ngOnDestroy() {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 0px";
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 0px';
   }
 
+  // tslint:disable-next-line:typedef
   displayQualiteHuisserie()
   {
-    console.log("Créer une qualité huisserie !")
+    console.log('Créer une qualité huisserie !');
   }
 }

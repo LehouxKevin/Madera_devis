@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { CoupeDePrincipes } from 'src/app/class/coupe-de-principes';
-import { CoupeDePrincipeService } from 'src/app/services/coupe-de-principe.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
+import {CoupeDePrincipes} from 'src/app/class/coupe-de-principes';
+import {CoupeDePrincipeService} from 'src/app/services/coupe-de-principe.service';
 
 @Component({
   selector: 'app-liste-coupes-de-principe',
@@ -13,27 +13,28 @@ import { CoupeDePrincipeService } from 'src/app/services/coupe-de-principe.servi
 export class ListeCoupesDePrincipeComponent implements OnInit, OnDestroy {
 
   // Variable public utilisée dans les différentes fonctions
-  cdp:CoupeDePrincipes;
-  public coupesDePrincipe:any[] = [];
+  cdp: CoupeDePrincipes;
+  public coupesDePrincipe: any[] = [];
   public coupeDePrincipe;
-  public display:boolean = true;
-  public typeForm:boolean;
+  public display = true;
+  public typeForm: boolean;
 
   // Constructeur de la classe ListeCoupesDePrincipeComponent
-  constructor(private router:Router, private coupeDePrincipeService: CoupeDePrincipeService) { }
+  constructor(private router: Router, private coupeDePrincipeService: CoupeDePrincipeService) {
+  }
 
   /**
    * Fonction permettant d'initialiser les éléments de la page.
    * S'exécute lors de l'initialisation de la page.
    * Ne prend aucun paramètre.
-  **/
+   **/
   ngOnInit(): void {
     // Ajout de la bordure de suivi dans la sidebar à côté de l'icone des paramètres
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 5px";
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 5px';
     // Modification du bouton et du lien du menu des paramètres
-    document.getElementById("bouton_coupeDePrincipe").style.border = "solid 2px #1d2932";
-    document.getElementById("bouton_coupeDePrincipe").style.color = "#1d2932";
-    document.getElementById("bouton_coupeDePrincipe").setAttribute("onclick","return false");
+    document.getElementById('bouton_coupeDePrincipe').style.border = 'solid 2px #1d2932';
+    document.getElementById('bouton_coupeDePrincipe').style.color = '#1d2932';
+    document.getElementById('bouton_coupeDePrincipe').setAttribute('onclick', 'return false');
     // Récupération de la totalité des coupe de principes intérieures
     this.coupeDePrincipeService.getCoupeDePrincipes().pipe(
       map(coupeDePrincipe => coupeDePrincipe['hydra:member'])
@@ -47,50 +48,51 @@ export class ListeCoupesDePrincipeComponent implements OnInit, OnDestroy {
    * Fonction permettant de fermer convenablement la page.
    * S'exécute lors de la fermeture de la page.
    * Ne prend aucun paramètre.
-  **/
+   **/
+  // tslint:disable-next-line:typedef
   ngOnDestroy() {
     // Suppression de la bordure de suivi de la sidebar qui était à côté de l'icone des paramètres
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 0px";
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 0px';
   }
 
   /**
    * Fonction permettant d'afficher les différentes fonctionnalités du CRUD.
    * S'exécute lorsque l'on clique sur les différentes boutons de la page.
    * Ne prend aucun paramètre.
-  **/
+   **/
+  // tslint:disable-next-line:typedef
   displayCoupeDePrincipe() {
     // Si la fonction displayCoupeDePrincipe n'a pas encore été exécuté
     if (this.display) {
-      document.getElementById("displayList").style.display = "none";
-      document.getElementById("menu_parametres").style.display = "none";
-      document.getElementById("grand-titre").textContent = "Création d'une coupe de principe";
-      document.getElementById("displayCreate").style.display = "block";
-      document.getElementById("content").style.paddingLeft = "15rem";
-      document.getElementById("content").style.paddingRight = "15rem";
-      document.getElementById("listeCoupesDePrincipe").style.paddingTop = "6rem";
-      document.getElementById("boutonCoupeDePrincipe").setAttribute("src", 'assets\\icones\\displayList.svg');
+      document.getElementById('displayList').style.display = 'none';
+      document.getElementById('menu_parametres').style.display = 'none';
+      document.getElementById('grand-titre').textContent = 'Création d\'une coupe de principe';
+      document.getElementById('displayCreate').style.display = 'block';
+      document.getElementById('content').style.paddingLeft = '15rem';
+      document.getElementById('content').style.paddingRight = '15rem';
+      document.getElementById('listeCoupesDePrincipe').style.paddingTop = '6rem';
+      document.getElementById('boutonCoupeDePrincipe').setAttribute('src', 'assets\\icones\\displayList.svg');
       this.display = false;
       this.typeForm = true;
     }
     // Si la fonction displayCoupeDePrincipe a déjà été exécuté
     else {
       if (this.typeForm) {
-        document.getElementById("displayCreate").style.display = "none";
-        document.getElementById("libelle").style.borderLeft = "none";
-        document.getElementById("prix").style.borderLeft = "none";
-        document.getElementById("libelleError").style.display = "none";
-        document.getElementById("prixError").style.display = "none";
-      }
-      else {
+        document.getElementById('displayCreate').style.display = 'none';
+        document.getElementById('libelle').style.borderLeft = 'none';
+        document.getElementById('prix').style.borderLeft = 'none';
+        document.getElementById('libelleError').style.display = 'none';
+        document.getElementById('prixError').style.display = 'none';
+      } else {
         // À FAIRE -> Reset le formulaire de modification !
       }
-      document.getElementById("menu_parametres").style.display = "block";
-      document.getElementById("displayList").style.display = "block";
-      document.getElementById("grand-titre").textContent = "Liste des coupes de principe";
-      document.getElementById("content").style.paddingLeft = "3rem";
-      document.getElementById("content").style.paddingRight = "3rem";
-      document.getElementById("listeCoupesDePrincipe").style.paddingTop = "2rem";
-      document.getElementById("boutonCoupeDePrincipe").setAttribute("src", "assets\\icones\\displayCreate.svg");
+      document.getElementById('menu_parametres').style.display = 'block';
+      document.getElementById('displayList').style.display = 'block';
+      document.getElementById('grand-titre').textContent = 'Liste des coupes de principe';
+      document.getElementById('content').style.paddingLeft = '3rem';
+      document.getElementById('content').style.paddingRight = '3rem';
+      document.getElementById('listeCoupesDePrincipe').style.paddingTop = '2rem';
+      document.getElementById('boutonCoupeDePrincipe').setAttribute('src', 'assets\\icones\\displayCreate.svg');
       this.display = true;
     }
   }
@@ -101,57 +103,54 @@ export class ListeCoupesDePrincipeComponent implements OnInit, OnDestroy {
    * Paramètres :
    *  - coupeDePrincipeForm -> Retourne les valeurs saisies dans le formulaire en question.
    *  - typeform              -> Retourne "true" si le formulaire est celui de la création d'une coupe de principe extérieur et "false" si c'est celui de la modifcation.
-  **/
- async onSubmit(coupeDePrincipeForm: NgForm, typeForm:boolean) 
- {
-   // Si le formulaire est celui de la création d'une coupe de principe intérieure
-   if (typeForm) {
+   **/
+  // tslint:disable-next-line:typedef
+  async onSubmit(coupeDePrincipeForm: NgForm, typeForm: boolean) {
+    // Si le formulaire est celui de la création d'une coupe de principe intérieure
+    if (typeForm) {
 
-     // Initialisation de l'affichage des éléments du formulaire
-     document.getElementById("libelle").style.borderLeft = "none";
-     document.getElementById("prix").style.borderLeft = "none";
-     document.getElementById("libelleError").style.display = "none";
-     document.getElementById("prixError").style.display = "none";
+      // Initialisation de l'affichage des éléments du formulaire
+      document.getElementById('libelle').style.borderLeft = 'none';
+      document.getElementById('prix').style.borderLeft = 'none';
+      document.getElementById('libelleError').style.display = 'none';
+      document.getElementById('prixError').style.display = 'none';
 
-     // Initialisation des variables utilisés lors de la création de la coupe de principe intérieure 
-     var libelle = false;
-     var prix = false;
-     
-     // Test si le libelle de la coupe de principe a bien été renseigné
-     if (coupeDePrincipeForm.value.libelle) {
-       libelle = true;
-     }
-     else {
-       document.getElementById("libelle").style.borderLeft = "solid red 9px";
-       document.getElementById("libelleError").textContent = "Veuillez définir le libelle de votre coupe de principe !"
-       document.getElementById("libelleError").style.display = "block";
-     }
+      // Initialisation des variables utilisés lors de la création de la coupe de principe intérieure
+      let libelle = false;
+      let prix = false;
 
-     // Test si le prix de la coupe de principe a bien été renseigné
-     if (coupeDePrincipeForm.value.prix) {
-       prix = true;
-     }
-     else {
-       document.getElementById("prix").style.borderLeft = "solid red 9px";
-       document.getElementById("prixError").textContent = "Veuillez définir le prix de votre coupe de principe !"
-       document.getElementById("prixError").style.display = "block";
-     }
+      // Test si le libelle de la coupe de principe a bien été renseigné
+      if (coupeDePrincipeForm.value.libelle) {
+        libelle = true;
+      } else {
+        document.getElementById('libelle').style.borderLeft = 'solid red 9px';
+        document.getElementById('libelleError').textContent = 'Veuillez définir le libelle de votre coupe de principe !';
+        document.getElementById('libelleError').style.display = 'block';
+      }
 
-     if (libelle && prix) {
-       this.cdp = new CoupeDePrincipes(coupeDePrincipeForm.value.libelle, coupeDePrincipeForm.value.prix, coupeDePrincipeForm.value.description);
-       if(await this.coupeDePrincipeService.addCoupeDePrincipe(this.cdp))
-       {
-         this.displayCoupeDePrincipe();
-         this.ngOnInit();
-       }
-       else {
-         console.log("Importation échoué !");
-       }
-     }
-   }
-   // Si le formulaire est celui de la modification d'une coupe de principe intérieure
-   else {
-     console.log("Modification de la coupe de principe en question !");
-   }
- }
+      // Test si le prix de la coupe de principe a bien été renseigné
+      if (coupeDePrincipeForm.value.prix) {
+        prix = true;
+      } else {
+        document.getElementById('prix').style.borderLeft = 'solid red 9px';
+        document.getElementById('prixError').textContent = 'Veuillez définir le prix de votre coupe de principe !';
+        document.getElementById('prixError').style.display = 'block';
+      }
+
+      if (libelle && prix) {
+        // tslint:disable-next-line:max-line-length
+        this.cdp = new CoupeDePrincipes(coupeDePrincipeForm.value.libelle, coupeDePrincipeForm.value.prix, coupeDePrincipeForm.value.description);
+        if (await this.coupeDePrincipeService.addCoupeDePrincipe(this.cdp)) {
+          this.displayCoupeDePrincipe();
+          this.ngOnInit();
+        } else {
+          console.log('Importation échoué !');
+        }
+      }
+    }
+    // Si le formulaire est celui de la modification d'une coupe de principe intérieure
+    else {
+      console.log('Modification de la coupe de principe en question !');
+    }
+  }
 }

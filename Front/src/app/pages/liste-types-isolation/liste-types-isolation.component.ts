@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { TypeIsolation } from 'src/app/class/type-isolation';
-import { TypeIsolationService } from 'src/app/services/type-isolation.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
+import {TypeIsolation} from 'src/app/class/type-isolation';
+import {TypeIsolationService} from 'src/app/services/type-isolation.service';
 
 @Component({
   selector: 'app-liste-types-isolation',
@@ -11,18 +11,19 @@ import { TypeIsolationService } from 'src/app/services/type-isolation.service';
 })
 export class ListeTypesIsolationComponent implements OnInit, OnDestroy {
 
-  ti:TypeIsolation;
+  ti: TypeIsolation;
 
-  public typesIsolation:any[] = [];
+  public typesIsolation: any[] = [];
   public typeIsolation;
 
-  constructor(private router:Router, private typeIsolationService:TypeIsolationService) { }
+  constructor(private router: Router, private typeIsolationService: TypeIsolationService) {
+  }
 
   ngOnInit(): void {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 5px";
-    document.getElementById("bouton_typeIsolation").style.border = "solid 2px #1d2932";
-    document.getElementById("bouton_typeIsolation").style.color = "#1d2932";
-    document.getElementById("bouton_typeIsolation").setAttribute("onclick","return false");
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 5px';
+    document.getElementById('bouton_typeIsolation').style.border = 'solid 2px #1d2932';
+    document.getElementById('bouton_typeIsolation').style.color = '#1d2932';
+    document.getElementById('bouton_typeIsolation').setAttribute('onclick', 'return false');
     this.typeIsolationService.getTypeIsolations().pipe(
       map(typeIsolation => typeIsolation['hydra:member'])
     ).subscribe(
@@ -30,12 +31,13 @@ export class ListeTypesIsolationComponent implements OnInit, OnDestroy {
     );
   }
 
+  // tslint:disable-next-line:typedef
   ngOnDestroy() {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 0px";
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 0px';
   }
 
-  displayTypeIsolation()
-  {
-    console.log("Créer un type d'isolation !")
+  // tslint:disable-next-line:typedef
+  displayTypeIsolation() {
+    console.log('Créer un type d\'isolation !');
   }
 }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeTypesIsolationComponent } from './liste-types-isolation.component';
+import {ListeTypesIsolationComponent} from './liste-types-isolation.component';
 
 describe('ListeTypesIsolationComponent', () => {
   let component: ListeTypesIsolationComponent;
@@ -8,9 +8,9 @@ describe('ListeTypesIsolationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeTypesIsolationComponent ]
+      declarations: [ListeTypesIsolationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,48 +1,55 @@
 <div id="listeFamillesComposant" class="listeFamillesComposant flex">
-    <div id="content" class="content">
-        <app-menu-parametres></app-menu-parametres>
-        <div class="d-flex justify-content-center titre">
-            <h2 id="grand-titre">Liste des familles de composant</h2><h2 id="titreFamilleComposant">[ERROR]</h2>
-        </div>
-        <div id="displayList">
-            <table class="table  table-hover  justify-content-center text-center">
-                <thead class="text-white">
-                <tr>
-                    <th class="border title-tab" scope="col">Famille de composant</th>
-                    <th class="border title-tab" scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody class="table-light table-bordered" style="border-color:black;">
-                    <tr id="{{'id_familleComposant'+familleComposant.id}}" *ngFor="let familleComposant of famillesComposant">
-                        <td class="data-col">{{familleComposant.libelle}}</td>
-                        <td class="data-col actions">
-                            <a class="lien-icone-action" (click)="consulterFamilleComposant(familleComposant.id)">
-                                <img class="icone-consulter" src="assets\icones\consultation.svg">
-                            </a>
-                            <a class="lien-icone-action" (click)="modifierFamilleComposant(familleComposant.id)">
-                                <img class="icone-modifier" src="assets\icones\plume.svg">
-                            </a>
-                            <a class="lien-icone-action" (click)="supprimerFamilleComposant(familleComposant.id)">
-                                <img class="icone-supprimer" src="assets\icones\croix.svg">
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="displayCreate">
-            <form #creationFamilleComposantForm="ngForm" (ngSubmit)="onSubmit(creationFamilleComposantForm, true)" class="flex">
-                <div class="d-flex justify-content-center">
-                    <p class="text-center">Pour créer une famille de composant, veuillez renseigner l'intégralité des informations demandées.</p>
-                </div>
-                <div class="form-group">
-                    <label for="Libelle">Libelle de la famille</label>
-                    <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle" placeholder="Entrez le libelle de la famille" required>
-                    <small id="libelleError" class="form-text errorMessage">libelleError</small>
-                </div>
-                <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-100">Créer cette famille</button></div>
-            </form>
-        </div>
+  <div id="content" class="content">
+    <app-menu-parametres></app-menu-parametres>
+    <div class="d-flex justify-content-center titre">
+      <h2 id="grand-titre">Liste des familles de composant</h2>
+      <h2 id="titreFamilleComposant">[ERROR]</h2>
     </div>
-    <input type="image" id="boutonFamilleComposant" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFamilleComposant()">
+    <div id="displayList">
+      <table class="table  table-hover  justify-content-center text-center">
+        <thead class="text-white">
+        <tr>
+          <th class="border title-tab" scope="col">Famille de composant</th>
+          <th class="border title-tab" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="table-light table-bordered" style="border-color:black;">
+        <tr id="{{'id_familleComposant'+familleComposant.id}}" *ngFor="let familleComposant of famillesComposant">
+          <td class="data-col">{{familleComposant.libelle}}</td>
+          <td class="data-col actions">
+            <a class="lien-icone-action" (click)="consulterFamilleComposant(familleComposant.id)">
+              <img class="icone-consulter" src="assets\icones\consultation.svg">
+            </a>
+            <a class="lien-icone-action" (click)="modifierFamilleComposant(familleComposant.id)">
+              <img class="icone-modifier" src="assets\icones\plume.svg">
+            </a>
+            <a class="lien-icone-action" (click)="supprimerFamilleComposant(familleComposant.id)">
+              <img class="icone-supprimer" src="assets\icones\croix.svg">
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="displayCreate">
+      <form #creationFamilleComposantForm="ngForm" (ngSubmit)="onSubmit(creationFamilleComposantForm, true)"
+            class="flex">
+        <div class="d-flex justify-content-center">
+          <p class="text-center">Pour créer une famille de composant, veuillez renseigner l'intégralité des informations
+            demandées.</p>
+        </div>
+        <div class="form-group">
+          <label for="Libelle">Libelle de la famille</label>
+          <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle"
+                 placeholder="Entrez le libelle de la famille" required>
+          <small id="libelleError" class="form-text errorMessage">libelleError</small>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary w-100">Créer cette famille</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <input type="image" id="boutonFamilleComposant" src="assets\icones\displayCreate.svg"
+         class="position-absolute bouton-creer" (click)="displayFamilleComposant()">
 </div>

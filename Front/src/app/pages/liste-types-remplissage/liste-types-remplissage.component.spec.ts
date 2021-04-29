@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeTypesRemplissageComponent } from './liste-types-remplissage.component';
+import {ListeTypesRemplissageComponent} from './liste-types-remplissage.component';
 
 describe('ListeTypesRemplissageComponent', () => {
   let component: ListeTypesRemplissageComponent;
@@ -8,9 +8,9 @@ describe('ListeTypesRemplissageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeTypesRemplissageComponent ]
+      declarations: [ListeTypesRemplissageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

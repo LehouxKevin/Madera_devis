@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListeConceptionOssatureComponent } from './liste-conception-ossature.component';
+import {ListeConceptionOssatureComponent} from './liste-conception-ossature.component';
 
 describe('ListeConceptionOssatureComponent', () => {
   let component: ListeConceptionOssatureComponent;
@@ -8,9 +8,9 @@ describe('ListeConceptionOssatureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeConceptionOssatureComponent ]
+      declarations: [ListeConceptionOssatureComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

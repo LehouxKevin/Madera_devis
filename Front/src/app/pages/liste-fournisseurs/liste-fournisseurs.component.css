@@ -1,127 +1,127 @@
 .listeFournisseurs {
-    position: fixed;
-    top: 0;
-    overflow: hidden;
-    transition: all .3s ease-in;
-    right: 5rem;
-    width: 70rem;
-    height: 100%;
-    background: #365064;
-    color: rgba(255, 255, 255, 0.7);
-    padding-top: 2em;
-    overflow: scroll;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  right: 5rem;
+  width: 70rem;
+  height: 100%;
+  background: #365064;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 2em;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
 }
 
 .listeFournisseurs::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .content {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 #displayCreate {
-    display: none;
+  display: none;
 }
 
 #displayUpdate {
-    display: none;
+  display: none;
 }
 
 .table td {
-    vertical-align: 0 !important;
+  vertical-align: 0 !important;
 }
 
 .title-tab {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 
 .titre {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #titrefournisseur {
-    margin-left: 10px;
-    color: #007bff;
-    display: none;
+  margin-left: 10px;
+  color: #007bff;
+  display: none;
 }
 
 .data-col {
-    text-align: center;
-    border-color: #dee2e6;
+  text-align: center;
+  border-color: #dee2e6;
 }
 
 .lien-icone-action {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .icone-consulter {
-    width: 12%;
+  width: 12%;
 }
 
 .icone-modifier {
-    width: 14%;
+  width: 14%;
 }
 
 .icone-supprimer {
-    width: 10%;
+  width: 10%;
 }
 
 .bouton-creer {
-    position: fixed;
-    right: 0;
-    bottom: 130px;
-    left: 0;
-    z-index: 1030;
-    height: 120px;
+  position: fixed;
+  right: 0;
+  bottom: 130px;
+  left: 0;
+  z-index: 1030;
+  height: 120px;
 }
 
 .bouton-creer:focus {
-    outline: none;
+  outline: none;
 }
 
 .errorMessage {
-    color: #F56A6A;
-    display: none;
+  color: #F56A6A;
+  display: none;
 }
 
 .deleteWindow {
-    width: 34%;
-    margin-left: 2%;
-    background: white;
-    border: solid #007bff 2px;
-    position: fixed;
-    bottom: 22%;
-    padding: 40px;
-    display: none;
+  width: 34%;
+  margin-left: 2%;
+  background: white;
+  border: solid #007bff 2px;
+  position: fixed;
+  bottom: 22%;
+  padding: 40px;
+  display: none;
 }
 
 .gray-madera {
-    color: #365064;
+  color: #365064;
 }
 
 .fournisseurDelete {
-    margin-left: 5px;
-    color: #007bff !important;
+  margin-left: 5px;
+  color: #007bff !important;
 }
 
 .btn-deleteWindow {
-    width: 49%;
-    padding: 18px;
-    font-size: 20px;
+  width: 49%;
+  padding: 18px;
+  font-size: 20px;
 }
 
 .btn-annuler {
-    margin-right: 7px;
+  margin-right: 7px;
 }
 
 .btn-supprimer {
-    background-color: white !important;
-    border-color: #0069d9 !important;
-    color: #0069d9;
+  background-color: white !important;
+  border-color: #0069d9 !important;
+  color: #0069d9;
 }

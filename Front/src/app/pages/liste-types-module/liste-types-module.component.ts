@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { TypeModule } from 'src/app/class/type-module';
-import { TypeModuleService } from 'src/app/services/type-module.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
+import {TypeModule} from 'src/app/class/type-module';
+import {TypeModuleService} from 'src/app/services/type-module.service';
 
 @Component({
   selector: 'app-liste-types-module',
@@ -11,18 +11,19 @@ import { TypeModuleService } from 'src/app/services/type-module.service';
 })
 export class ListeTypesModuleComponent implements OnInit, OnDestroy {
 
-  tm:TypeModule;
+  tm: TypeModule;
 
-  public typesModule:any[] = [];
+  public typesModule: any[] = [];
   public typeModule;
 
-  constructor(private router:Router, private typeModuleService:TypeModuleService) { }
+  constructor(private router: Router, private typeModuleService: TypeModuleService) {
+  }
 
   ngOnInit(): void {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 5px";
-    document.getElementById("bouton_typeModule").style.border = "solid 2px #1d2932";
-    document.getElementById("bouton_typeModule").style.color = "#1d2932";
-    document.getElementById("bouton_typeModule").setAttribute("onclick","return false");
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 5px';
+    document.getElementById('bouton_typeModule').style.border = 'solid 2px #1d2932';
+    document.getElementById('bouton_typeModule').style.color = '#1d2932';
+    document.getElementById('bouton_typeModule').setAttribute('onclick', 'return false');
     this.typeModuleService.getTypesModule().pipe(
       map(typeModule => typeModule['hydra:member'])
     ).subscribe(
@@ -30,12 +31,13 @@ export class ListeTypesModuleComponent implements OnInit, OnDestroy {
     );
   }
 
+  // tslint:disable-next-line:typedef
   ngOnDestroy() {
-    document.getElementById("icone_listeParametres").style.borderLeft = "solid #BCE0FD 0px";
+    document.getElementById('icone_listeParametres').style.borderLeft = 'solid #BCE0FD 0px';
   }
 
-  displayTypeModule()
-  {
-    console.log("Créer un type de module !");
+  // tslint:disable-next-line:typedef
+  displayTypeModule() {
+    console.log('Créer un type de module !');
   }
 }

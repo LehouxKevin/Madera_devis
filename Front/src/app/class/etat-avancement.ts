@@ -1,4 +1,4 @@
 export class EtatAvancement {
-    id? : number;
-    libelle:string;
+  id?: number;
+  libelle: string;
 }

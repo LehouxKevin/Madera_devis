@@ -1,61 +1,63 @@
 .creationCompte {
-    position: fixed;
-    top: 0;
-    right: 74px;
-    overflow: hidden;
-    transition: all .3s ease-in;
-    width: 59em;
-    height: 100%;
-    color: rgba(255, 255, 255, 0.7);
-    padding-top: 10em;
-    padding-left: 50px;
+  position: fixed;
+  top: 0;
+  right: 74px;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  width: 59em;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 10em;
+  padding-left: 50px;
 }
 
-.creationCompte:before{
-    background: #365064;
-    border-radius: 50%;
-    content: "";
-    height: 178%;
-    top: -395px;
-    width: 150%;
-    display: inline-block;
-    position: absolute;
-    z-index: -1;
+.creationCompte:before {
+  background: #365064;
+  border-radius: 50%;
+  content: "";
+  height: 178%;
+  top: -395px;
+  width: 150%;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
 }
 
 #nomError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
 
 #prenomError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
 
 #categorieError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
 
 #emailError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
 
 #passwordError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
 
 #confirmedError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
+
 #checkError {
-    display: none;
-    color: #F56A6A;
+  display: none;
+  color: #F56A6A;
 }
+
 .messageErreurChamps {
-    color: #F56A6A;
+  color: #F56A6A;
 }

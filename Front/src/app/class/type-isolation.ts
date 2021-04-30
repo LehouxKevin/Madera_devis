@@ -1,6 +1,6 @@
 export class TypeIsolation {
- id?: number;
+  id?: number;
   prix: number;
-libelle: string;
-description: string;
+  libelle: string;
+  description: string;
 }

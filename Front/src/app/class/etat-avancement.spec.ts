@@ -1,4 +1,4 @@
-import { EtatAvancement } from './etat-avancement';
+import {EtatAvancement} from './etat-avancement';
 
 describe('EtatAvancement', () => {
   it('should create an instance', () => {

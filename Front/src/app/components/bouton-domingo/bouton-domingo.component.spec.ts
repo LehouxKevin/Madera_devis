@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BoutonDomingoComponent } from './bouton-domingo.component';
+import {BoutonDomingoComponent} from './bouton-domingo.component';
 
 describe('BoutonDomingoComponent', () => {
   let component: BoutonDomingoComponent;
@@ -8,9 +8,9 @@ describe('BoutonDomingoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BoutonDomingoComponent ]
+      declarations: [BoutonDomingoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

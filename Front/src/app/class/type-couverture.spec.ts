@@ -1,4 +1,4 @@
-import { TypeCouverture } from './type-couverture';
+import {TypeCouverture} from './type-couverture';
 
 describe('TypeCouverture', () => {
   it('should create an instance', () => {

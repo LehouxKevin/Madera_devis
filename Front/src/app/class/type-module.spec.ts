@@ -1,4 +1,4 @@
-import { TypeModule } from './type-module';
+import {TypeModule} from './type-module';
 
 describe('TypeModule', () => {
   it('should create an instance', () => {

@@ -1,15 +1,15 @@
 .menu_parametres a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .bouton_parametres {
-    border: solid 2px white;
-    border-radius: 20px;
-    padding: 20px;
-    font-size: 13px;
-    color: white;
-    font-weight: 700;
-    margin-right: 10px;
+  border: solid 2px white;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 13px;
+  color: white;
+  font-weight: 700;
+  margin-right: 10px;
 }
 
 /*

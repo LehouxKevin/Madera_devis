@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ConditionsUtilisationComponent } from './conditions-utilisation.component';
+import {ConditionsUtilisationComponent} from './conditions-utilisation.component';
 
 describe('ConditionsUtilisationComponent', () => {
   let component: ConditionsUtilisationComponent;
@@ -8,9 +8,9 @@ describe('ConditionsUtilisationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConditionsUtilisationComponent ]
+      declarations: [ConditionsUtilisationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

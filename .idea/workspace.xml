@@ -21,59 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/conception-ossature.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/conception-ossature.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/conception-ossature.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/conception-ossature.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/coupe-de-principes.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/coupe-de-principes.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/coupe-de-principes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/coupe-de-principes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/etat-avancement.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/etat-avancement.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/etat-avancement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/etat-avancement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/famille-composant.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/famille-composant.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/famille-composant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/famille-composant.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/finition-exterieur.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/finition-exterieur.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/finition-exterieur.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/finition-exterieur.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/finition-interieur.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/finition-interieur.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/finition-interieur.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/finition-interieur.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/fournisseur.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/fournisseur.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/fournisseur.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/fournisseur.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/qualite-huisseries.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/qualite-huisseries.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/qualite-huisseries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/qualite-huisseries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-couverture.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-couverture.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-couverture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-couverture.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-isolation.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-isolation.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-isolation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-isolation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-module.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-module.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-remplissage.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-remplissage.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/class/type-remplissage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/type-remplissage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/utilisateur.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/utilisateur.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/class/utilisateur.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/class/utilisateur.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/bouton-domingo/bouton-domingo.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/header/header.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/header/header.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/header/header.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/menu-parametres/menu-parametres.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/conditions-utilisation/conditions-utilisation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/connexion/connexion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/creation-compte/creation-compte.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/liste-familles-composant/liste-familles-composant.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/liste-familles-composant/liste-familles-composant.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/liste-types-remplissage/liste-types-remplissage.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/type-remplissage.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +110,7 @@
       <workItem from="1619686799114" duration="5000" />
       <workItem from="1619686805394" duration="628000" />
       <workItem from="1619687593487" duration="14657000" />
-      <workItem from="1619780450181" duration="2238000" />
+      <workItem from="1619780450181" duration="10127000" />
     </task>
     <servers />
   </component>

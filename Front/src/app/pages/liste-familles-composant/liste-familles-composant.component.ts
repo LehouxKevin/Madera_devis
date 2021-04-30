@@ -104,7 +104,7 @@ export class ListeFamillesComposantComponent implements OnInit, OnDestroy {
    **/
   // tslint:disable-next-line:typedef
   async onSubmit(familleComposantForm: NgForm, typeForm: boolean) {
-    // Si le formulaire est celui de la création d'une finition intérieure
+    // Si le formulaire est celui de la création d'une famille de composant
     if (typeForm) {
 
       // Initialisation de l'affichage des éléments du formulaire

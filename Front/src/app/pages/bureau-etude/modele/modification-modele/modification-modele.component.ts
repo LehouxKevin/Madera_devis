@@ -107,7 +107,6 @@ export class ModificationModeleComponent implements OnInit {
 
     for ( let  i = 0 ; i < this.etages.length ; i++ )
     {
-      console.log( 'etage' + i );
       const BaliseEtage = (document.getElementById('etage' + i)) as HTMLSelectElement;
       this.etages[i].numero = BaliseEtage.value ;
       console.log( BaliseEtage.value  );
@@ -115,13 +114,10 @@ export class ModificationModeleComponent implements OnInit {
       if ( this.etages[i].id == null )
       {
         this.etageService.addEtage(this.etages[i]);
-        console.log('ajout etage');
       }
       else
       {
-        this.etageService.UpdateEtage(this.etages[i]);
-        console.log('modif etage');
-
+        console.log(this.etageService.syncUpdateEtage(this.etages[i]));
       }
     }
 
@@ -240,14 +236,20 @@ export class ModificationModeleComponent implements OnInit {
 
   AjoutEtage(): void {
 
-    this.etages.push( new Etage('/api/modeles/'+this.idModele) );
+    this.etages.push( new Etage('/api/modeles/' + this.idModele) );
 
     this.nbetageValue = this.etages.length;
     console.log('test');
   }
-  RetirerEtage(idligneaenlever): void {
+  RetirerEtage(idligneaenlever, IdBaseDedonée): void {
 
+    if ( this.etages[idligneaenlever].id != null )
+    {
+      this.etageService.asyncDeleteEtage(IdBaseDedonée);
+    }
+    console.log(IdBaseDedonée);
     this.etages.splice(idligneaenlever, 1);
+
     this.nbetageValue = this.etages.length;
     console.log('test');
 

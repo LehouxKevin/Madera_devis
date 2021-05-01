@@ -14,7 +14,7 @@ export class ModeleService {
       'Content-Type':  'application/ld+json',
     })
   };
-    retValDeleteModele:boolean=false;
+    retValDeleteModele=false;
 
  baseUrl = environment.baseUrlAPI;
   ModelesApi = '/modeles';

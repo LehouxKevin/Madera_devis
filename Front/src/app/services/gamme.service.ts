@@ -19,41 +19,41 @@ export class GammeService {
   baseUrl = environment.baseUrlAPI;
   gammesApi = '/gammes';
 constructor(private http: HttpClient) { }
-  retValDeleteGamme:boolean=false;
+  retValDeleteGamme = false;
 
   getGammes(): Observable<Gamme[]>
   {
-    return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi);
+    return this.http.get<Gamme[]>(this.baseUrl + this.gammesApi);
   }
 
   getOneGammeById(id)
   {
-    console.log(this.baseUrl+this.gammesApi+"/"+id)
-    return this.http.get<any[]>(this.baseUrl+this.gammesApi+"/"+id).toPromise();
+    console.log(this.baseUrl + this.gammesApi + '/' + id);
+    return this.http.get<any[]>(this.baseUrl + this.gammesApi + '/' + id).toPromise();
   }
 
   syncGetGammes()
   {
-    return this.http.get<Gamme[]>(this.baseUrl+this.gammesApi)
+    return this.http.get<Gamme[]>(this.baseUrl + this.gammesApi)
     .pipe(
         map(gamme => gamme['hydra:member']),
         catchError(this.handleError.bind(this))
     ).toPromise();
 
   }
-    syncUpdateGamme(gammes:Gamme)
+    syncUpdateGamme(gammes: Gamme)
     {
-      console.log(gammes,  " | " ,  gammes.id);
-      return this.http.put<Gamme>(this.baseUrl+this.gammesApi+"/"+gammes.id,gammes)
+      console.log(gammes,  ' | ' ,  gammes.id);
+      return this.http.put<Gamme>(this.baseUrl + this.gammesApi + '/' + gammes.id, gammes)
       .pipe(
         catchError(this.handleError)
       ).toPromise();
     }
 
-      asyncDeleteGamme(idGamme:number): boolean
+      asyncDeleteGamme(idGamme: number): boolean
       {
-        this.retValDeleteGamme=false;
-        this.http.delete(this.baseUrl+this.gammesApi+"/"+idGamme)
+        this.retValDeleteGamme = false;
+        this.http.delete(this.baseUrl + this.gammesApi + '/' + idGamme)
             .subscribe({
                 next: data => {
                     this.retValDeleteGamme = true;
@@ -65,21 +65,21 @@ constructor(private http: HttpClient) { }
         return this.retValDeleteGamme;
       }
 
-addGamme(gammes:Gamme)
+addGamme(gammes: Gamme)
   {
-    return this.http.post<Gamme>(this.baseUrl+this.gammesApi,gammes)
+    return this.http.post<Gamme>(this.baseUrl + this.gammesApi, gammes)
     .pipe(
       catchError(this.handleError)
     ).toPromise().then(data => {
         // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
-        if(data.id > 0)
+        if (data.id > 0)
         {
           return true;
         }
         else {
           return false;
         }
-    });}
+    }); }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

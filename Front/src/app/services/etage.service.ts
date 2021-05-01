@@ -39,6 +39,14 @@ export class EtageService {
             catchError(this.handleError)
           ).toPromise();
         }
+  UpdateEtage(etages:Etage)
+  {
+    console.log(etages,  " | " ,  etages.id);
+    return this.http.put<Etage>(this.baseUrl+this.EtagesApi+"/"+etages.id,etages)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
           asyncDeleteEtage(idEtage:number): boolean
           {

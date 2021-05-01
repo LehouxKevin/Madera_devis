@@ -4,7 +4,7 @@
   </h1>
   <div>
   </div>
-  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <hr style="padding: 5 ;margin: 5 ;height: 80%;width: 80%;" />
   <form #ajoutModele="ngForm" (ngSubmit)="onSubmit(ajoutModele)">
 
 
@@ -91,9 +91,9 @@
       <tr id="LigneModeleFormulaire" *ngFor="let etage of etages ;let index = index;"  >
         <td>  <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="etage">etage :</label>
+            <label class="input-group-text" for="etage{{index}}">etage :</label>
           </div>
-          <input id="etage" type="text" class="form-control" value="{{etage.numero}}" >
+          <input id="etage{{index}}" type="text" class="form-control" value="{{etage.numero}}" >
 
         </div></td>
 

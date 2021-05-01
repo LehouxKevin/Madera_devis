@@ -142,7 +142,7 @@ DropdownList.selectedIndex= 0;
 
     AjoutEtage():void {
 
-    this.etages.push( new  Etage)
+    this.etages.push( new  Etage(null));
     this.nbetageValue= this.etages.length;
     console.log("test");
 

@@ -71,7 +71,6 @@ export class ModificationModeleComponent implements OnInit {
 
   ngOnInit(): void {
     this.idModele = this.route.snapshot.paramMap.get('idModele');
-    console.log('test  this.idModele' + this.idModele);
     this.InitialiserGamme();
 
     this.gammeService.getGammes().pipe(
@@ -96,18 +95,13 @@ export class ModificationModeleComponent implements OnInit {
 
   }
 
-
-
   // tslint:disable-next-line:typedef
   async onSubmit(ajoutModele: NgForm) {
-
-    console.log( 'etages' + this.etages.length);
 
     for ( let  i = 0 ; i < this.etages.length ; i++ )
     {
       const BaliseEtage = (document.getElementById('etage' + i)) as HTMLSelectElement;
       this.etages[i].numero = BaliseEtage.value ;
-      console.log( BaliseEtage.value  );
 
       if ( this.etages[i].id == null )
       {
@@ -118,10 +112,6 @@ export class ModificationModeleComponent implements OnInit {
         console.log(this.etageService.syncUpdateEtage(this.etages[i]));
       }
     }
-
-    console.log(this.etages);
-
-    console.log('cooouuuucooooouuuu ' + this.etages);
 
     if (ajoutModele.value.NomModeleValueform !== '') {
       this.NomModeleValue = ajoutModele.value.NomModeleValueform;
@@ -136,13 +126,6 @@ export class ModificationModeleComponent implements OnInit {
     if (ajoutModele.value.NomtyperemplissagesValueform !== '') {
       this.typeRemplissagesValue = ajoutModele.value.NomtyperemplissagesValueform;
     }
-
-    console.log('ajoutModele');
-    console.log(ajoutModele.value);
-    console.log(ajoutModele); // rendu ici
-
-    console.log(this.NomModeleValue + this.NomGammeValue + this.nbetageValue + this.typeRemplissagesValue + this.coupeDePrincipesValue);
-
 
     ajoutModele.value.NomModeleValueform.length <= 0 || ajoutModele.value.NomModeleValueform == null
       ? this.NomModeleErreur = true
@@ -164,10 +147,6 @@ export class ModificationModeleComponent implements OnInit {
       ? this.typeRemplissagesErreur = true
       : this.typeRemplissagesErreur = false;
 
-    console.log('testwesh');
-
-    console.log('testwesh1');
-
     this.Modele = new Modele(this.NomModeleValue,
          new Date(),
           false
@@ -177,13 +156,10 @@ export class ModificationModeleComponent implements OnInit {
         , '/api/coupe_de_principes/' + this.idcoupeDePrincipesValue
       );
     this.Modele.id = 1;
-    // this.idModele;
-      // console.log(this.gamme.qualite_huisseries_id);
     if (await this.modeleService.syncUpdateModele(this.Modele)) {
         this.ngOnInit();
-        console.log('/Liste-Modele/' + this.idGamme);
         console.log('ok pas derreur modif');
-       // this.router.navigateByUrl('/Liste-Modele/' + this.idGamme);
+        this.router.navigateByUrl('/Liste-Modele/' + this.idGamme);
       }
       else { // afficher erreur
         console.log('non erreur modif');
@@ -236,7 +212,6 @@ export class ModificationModeleComponent implements OnInit {
     this.etages.push( new Etage('/api/modeles/' + this.idModele) );
 
     this.nbetageValue = this.etages.length;
-    console.log('test');
   }
   RetirerEtage(idligneaenlever, IdBaseDedonée): void {
 
@@ -244,11 +219,9 @@ export class ModificationModeleComponent implements OnInit {
     {
       this.etageService.asyncDeleteEtage(IdBaseDedonée);
     }
-    console.log(IdBaseDedonée);
     this.etages.splice(idligneaenlever, 1);
 
     this.nbetageValue = this.etages.length;
-    console.log('test');
 
   }
 
@@ -268,6 +241,5 @@ export class ModificationModeleComponent implements OnInit {
     if ( ChoixListe == 'idtypeRemplissagesValue' ) {
       this.idtypeRemplissagesValue = IndexSelectionne;
     }
-    console.log(IndexSelectionne);
   }
 }

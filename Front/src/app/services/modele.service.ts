@@ -61,14 +61,16 @@ constructor(private http: HttpClient) { }
 
   addModele(modeles:Modele)
     {
-      return this.http.post<Modele>(this.baseUrl+this.ModelesApi,modeles)
+      return this.http.post<Modele>(this.baseUrl + this.ModelesApi, modeles)
       .pipe(
         catchError(this.handleError)
       ).toPromise().then(data => {
           // Retourne true si utilisateur a un id dans la bdd, s'il en a un c'est qu'il a bien été inséré
+
           if(data.id > 0)
           {
-            return true;
+
+            return data.id;
           }
           else {
             return false;

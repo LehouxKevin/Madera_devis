@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild,EventEmitter, Output  } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, EventEmitter, Output  } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Modele } from 'src/app/class/Modele';
 import { NgForm } from '@angular/forms';
@@ -19,7 +19,7 @@ import { CoupeDePrincipeService } from 'src/app/services/coupe-de-principe.servi
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { filter,map,finalize  } from 'rxjs/operators';
+import { filter , map, finalize  } from 'rxjs/operators';
 import {  Input } from '@angular/core';
 
 @Component({
@@ -32,53 +32,60 @@ export class CreationModeleComponent implements OnInit {
 public Modele;
 public gamme;
 
-    public gammes:Gamme[] = [];
-    public etages:Etage[] = []; ;
-    public coupeDePrincipes:CoupeDePrincipes[] = [];
-    public typeRemplissages:TypeRemplissage[] = [];
+    public gammes: Gamme[] = [];
+    public etages: Etage[] = [];
+    public coupeDePrincipes: CoupeDePrincipes[] = [];
+    public typeRemplissages: TypeRemplissage[] = [];
 
-public NomModeleValue="------";
-public NomGammeValue="------";
-public nbetageValue=0;
-public coupeDePrincipesValue="------";
-public typeRemplissagesValue="------";
+public NomModeleValue = '------';
+public NomGammeValue = '------';
+public nbetageValue = 0 ;
+public coupeDePrincipesValue = '------';
+public typeRemplissagesValue = '------';
 
-  public NomModeleErreur: boolean = false;
- public NomGammeErreur :boolean = false;
-  public nbetageErreur  :boolean = false;
-    public coupeDePrincipesErreur  :boolean = false;
-      public typeRemplissagesErreur  :boolean = false;
-  public idGamme: String ="0";
+  public idNomGammeValue = '0';
+  public idcoupeDePrincipesValue = '0';
+  public idtypeRemplissagesValue = '0';
+
+  public NomModeleErreur = false;
+ public NomGammeErreur  = false;
+  public nbetageErreur   = false;
+    public coupeDePrincipesErreur  = false;
+      public typeRemplissagesErreur = false;
+  public idGamme = '0';
 
 constructor(
- private modeleService: ModeleService,private gammeService: GammeService,private etageService: EtageService,private typeRemplissageService :TypeRemplissageService,
- private coupeDePrincipeService :CoupeDePrincipeService,
-       private router: Router,  private route: ActivatedRoute, private http: HttpClient) { }
+ private modeleService: ModeleService,
+ private gammeService: GammeService,
+ private etageService: EtageService,
+ private typeRemplissageService: TypeRemplissageService,
+ private coupeDePrincipeService: CoupeDePrincipeService,
+ private router: Router,
+ private route: ActivatedRoute,
+ private http: HttpClient) { }
 
   ngOnInit(): void {
       this.idGamme = this.route.snapshot.paramMap.get('idGamme');
 
- this.gammeService.getGammes().pipe(
-         finalize(() =>  ((document.getElementById("gammes")) as HTMLSelectElement).selectedIndex= 0
-         ) ,
+      this.gammeService.getGammes().pipe(
         map(gamme => gamme['hydra:member'])
       ).subscribe(
         gamme => this.gammes = gamme
       );
 
-        this.coupeDePrincipeService.getCoupeDePrincipes().pipe(
-                 map(CoupeDePrincipes => CoupeDePrincipes['hydra:member'])
+      this.coupeDePrincipeService.getCoupeDePrincipes().pipe(
+                 map(coupeDePrincipe => coupeDePrincipe['hydra:member'])
                                 ).subscribe(
-                                  CoupeDePrincipes => this.coupeDePrincipes = CoupeDePrincipes
+        coupeDePrincipe => this.coupeDePrincipes = coupeDePrincipe
                                 );
 
-        this.typeRemplissageService.getTypeRemplissages().pipe(
-                 map(TypeRemplissage => TypeRemplissage['hydra:member'])
+      this.typeRemplissageService.getTypeRemplissages().pipe(
+                 map(typeRemplissage => typeRemplissage['hydra:member'])
                                 ).subscribe(
-                                  TypeRemplissage => this.typeRemplissages = TypeRemplissage
+                                  typeRemplissage => this.typeRemplissages = typeRemplissage
                                 );
 
-this.InitialiserGamme();
+      this.InitialiserGamme();
   }
 
 
@@ -88,70 +95,122 @@ this.InitialiserGamme();
 
 
 
+  // tslint:disable-next-line:typedef
  async onSubmit(ajoutModele: NgForm) {
 
-console.log("cooouuuucooooouuuu ")
-this.NomModeleValue=ajoutModele.value.NomModeleValueform;
-  this.NomGammeValue=ajoutModele.value.NomGammeValueform;
-   this.nbetageValue= this.etages.length;
-this.coupeDePrincipesValue=ajoutModele.value.NomcoupeDePrincipeValueform;
-this.typeRemplissagesValue=ajoutModele.value.NomtyperemplissagesValueform;
+  console.log('cooouuuucooooouuuu ');
+  this.NomModeleValue = ajoutModele.value.NomModeleValueform;
+  if (ajoutModele.value.NomGammeValueform !== '') {
+     this.NomGammeValue = ajoutModele.value.NomGammeValueform;
+   }
+  this.nbetageValue = this.etages.length;
+  this.coupeDePrincipesValue = ajoutModele.value.NomcoupeDePrincipeValueform;
+  this.typeRemplissagesValue = ajoutModele.value.NomtyperemplissagesValueform;
 
-console.log(this.NomModeleValue+this.NomGammeValue+this.nbetageValue);
+  console.log(this.NomModeleValue + this.NomGammeValue + this.nbetageValue);
 
 
-ajoutModele.value.NomModeleValueform.length <= 0 || ajoutModele.value.NomModeleValueform == null ? this.NomModeleErreur = true : this.NomModeleErreur = false;
-ajoutModele.value.NomGammeValueform.length <= 0 || ajoutModele.value.NomGammeValueform == null ? this.NomGammeErreur = true : this.NomGammeErreur = false;
- this.nbetageValue == null ? this.nbetageErreur = true : this.nbetageErreur = false;
-ajoutModele.value.NomcoupeDePrincipeValueform.length <= 0 || ajoutModele.value.NomcoupeDePrincipeValueform == null ? this.coupeDePrincipesErreur = true : this.coupeDePrincipesErreur = false;
-ajoutModele.value.NomtyperemplissagesValueform.length <= 0 || ajoutModele.value.NomtyperemplissagesValueform == null ? this.typeRemplissagesErreur = true : this.typeRemplissagesErreur = false;
+  ajoutModele.value.NomModeleValueform.length <= 0 || ajoutModele.value.NomModeleValueform == null
+    ? this.NomModeleErreur = true
+    : this.NomModeleErreur = false;
 
-if( !this.NomModeleErreur
-&&   !this.NomGammeErreur
-&&   !this.nbetageErreur)
-{        console.log("testwesh");
+  ajoutModele.value.NomGammeValueform.length <= 0 || ajoutModele.value.NomGammeValueform == null
+    ? this.NomGammeErreur = true
+    : this.NomGammeErreur = false;
 
-this.Modele=new Modele(this.NomModeleValue,new Date() ,false
-,this.nbetageValue,"/api/gammes/"+this.NomGammeValue,"/api/type_remplissages/"+this.typeRemplissagesValue,"/api/coupe_de_principes/"+this.coupeDePrincipesValue
-);
-//console.log(this.gamme.qualite_huisseries_id);
-     if(await this.modeleService.addModele(this.Modele))
-      {
-         this.ngOnInit();
-         console.log('/Liste-Modele/'+this.idGamme)
-         this.router.navigateByUrl('/Liste-Modele/'+this.idGamme);
-      }
-      else { // afficher erreur
-        console.log("non");
-      }
-}
+  this.nbetageValue == null
+    ? this.nbetageErreur = true
+    : this.nbetageErreur = false;
+
+  ajoutModele.value.NomcoupeDePrincipeValueform.length <= 0 || ajoutModele.value.NomcoupeDePrincipeValueform == null
+    ? this.coupeDePrincipesErreur = true
+    : this.coupeDePrincipesErreur = false;
+
+  ajoutModele.value.NomtyperemplissagesValueform.length <= 0 || ajoutModele.value.NomtyperemplissagesValueform == null
+    ? this.typeRemplissagesErreur = true
+    : this.typeRemplissagesErreur = false;
+
+  if ( !this.NomModeleErreur
+  &&   !this.nbetageErreur)
+    {
+    console.log('testwesh');
+
+    this.Modele = new Modele(
+                      this.NomModeleValue,
+                      new Date() ,
+              false,
+                      this.nbetageValue,
+              '/api/gammes/' + this.idNomGammeValue,
+      '/api/type_remplissages/' + this.typeRemplissagesValue,
+      '/api/coupe_de_principes/' + this.coupeDePrincipesValue);
+
+    // console.log(this.gamme.qualite_huisseries_id);
+    const IdModeleCree = await this.modeleService.addModele(this.Modele);
+    console.log(this.Modele);
+
+    if ( IdModeleCree > 0)
+        {
+           this.ngOnInit();
+           console.log('/Liste-Modele/' + this.idGamme);
+
+           for ( let  i = 0 ; i < this.etages.length ; i++ )
+          {
+            const BaliseEtage = (document.getElementById('etage' + i)) as HTMLSelectElement;
+            this.etages[i].numero = BaliseEtage.value ;
+            this.etages[i].modele = '/api/modeles/' + IdModeleCree;
+            this.etageService.addEtage(this.etages[i]);
+          }
+
+
+           this.router.navigateByUrl('/Liste-Modele/' + this.idGamme);
+        }
+        else { // afficher erreur
+          console.log('non');
+        }
+    }
 
   }
 
 
+  // tslint:disable-next-line:typedef
   async InitialiserGamme() {
 
 
   this.gamme  =  await this.gammeService.getOneGammeById(this.idGamme);
-  this.NomGammeValue=this.gamme.libelle;
+  this.NomGammeValue = this.gamme.libelle;
+  this.idNomGammeValue = this.gamme.id;
+  const DropdownList = (document.getElementById('gammes')) as HTMLSelectElement;
 
-var DropdownList = (document.getElementById("gammes")) as HTMLSelectElement;
-
-DropdownList.selectedIndex= 0;
+  DropdownList.selectedIndex = 0;
     }
 
-    AjoutEtage():void {
+    AjoutEtage(): void {
 
     this.etages.push( new  Etage(null));
-    this.nbetageValue= this.etages.length;
-    console.log("test");
+    this.nbetageValue = this.etages.length;
+    console.log('test');
 
         }
-           RetirerEtage(idligneaenlever):void {
+   RetirerEtage(idligneaenlever): void {
+    console.log('test');
+    this.etages.splice(idligneaenlever, 1);
+    this.nbetageValue = this.etages.length;
+    }
+  ListeDeroulanteChangerIndex(ChoixListe , IndexSelectionne): void {
+    // Indique l'option selectionné.
+    // permet de definir l'index qui est en BDD sur la table voulu
 
-            this.etages.splice(idligneaenlever, 1);
-            this.nbetageValue= this.etages.length;
-            console.log("test");
-
-                }
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idNomGammeValue' ) {
+      this.idNomGammeValue = IndexSelectionne;
+    }
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idcoupeDePrincipesValue' ) {
+      this.idcoupeDePrincipesValue = IndexSelectionne;
+    }
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idtypeRemplissagesValue' ) {
+      this.idtypeRemplissagesValue = IndexSelectionne;
+    }
+  }
 }

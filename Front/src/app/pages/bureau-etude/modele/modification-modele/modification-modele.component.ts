@@ -75,8 +75,6 @@ export class ModificationModeleComponent implements OnInit {
     this.InitialiserGamme();
 
     this.gammeService.getGammes().pipe(
-      finalize(() => ((document.getElementById('gammes')) as HTMLSelectElement).selectedIndex = 0
-      ),
       map(gamme => gamme['hydra:member'])
     ).subscribe(
       gamme => this.gammes = gamme
@@ -123,8 +121,6 @@ export class ModificationModeleComponent implements OnInit {
 
     console.log(this.etages);
 
-
-
     console.log('cooouuuucooooouuuu ' + this.etages);
 
     if (ajoutModele.value.NomModeleValueform !== '') {
@@ -143,6 +139,7 @@ export class ModificationModeleComponent implements OnInit {
 
     console.log('ajoutModele');
     console.log(ajoutModele.value);
+    console.log(ajoutModele); // rendu ici
 
     console.log(this.NomModeleValue + this.NomGammeValue + this.nbetageValue + this.typeRemplissagesValue + this.coupeDePrincipesValue);
 
@@ -175,9 +172,9 @@ export class ModificationModeleComponent implements OnInit {
          new Date(),
           false
         , this.nbetageValue
-        , '/api/gammes/' + this.NomGammeValue
-        , '/api/type_remplissages/' + this.typeRemplissagesValue
-        , '/api/coupe_de_principes/' + this.coupeDePrincipesValue
+        , '/api/gammes/' + this.idNomGammeValue
+        , '/api/type_remplissages/' + this.idtypeRemplissagesValue
+        , '/api/coupe_de_principes/' + this.idcoupeDePrincipesValue
       );
     this.Modele.id = 1;
     // this.idModele;
@@ -253,5 +250,24 @@ export class ModificationModeleComponent implements OnInit {
     this.nbetageValue = this.etages.length;
     console.log('test');
 
+  }
+
+  ListeDeroulanteChangerIndex(ChoixListe , IndexSelectionne): void {
+    // Indique l'option selectionné.
+    // permet de definir l'index qui est en BDD sur la table voulu
+
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idNomGammeValue' ) {
+      this.idNomGammeValue = IndexSelectionne;
+    }
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idcoupeDePrincipesValue' ) {
+      this.idcoupeDePrincipesValue = IndexSelectionne;
+    }
+    // tslint:disable-next-line:triple-equals
+    if ( ChoixListe == 'idtypeRemplissagesValue' ) {
+      this.idtypeRemplissagesValue = IndexSelectionne;
+    }
+    console.log(IndexSelectionne);
   }
 }

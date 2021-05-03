@@ -41,7 +41,7 @@
             <label class="input-group-text" for="gammes">Gamme :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="gammes" ngModel #NomGammeValueform="ngModel" name="NomGammeValueform">
+          <select class="custom-select" id="gammes" [ngModel]="NomGammeValue" ngModel #NomGammeValueform="ngModel" name="NomGammeValueform" (change)="ListeDeroulanteChangerIndex('idNomGammeValue',$event.target.value)">
             <option selected value="" disabled>{{NomGammeValue}}</option>
             <option value="{{gamme.id}}"  *ngFor="let gamme of gammes" >{{gamme.libelle}}</option>
           </select>
@@ -59,7 +59,7 @@
             <label class="input-group-text" for="typeremplissages">type remplissages :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="typeremplissages" ngModel #NomtyperemplissagesValueform="ngModel" name="NomtyperemplissagesValueform">
+          <select class="custom-select" id="typeremplissages" ngModel #NomtyperemplissagesValueform="ngModel" name="NomtyperemplissagesValueform" (change)="ListeDeroulanteChangerIndex('idtypeRemplissagesValue',$event.target.value)">
             <option selected value="" disabled>{{typeRemplissagesValue}}</option>
             <option value="{{typeRemplissage.id}}"  *ngFor="let typeRemplissage of typeRemplissages" >{{typeRemplissage.libelle}}</option>
           </select>
@@ -74,7 +74,7 @@
             <label class="input-group-text" for="coupeDePrincipe">coupe De Principes :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="coupeDePrincipe" ngModel #NomcoupeDePrincipeValueform="ngModel" name="NomcoupeDePrincipeValueform">
+          <select class="custom-select" id="coupeDePrincipe" ngModel #NomcoupeDePrincipeValueform="ngModel" name="NomcoupeDePrincipeValueform" (change)="ListeDeroulanteChangerIndex('idcoupeDePrincipesValue',$event.target.value)">
             <option selected value="" disabled>{{coupeDePrincipesValue}}</option>
             <option value="{{coupeDePrincipe.id}}"  *ngFor="let coupeDePrincipe of coupeDePrincipes" >{{coupeDePrincipe.libelle}}</option>
           </select>

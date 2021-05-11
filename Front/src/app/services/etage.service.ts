@@ -1,11 +1,11 @@
 import { HttpClient , HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable ,throwError} from 'rxjs';
+import { Observable , throwError} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Etage } from '../class/Etage';
 import { map, takeUntil, catchError, tap, finalize } from 'rxjs/operators';
 import {Modele} from '../class/modele';
-import {Client} from "../class/client";
+import {Client} from '../class/client';
 
 @Injectable({
   providedIn: 'root'
@@ -27,15 +27,17 @@ export class EtageService {
 
     getEtages(): Observable<Etage[]>
     {
-      return this.http.get<Etage[]>(this.baseUrl+this.EtagesApi);
+      return this.http.get<Etage[]>(this.baseUrl + this.EtagesApi);
     }
 
+  // tslint:disable-next-line:typedef
     getOneEtageById(id)
     {
-      return this.http.get<Etage[]>(this.baseUrl+this.EtagesApi+"/"+id).toPromise();
+      return this.http.get<Etage[]>(this.baseUrl + this.EtagesApi + '/' +id).toPromise();
     }
 
-    syncUpdateEtage(etages:Etage)
+  // tslint:disable-next-line:typedef
+    syncUpdateEtage(etages: Etage)
         {
           console.log(etages,  " | " ,  etages.id);
           return this.http.put<Etage>(this.baseUrl+this.EtagesApi+"/"+etages.id,etages)

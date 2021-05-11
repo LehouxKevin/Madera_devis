@@ -29,7 +29,7 @@
       <div class="p-2 bd-highlight LibelleInput">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="TypeModule">Type Module :</label>
+            <label class="input-group-text" for="TypeModule">Type module :</label>
           </div>
           <input id="TypeModule" type="text" class="form-control" value="{{TypeModuleNom}}" disabled>
         </div>
@@ -59,17 +59,17 @@
   <table class="table ">
 
     <tbody class="tableauModuleModele">
-    <tr id="LigneModeleFormulaireModele.id"  >
+    <tr id="LigneModeleFormulaire{{composant.id}}"  *ngFor="let composant of composants">
       <td>  <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="Listemodeles">modèles :</label>
+          <label class="input-group-text" for="Listecomposant{{composant.id}}">Composant :</label>
         </div>
-        <input id="Listemodeles" type="text" class="form-control" value="Modele.libelle" disabled>
+        <input id="Listecomposant{{composant.id}}" type="text" class="form-control" value="{{composant.libelle}}" disabled>
 
       </div></td>
       <td><div class="input-group mb-3 tableauModuleModeleDiv">
-        <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
-        <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage" value="Modele.nbEtage" disabled>
+        <span class="input-group-text" id="Prixcomposant{{composant.id}}">Prix :</span>
+        <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="prix" value="{{composant.prix}}" disabled>
       </div></td>
 
       <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">

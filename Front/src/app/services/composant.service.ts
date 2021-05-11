@@ -30,7 +30,7 @@ export class ComposantService {
   }
 
   // tslint:disable-next-line:typedef
-  getOneComposantById(id) {
+  getOneComposantById(id): Promise<Composant[]>{
     return this.http.get<Composant[]>(this.baseUrl + this.ComposantsApi + '/' + id).toPromise();
   }
 

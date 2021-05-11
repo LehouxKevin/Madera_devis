@@ -11,9 +11,6 @@
     <input type="text" id="NomModule" class="form-control" value="{{NomModule}}" disabled>
   </div>
 
-  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
-
-
 
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
 
@@ -43,16 +40,50 @@
 
   <div class="d-flex justify-content-around bd-highlight">
       <div class="input-group">
-        <span class="input-group-text">With textarea</span>
+        <span class="input-group-text">Description :</span>
         <textarea class="form-control" aria-label="With textarea" disabled>{{DescriptionModule}}</textarea>
       </div>
     </div>
+  <br>
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="input-group">
+      <span class="input-group-text">Caracteristique :</span>
+      <textarea class="form-control" aria-label="With textarea" disabled>{{CaracteristiquesModule}}</textarea>
+    </div>
+  </div>
+
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <br>
+
+
+  <table class="table ">
+
+    <tbody class="tableauModuleModele">
+    <tr id="LigneModeleFormulaireModele.id"  >
+      <td>  <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="Listemodeles">modèles :</label>
+        </div>
+        <input id="Listemodeles" type="text" class="form-control" value="Modele.libelle" disabled>
+
+      </div></td>
+      <td><div class="input-group mb-3 tableauModuleModeleDiv">
+        <span class="input-group-text" id="NbEtageModeles">Nb Etage</span>
+        <input type="text" class="form-control" placeholder="Nb Etage" aria-label="Nb Etage" aria-describedby="Nb Etage" value="Modele.nbEtage" disabled>
+      </div></td>
+
+      <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">
+        <img class="icone-modifier" src="assets\icones\plume.svg">
+      </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
 
   <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
     <div class="p-2 bd-highlight">  <button type="button" class="btn btn-primary" routerLink="/modification-Module//{{idModule}}" >Modifier</button></div>
   </div>
-
-
 </div>
 
 </body>

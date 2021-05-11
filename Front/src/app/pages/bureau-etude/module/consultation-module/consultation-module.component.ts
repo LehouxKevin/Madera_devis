@@ -22,7 +22,7 @@ export class ConsultationModuleComponent implements OnInit {
   public PrixModule = 0 ;
   public TypeModuleNom = '------';
   public DescriptionModule = '------';
-
+  public CaracteristiquesModule = '------';
   // public composants: Composant[] = [];
   // public caracteristiques: Caracteristique[] = [];
 
@@ -48,9 +48,11 @@ export class ConsultationModuleComponent implements OnInit {
     this.NomModule = this.Module.libelle;
     this.PrixModule = this.Module.prix;
     this.DescriptionModule = this.Module.details;
-
+    this.CaracteristiquesModule = this.Module.caracteristiques;
+    console.log(this.Module.typeModule.substring('/api/type_modules/'.length));
     this.typeModule =
-      await this.typeModuleService.getOneTypeModuleById(this.Module.coupeDePrincipe.substring(4));
+      await this.typeModuleService.getOneTypeModuleById(this.Module.typeModule.substring('/api/type_modules/'.length));
     this.TypeModuleNom = this.typeModule.libelle;
+
   }
 }

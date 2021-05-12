@@ -1,1 +1,89 @@
-<p>consultation-module works!</p>
+<body override class="w-80 h-80">
+<div class="divbody">
+  <h1 class="text-center" style="color: rgb(38,153,251);">Consultation d&#39;un Module
+  </h1>
+  <div>
+  </div>
+  <hr style="padding: 5 ;margin: 5;height: 80%;width: 80%;" />
+
+  <div class="input-group mb-5">
+    <span class="input-group-text divNomModule" id="NomModuleSpan">Modèle</span>
+    <input type="text" id="NomModule" class="form-control" value="{{NomModule}}" disabled>
+  </div>
+
+
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+  <div class="d-flex justify-content-around bd-highlight">
+
+    <div class="p-2 bd-highlight LibelleInput">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="PrixModule">Prix :</label>
+        </div>
+        <input id="PrixModule" type="text" class="form-control" value="{{PrixModule}}" disabled>
+      </div>
+    </div>
+    <div class="p-2 bd-highlight LibelleInput">
+      <div class="p-2 bd-highlight LibelleInput">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="TypeModule">Type module :</label>
+          </div>
+          <input id="TypeModule" type="text" class="form-control" value="{{TypeModuleNom}}" disabled>
+        </div>
+      </div>
+    </div>    </div>
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+  <div class="d-flex justify-content-around bd-highlight">
+      <div class="input-group">
+        <span class="input-group-text">Description :</span>
+        <textarea class="form-control" aria-label="With textarea" disabled>{{DescriptionModule}}</textarea>
+      </div>
+    </div>
+  <br>
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="input-group">
+      <span class="input-group-text">Caracteristique :</span>
+      <textarea class="form-control" aria-label="With textarea" disabled>{{CaracteristiquesModule}}</textarea>
+    </div>
+  </div>
+
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <br>
+
+
+  <table class="table ">
+
+    <tbody class="tableauModuleModele">
+    <tr id="LigneModeleFormulaire{{composant.id}}"  *ngFor="let composant of composants">
+      <td>  <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="Listecomposant{{composant.id}}">Composant :</label>
+        </div>
+        <input id="Listecomposant{{composant.id}}" type="text" class="form-control" value="{{composant.libelle}}" disabled>
+
+      </div></td>
+      <td><div class="input-group mb-3 tableauModuleModeleDiv">
+        <span class="input-group-text" id="Prixcomposant{{composant.id}}">Prix :</span>
+        <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="prix" value="{{composant.prix}}" disabled>
+      </div></td>
+
+      <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">
+        <img class="icone-modifier" src="assets\icones\plume.svg">
+      </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight">  <button type="button" class="btn btn-primary" routerLink="/modification-Module//{{idModule}}" >Modifier</button></div>
+  </div>
+</div>
+
+</body>

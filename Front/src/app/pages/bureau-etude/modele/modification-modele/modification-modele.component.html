@@ -1,10 +1,10 @@
 <body override class="w-80 h-80">
 <div class="divbody">
-  <h1 class="text-center" style="color: rgb(38,153,251);">Consultation d&#39;un Modèle
+  <h1 class="text-center" style="color: rgb(38,153,251);">Modification d&#39;un Modèle
   </h1>
   <div>
   </div>
-  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <hr style="padding: 5 ;margin: 5 ;height: 80%;width: 80%;" />
   <form #ajoutModele="ngForm" (ngSubmit)="onSubmit(ajoutModele)">
 
 
@@ -41,7 +41,7 @@
             <label class="input-group-text" for="gammes">Gamme :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="gammes" ngModel #NomGammeValueform="ngModel" name="NomGammeValueform">
+          <select class="custom-select" id="gammes" [ngModel]="NomGammeValue" ngModel #NomGammeValueform="ngModel" name="NomGammeValueform" (change)="ListeDeroulanteChangerIndex('idNomGammeValue',$event.target.value)">
             <option selected value="" disabled>{{NomGammeValue}}</option>
             <option value="{{gamme.id}}"  *ngFor="let gamme of gammes" >{{gamme.libelle}}</option>
           </select>
@@ -59,7 +59,7 @@
             <label class="input-group-text" for="typeremplissages">type remplissages :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="typeremplissages" ngModel #NomtyperemplissagesValueform="ngModel" name="NomtyperemplissagesValueform">
+          <select class="custom-select" id="typeremplissages" ngModel #NomtyperemplissagesValueform="ngModel" name="NomtyperemplissagesValueform" (change)="ListeDeroulanteChangerIndex('idtypeRemplissagesValue',$event.target.value)">
             <option selected value="" disabled>{{typeRemplissagesValue}}</option>
             <option value="{{typeRemplissage.id}}"  *ngFor="let typeRemplissage of typeRemplissages" >{{typeRemplissage.libelle}}</option>
           </select>
@@ -74,7 +74,7 @@
             <label class="input-group-text" for="coupeDePrincipe">coupe De Principes :</label>
           </div>
           <!--<input id="Gamme" type="text" class="form-control" value="{{NomGamme}}" disabled>-->
-          <select class="custom-select" id="coupeDePrincipe" ngModel #NomcoupeDePrincipeValueform="ngModel" name="NomcoupeDePrincipeValueform">
+          <select class="custom-select" id="coupeDePrincipe" ngModel #NomcoupeDePrincipeValueform="ngModel" name="NomcoupeDePrincipeValueform" (change)="ListeDeroulanteChangerIndex('idcoupeDePrincipesValue',$event.target.value)">
             <option selected value="" disabled>{{coupeDePrincipesValue}}</option>
             <option value="{{coupeDePrincipe.id}}"  *ngFor="let coupeDePrincipe of coupeDePrincipes" >{{coupeDePrincipe.libelle}}</option>
           </select>
@@ -91,16 +91,16 @@
       <tr id="LigneModeleFormulaire" *ngFor="let etage of etages ;let index = index;"  >
         <td>  <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="etage">etage :</label>
+            <label class="input-group-text" for="etage{{index}}">etage :</label>
           </div>
-          <input id="etage" type="text" class="form-control" value="{{etage.numero}}" >
+          <input id="etage{{index}}" type="text" class="form-control" value="{{etage.numero}}" >
 
         </div></td>
 
         <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/">
           <img class="icone-modifier" src="assets\icones\plume.svg">
         </a>
-          <button type="button" class="BoutonAjout" (click)="RetirerEtage(index)">
+          <button type="button" class="BoutonAjout" (click)="RetirerEtage(index,etage.id)">
             <img class="icone-supprimer" src="assets\icones\croix.svg"  >
           </button>
         </td>

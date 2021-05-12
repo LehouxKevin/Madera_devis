@@ -33,7 +33,6 @@ public nomGammeSupprimer="null";
       ).subscribe(
         gamme => this.gammes = gamme
       );
-
  if(this.AfficherListe==false)
   {
      this.Displayliste =  false;
@@ -74,8 +73,9 @@ this.DisplaySuppression=true;    //modif champs nom delete
   }
 
   confirmerSuppressionGamme():void {
-    //Supprimer le fournisseur en question (KEVIN LEHOUX)
-    this.gammeService.asyncDeleteGamme(this.idgammeSupprimer);
+
+    console.log( this.gammeService.asyncDeleteGamme(this.idgammeSupprimer));
+
 
     console.log("Suppression de "+this.idgammeSupprimer);
 
@@ -83,9 +83,9 @@ this.DisplaySuppression=true;    //modif champs nom delete
         this.idgammeSupprimer = 0;
 
     this.DisplaySuppression=false;
-    this.ngOnInit();
+     //this.ngOnInit();
    /*this.router.navigateByUrl('/liste-Gamme');*/
-document.location.reload();
+    //document.location.reload();
 
   }
 

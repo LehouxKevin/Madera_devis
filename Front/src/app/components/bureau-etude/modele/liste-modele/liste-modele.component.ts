@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Modele } from 'src/app/class/Modele';
 import { environment } from 'src/environments/environment';
 import { ModeleService } from 'src/app/services/modele.service';
-import { map ,finalize} from 'rxjs/operators';
+import { map , finalize} from 'rxjs/operators';
 import {  Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -16,29 +16,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListeModeleComponent implements OnInit {
 
-   public modeles:Modele[] = [];
+   public modeles: Modele[] = [];
     public libellemodele = "";
-    @Input() AfficherListe: boolean= true;
+    @Input() AfficherListe = true;
 
-Displayliste:boolean = true;
-DisplaySuppression:boolean = false;
+Displayliste  = true;
+DisplaySuppression  = false;
 
 public idGamme;
 
 public idmodeleSupprimer;
-public nomModeleSupprimer="null";
+public nomModeleSupprimer = "null";
   constructor(private modeleService: ModeleService, private router: Router, private route: ActivatedRoute,  private http: HttpClient) { }
 
   ngOnInit(): void {
     this.idGamme = this.route.snapshot.paramMap.get('idGamme');
 
    this.modeleService.getModeles().pipe(
-   finalize(() => this.modeles =this.modeles.filter(modele => modele.gamme === "/api/gammes/"+this.idGamme)),//,
+   finalize(() => this.modeles = this.modeles.filter(modele => modele.gamme === "/api/gammes/"+this.idGamme)),//,
         map(modele => modele['hydra:member'])
       ).subscribe(
         modele => this.modeles = modele
       );
-
+console.log(this.modeles)
  if(this.AfficherListe==false)
   {
      this.Displayliste =  false;
@@ -50,7 +50,8 @@ public nomModeleSupprimer="null";
 
 
 handleDisplayBouton():void {
-if(this.Displayliste == true)
+
+  if(this.Displayliste == true)
   {
    this.Displayliste =  false;
 
@@ -64,6 +65,7 @@ if(this.Displayliste == true)
   }
 
   supprimerModele(id:number):void {
+    console.log(this.modeles)
 
     this.idmodeleSupprimer = id;
 
@@ -79,8 +81,7 @@ this.DisplaySuppression=true;    //modif champs nom delete
   }
 
   confirmerSuppressionModele():void {
-    //Supprimer le fournisseur en question (KEVIN LEHOUX)
-    this.modeleService.asyncDeleteModele(this.idmodeleSupprimer);
+    console.log(this.modeleService.asyncDeleteModele(this.idmodeleSupprimer));
 
     console.log("Suppression de "+this.idmodeleSupprimer);
 
@@ -88,9 +89,9 @@ this.DisplaySuppression=true;    //modif champs nom delete
         this.idmodeleSupprimer = 0;
 
     this.DisplaySuppression=false;
-    this.ngOnInit();
+  //  this.ngOnInit();
    /*this.router.navigateByUrl('/liste-Modele');*/
-document.location.reload();
+//document.location.reload();
 
   }
 

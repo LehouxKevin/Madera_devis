@@ -59,6 +59,7 @@ import { ListeFamillesComposantComponent } from './pages/liste-familles-composan
 import { ListeTypesModuleComponent } from './pages/liste-types-module/liste-types-module.component';
 import { ModificationModeleComponent } from './pages/bureau-etude/modele/modification-modele/modification-modele.component';
 import { ModificationModuleComponent } from './pages/bureau-etude/module/modification-module/modification-module.component';
+import { CreationModuleComponent } from './pages/bureau-etude/module/creation-module/creation-module.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { ModificationModuleComponent } from './pages/bureau-etude/module/modific
     ListeFamillesComposantComponent,
     ListeTypesModuleComponent,
     ModificationModeleComponent,
-    ModificationModuleComponent
+    ModificationModuleComponent,
+    CreationModuleComponent
 
 
   ],

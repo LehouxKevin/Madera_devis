@@ -42,6 +42,7 @@ import { ModificationModeleComponent } from './pages/bureau-etude/modele/modific
 import { ListeModuleComponent } from './components/bureau-etude/module/liste-module/liste-module.component';
 import { ConsultationModuleComponent } from './pages/bureau-etude/module/consultation-module/consultation-module.component';
 import { ModificationModuleComponent } from './pages/bureau-etude/module/modification-module/modification-module.component';
+import { CreationModuleComponent } from './pages/bureau-etude/module/creation-module/creation-module.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
@@ -88,7 +89,8 @@ const routes: Routes = [
   /*modele*/
   { path : 'Liste-Module/:idGamme', component: ListeModuleComponent},
   { path : 'consultation-module/:idModule', component: ConsultationModuleComponent },
-  { path : 'modification-Module/:idModule', component: ModificationModuleComponent}
+  { path : 'modification-Module/:idModule', component: ModificationModuleComponent},
+  { path : 'Creation-Module/:idGamme', component: CreationModuleComponent}
 
 ];
 

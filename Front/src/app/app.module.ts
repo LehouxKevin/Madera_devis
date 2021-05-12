@@ -58,6 +58,7 @@ import { ListeTypesIsolationComponent } from './pages/liste-types-isolation/list
 import { ListeFamillesComposantComponent } from './pages/liste-familles-composant/liste-familles-composant.component';
 import { ListeTypesModuleComponent } from './pages/liste-types-module/liste-types-module.component';
 import { ModificationModeleComponent } from './pages/bureau-etude/modele/modification-modele/modification-modele.component';
+import { ModificationModuleComponent } from './components/bureau-etude/modification-module/modification-module.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { ModificationModeleComponent } from './pages/bureau-etude/modele/modific
     ListeTypesIsolationComponent,
     ListeFamillesComposantComponent,
     ListeTypesModuleComponent,
-    ModificationModeleComponent
+    ModificationModeleComponent,
+    ModificationModuleComponent
 
 
   ],

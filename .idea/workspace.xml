@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/services/composant.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/composant.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,8 @@
       <workItem from="1620062977718" duration="7695000" />
       <workItem from="1620125049707" duration="30895000" />
       <workItem from="1620592170950" duration="7019000" />
-      <workItem from="1620762235451" duration="5476000" />
+      <workItem from="1620762235451" duration="5933000" />
+      <workItem from="1620839031537" duration="2386000" />
     </task>
     <servers />
   </component>

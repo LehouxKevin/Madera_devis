@@ -19,6 +19,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   public fournisseur;
 
   public display = true;
+  public displayWindow = true;
 
   public champsNom;
   public champsTel;
@@ -86,6 +87,22 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
       this.display = true;
     }
   }
+
+  displayWindowFounisseur(): void {
+    if (this.displayWindow) {
+      document.getElementById('boutonDisableWindow').style.display = 'none';
+      document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
+      document.getElementById('listeFournisseurs').style.display = 'none';
+      this.displayWindow = false;
+    }
+    else {
+      document.getElementById('boutonDisplayWindow').style.visibility = 'hidden';
+      document.getElementById('boutonDisableWindow').style.display = 'block';
+      document.getElementById('listeFournisseurs').style.display = 'block';
+      this.displayWindow = true;
+    }
+  }
+
 
   // tslint:disable-next-line:typedef
   async onSubmit(FournisseurForm: NgForm, typeForm: boolean) {
@@ -200,6 +217,11 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   consulterFounisseur(id: number): void {
     console.log('Consulter fournisseur : ' + id);
+    document.getElementById('consultation').style.display = 'block';
+    document.getElementById('boutonDisableWindow').style.display = 'none';
+    document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
+    document.getElementById('listeFournisseurs').style.display = 'none';
+    this.displayWindow = false;
   }
 
   modifierFournisseur(id: number): void {

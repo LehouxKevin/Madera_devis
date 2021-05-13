@@ -1,3 +1,54 @@
+<div id="consultation">
+  <div class="titreConsultation gray-madera">
+    <h1>Consultation fournisseur</h1>
+  </div>
+  <div class="row fenetresConsultation">
+    <div class="col-sm-1 col-xl-2"></div>
+    <div class="col-sm-4 col-xl-3">
+      <div class="ficheFournisseur">
+        <div class="titreFicheFournisseur pt-2 pb-2">
+          <h2>Informations fournisseur</h2>
+        </div>
+        <div class="contenuFicheFournisseur">
+          <div class="mb-5">
+            <label class="typographyFicheFournisseur">Nom du fournisseur:</label><label class="typographyContenu">NOM</label>
+          </div>
+          <div class="mb-5">
+            <label class="typographyFicheFournisseur">Téléphone:</label><label class="typographyContenu">TELEPHONE</label>
+          </div>
+          <div>
+            <label class="typographyFicheFournisseur">Email:</label><label class="typographyContenu">EMAIL</label>
+          </div>
+        </div>
+      </div>
+      <a href="">
+        <div class="boutonAjouterComposant">
+          Ajouter un composant
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xl-1"></div>
+    <div class="col-sm-4 col-xl-4 composantsFournisseur">
+      <div class="titreFicheFournisseur pt-2 pb-2">
+        <h2>Liste des composants</h2>
+      </div>
+      <!-- À faire boucler -->
+      <div class="listComposant">
+        <div class="familleComposant">
+          <label>FAMILLE DE COMPOSANT</label>
+          <hr class="separationFamille">
+        </div>
+        <div>
+          <a class="composant" href="">COMPOSANT</a>
+        </div>
+      </div>
+      <!-- -->
+      <div></div>
+    </div>
+    <div class="col-sm-1 col-xl-2"></div>
+  </div>
+</div>
+
 <div id="listeFournisseurs" class="listeFournisseurs flex">
   <div id="content" class="content">
     <div class="d-flex justify-content-center titre">
@@ -14,7 +65,7 @@
           <th class="border title-tab" scope="col">Actions</th>
         </tr>
         </thead>
-        <tbody class="table-light table-bordered" style="border-color:black;">
+        <tbody class="listFournisseurContenu table-light table-bordered" style="border-color:black;">
         <tr id="{{'id_fournisseur'+fournisseur.id}}" *ngFor="let fournisseur of fournisseurs">
           <td class="data-col">{{fournisseur.nom}}</td>
           <td class="data-col">{{fournisseur.telephone}}</td>
@@ -92,8 +143,8 @@
       </form>
     </div>
   </div>
-  <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg"
-         class="position-absolute bouton-creer" (click)="displayFournisseur()">
+  <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFournisseur()">
+  <input type="image" id="boutonDisableWindow" src="assets\icones\display.svg" class="position-absolute" (click)="displayWindowFounisseur()">
 </div>
 <div id="deleteWindow" class="flex deleteWindow w-20">
   <div class="d-flex justify-content-center gray-madera">
@@ -124,3 +175,4 @@
     </button>
   </div>
 </div>
+<input type="image" id="boutonDisplayWindow" src="assets\icones\display.svg" (click)="displayWindowFounisseur()">

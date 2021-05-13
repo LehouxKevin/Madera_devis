@@ -1,7 +1,24 @@
+/* CSS custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+  text-decoration: none;
+}
+
 .listeFournisseurs {
   position: fixed;
   top: 0;
-  overflow: hidden;
   transition: all .3s ease-in;
   right: 5rem;
   width: 70rem;
@@ -9,9 +26,8 @@
   background: #365064;
   color: rgba(255, 255, 255, 0.7);
   padding-top: 2em;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .listeFournisseurs::-webkit-scrollbar {
@@ -85,6 +101,33 @@
   outline: none;
 }
 
+#boutonDisableWindow {
+  position: fixed;
+  width: 5em;
+  right: 0;
+  bottom: 33px;
+  left: 20px;
+  z-index: 1030;
+}
+
+#boutonDisableWindow:focus {
+  outline: none;
+}
+
+#boutonDisplayWindow {
+  visibility: hidden;
+  transform: rotate(180deg) !important;
+  position: fixed;
+  width: 5em;
+  right: 85px;
+  bottom: 33px;
+  z-index: 1030;
+}
+
+#boutonDisplayWindow:focus {
+  outline: none;
+}
+
 .errorMessage {
   color: #F56A6A;
   display: none;
@@ -124,4 +167,102 @@
   background-color: white !important;
   border-color: #0069d9 !important;
   color: #0069d9;
+}
+
+#consultation {
+  display: none;
+  position: fixed;
+  top: 6rem;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  /* right: 5rem; */
+  width: 100%;
+  height: 80%;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 2em;
+}
+
+.titreConsultation {
+  text-align: center;
+}
+
+.fenetresConsultation {
+  margin-top: 5rem;
+  height: 37rem;
+}
+
+.ficheFournisseur {
+  background: white;
+  border: solid 3px #365064;
+  padding: 0 !important;
+  height: 74%;
+}
+
+.titreFicheFournisseur {
+  text-align: center;
+  color: white;
+  background: #365064;
+}
+
+.contenuFicheFournisseur {
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+
+.typographyFicheFournisseur {
+  color: #365064;
+  margin-right: 10px;
+}
+
+.typographyContenu {
+  color: rgb(38,153,251);
+}
+
+.boutonAjouterComposant {
+  margin-top: 20px;
+  padding: 17px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: white;
+  background: rgb(38,153,251);
+}
+
+.composantsFournisseur {
+  background: white;
+  padding: 0 !important;
+  border: solid 3px #365064;
+  height: 90%;
+}
+
+.listComposant {
+  padding: 10px;
+  height: 88%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.familleComposant {
+  font-size: 1.8rem;
+  color: rgb(38,153,251);
+  margin-top: 20px;
+}
+
+.separationFamille {
+  margin-bottom: 6px;
+  margin-top: -9px;
+  border: 0;
+  border-top: 6px solid rgba(0,0,0,.1);
+}
+
+.composant {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #365064 !important;
+  transition: all .3s ease-in;
+}
+
+.composant:hover{
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all .1s ease-in;
 }

@@ -198,7 +198,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   }
 
   consulterFounisseur(id: number): void {
-    console.log('Consulter utilisateur : ' + id);
+    console.log('Consulter fournisseur : ' + id);
   }
 
   modifierFournisseur(id: number): void {

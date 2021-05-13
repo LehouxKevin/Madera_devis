@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bef7c22-453a-45e3-b0d8-40f950ac68b4" name="Default Changelist" comment="">
+    <list default="true" id="53baad05-8d1a-4b48-8a9a-11c2031e83f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/pages/bureau-etude/module/consultation-module/consultation-module.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/src/app/services/composant.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/services/composant.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

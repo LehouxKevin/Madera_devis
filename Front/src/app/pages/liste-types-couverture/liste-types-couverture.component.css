@@ -84,3 +84,7 @@
   color: #F56A6A;
   display: none;
 }
+
+#displayCreate {
+  display: none;
+}

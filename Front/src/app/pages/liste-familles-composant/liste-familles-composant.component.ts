@@ -111,11 +111,11 @@ export class ListeFamillesComposantComponent implements OnInit, OnDestroy {
       document.getElementById('libelle').style.borderLeft = 'none';
       document.getElementById('libelleError').style.display = 'none';
 
-      // Initialisation des variables utilisés lors de la création de la finition intérieure
+      // Initialisation des variables utilisés lors de la création de la famille de composant
       const libelle = false;
       const prix = false;
 
-      // Test si le libelle de la finition a bien été renseigné
+      // Test si le libelle de la famille a bien été renseigné
       if (familleComposantForm.value.libelle) {
         this.fc = new FamilleComposant(familleComposantForm.value.libelle);
         if (await this.familleComposantService.addFamilleComposant(this.fc)) {
@@ -126,13 +126,13 @@ export class ListeFamillesComposantComponent implements OnInit, OnDestroy {
         }
       } else {
         document.getElementById('libelle').style.borderLeft = 'solid red 9px';
-        document.getElementById('libelleError').textContent = 'Veuillez définir le libelle de votre finition !';
+        document.getElementById('libelleError').textContent = 'Veuillez définir le libelle de votre famille !';
         document.getElementById('libelleError').style.display = 'block';
       }
     }
     // Si le formulaire est celui de la modification d'une finition intérieure
     else {
-      console.log('Modification de la finition en question !');
+      console.log('Modification de la famille de composant en question !');
     }
   }
 }

@@ -129,7 +129,7 @@ export class ListeTypesRemplissageComponent implements OnInit, OnDestroy {
     }
     // Si le formulaire est celui de la modification d'une finition intérieure
     else {
-      console.log('Modification de la finition en question !');
+      console.log('Modification du type de remplissage en question !');
     }
   }
 }

@@ -31,6 +31,24 @@
         </tbody>
       </table>
     </div>
+    <div id="displayCreate">
+      <form #creationTypeModuleForm="ngForm" (ngSubmit)="onSubmit(creationTypeModuleForm, true)"
+            class="flex">
+        <div class="d-flex justify-content-center">
+          <p class="text-center">Pour créer un type de module, veuillez renseigner l'intégralité des informations
+            demandées.</p>
+        </div>
+        <div class="form-group">
+          <label for="Libelle">Libelle du type</label>
+          <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle"
+                 placeholder="Entrez le libelle du type de module" required>
+          <small id="libelleError" class="form-text errorMessage">libelleError</small>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary w-100">Créer ce type</button>
+        </div>
+      </form>
+    </div>
   </div>
   <input type="image" id="boutonTypeModule" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer"
          (click)="displayTypeModule()">

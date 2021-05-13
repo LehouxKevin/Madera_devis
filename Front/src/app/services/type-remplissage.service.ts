@@ -4,14 +4,11 @@ import {Observable, throwError} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {TypeRemplissage} from '../class/type-remplissage';
 import {map, takeUntil, catchError, tap, finalize} from 'rxjs/operators';
-import {FinitionInterieur} from "../class/finition-interieur";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypeRemplissageService {
-
-
   baseUrl = environment.baseUrlAPI;
   TypeRemplissageApi = '/type_remplissages';
 
@@ -38,7 +35,7 @@ export class TypeRemplissageService {
       .pipe(
         catchError(this.handleError)
       ).toPromise().then(data => {
-        // Retourne true si le type de remplissage a un id dans la bdd, si elle en a un c'est qu'elle a bien été inséré
+        // Retourne true si le type de remplissage a un id dans la bdd, si il en a un, c'est qu'il a bien été inséré
         if (data.id > 0) {
           return true;
         } else {

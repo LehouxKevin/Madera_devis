@@ -1,37 +1,70 @@
 <div id="listeQualitesHuisseries" class="listeQualitesHuisseries flex">
-    <div id="content" class="content">
-        <app-menu-parametres></app-menu-parametres>
-        <div class="d-flex justify-content-center titre">
-            <h2 id="grand-titre">Liste des qualités de huisseries</h2><h2 id="titreQualiteHuisserie">[ERROR]</h2>
-        </div>
-        <div id="displayList">
-            <table class="table  table-hover  justify-content-center text-center">
-                <thead class="text-white">
-                <tr>
-                    <th class="border title-tab" scope="col">Qualité de la huisserie</th>
-                    <th class="border title-tab" scope="col">Prix</th>
-                    <th class="border title-tab" scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody class="table-light table-bordered" style="border-color:black;">
-                    <tr id="{{'id_qualiteHuisserie'+qualiteHuisserie.id}}" *ngFor="let qualiteHuisserie of qualitesHuisseries">
-                        <td class="data-col">{{qualiteHuisserie.libelle}}</td>
-                        <td class="data-col">{{qualiteHuisserie.prix}}</td>
-                        <td class="data-col actions">
-                            <a class="lien-icone-action" (click)="consulterQualiteHuisserie(qualiteHuisserie.id)">
-                                <img class="icone-consulter" src="assets\icones\consultation.svg">
-                            </a>
-                            <a class="lien-icone-action" (click)="modifierQualiteHuisserie(qualiteHuisserie.id)">
-                                <img class="icone-modifier" src="assets\icones\plume.svg">
-                            </a>
-                            <a class="lien-icone-action" (click)="supprimerQualiteHuisserie(qualiteHuisserie.id)">
-                                <img class="icone-supprimer" src="assets\icones\croix.svg">
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <div id="content" class="content">
+    <app-menu-parametres></app-menu-parametres>
+    <div class="d-flex justify-content-center titre">
+      <h2 id="grand-titre">Liste des qualités de huisseries</h2>
+      <h2 id="titreQualiteHuisserie">[ERROR]</h2>
     </div>
-    <input type="image" id="boutonQualiteHuisserie" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayQualiteHuisserie()">
+    <div id="displayList">
+      <table class="table  table-hover  justify-content-center text-center">
+        <thead class="text-white">
+        <tr>
+          <th class="border title-tab" scope="col">Qualité de la huisserie</th>
+          <th class="border title-tab" scope="col">Prix (€/m²)</th>
+          <th class="border title-tab" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="table-light table-bordered" style="border-color:black;">
+        <tr id="{{'id_qualiteHuisserie'+qualiteHuisserie.id}}" *ngFor="let qualiteHuisserie of qualitesHuisseries">
+          <td class="data-col">{{qualiteHuisserie.libelle}}</td>
+          <td class="data-col">{{qualiteHuisserie.prix}}</td>
+          <td class="data-col actions">
+            <a class="lien-icone-action" (click)="consulterQualiteHuisserie(qualiteHuisserie.id)">
+              <img class="icone-consulter" src="assets\icones\consultation.svg">
+            </a>
+            <a class="lien-icone-action" (click)="modifierQualiteHuisserie(qualiteHuisserie.id)">
+              <img class="icone-modifier" src="assets\icones\plume.svg">
+            </a>
+            <a class="lien-icone-action" (click)="supprimerQualiteHuisserie(qualiteHuisserie.id)">
+              <img class="icone-supprimer" src="assets\icones\croix.svg">
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="displayCreate">
+      <form #creationQualitesHuisseriesForm="ngForm" (ngSubmit)="onSubmit(creationQualitesHuisseriesForm, true)"
+            class="flex">
+        <div class="d-flex justify-content-center">
+          <p class="text-center">Pour créer une qualité huisserie, veuillez renseigner l'intégralité des informations
+            demandées.</p>
+        </div>
+        <div class="form-group">
+          <label for="Libelle">Libelle de la qualité</label>
+          <input type="text" ngModel #libelle="ngModel" class="form-control" name="libelle" id="libelle"
+                 placeholder="Entrez le libelle de la qualité huisserie" required>
+          <small id="libelleError" class="form-text errorMessage">libelleError</small>
+        </div>
+        <div class="form-group">
+          <label for="Prix">Prix de la qualité</label>
+          <input type="text" ngModel #prix="ngModel" class="form-control" name="prix" id="prix"
+                 placeholder="Entrez le prix en euro de la qualité huisserie" appOnlyNumber required>
+          <small id="prixError" class="form-text errorMessage">prixError</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="Description">Description de la qualité</label>
+          <textarea ngModel #description="ngModel" class="form-control" name="description" id="description"
+                    aria-describedby="descriptionHelp" placeholder="Entrez la description de la qualité huisserie" rows="4"
+                    cols="50"></textarea>
+          <small id="descriptionError" class="form-text errorMessage">descriptionError</small>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary w-100">Créer cette qualité</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <input type="image" id="boutonQualiteHuisserie" src="assets\icones\displayCreate.svg"
+         class="position-absolute bouton-creer" (click)="displayQualiteHuisserie()">
 </div>

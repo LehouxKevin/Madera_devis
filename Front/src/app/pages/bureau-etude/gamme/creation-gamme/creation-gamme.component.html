@@ -32,7 +32,7 @@
           <label class="input-group-text" for="TypeIsolation">Type Isolation :</label>
         </div>
         <select class="custom-select" id="TypeIsolation" ngModel #TypeIsolationChamps="ngModel" name="TypeIsolationChamps" >
-          <option selected disabled>Choose...</option>
+          <option selected value=""  disabled>Choose...</option>
           <option value="{{TypeIsolation.id}}"  *ngFor="let TypeIsolation of TypeIsolations" >{{TypeIsolation.libelle}}</option>
         </select>
       </div>
@@ -50,7 +50,7 @@
           <label class="input-group-text" for="FinitionExterieur">Finition Exterieur :</label>
         </div>
         <select class="custom-select" id="FinitionExterieur" ngModel #FinitionExterieurChamps="ngModel" name="FinitionExterieurChamps" >
-          <option selected disabled>Choose...</option>
+          <option selected value=""  disabled>Choose...</option>
           <option value="{{FinitionExterieur.id}}"  *ngFor="let FinitionExterieur of FinitionExterieurs" >{{FinitionExterieur.libelle}}</option>
         </select>
 
@@ -72,7 +72,7 @@
           <label class="input-group-text" for="TypeCouverture" > Type Couverture :</label>
         </div>
         <select class="custom-select" id="TypeCouverture" ngModel #TypeCouvertureChamps="ngModel" name="TypeCouvertureChamps">
-          <option selected disabled>Choose...</option>
+          <option selected value=""  disabled>Choose...</option>
           <option value="{{TypeCouverture.id}}"  *ngFor="let TypeCouverture of TypeCouvertures" >{{TypeCouverture.libelle}}</option>
         </select>
 
@@ -89,7 +89,7 @@
           <label class="input-group-text" for="QualiteHuisseries">Qualite Huisseries :</label>
         </div>
         <select class="custom-select" id="QualiteHuisseries" ngModel #QualiteHuisseriesChamps="ngModel" name="QualiteHuisseriesChamps">
-          <option selected disabled>Choose...</option>
+          <option selected value=""  disabled>Choose...</option>
           <option value="{{QualiteHuisserie.id}}"  *ngFor="let QualiteHuisserie of QualiteHuisseries" >{{QualiteHuisserie.libelle}}</option>
         </select>
 
@@ -108,7 +108,7 @@
           <label class="input-group-text" for="ConceptionOssature">Conception Ossature :</label>
         </div>
         <select class="custom-select" id="ConceptionOssature" ngModel #ConceptionOssatureChamps="ngModel" name="ConceptionOssatureChamps">
-          <option selected disabled>Choose...</option>
+          <option selected value=""  disabled>Choose...</option>
           <option value="{{conceptionOssature.id}}"  *ngFor="let conceptionOssature of conceptionOssatures" >{{conceptionOssature.libelle}}</option>
         </select>
       </div>
@@ -124,7 +124,7 @@
           <label class="input-group-text" for="ConceptionOssature">Finition Interieur :</label>
         </div>
         <select class="custom-select" id="finitionInterieur" ngModel #finitionInterieurChamps="ngModel" name="finitionInterieurChamps">
-          <option selected disabled>Choose...</option>
+          <option selected value="" disabled>Choose...</option>
           <option value="{{finitionInterieur.id}}"  *ngFor="let finitionInterieur of finitionInterieurs" >{{finitionInterieur.libelle}}</option>
         </select>
       </div>

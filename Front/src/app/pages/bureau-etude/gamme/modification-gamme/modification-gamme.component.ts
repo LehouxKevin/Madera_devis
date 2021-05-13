@@ -161,7 +161,7 @@ export class ModificationGammeComponent implements OnInit {
       );
 
     this.InitialiserGamme();
-    this.ModulesFormulaires.push( new Module() );
+    this.ModulesFormulaires.push( new Module(null, null,null,null,null,null,null,null) );
     this.ModelesFormulaires.push(new  Modele(null,
                                         null,
                                             null,
@@ -321,7 +321,7 @@ export class ModificationGammeComponent implements OnInit {
     console.log('test');
   }
   AjoutModule(): void {
-    this.ModulesFormulaires.push( new  Module());
+    this.ModulesFormulaires.push( new  Module(null, null,null,null,null,null,null,null));
     console.log('test');
     }
   AjoutModele(): void {

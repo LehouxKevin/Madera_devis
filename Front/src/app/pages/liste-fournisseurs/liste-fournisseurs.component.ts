@@ -66,6 +66,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
       document.getElementById('listeFournisseurs').style.paddingTop = '12rem';
       document.getElementById('titrefournisseur').style.display = 'none';
       document.getElementById('displayUpdate').style.display = 'none';
+      // tslint:disable-next-line:triple-equals
       if (this.idFournisseur != 0) {
         document.getElementById('deleteWindow').style.display = 'none';
         document.getElementById('id_fournisseur' + this.idFournisseur).style.border = '0';

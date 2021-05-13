@@ -97,12 +97,23 @@
 </div>
 <div id="deleteWindow" class="flex deleteWindow w-20">
   <div class="d-flex justify-content-center gray-madera">
-    <h2 class="align-content-center">Souhaitez vous supprimer</h2>
+    <h3 class="align-content-center">Souhaitez vous supprimer</h3>
   </div>
   <div class="d-flex justify-content-center mb-2 gray-madera">
-    <h2 class="align-content-center">le founisseur :</h2>
-    <h2 id="fournisseurDelete" class="fournisseurDelete">MADERA</h2>
-    <h2 class="ml-2">?</h2>
+    <h3 class="align-content-center">le founisseur :</h3>
+    <h3 id="fournisseurDelete" class="fournisseurDelete">MADERA</h3>
+    <h3 class="ml-2">?</h3>
+  </div>
+  <div class="mt-4 mb-4 gray-madera">
+    <div >
+      <h5>Contraintes :</h5>
+    </div>
+    <div>
+      <label>- Suppression de tous les  composants associés à ce fournisseur</label>
+    </div>
+    <div>
+      <label>- Répercutions sur les modules, composés des modules associés à ce fournisseur</label>
+    </div>
   </div>
   <div class="d-flex justify-content-center">
     <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionFounisseur()">

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild,EventEmitter, Output  } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, EventEmitter, Output  } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ConceptionOssature } from 'src/app/class/conception-ossature';
 import { FinitionExterieur } from 'src/app/class/finition-exterieur';
@@ -127,7 +127,7 @@ DisplaylisteGamme = false;
                                     Module => this.Modules = Module
                                   );
 
-                                  this.ModulesFormulaires.push( new Module);
+                                  this.ModulesFormulaires.push( new Module(null, null,null,null,null,null,null,null));
                                    this.ModelesFormulaires.push(new  Modele(null,null,null,null,null,null,null));
    this.gammeService.getGammes().pipe(
         map(gamme => gamme['hydra:member'])
@@ -196,7 +196,7 @@ this.gamme=new Gamme(this.NomGammeChamps,new Date() ,false
 
 AjoutModule():void {
 
-this.ModulesFormulaires.push( new  Module)
+this.ModulesFormulaires.push( new  Module(null, null,null,null,null,null,null,null));
 console.log("test");
 
     }

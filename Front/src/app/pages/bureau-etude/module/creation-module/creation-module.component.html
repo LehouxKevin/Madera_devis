@@ -1,1 +1,113 @@
-<p>creation-module works!</p>
+<body override class="w-80 h-80">
+<div class="divbody">
+  <h1 class="text-center" style="color: rgb(38,153,251);">Consultation d&#39;un Module
+  </h1>
+  <form #ajoutModule="ngForm" (ngSubmit)="onSubmit(ajoutModule)">
+
+  <div>
+  </div>
+  <hr style="padding: 5 ;margin: 5;height: 80%;width: 80%;" />
+
+    <div id="NomModuleErreur" class="text-danger" *ngIf="NomModuleErreur">
+      Veuillez choisir un nom de module
+    </div>
+  <div class="input-group mb-5">
+    <span class="input-group-text divNomModule" id="NomModuleSpan">Modèle</span>
+    <input type="text" id="NomModule" class="form-control" placeholder="Nom module" ngModel #NomModuleValueform="ngModel" name="NomModuleValueform">
+  </div>
+
+
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+  <div class="d-flex justify-content-around bd-highlight">
+
+    <div class="p-2 bd-highlight LibelleInput">
+      <div id="PrixModuleErreur" class="text-danger" *ngIf="PrixModuleErreur">
+        Veuillez choisir un prix
+      </div>
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="PrixModule">Prix :</label>
+        </div>
+        <input id="PrixModule" type="text" class="form-control" placeholder="Prix" ngModel #PrixModuleValueform="ngModel" name="PrixModuleValueform" >
+      </div>
+    </div>
+    <div class="p-2 bd-highlight LibelleInput">
+      <div class="p-2 bd-highlight LibelleInput">
+        <div id="idTypeModuleErreur" class="text-danger" *ngIf="idTypeModuleErreur">
+          Veuillez choisir un Type de module
+        </div>
+        <div class="input-group mb-3">
+
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="TypeModule">Type module :</label>
+          </div>
+          <select class="custom-select" id="TypeModule" ngModel #TypeModuleValueform="ngModel" name="TypeModuleValueform"  (change)="ListeDeroulanteChangerIndex('idTypeModule',$event.target.value)">
+            <option selected value="" disabled>Choose...</option>
+            <option value="{{TypeModule.id}}"  *ngFor="let TypeModule of TypeModules" >{{TypeModule.libelle}}</option>
+          </select>
+        </div>
+      </div>
+    </div>    </div>
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+    <div id="DescriptionModuleErreur" class="text-danger" *ngIf="DescriptionModuleErreur" >
+      Veuillez choisir une Description
+    </div>
+  <div class="d-flex justify-content-around bd-highlight">
+
+    <div class="input-group">
+      <span class="input-group-text">Description :</span>
+      <textarea class="form-control" aria-label="With textarea" ngModel #DescriptionModuleValueform="ngModel" name="DescriptionModuleValueform"></textarea>
+    </div>
+  </div>
+  <br>
+    <div id="CaracteristiquesModuleErreur" class="text-danger" *ngIf="CaracteristiquesModuleErreur">
+      Veuillez choisir une Caracteristiques
+    </div>
+  <div class="d-flex justify-content-around bd-highlight">
+    <div class="input-group">
+      <span class="input-group-text">Caracteristique :</span>
+      <textarea class="form-control" aria-label="With textarea" ngModel #CaracteristiqueModuleValueform="ngModel" name="CaracteristiqueModuleValueform"></textarea>
+    </div>
+  </div>
+
+  <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+  <br>
+
+  <table class="table ">
+
+    <tbody class="tableauModuleModele">
+    <tr id="LigneModeleFormulaire{{composant.id}}"  *ngFor="let composant of composants">
+      <td>  <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="Listecomposant{{composant.id}}">Composant :</label>
+        </div>
+        <input id="Listecomposant{{composant.id}}" type="text" class="form-control" value="{{composant.libelle}}" >
+
+      </div></td>
+      <td><div class="input-group mb-3 tableauModuleModeleDiv">
+        <span class="input-group-text" id="Prixcomposant{{composant.id}}">Prix :</span>
+        <input type="text" class="form-control" placeholder="Prix" aria-label="Prix" aria-describedby="prix" value="{{composant.prix}}" >
+      </div></td>
+
+      <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">
+        <img class="icone-modifier" src="assets\icones\plume.svg">
+      </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+    <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <input type="submit" class="btn btn-primary" value="Enregistrer" />
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>

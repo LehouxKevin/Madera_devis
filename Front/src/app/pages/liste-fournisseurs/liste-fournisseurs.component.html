@@ -11,13 +11,16 @@
         </div>
         <div class="contenuFicheFournisseur">
           <div class="mb-5">
-            <label class="typographyFicheFournisseur">Nom du fournisseur:</label><label class="typographyContenu">NOM</label>
+            <label class="typographyFicheFournisseur">Nom du fournisseur:</label><label id="nomFournisseur"
+                                                                                        class="typographyContenu">NOM</label>
           </div>
           <div class="mb-5">
-            <label class="typographyFicheFournisseur">Téléphone:</label><label class="typographyContenu">TELEPHONE</label>
+            <label class="typographyFicheFournisseur">Téléphone:</label><label id="telephoneFournisseur"
+                                                                               class="typographyContenu">TELEPHONE</label>
           </div>
           <div>
-            <label class="typographyFicheFournisseur">Email:</label><label class="typographyContenu">EMAIL</label>
+            <label class="typographyFicheFournisseur">Email:</label><label id="emailFournisseur"
+                                                                           class="typographyContenu">EMAIL</label>
           </div>
         </div>
       </div>
@@ -32,20 +35,65 @@
       <div class="titreFicheFournisseur pt-2 pb-2">
         <h2>Liste des composants</h2>
       </div>
-      <!-- À faire boucler -->
       <div class="listComposant">
-        <div class="familleComposant">
-          <label>FAMILLE DE COMPOSANT</label>
+        <div id="{{'id_famille_composant_'+familleComposant.id}}" *ngFor="let familleComposant of famillesComposant"
+             class="familleComposant">
+          <label>{{familleComposant.libelle}}</label>
           <hr class="separationFamille">
-        </div>
-        <div>
-          <a class="composant" href="">COMPOSANT</a>
+          <div *ngFor="let composant of composants">
+            <a
+              *ngIf="composant.familleComposant=='/api/famille_composants/'+familleComposant.id && composant.fournisseurs=='/api/fournisseurs/'+idFournisseur"
+              class="composant" (click)="consulterComposant(composant.id)">{{composant.libelle}}</a>
+          </div>
         </div>
       </div>
-      <!-- -->
-      <div></div>
     </div>
     <div class="col-sm-1 col-xl-2"></div>
+  </div>
+</div>
+
+<div id="pageComposant" class="pageComposant flex">
+  <div class="contentComposant">
+    <div class="d-flex justify-content-center titre">
+      <h2 id="titreComposant_consultation">CONSULTATION COMPOSANT</h2>
+    </div>
+    <hr style="background: white; margin-top: -15px;">
+    <div id="consulterComposant">
+      <div class="groupeChampsComposant">
+        <label class="champsConsultationComposant">Prix :</label><label id="prixComposant_consulter" class="contenuConsultation">0€</label>
+      </div>
+      <div class="groupeChampsComposant">
+        <div>
+          <label class="champsConsultationComposant">Description :</label></div>
+        <div>
+          <label id="descriptionComposant_consulter" class="contenuConsultation">DESCRIPTION</label></div>
+      </div>
+      <div class="groupeChampsComposant">
+        <label class="champsConsultationComposant">Famille de composant :</label><label id="familleComposant_consulter" class="contenuConsultation">FAMILLE COMPOSANT</label>
+      </div>
+      <div class="groupeChampsComposant">
+        <div>
+          <label class="champsConsultationComposant">Caractéristiques :</label></div>
+        <div>
+          <label id="caracteristiquesComposant_consulter" class="contenuConsultation">CARACTERISTIQUES</label></div>
+      </div>
+      <div class="groupeChampsComposant">
+        <label class="champsConsultationComposant">Créé le :</label><label id="dateCreationComposant_consulter" class="contenuConsultation">00/00/00</label>
+      </div>
+      <div class="groupeChampsComposant">
+        <a (click)="modifierComposant(composant.id)">
+          <div class="boutonAjouterComposant">
+            Modifier ce composant
+          </div>
+        </a>
+      </div>
+      <div>
+        <a class="lien-icone-action position-absolute bouton-quitter" (click)="quitterPageComposant()">
+          <img class="icone-quitter " src="assets\icones\quitter.svg">
+        </a>
+      </div>
+    </div>
+    <div id="modifierComposant"></div>
   </div>
 </div>
 
@@ -143,8 +191,10 @@
       </form>
     </div>
   </div>
-  <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg" class="position-absolute bouton-creer" (click)="displayFournisseur()">
-  <input type="image" id="boutonDisableWindow" src="assets\icones\display.svg" class="position-absolute" (click)="displayWindowFounisseur()">
+  <input type="image" id="boutonFournisseur" src="assets\icones\displayCreate.svg"
+         class="position-absolute bouton-creer" (click)="displayFournisseur()">
+  <input type="image" id="boutonDisableWindow" src="assets\icones\display.svg" class="position-absolute"
+         (click)="displayWindowFounisseur()">
 </div>
 <div id="deleteWindow" class="flex deleteWindow w-20">
   <div class="d-flex justify-content-center gray-madera">
@@ -156,11 +206,11 @@
     <h3 class="ml-2">?</h3>
   </div>
   <div class="mt-4 mb-4 gray-madera">
-    <div >
+    <div>
       <h5>Contraintes :</h5>
     </div>
     <div>
-      <label>- Suppression de tous les  composants associés à ce fournisseur</label>
+      <label>- Suppression de tous les composants associés à ce fournisseur</label>
     </div>
     <div>
       <label>- Répercutions sur les modules, composés des modules associés à ce fournisseur</label>

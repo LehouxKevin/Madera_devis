@@ -39,6 +39,16 @@ a {
   padding-right: 3rem;
 }
 
+.contentComposant {
+  padding-top: 2rem;
+  padding-left: 15rem;
+  padding-right: 10rem;
+}
+
+#consulterComposant {
+  font-size: 1.6rem;
+}
+
 #displayCreate {
   display: none;
 }
@@ -259,10 +269,88 @@ a {
   font-size: 1.2rem;
   color: #365064 !important;
   transition: all .3s ease-in;
+  cursor: pointer;
 }
 
 .composant:hover{
   text-decoration: none;
   font-size: 1.3rem;
   transition: all .1s ease-in;
+}
+
+/*.pageComposant {
+  display: none;
+  position: fixed;
+  top: 0;
+  transition: all .3s ease-in;
+  right: 5rem;
+  width: 65rem;
+  height: 100%;
+  background: #365064;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 2em;
+  overflow: hidden;
+  overflow-y: scroll;
+}*/
+
+.pageComposant {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 74px;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  width: 60em;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 4.5em;
+}
+
+.pageComposant:before {
+  background: #365064;
+  border-radius: 50%;
+  content: "";
+  height: 178%;
+  top: -395px;
+  width: 150%;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+}
+
+.pageComposant::-webkit-scrollbar {
+  display: none;
+}
+
+.groupeChampsComposant {
+  margin-top: 2rem;
+}
+
+.champsConsultationComposant {
+  margin-right: 10px;
+}
+
+.contenuConsultation {
+  color: rgb(38,153,251);
+}
+
+#titreComposant_consultation {
+  color: rgb(38,153,251);
+}
+
+.icone-quitter {
+  width: 5%;
+}
+
+.bouton-quitter {
+  position: fixed;
+  right: -32rem;
+  top: 34px;
+  left: 53rem;
+  z-index: 1030;
+  height: 120px;
+}
+
+.bouton-quitter:focus {
+  outline: none;
 }

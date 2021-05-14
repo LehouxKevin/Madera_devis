@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {Fournisseur} from 'src/app/class/fournisseur';
 import {FournisseurService} from 'src/app/services/fournisseur.service';
+import {FamilleComposantService} from 'src/app/services/famille-composant.service';
+import {ComposantService} from '../../services/composant.service';
 
 @Component({
   selector: 'app-liste-fournisseurs',
@@ -14,9 +16,14 @@ import {FournisseurService} from 'src/app/services/fournisseur.service';
 export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   four: Fournisseur;
-
   public fournisseurs: any[] = [];
   public fournisseur;
+
+  public famillesComposant: any[] = [];
+  public familleComposant;
+
+  public composants: any[] = [];
+  public composant;
 
   public display = true;
   public displayWindow = true;
@@ -33,7 +40,8 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   public ancienIdFournisseur;
   public nomFournisseur;
 
-  constructor(private router: Router, private fournisseurService: FournisseurService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private router: Router, private fournisseurService: FournisseurService, private familleComposantService: FamilleComposantService, private composantService: ComposantService) {
   }
 
   ngOnInit(): void {
@@ -200,8 +208,11 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
         this.telephone
         this.mail
       */
+      // tslint:disable-next-line:no-unused-expression
       this.fournisseur.nom !== this.nom ? this.fournisseur.nom = this.nom : 0;
+      // tslint:disable-next-line:no-unused-expression
       this.fournisseur.telephone !== this.telephone ? this.fournisseur.telephone = this.telephone : 0;
+      // tslint:disable-next-line:no-unused-expression
       this.fournisseur.email !== this.mail ? this.fournisseur.email = this.mail : 0;
       await this.fournisseurService.syncUpdateFournisseur(this.fournisseur);
 
@@ -216,11 +227,41 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   }
 
   consulterFounisseur(id: number): void {
-    console.log('Consulter fournisseur : ' + id);
+    this.idFournisseur = id;
+
+    // Affichage de la page de consultation d'un fournisseur
     document.getElementById('consultation').style.display = 'block';
     document.getElementById('boutonDisableWindow').style.display = 'none';
     document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
     document.getElementById('listeFournisseurs').style.display = 'none';
+
+    // Récupération du fournisseur sélectionné
+    this.fournisseurs.forEach((fournisseur, index) => {
+      if (fournisseur.id === id) {
+        this.fournisseur = fournisseur;
+      }
+    });
+
+    // Récupération de toutes les familles de composant
+    this.familleComposantService.getFamillesComposant().pipe(
+      map(familleComposant => familleComposant['hydra:member'])
+    ).subscribe(
+      // On stocke ces valeurs dans une variable public (de type -> tableau)
+      familleComposant => this.famillesComposant = familleComposant
+    );
+
+    // Récupération des composants
+    this.composantService.getComposants().pipe(
+      map(composant => composant['hydra:member'])
+    ).subscribe(
+      // On stocke ces valeurs dans une variable public (de type -> tableau)
+      composant => this.composants = composant
+    );
+
+    // Remplissage de la fiche des informations du fournisseur sélectionné
+    document.getElementById('nomFournisseur').innerHTML = this.fournisseur.nom;
+    document.getElementById('telephoneFournisseur').innerHTML = this.fournisseur.telephone;
+    document.getElementById('emailFournisseur').innerHTML = this.fournisseur.email;
     this.displayWindow = false;
   }
 
@@ -271,7 +312,6 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   }
 
   confirmerSuppressionFounisseur(): void {
-    // Supprimer le fournisseur en question (KEVIN LEHOUX)
     this.fournisseurService.asyncDeleteFournisseur(this.idFournisseur);
     console.log('Suppression de ' + this.idFournisseur);
     document.getElementById('deleteWindow').style.display = 'none';
@@ -283,5 +323,37 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     document.getElementById('id_fournisseur' + this.idFournisseur).style.border = '0';
     this.idFournisseur = 0;
     document.getElementById('deleteWindow').style.display = 'none';
+  }
+
+  consulterComposant(id: number): void {
+    // Récupération du fournisseur sélectionné
+    this.composants.forEach((composant, index) => {
+      if (composant.id === id) {
+        this.composant = composant;
+      }
+    });
+    // tslint:disable-next-line:prefer-const
+    let idFamille = this.composant.familleComposant;
+    this.famillesComposant.forEach((familleComposant, index) => {
+      // tslint:disable-next-line:radix
+      if (familleComposant.id === parseInt(idFamille.slice(24))) {
+        this.familleComposant = familleComposant;
+      }
+    });
+    document.getElementById('titreComposant_consultation').innerHTML = this.composant.libelle;
+    document.getElementById('prixComposant_consulter').innerHTML = this.composant.prix + '€';
+    document.getElementById('descriptionComposant_consulter').innerHTML = this.composant.description;
+    document.getElementById('familleComposant_consulter').innerHTML = this.familleComposant.libelle;
+    document.getElementById('caracteristiquesComposant_consulter').innerHTML = this.composant.caracteristiques;
+    document.getElementById('dateCreationComposant_consulter').innerHTML = this.composant.dateCreation;
+    document.getElementById('pageComposant').style.display = 'block';
+  }
+
+  modifierComposant(id: number): void {
+    console.log('Modification du composant : ' + id);
+  }
+
+  quitterPageComposant(): void {
+    document.getElementById('pageComposant').style.display = 'none';
   }
 }

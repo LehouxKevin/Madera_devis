@@ -40,7 +40,7 @@ a {
 }
 
 .contentComposant {
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-left: 15rem;
   padding-right: 10rem;
 }
@@ -84,6 +84,7 @@ a {
 .lien-icone-action {
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .icone-consulter {
@@ -235,6 +236,30 @@ a {
   font-size: 1.6rem;
   color: white;
   background: rgb(38,153,251);
+  cursor: pointer;
+}
+
+.boutonModifierComposant {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: white;
+  background: rgb(38,153,251);
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.boutonSupprimerComposant {
+  margin-top: 20px;
+  padding: 17px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgb(38,153,251);
+  background: white;
+  border: 3px solid rgb(38,153,251);
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 .composantsFournisseur {
@@ -338,6 +363,10 @@ a {
   color: rgb(38,153,251);
 }
 
+.boutonComposant {
+  width: 50%;
+}
+
 .icone-quitter {
   width: 5%;
 }
@@ -353,4 +382,8 @@ a {
 
 .bouton-quitter:focus {
   outline: none;
+}
+
+#ajouterComposant {
+  display: none;
 }

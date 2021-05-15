@@ -7,6 +7,7 @@ import {Fournisseur} from 'src/app/class/fournisseur';
 import {FournisseurService} from 'src/app/services/fournisseur.service';
 import {FamilleComposantService} from 'src/app/services/famille-composant.service';
 import {ComposantService} from '../../services/composant.service';
+import {Composant} from '../../class/composant';
 
 @Component({
   selector: 'app-liste-fournisseurs',
@@ -16,21 +17,31 @@ import {ComposantService} from '../../services/composant.service';
 export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   four: Fournisseur;
+  public idFournisseurConsulter;
   public fournisseurs: any[] = [];
   public fournisseur;
 
   public famillesComposant: any[] = [];
   public familleComposant;
 
+  cp: Composant;
   public composants: any[] = [];
   public composant;
 
   public display = true;
   public displayWindow = true;
 
+  // Champs formulaires - Fournisseur
   public champsNom;
   public champsTel;
   public champsMail;
+
+  // Champs formulaires - Composant
+  public champsLibelleComposant;
+  public champsDescriptionComposant;
+  public champsFamilleComposant;
+  public champsCaracteristiquesComposant;
+  public champsPrixComposant;
 
   nom = '';
   telephone = '';
@@ -102,8 +113,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
       document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
       document.getElementById('listeFournisseurs').style.display = 'none';
       this.displayWindow = false;
-    }
-    else {
+    } else {
       document.getElementById('boutonDisplayWindow').style.visibility = 'hidden';
       document.getElementById('boutonDisableWindow').style.display = 'block';
       document.getElementById('listeFournisseurs').style.display = 'block';
@@ -113,7 +123,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
 
   // tslint:disable-next-line:typedef
-  async onSubmit(FournisseurForm: NgForm, typeForm: boolean) {
+  async onSubmitFournisseur(FournisseurForm: NgForm, typeForm: boolean) {
     this.champsNom = document.getElementById('nom');
     this.champsTel = document.getElementById('telephone');
     this.champsMail = document.getElementById('email');
@@ -226,9 +236,101 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     }
   }
 
+  // tslint:disable-next-line:typedef
+  async onSubmitComposant(ComposantForm: NgForm, typeForm: boolean) {
+    let libelleBool = false;
+    let familleBool = false;
+    let caracteristiqueBool = false;
+    let prixBool = false;
+    // Ajout d'un composant
+    if (typeForm) {
+      this.champsLibelleComposant = document.getElementById('libelleComposant');
+      this.champsDescriptionComposant = document.getElementById('descriptionComposant');
+      this.champsDescriptionComposant = document.getElementById('familleComposant');
+      this.champsCaracteristiquesComposant = document.getElementById('caracteristiquesComposant');
+      this.champsPrixComposant = document.getElementById('prixComposant');
+      // TEST - Libelle
+      if (ComposantForm.value.libelleComposant) {
+        this.champsLibelleComposant.style.borderLeft = 'none';
+        document.getElementById('libelleComposantError').style.display = 'none';
+        libelleBool = true;
+      }
+      else {
+        this.champsLibelleComposant.style.borderLeft = 'solid red 9px';
+        document.getElementById('libelleComposantError').textContent = 'Veuillez renseigner un libelle !';
+        document.getElementById('libelleComposantError').style.display = 'block';
+      }
+      // TEST - Caractéristiques
+      if (ComposantForm.value.caracteristiquesComposant) {
+        this.champsCaracteristiquesComposant.style.borderLeft = 'none';
+        document.getElementById('caracteristiquesComposantError').style.display = 'none';
+        caracteristiqueBool = true;
+      }
+      else {
+        this.champsCaracteristiquesComposant.style.borderLeft = 'solid red 9px';
+        document.getElementById('caracteristiquesComposantError').textContent = 'Veuillez renseigner les caractéristiques du composant !';
+        document.getElementById('caracteristiquesComposantError').style.display = 'block';
+      }
+
+      // TEST - Famille
+      if (ComposantForm.value.familleComposant) {
+        document.getElementById('familleComposantError').style.display = 'none';
+        familleBool = true;
+      }
+      else {
+        document.getElementById('familleComposantError').textContent = 'Veuillez sélectionner une famille !';
+        document.getElementById('familleComposantError').style.display = 'block';
+      }
+
+      // TEST - Prix
+      if (ComposantForm.value.prixComposant) {
+        this.champsPrixComposant.style.borderLeft = 'none';
+        document.getElementById('prixComposantError').style.display = 'none';
+        prixBool = true;
+      }
+      else {
+        this.champsPrixComposant.style.borderLeft = 'solid red 9px';
+        document.getElementById('prixComposantError').textContent = 'Veuillez renseigner le prix du composant !';
+        document.getElementById('prixComposantError').style.display = 'block';
+      }
+
+      if (libelleBool && caracteristiqueBool && prixBool && familleBool) {
+        const now = new Date();
+        const annee   = String(now.getFullYear());
+        const mois    = String(('0' + (now.getMonth() + 1)).slice(-2));
+        const jour    = String(('0' + now.getDate()).slice(-2));
+        const dateCreation = annee + '-' + mois + '-' + jour;
+        console.log(dateCreation);
+
+        // tslint:disable-next-line:max-line-length prefer-const
+        const splittedFamilleComposant = ComposantForm.value.familleComposant.split(' - ');
+
+        // TESTS
+        console.log(typeof ComposantForm.value.libelleComposant);
+        console.log(typeof now);
+        console.log(typeof ComposantForm.value.descriptionComposant);
+        // tslint:disable-next-line:radix
+        console.log(typeof parseInt(ComposantForm.value.prixComposant));
+        // tslint:disable-next-line:radix
+        console.log(typeof parseInt(splittedFamilleComposant[0]));
+        console.log(typeof ComposantForm.value.caracteristiquesComposant);
+
+        // tslint:disable-next-line:max-line-length radix
+        this.cp = new Composant(ComposantForm.value.libelleComposant, now, ComposantForm.value.descriptionComposant, ComposantForm.value.prixComposant, parseInt(splittedFamilleComposant[0]), ComposantForm.value.caracteristiquesComposant);
+        if (await this.composantService.addComposant(this.cp)) {
+          this.consulterFounisseur(this.idFournisseurConsulter);
+          document.getElementById('pageComposant').style.display = 'none';
+        } else {
+          console.log('Importation échoué !');
+        }
+      }
+    }
+    else {}
+  }
+
   consulterFounisseur(id: number): void {
     this.idFournisseur = id;
-
+    this.idFournisseurConsulter = id;
     // Affichage de la page de consultation d'un fournisseur
     document.getElementById('consultation').style.display = 'block';
     document.getElementById('boutonDisableWindow').style.display = 'none';
@@ -346,11 +448,26 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     document.getElementById('familleComposant_consulter').innerHTML = this.familleComposant.libelle;
     document.getElementById('caracteristiquesComposant_consulter').innerHTML = this.composant.caracteristiques;
     document.getElementById('dateCreationComposant_consulter').innerHTML = this.composant.dateCreation;
+    document.getElementById('ajouterComposant').style.display = 'none';
+    document.getElementById('consulterComposant').style.display = 'block';
     document.getElementById('pageComposant').style.display = 'block';
+  }
+
+  ajouterComposant(): void {
+    document.getElementById('titreComposant_consultation').innerHTML = 'Création d\'un composant';
+    document.getElementById('pageComposant').style.display = 'block';
+    document.getElementById('ajouterComposant').style.display = 'block';
+    document.getElementById('consulterComposant').style.display = 'none';
+    document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
+    document.getElementById('listeFournisseurs').style.display = 'none';
   }
 
   modifierComposant(id: number): void {
     console.log('Modification du composant : ' + id);
+  }
+
+  supprimerComposant(id: number): void {
+    console.log('Supression du composant : ' + id);
   }
 
   quitterPageComposant(): void {

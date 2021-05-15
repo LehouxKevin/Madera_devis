@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <a href="">
+      <a (click)="ajouterComposant()">
         <div class="boutonAjouterComposant">
           Ajouter un composant
         </div>
@@ -80,20 +80,73 @@
       <div class="groupeChampsComposant">
         <label class="champsConsultationComposant">Créé le :</label><label id="dateCreationComposant_consulter" class="contenuConsultation">00/00/00</label>
       </div>
-      <div class="groupeChampsComposant">
-        <a (click)="modifierComposant(composant.id)">
-          <div class="boutonAjouterComposant">
-            Modifier ce composant
-          </div>
-        </a>
-      </div>
-      <div>
-        <a class="lien-icone-action position-absolute bouton-quitter" (click)="quitterPageComposant()">
-          <img class="icone-quitter " src="assets\icones\quitter.svg">
-        </a>
+      <div class="groupeChampsComposant d-flex justify-content-center">
+        <div class="boutonComposant">
+          <a (click)="modifierComposant(composant.id)">
+            <div class="boutonModifierComposant">
+              Modifier
+            </div>
+          </a>
+        </div>
+        <div class="boutonComposant">
+          <a (click)="supprimerComposant(composant.id)">
+            <div class="boutonSupprimerComposant">
+              Supprimer
+            </div>
+          </a>
+        </div>
       </div>
     </div>
+    <div id="ajouterComposant">
+      <form #creationComposantForm="ngForm" (ngSubmit)="onSubmitComposant(creationComposantForm, true)" class="flex">
+        <div class="d-flex justify-content-center">
+          <p class="">Pour créer un composant, veuillez renseigner les informations obligatoires</p>
+        </div>
+        <div class="form-group">
+          <label for="LibelleComposant">*Libelle du composant :</label>
+          <input type="text" ngModel #libelleComposant="ngModel" class="form-control" name="libelleComposant" id="libelleComposant"
+                 placeholder="Entrez le libelle du composant" required>
+          <small id="libelleComposantError" class="form-text errorMessage">libelleComposantError</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="DescriptionComposant">Description du composant :</label>
+          <textarea ngModel #descriptionComposant="ngModel" class="form-control" name="descriptionComposant" id="descriptionComposant"
+                    aria-describedby="descriptionComposantHelp" placeholder="Faite une description du composant" rows="4"
+                    cols="50"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Nom">*Famille du composant :</label>
+          <select ngModel #familleComposantCreate="ngModel" class="form-control" name="familleComposant"
+                  id="familleComposant" required>
+            <option value="">--Choisissez une famille--</option>
+            <option *ngFor="let familleComposant of famillesComposant">{{familleComposant.id}} - {{familleComposant.libelle}}</option>
+          </select>
+          <small id="familleComposantError" class="form-text errorMessage">libelleComposantError</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="CaracteristiquesComposant">*Caractéristiques du composant :</label>
+          <textarea ngModel #caracteristiquesComposant="ngModel" class="form-control" name="caracteristiquesComposant" id="caracteristiquesComposant"
+                    aria-describedby="caracteristiquesComposantComposantHelp" placeholder="Entrez les caractéristiques du composant" rows="4"
+                    cols="50"></textarea>
+          <small id="caracteristiquesComposantError" class="form-text errorMessage">descriptionComposantError</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="PrixComposant">*Prix du composant :</label>
+          <input type="text" ngModel #prixComposant="ngModel" class="form-control" name="prixComposant" id="prixComposant"
+                 placeholder="Entrez le prix du composant en euro (€)" appOnlyNumber required>
+          <small id="prixComposantError" class="form-text errorMessage">prixComposantError</small>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary w-100">Créer ce composant</button>
+        </div>
+      </form>
+    </div>
     <div id="modifierComposant"></div>
+    <div>
+      <a class="lien-icone-action position-absolute bouton-quitter" (click)="quitterPageComposant()">
+        <img class="icone-quitter " src="assets\icones\quitter.svg">
+      </a>
+    </div>
   </div>
 </div>
 
@@ -134,7 +187,7 @@
       </table>
     </div>
     <div id="displayCreate">
-      <form #creationFournisseurForm="ngForm" (ngSubmit)="onSubmit(creationFournisseurForm, true)" class="flex">
+      <form #creationFournisseurForm="ngForm" (ngSubmit)="onSubmitFournisseur(creationFournisseurForm, true)" class="flex">
         <div class="d-flex justify-content-center">
           <p class="">Pour créer un fournisseur, veuillez renseigner l'intégralité des informations demandées</p>
         </div>
@@ -162,7 +215,7 @@
       </form>
     </div>
     <div id="displayUpdate">
-      <form #modificationFournisseurForm="ngForm" (ngSubmit)="onSubmit(modificationFournisseurForm, false)"
+      <form #modificationFournisseurForm="ngForm" (ngSubmit)="onSubmitFournisseur(modificationFournisseurForm, false)"
             class="flex">
         <div class="d-flex justify-content-center">
           <p class="">Remplissez seulement les champs que vous souhaitez modifier et cliquer sur modifier</p>

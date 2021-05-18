@@ -8,7 +8,7 @@ id?: number;
     gamme: string;
     typeModule: string;
     caracteristiques: string;
-
+    composants = [];
     constructor(libelle: string,
                 dateCreation: Date,
                 custom: boolean ,

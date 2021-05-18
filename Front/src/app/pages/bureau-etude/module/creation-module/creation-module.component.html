@@ -1,6 +1,6 @@
 <body override class="w-80 h-80">
 <div class="divbody">
-  <h1 class="text-center" style="color: rgb(38,153,251);">Consultation d&#39;un Module
+  <h1 class="text-center" style="color: rgb(38,153,251);">Creation d&#39;un Module
   </h1>
   <form #ajoutModule="ngForm" (ngSubmit)="onSubmit(ajoutModule)">
 
@@ -76,7 +76,9 @@
 
   <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
   <br>
-
+    <div id="ComposantModuleErreur" class="text-danger" *ngIf="ComposantModuleErreur">
+      {{ComposantModuleErreurMotif}}
+    </div>
   <table class="table ">
 
     <tbody class="tableauModuleModele">
@@ -87,22 +89,21 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="Listecomposant{{index}}">Composant :</label>
         </div>
-        <select  class="custom-select form-control" id="Listecomposant{{index}}" ngModel #composantValueform="ngModel" name="composantValueform" (change)="ListeDeroulanteChangerIndexComposant('Listecomposant'+index, composant.id , $event.target.value )" >
-          <option  Value="{{composantbdd.id}}"  *ngFor="let composantbdd of composantsBDD; let index = index">{{composantbdd.libelle}}</option>
+        <select  class="custom-select form-control"  id="Listecomposant{{index}}" (change)="ListeDeroulanteChangerIndexComposant('Listecomposant'+index, index , $event )" >
+          <option selected value="" disabled>Choose...</option>
+          <option  value="{{composantbdd.id}}"  *ngFor="let composantbdd of composantsBDD; let index = index">{{composantbdd.libelle}}</option>
         </select>
-        <input id="test{{index}}" type="text" class="form-control" value="{{composant.id}}">
 
-        <select matNativeControl (change)="selectCar($event)">
-            <option value=""></option>
-            <option *ngFor="let option of cars" [value]="option.value"
-                    [selected]="selectedCar === option.value">{{ option.viewValue }}</option>
-          </select>
+
 
       </div></td>
 
       <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">
         <img class="icone-modifier" src="assets\icones\plume.svg">
       </a>
+        <button type="button" class="BoutonAjout" (click)="RetirerComposant(index)">
+          <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+        </button>
       </td>
     </tr>
     </ng-container>

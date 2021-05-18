@@ -45,3 +45,12 @@ body {
   color: var(--white);
   background:#365064;
 }
+.BoutonAjout
+{
+  background:none;
+  border-width: 0em;
+}
+.icone-barrePlus
+{
+  width:100%;
+}

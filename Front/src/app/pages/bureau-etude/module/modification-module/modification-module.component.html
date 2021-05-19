@@ -1,1 +1,115 @@
-<p>modification-module works!</p>
+<body override class="w-80 h-80">
+<div class="divbody">
+  <h1 class="text-center" style="color: rgb(38,153,251);">Modification d&#39;un Module
+  </h1>
+  <form #ajoutModule="ngForm" (ngSubmit)="onSubmit(ajoutModule)">
+
+    <div>
+    </div>
+    <hr style="padding: 5 ;margin: 5;height: 80%;width: 80%;" />
+
+
+    <div class="input-group mb-5">
+      <span class="input-group-text divNomModule" id="NomModuleSpan">Modèle</span>
+      <input value="{{NomModule}}" type="text" id="NomModule" class="form-control" placeholder="Nom module" ngModel #NomModuleValueform="ngModel" name="NomModuleValueform">
+    </div>
+
+
+    <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+    <div class="d-flex justify-content-around bd-highlight">
+
+      <div class="p-2 bd-highlight LibelleInput">
+
+        <div class="input-group mb-3">
+
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="PrixModule">Prix :</label>
+          </div>
+          <input id="PrixModule" type="text" class="form-control" value="{{PrixModule}}" placeholder="Prix" ngModel #PrixModuleValueform="ngModel" name="PrixModuleValueform" >
+        </div>
+      </div>
+      <div class="p-2 bd-highlight LibelleInput">
+        <div class="p-2 bd-highlight LibelleInput">
+
+          <div class="input-group mb-3">
+
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="TypeModule">Type module :</label>
+            </div>
+            <select class="custom-select" id="TypeModule" ngModel #TypeModuleValueform="ngModel" name="TypeModuleValueform"  (change)="ListeDeroulanteChangerIndex('idTypeModule',$event.target.value)">
+              <option selected value="" disabled>{{TypeModuleNom}}</option>
+              <option value="{{TypeModule.id}}"  *ngFor="let TypeModule of TypeModules" >{{TypeModule.libelle}}</option>
+            </select>
+          </div>
+        </div>
+      </div>    </div>
+    <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+
+
+    <div class="d-flex justify-content-around bd-highlight">
+
+      <div class="input-group">
+        <span class="input-group-text">Description :</span>
+        <textarea class="form-control" value="{{DescriptionModule}}" aria-label="With textarea" ngModel #DescriptionModuleValueform="ngModel" name="DescriptionModuleValueform"></textarea>
+      </div>
+    </div>
+    <br>
+
+    <div class="d-flex justify-content-around bd-highlight">
+      <div class="input-group">
+        <span class="input-group-text">Caracteristique :</span>
+        <textarea class="form-control" value="{{CaracteristiquesModule}}" aria-label="With textarea" ngModel #CaracteristiqueModuleValueform="ngModel" name="CaracteristiqueModuleValueform"></textarea>
+      </div>
+    </div>
+
+    <hr style="padding: 5;margin: 5;height: 80%;width: 80%;" />
+    <br>
+    <div id="ComposantModuleErreur" class="text-danger" *ngIf="ComposantModuleErreur">
+      {{ComposantModuleErreurMotif}}
+    </div>
+    <table class="table ">
+
+      <tbody class="tableauModuleModele">
+      <ng-container  *ngFor="let composant of composants; let index = index; let last = last" >
+
+        <tr id="LigneModeleFormulaire{{index}}" >
+          <td>  <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="Listecomposant{{index}}">Composant :</label>
+            </div>
+            <select  class="custom-select form-control"  id="Listecomposant{{index}}" (change)="ListeDeroulanteChangerIndexComposant('Listecomposant'+index, index , $event )" >
+              <option selected value="" disabled>{{composant.description}}</option>
+              <option  value="{{composantbdd.id}}"  *ngFor="let composantbdd of composantsBDD; let index = index">{{composantbdd.libelle}}</option>
+            </select>
+
+
+
+          </div></td>
+
+          <td> <a class="lien-icone-action tableauModuleModeleDiv" routerLink="/modification-Modele//Modele.id">
+            <img class="icone-modifier" src="assets\icones\plume.svg">
+          </a>
+            <button type="button" class="BoutonAjout" (click)="RetirerComposant(index)">
+              <img class="icone-supprimer" src="assets\icones\croix.svg"  >
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+    <button type="button" class="BoutonAjout">
+      <img class="icone-barrePlus" src="assets\icones\BoutonBarrePlus.svg" (click)="AjoutComposant()">
+    </button>
+
+
+    <div class="d-flex justify-content-end flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <input type="submit" class="btn btn-primary" value="Enregistrer" />
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>

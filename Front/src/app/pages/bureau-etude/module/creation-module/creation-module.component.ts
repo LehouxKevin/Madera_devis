@@ -136,7 +136,7 @@ export class CreationModuleComponent implements OnInit {
         this.ComposantModuleErreur = true;
         this.ComposantModuleErreurMotif = 'Erreur vous avez mis pas selectionné d option';
       }
-      // tslint:disable-next-line:triple-equals
+      // tslint:disable-next-line:triple-equals max-line-length
       if ( this.composantsListeIndex.indexOf(this.composantsListeIndex[i]) > -1  	&& this.composantsListeIndex.indexOf(this.composantsListeIndex[i]) != i ) {
       console.log('chaine presente');
       console.log(this.composantsListeIndex.indexOf(this.composantsListeIndex[i]));

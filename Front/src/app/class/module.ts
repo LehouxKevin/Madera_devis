@@ -9,6 +9,7 @@ id?: number;
     typeModule: string;
     caracteristiques: string;
     composants = [];
+
     constructor(libelle: string,
                 dateCreation: Date,
                 custom: boolean ,

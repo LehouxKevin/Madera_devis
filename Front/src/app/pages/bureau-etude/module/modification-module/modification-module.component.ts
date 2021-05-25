@@ -227,7 +227,7 @@ export class ModificationModuleComponent implements OnInit {
   }
 
   async AjoutComposant(): Promise<void> {
-    await this.composants.push(new Composant(null, null, null, null, null, null));
+    await this.composants.push(new Composant(null, null, null, null, null, null , null));
     this.composantsListeIndex.push('');
     console.log(this.composants);
     this.shouldDoIt = true; // initialize it to true for the first run

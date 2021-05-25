@@ -17,7 +17,7 @@ import {Composant} from '../../class/composant';
 export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   four: Fournisseur;
-  public idFournisseurConsulter;
+  public idFournisseurConsulte;
   public fournisseurs: any[] = [];
   public fournisseur;
 
@@ -25,6 +25,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
   public familleComposant;
 
   cp: Composant;
+  public idComposant;
   public composants: any[] = [];
   public composant;
 
@@ -296,30 +297,17 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
       if (libelleBool && caracteristiqueBool && prixBool && familleBool) {
         const now = new Date();
-        const annee   = String(now.getFullYear());
-        const mois    = String(('0' + (now.getMonth() + 1)).slice(-2));
-        const jour    = String(('0' + now.getDate()).slice(-2));
-        const dateCreation = annee + '-' + mois + '-' + jour;
-        console.log(dateCreation);
-
+        const fournisseur = '/api/fournisseurs/' + this.idFournisseurConsulte;
+        const fournisseurs = [];
+        fournisseurs.push(fournisseur);
         // tslint:disable-next-line:max-line-length prefer-const
         const splittedFamilleComposant = ComposantForm.value.familleComposant.split(' - ');
-
-        // TESTS
-        console.log(typeof ComposantForm.value.libelleComposant);
-        console.log(typeof now);
-        console.log(typeof ComposantForm.value.descriptionComposant);
-        // tslint:disable-next-line:radix
-        console.log(typeof parseInt(ComposantForm.value.prixComposant));
-        // tslint:disable-next-line:radix
-        console.log(typeof parseInt(splittedFamilleComposant[0]));
-        console.log(typeof ComposantForm.value.caracteristiquesComposant);
-
         // tslint:disable-next-line:max-line-length radix
-        this.cp = new Composant(ComposantForm.value.libelleComposant, now, ComposantForm.value.descriptionComposant, ComposantForm.value.prixComposant, parseInt(splittedFamilleComposant[0]), ComposantForm.value.caracteristiquesComposant);
+        this.cp = new Composant(ComposantForm.value.libelleComposant, now, ComposantForm.value.descriptionComposant, ComposantForm.value.prixComposant, '/api/famille_composants/' + splittedFamilleComposant[0], ComposantForm.value.caracteristiquesComposant, fournisseurs);
         if (await this.composantService.addComposant(this.cp)) {
-          this.consulterFounisseur(this.idFournisseurConsulter);
+          this.consulterFounisseur(this.idFournisseurConsulte);
           document.getElementById('pageComposant').style.display = 'none';
+          this.consulterFounisseur(this.idFournisseurConsulte);
         } else {
           console.log('Importation échoué !');
         }
@@ -330,12 +318,13 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
 
   consulterFounisseur(id: number): void {
     this.idFournisseur = id;
-    this.idFournisseurConsulter = id;
+    this.idFournisseurConsulte = id;
     // Affichage de la page de consultation d'un fournisseur
     document.getElementById('consultation').style.display = 'block';
     document.getElementById('boutonDisableWindow').style.display = 'none';
     document.getElementById('boutonDisplayWindow').style.visibility = 'visible';
     document.getElementById('listeFournisseurs').style.display = 'none';
+    document.getElementById('pageComposant').style.display = 'none';
 
     // Récupération du fournisseur sélectionné
     this.fournisseurs.forEach((fournisseur, index) => {
@@ -392,6 +381,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     }
     this.display = false;
     document.getElementById('displayList').style.display = 'none';
+    document.getElementById('consultation').style.display = 'none';
     document.getElementById('displayUpdate').style.display = 'block';
   }
 
@@ -417,6 +407,7 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     this.fournisseurService.asyncDeleteFournisseur(this.idFournisseur);
     console.log('Suppression de ' + this.idFournisseur);
     document.getElementById('deleteWindow').style.display = 'none';
+    document.getElementById('consultation').style.display = 'none';
     this.ngOnDestroy();
     this.ngOnInit();
   }
@@ -466,8 +457,24 @@ export class ListeFournisseursComponent implements OnInit, OnDestroy {
     console.log('Modification du composant : ' + id);
   }
 
-  supprimerComposant(id: number): void {
-    console.log('Supression du composant : ' + id);
+  supprimerComposant(id: number, libelle: string): void {
+    this.idComposant = id;
+    document.getElementById('composantDelete').textContent = libelle;
+    document.getElementById('deleteWindowComposant').style.display = 'block';
+  }
+
+  confirmerSuppressionComposant(): void {
+    this.composantService.asyncDeleteComposant(this.idComposant);
+    console.log('Suppression de ' + this.idComposant);
+    document.getElementById('deleteWindowComposant').style.display = 'none';
+    document.getElementById('pageComposant').style.display = 'none';
+    document.getElementById('consultation').style.display = 'none';
+    this.consulterFounisseur(this.idFournisseurConsulte);
+  }
+
+  annulerSuppressionComposant(): void {
+    document.getElementById('deleteWindowComposant').style.display = 'none';
+    this.idComposant = 0;
   }
 
   quitterPageComposant(): void {

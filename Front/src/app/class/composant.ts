@@ -3,18 +3,20 @@ export class Composant {
   libelle: string;
   dateCreation: Date;
   description: string;
-  prix: number;
+  prix: string;
   // tslint:disable-next-line:variable-name
-  famille_composant_id: number;
+  familleComposant: string;
   caracteristiques: string;
+  fournisseurs: any[];
 
   // tslint:disable-next-line:variable-name max-line-length
-  constructor(_libelle: string, _dateCreation: Date, _description: string, _prix: number, _famille_composant_id: number, _caracteristiques: string) {
+  constructor(_libelle: string, _dateCreation: Date, _description: string, _prix: string, _famille_composant_id: string, _caracteristiques: string, _fournisseurs: any[]) {
     this.libelle = _libelle;
     this.dateCreation = _dateCreation;
     this.description = _description;
     this.prix = _prix;
-    this.famille_composant_id = _famille_composant_id;
+    this.familleComposant = _famille_composant_id;
     this.caracteristiques = _caracteristiques;
+    this.fournisseurs = _fournisseurs;
   }
 }

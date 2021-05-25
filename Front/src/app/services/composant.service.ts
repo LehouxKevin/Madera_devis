@@ -4,6 +4,7 @@ import {environment} from 'src/environments/environment';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Composant} from '../class/composant';
+import {rejects} from "assert";
 
 @Injectable({
   providedIn: 'root'
@@ -15,29 +16,27 @@ export class ComposantService {
       'Content-Type': 'application/ld+json',
     })
   };
-  retValDeleteComposant = false;
-
   baseUrl = environment.baseUrlAPI;
-  ComposantsApi = '/composants';
+  composantsApi = '/composants';
   public composants: Composant[] = [];
-
+  retValDeleteComposant = false;
 
   constructor(private http: HttpClient) {
   }
 
   getComposants(): Observable<Composant[]> {
-    return this.http.get<Composant[]>(this.baseUrl + this.ComposantsApi);
+    return this.http.get<Composant[]>(this.baseUrl + this.composantsApi);
   }
 
   // tslint:disable-next-line:typedef
-  getOneComposantById(id): Promise<Composant[]>{
-    return this.http.get<Composant[]>(this.baseUrl + this.ComposantsApi + '/' + id).toPromise();
+  getOneComposantById(id): Promise<Composant[]> {
+    return this.http.get<Composant[]>(this.baseUrl + this.composantsApi + '/' + id).toPromise();
   }
 
   // tslint:disable-next-line:typedef
   syncUpdateComposant(Composants: Composant) {
     console.log(Composants, ' | ', Composants.id);
-    return this.http.put<Composant>(this.baseUrl + this.ComposantsApi + '/' + Composants.id, Composants)
+    return this.http.put<Composant>(this.baseUrl + this.composantsApi + '/' + Composants.id, Composants)
       .pipe(
         catchError(this.handleError)
       ).toPromise();
@@ -46,7 +45,7 @@ export class ComposantService {
   // tslint:disable-next-line:typedef
   UpdateComposant(Composants: Composant) {
     console.log(Composants, ' | ', Composants.id);
-    return this.http.put<Composant>(this.baseUrl + this.ComposantsApi + '/' + Composants.id, Composants)
+    return this.http.put<Composant>(this.baseUrl + this.composantsApi + '/' + Composants.id, Composants)
       .pipe(
         catchError(this.handleError)
       );
@@ -55,7 +54,7 @@ export class ComposantService {
   async asyncDeleteComposant(idComposant: number): Promise<boolean> {
     this.retValDeleteComposant = false;
 
-    this.http.delete(this.baseUrl + this.ComposantsApi + '/' + idComposant)
+    this.http.delete(this.baseUrl + this.composantsApi + '/' + idComposant)
       .subscribe({
         next: data => {
           this.retValDeleteComposant = true;
@@ -67,51 +66,51 @@ export class ComposantService {
     return this.retValDeleteComposant;
   }
 
-/*
-  // tslint:disable-next-line:typedef
-  async DeletelisteComposant(idModele) {
-    console.log('point 6 Composant');
+  /*
+    // tslint:disable-next-line:typedef
+    async DeletelisteComposant(idModele) {
+      console.log('point 6 Composant');
 
-    this.composants = await this.composants.filter(composant => Composant.modele === '/api/modeles/' + idModele);
-    console.log(this.composants);
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.composants.length; i++) {
-      await this.asyncDeleteComposant(this.composants[i].id);
-      console.log('point 1 Composant');
+      this.composants = await this.composants.filter(composant => Composant.modele === '/api/modeles/' + idModele);
+      console.log(this.composants);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.composants.length; i++) {
+        await this.asyncDeleteComposant(this.composants[i].id);
+        console.log('point 1 Composant');
 
+
+      }
 
     }
 
-  }
-
-  // tslint:disable-next-line:typedef
-  syncgetComposants() {
-    return this.http.get<Composant[]>(this.baseUrl + this.ComposantsApi)
-      .pipe(
-        map(composant => composant['hydra:member'])
-      )
-      .toPromise()
-      .then();
-    {
-      // tslint:disable-next-line:no-unused-expression
-      composant => this.composants = composant;
+    // tslint:disable-next-line:typedef
+    syncgetComposants() {
+      return this.http.get<Composant[]>(this.baseUrl + this.ComposantsApi)
+        .pipe(
+          map(composant => composant['hydra:member'])
+        )
+        .toPromise()
+        .then();
+      {
+        // tslint:disable-next-line:no-unused-expression
+        composant => this.composants = composant;
+      }
     }
-  }
 
-  // tslint:disable-next-line:typedef
-  async deleteComposantCleModele(idModele) {
-    this.composants = await this.syncgetComposants();
-    console.log('point 9 Composant');
+    // tslint:disable-next-line:typedef
+    async deleteComposantCleModele(idModele) {
+      this.composants = await this.syncgetComposants();
+      console.log('point 9 Composant');
 
-    await this.DeletelisteComposant(idModele);
-    console.log('point 5 Composant');
-    return true;
-  }*/
+      await this.DeletelisteComposant(idModele);
+      console.log('point 5 Composant');
+      return true;
+    }*/
 
 
   // tslint:disable-next-line:typedef
   addComposant(Composants: Composant) {
-    return this.http.post<Composant>(this.baseUrl + this.ComposantsApi, Composants)
+    return this.http.post<Composant>(this.baseUrl + this.composantsApi, Composants)
       .pipe(
         catchError(this.handleError)
       ).toPromise().then(data => {

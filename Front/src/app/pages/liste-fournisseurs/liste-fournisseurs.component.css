@@ -155,6 +155,17 @@ a {
   display: none;
 }
 
+.deleteWindowComposant {
+  width: 34%;
+  margin-left: 2%;
+  background: white;
+  border: solid #007bff 2px;
+  position: fixed;
+  bottom: 22%;
+  padding: 40px;
+  display: none;
+}
+
 .gray-madera {
   color: #365064;
 }

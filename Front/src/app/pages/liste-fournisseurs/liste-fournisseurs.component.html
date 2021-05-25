@@ -89,7 +89,7 @@
           </a>
         </div>
         <div class="boutonComposant">
-          <a (click)="supprimerComposant(composant.id)">
+          <a (click)="supprimerComposant(composant.id, composant.libelle)">
             <div class="boutonSupprimerComposant">
               Supprimer
             </div>
@@ -275,6 +275,23 @@
     </button>
     <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer"
             (click)="confirmerSuppressionFounisseur()">Supprimer
+    </button>
+  </div>
+</div>
+<div id="deleteWindowComposant" class="flex deleteWindowComposant w-20">
+  <div class="d-flex justify-content-center gray-madera">
+    <h3 class="align-content-center">Souhaitez vous supprimer</h3>
+  </div>
+  <div class="d-flex justify-content-center mb-2 gray-madera">
+    <h3 id="composantDelete" class="fournisseurDelete">NOM COMPOSANT</h3>
+    <h3 class="ml-2">?</h3>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-annuler" (click)="annulerSuppressionComposant()">
+      Annuler
+    </button>
+    <button type="button" class="btn btn-primary btn-deleteWindow btn-supprimer"
+            (click)="confirmerSuppressionComposant()">Supprimer
     </button>
   </div>
 </div>
